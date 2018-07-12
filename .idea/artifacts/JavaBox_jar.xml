@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact name="JavaBox:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/JavaBox_jar</output-path>
+    <root id="root">
+      <element id="archive" name="JavaBox.jar">
+        <element id="module-output" name="JavaBox" />
+      </element>
+    </root>
+  </artifact>
+</component>
