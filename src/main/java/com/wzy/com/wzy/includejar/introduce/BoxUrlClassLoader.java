@@ -1,61 +1,54 @@
 package com.wzy.com.wzy.includejar.introduce;
 
-import java.net.JarURLConnection;
+import com.wzy.com.wzy.includejar.introduce.vo.JarVo;
+import sun.misc.ClassLoaderUtil;
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.net.URLConnection;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 动态加载JAR
  */
-public class BoxUrlClassLoader extends URLClassLoader {
-    private List<JarURLConnection> cacheJarFiles = new ArrayList<JarURLConnection>();
+public class BoxUrlClassLoader {
 
-    public BoxUrlClassLoader() {
-        super(new URL[]{}, findParentClassLoader());
+    // 存放Jar加载集合
+    static Map<String, JarVo> jarmaps = new HashMap<String, JarVo>();
+
+    /**
+     * 加载Jar包
+     * @param jarVo
+     * @return
+     * @throws Exception
+     */
+    public synchronized static boolean addJar(JarVo jarVo) throws Exception{
+        URL url = new URL(jarVo.getJarDownUrl());
+        URLClassLoader myClassLoader = new URLClassLoader( new URL[] { url } );
+        jarVo.setClassLoader(myClassLoader);
+        Class objClass = myClassLoader.loadClass(jarVo.getClassName());
+        jarVo.setObjClass(objClass);
+        jarmaps.put(jarVo.getHttpUrl(), jarVo);
+        return true;
     }
 
-    private static ClassLoader findParentClassLoader(){
-        ClassLoader parent = BoxUrlClassLoader.class.getClassLoader();
-        if (parent == null) {
-            parent = BoxUrlClassLoader.class.getClassLoader();
-        }
-        if (parent == null) {
-            parent = ClassLoader.getSystemClassLoader();
-        }
-        return parent;
+    /**
+     * 释放Jar
+     * @param jarVo
+     * @return
+     * @throws Exception
+     */
+    public synchronized static boolean removeJar(JarVo jarVo) throws Exception{
+        jarmaps.remove(jarVo.getHttpUrl());
+        ClassLoaderUtil.releaseLoader(jarVo.getClassLoader());
+        return true;
     }
 
-    public void addURLFile(URL file){
-        try{
-            URLConnection uc = file.openConnection();
-            if (uc instanceof JarURLConnection) {
-                uc.setUseCaches(true);
-                ((JarURLConnection) uc).getManifest();
-                cacheJarFiles.add((JarURLConnection) uc);
-            }
-        }catch (Exception e) {
-
-        }
-    }
-
-    public void unloadJarFiles(){
-        List<JarURLConnection> tempDel = new ArrayList<JarURLConnection>();
-        for(JarURLConnection url:cacheJarFiles) {
-            try {
-                tempDel.add(url);
-                url.getJarFile().close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        cacheJarFiles.removeAll(tempDel);
-        tempDel = null;
-    }
-
-    public int getCacheJarCount(){
-        return cacheJarFiles.size();
+    /**
+     * 获取Jar信息
+     * @param key
+     * @return
+     */
+    public static JarVo getJar(String key) throws Exception{
+        return jarmaps.get(key);
     }
 }
