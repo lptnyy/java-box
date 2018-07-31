@@ -9,8 +9,8 @@
         <module name="JavaBox" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="JavaBox" target="1.5" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="JavaBox" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
