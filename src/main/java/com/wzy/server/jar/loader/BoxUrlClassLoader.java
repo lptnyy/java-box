@@ -24,7 +24,6 @@ public class BoxUrlClassLoader {
     public synchronized static boolean addJar(JarVo jarVo) throws Exception{
         URL url = new URL(jarVo.getJarDownUrl());
         URLClassLoader myClassLoader = new URLClassLoader( new URL[] { url } );
-        myClassLoader.getURLs();
         jarVo.setClassLoader(myClassLoader);
         jarmaps.put(jarVo.getHttpUrl(), jarVo);
         return true;
@@ -38,6 +37,7 @@ public class BoxUrlClassLoader {
      */
     public synchronized static boolean removeJar(JarVo jarVo) throws Exception{
         jarmaps.remove(jarVo.getHttpUrl());
+        jarVo.getClassLoader().close();
         ClassLoaderUtil.releaseLoader(jarVo.getClassLoader());
         return true;
     }

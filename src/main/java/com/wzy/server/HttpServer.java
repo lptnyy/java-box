@@ -1,4 +1,4 @@
-package com.wzy.server.function;
+package com.wzy.server;
 
 /**
  * 定义服务的接口
