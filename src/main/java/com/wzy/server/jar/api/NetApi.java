@@ -7,7 +7,7 @@ import com.wzy.server.jar.api.vo.BoxApiVo;
 import com.wzy.server.jar.api.vo.BoxMoudulaVo;
 import com.wzy.server.jar.api.vo.BoxProjectVo;
 import com.wzy.server.config.Config;
-import com.wzy.util.http.HttpGet;
+import com.wzy.server.util.http.HttpGet;
 
 import java.util.ArrayList;
 import java.util.List;
