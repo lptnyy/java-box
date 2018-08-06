@@ -1,8 +1,14 @@
 package com.wzy.server.request.util;
 
+import com.wzy.server.filter.HttpFilter;
+import com.wzy.server.filter.HttpFiterImpl;
+import com.wzy.server.request.BoxHttpRequestImpl;
+import com.wzy.server.response.BoxHttpResponseImpl;
+import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.*;
 import io.netty.handler.codec.http.multipart.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -10,16 +16,18 @@ import java.util.Map;
 
 public class RequestParserUtil {
 
-    private  HttpDataFactory factory =
-            new DefaultHttpDataFactory(DefaultHttpDataFactory.MINSIZE);
+    private  HttpDataFactory factory = new DefaultHttpDataFactory(DefaultHttpDataFactory.MINSIZE);
     private HttpObject fullReq;
+    private ChannelHandlerContext chx;
+    private HttpFilter filter = new HttpFiterImpl();
 
     /**
      * 构造一个解析器
      * @param req
      */
-    public RequestParserUtil(HttpObject req) {
+    public RequestParserUtil(HttpObject req, ChannelHandlerContext chx) {
         this.fullReq = req;
+        this.chx = chx;
     }
 
     /**
@@ -28,18 +36,27 @@ public class RequestParserUtil {
      *
      * @throws IOException
      */
-    public Map<String, Object> parse() throws IOException {
+    public void parse() throws IOException {
+        BoxHttpResponseImpl boxHttpResponse = new BoxHttpResponseImpl();
+        BoxHttpRequestImpl boxHttpRequest = new BoxHttpRequestImpl();
         HttpRequest request = (HttpRequest)fullReq;
         HttpMethod method = request.method();
-        Map<String, Object> parmMap = new HashMap<>();
+        request.headers().forEach(v -> {
+            boxHttpRequest.setHeader(v.getKey(),v.getValue());
+        });
         if (HttpMethod.GET == method) {
+            boxHttpRequest.setMethod("get");
             // 是GET请求
             QueryStringDecoder decoder = new QueryStringDecoder(request.uri());
             decoder.parameters().entrySet().forEach( entry -> {
                 // entry.getValue()是一个List, 只取第一个元素
-                parmMap.put(entry.getKey(), entry.getValue().get(0));
+                boxHttpRequest.setParameter(entry.getKey(), entry.getValue().get(0));
             });
+            boxHttpRequest.setUri(request.uri());
+
         } else if (HttpMethod.POST == method) {
+            boxHttpRequest.setUri(request.uri());
+            boxHttpRequest.setMethod("post");
             // 是POST请求
             HttpPostRequestDecoder decoder = new HttpPostRequestDecoder(factory, request);
             if (decoder != null) {
@@ -53,11 +70,10 @@ public class RequestParserUtil {
                                 switch (data.getHttpDataType()) {
                                     case Attribute:
                                         Attribute attribute = (Attribute) data;
-                                        parmMap.put(attribute.getName(),attribute.getValue());
+                                        boxHttpRequest.setParameter(attribute.getName(),attribute.getValue());
                                         break;
                                     case FileUpload:
                                         FileUpload fileUpload = (FileUpload) data;
-                                        parmMap.put(data.getName(), fileUpload.content());
                                         break;
                                 }
                                 data.release();
@@ -70,9 +86,10 @@ public class RequestParserUtil {
                     }
                 }
             }
-        } else {
-
         }
-        return parmMap;
+        if (filter.init(boxHttpRequest,boxHttpResponse)){
+            filter.service(boxHttpRequest,boxHttpResponse);
+            filter.release();
+        }
     }
 }

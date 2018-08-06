@@ -2,50 +2,53 @@ package com.wzy.server.request;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class BoxHttpRequestImpl implements BoxHttpRequest {
     Map<String,Object> requestMaps = new HashMap<>();
-
+    String method;
+    String uri;
+    InputStream inputStream;
+    Map<String,String> headers = new HashMap<>();
     @Override
-    public String getParameter(String name) {
-        return null;
+    public Object getParameter(String name) {
+        return requestMaps.get(name);
     }
 
     @Override
-    public void setParameter(String name, String value) {
-
+    public void setParameter(String name, Object value) {
+        requestMaps.put(name,value);
     }
 
     @Override
-    public String[] getParameterNames() {
-        return new String[0];
+    public List<String> getParameterNames() {
+        List<String> pars = new ArrayList<>();
+        requestMaps.forEach((k,v) ->{
+            pars.add(k);
+        });
+        return pars;
     }
 
     @Override
-    public String[] getParameterValues(String name) {
-        return new String[0];
+    public List<Object> getParameterValues() {
+        List<Object> pars = new ArrayList<>();
+        requestMaps.forEach((k,v) ->{
+            pars.add(v);
+        });
+        return pars;
     }
 
     @Override
-    public String getCharacterEncoding() {
-        return null;
+    public InputStream getInputStream() {
+        return inputStream;
     }
 
     @Override
-    public int getContentLength() {
-        return 0;
-    }
-
-    @Override
-    public String getContentType() {
-        return null;
-    }
-
-    @Override
-    public InputStream getInputStream() throws IOException {
-        return null;
+    public void setInputStream(InputStream inputStream) {
+        this.inputStream = inputStream;
     }
 
     @Override
@@ -55,7 +58,7 @@ public class BoxHttpRequestImpl implements BoxHttpRequest {
 
     @Override
     public String uri() {
-        return null;
+        return uri;
     }
 
     @Override
@@ -65,6 +68,26 @@ public class BoxHttpRequestImpl implements BoxHttpRequest {
 
     @Override
     public String getMethod() {
-        return null;
+        return method;
+    }
+
+    @Override
+    public void setMethod(String method) {
+        this.method = method;
+    }
+
+    @Override
+    public void setUri(String uri) {
+        this.uri = uri;
+    }
+
+    @Override
+    public Map<String, String> headers() {
+        return headers;
+    }
+
+    @Override
+    public void setHeader(String key, String value) {
+        headers.put(key,value);
     }
 }

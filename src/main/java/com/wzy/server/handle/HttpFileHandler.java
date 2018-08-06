@@ -31,15 +31,6 @@ public class HttpFileHandler extends SimpleChannelInboundHandler<HttpObject> {
 
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, HttpObject httpObject) throws Exception {
-        Map<String, Object> parmMap = new RequestParserUtil(httpObject).parse();
-        FullHttpResponse response = new DefaultFullHttpResponse(HTTP_1_1, OK, Unpooled.wrappedBuffer("OK OK OK OK".getBytes()));
-        response.headers().set(CONTENT_TYPE, "text/html");
-        response.headers().set(CONTENT_LENGTH,response.content().readableBytes());
-        response.headers().set(CONNECTION, HttpHeaderValues.KEEP_ALIVE);
-        if (HttpUtil.isKeepAlive((HttpMessage) httpObject)) {
-            response.headers().set(HttpHeaderNames.CONNECTION, HttpHeaderValues.KEEP_ALIVE);
-        }
-        channelHandlerContext.write(response);
-        channelHandlerContext.flush();
+        new RequestParserUtil(httpObject,channelHandlerContext).parse();
     }
 }
