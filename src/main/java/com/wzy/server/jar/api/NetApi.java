@@ -7,7 +7,7 @@ import com.wzy.server.jar.api.vo.BoxApiVo;
 import com.wzy.server.jar.api.vo.BoxMoudulaVo;
 import com.wzy.server.jar.api.vo.BoxProjectVo;
 import com.wzy.server.config.Config;
-import com.wzy.server.util.http.HttpGet;
+import com.wzy.server.util.http.HttpGetUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,7 @@ public class NetApi {
      */
     public static List<BoxProjectVo> getProjectList() throws Exception{
         List<BoxProjectVo> list = new ArrayList<>();
-        String result = HttpGet.get(Config.config.getServerMainPath()+Config.config.getGetProjectList(),"");
+        String result = HttpGetUtil.get(Config.config.getServerMainPath()+Config.config.getGetProjectList(),"");
         JSONObject jsonObject = JSON.parseObject(result);
         if (jsonObject.getBoolean("result")) {
             JSONArray jsonArray = jsonObject.getJSONArray("object");
@@ -52,7 +52,7 @@ public class NetApi {
       List<BoxMoudulaVo> list = new ArrayList<>();
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("projectId=").append(projectId);
-        String result = HttpGet.get(Config.config.getServerMainPath()+Config.config.getGetMouderList(),stringBuffer.toString());
+        String result = HttpGetUtil.get(Config.config.getServerMainPath()+Config.config.getGetMouderList(),stringBuffer.toString());
         JSONObject jsonObject = JSON.parseObject(result);
         if (jsonObject.getBoolean("result")) {
             JSONArray jsonArray = jsonObject.getJSONArray("object");
@@ -91,7 +91,7 @@ public class NetApi {
       List<BoxApiVo> list = new ArrayList<>();
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("moudularId=").append(moudularId);
-        String result = HttpGet.get(Config.config.getServerMainPath()+Config.config.getGetApiList(),stringBuffer.toString());
+        String result = HttpGetUtil.get(Config.config.getServerMainPath()+Config.config.getGetApiList(),stringBuffer.toString());
         JSONObject jsonObject = JSON.parseObject(result);
         if (jsonObject.getBoolean("result")) {
             JSONArray jsonArray = jsonObject.getJSONArray("object");

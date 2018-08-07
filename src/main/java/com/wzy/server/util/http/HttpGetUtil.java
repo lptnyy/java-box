@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
-public class HttpGet {
+public class HttpGetUtil {
 
     /**
      * get请求

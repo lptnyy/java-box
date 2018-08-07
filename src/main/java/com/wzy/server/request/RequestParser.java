@@ -1,4 +1,4 @@
-package com.wzy.server.request.util;
+package com.wzy.server.request;
 
 import com.wzy.server.filter.HttpFilter;
 import com.wzy.server.filter.HttpFiterImpl;
@@ -14,8 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class RequestParserUtil {
-
+public class RequestParser {
     private  HttpDataFactory factory = new DefaultHttpDataFactory(DefaultHttpDataFactory.MINSIZE);
     private HttpObject fullReq;
     private ChannelHandlerContext chx;
@@ -25,7 +24,7 @@ public class RequestParserUtil {
      * 构造一个解析器
      * @param req
      */
-    public RequestParserUtil(HttpObject req, ChannelHandlerContext chx) {
+    public RequestParser(HttpObject req, ChannelHandlerContext chx) {
         this.fullReq = req;
         this.chx = chx;
     }
@@ -87,8 +86,8 @@ public class RequestParserUtil {
                 }
             }
         }
-        if (filter.init(boxHttpRequest,boxHttpResponse)){
-            filter.service(boxHttpRequest,boxHttpResponse);
+        if (filter.init(chx,boxHttpRequest,boxHttpResponse)){
+            filter.service(chx,boxHttpRequest,boxHttpResponse);
             filter.release();
         }
     }

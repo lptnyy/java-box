@@ -1,4 +1,4 @@
-package com.wzy.server.util;
+package com.wzy.server.util.properties;
 
 import java.io.File;
 import java.io.FileInputStream;

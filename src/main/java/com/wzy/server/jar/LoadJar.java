@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class LoadJarUtil {
+public class LoadJar {
     static Map<String,BoxProjectVo> addProjectMaps = new HashMap<>();
     static Map<String,BoxMoudulaVo> addMdudulaVoMaps = new HashMap<>();
     static Map<String,BoxApiVo> addApiVoMaps = new HashMap<>();

@@ -1,7 +1,6 @@
 package com.wzy.test;
 
-import com.wzy.server.jar.LoadJarUtil;
-import com.wzy.server.jar.api.NetApi;
+import com.wzy.server.jar.LoadJar;
 import com.wzy.server.config.Config;
 import com.wzy.server.jar.loader.BoxUrlClassLoader;
 import com.wzy.server.jar.loader.vo.JarVo;
@@ -10,7 +9,7 @@ public class HttpTest {
 
     public static void main(String[] args) throws Exception {
         Config.initConfig();
-        LoadJarUtil jarUtil = new LoadJarUtil();
+        LoadJar jarUtil = new LoadJar();
         jarUtil.initHttp();
         jarUtil.initJar();
         JarVo jarVo = BoxUrlClassLoader.getJar("/test/user");
