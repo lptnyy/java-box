@@ -1,5 +1,7 @@
 package com.wzy.server.request;
 
+import io.netty.channel.ChannelHandlerContext;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -13,6 +15,7 @@ public class BoxHttpRequestImpl implements BoxHttpRequest {
     String uri;
     InputStream inputStream;
     Map<String,String> headers = new HashMap<>();
+    ChannelHandlerContext chx;
     @Override
     public Object getParameter(String name) {
         return requestMaps.get(name);
@@ -89,5 +92,15 @@ public class BoxHttpRequestImpl implements BoxHttpRequest {
     @Override
     public void setHeader(String key, String value) {
         headers.put(key,value);
+    }
+
+    @Override
+    public ChannelHandlerContext getChx() {
+        return chx;
+    }
+
+    @Override
+    public void setChx(ChannelHandlerContext chx) {
+        this.chx = chx;
     }
 }

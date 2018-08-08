@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact name="JavaBox:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/JavaBox_jar</output-path>
+    <root id="root">
+      <element id="archive" name="JavaBox.jar">
+        <element id="module-output" name="JavaBox" />
+      </element>
+      <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.6" />
+      <element id="library" level="project" name="Arquillian JUnit:Release" />
+      <element id="library" level="project" name="Maven: io.netty:netty-all:4.1.26.Final" />
+    </root>
+  </artifact>
+</component>

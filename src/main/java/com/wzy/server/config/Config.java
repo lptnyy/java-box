@@ -1,6 +1,7 @@
 package com.wzy.server.config;
 
 import com.wzy.server.config.vo.BoxConfig;
+import com.wzy.server.jar.LoadJar;
 import com.wzy.server.log.BoxLogImpl;
 import com.wzy.server.log.JavaBoxLog;
 
@@ -20,6 +21,8 @@ public class Config {
     // 配置服务
     public static BoxConfig config = new BoxConfig();
 
+    // 配置Jar
+    public static LoadJar loadJar = new LoadJar();
 
     // 初始化配置信息
     public static void initConfig(){
@@ -29,5 +32,11 @@ public class Config {
         config.setGetMouderList("/butt/getMoudularList");
         config.setGetProjectList("/butt/getProjectList");
         config.setJarDownServerUrl("http://localhost:8762/downJar?downUrl=");
+        try {
+            loadJar.initHttp();
+            loadJar.initJar();
+        } catch (Exception e) {
+            log.error(e);
+        }
     }
 }

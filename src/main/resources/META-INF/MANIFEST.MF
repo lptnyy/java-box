@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Class-Path: fastjson-1.2.6.jar arquillian-junit-container-1.4.0.Final.
+ jar arquillian-junit-core-1.4.0.Final.jar arquillian-test-api-1.4.0.F
+ inal.jar arquillian-core-api-1.4.0.Final.jar arquillian-test-spi-1.4.
+ 0.Final.jar arquillian-core-spi-1.4.0.Final.jar arquillian-container-
+ test-api-1.4.0.Final.jar shrinkwrap-api-1.2.6.jar shrinkwrap-descript
+ ors-api-base-2.0.0.jar arquillian-container-test-spi-1.4.0.Final.jar 
+ arquillian-container-spi-1.4.0.Final.jar arquillian-core-impl-base-1.
+ 4.0.Final.jar arquillian-test-impl-base-1.4.0.Final.jar arquillian-co
+ ntainer-impl-base-1.4.0.Final.jar arquillian-config-api-1.4.0.Final.j
+ ar arquillian-config-impl-base-1.4.0.Final.jar arquillian-config-spi-
+ 1.4.0.Final.jar shrinkwrap-descriptors-spi-2.0.0.jar arquillian-conta
+ iner-test-impl-base-1.4.0.Final.jar shrinkwrap-impl-base-1.2.6.jar sh
+ rinkwrap-spi-1.2.6.jar netty-all-4.1.26.Final.jar
+Main-Class: 
+

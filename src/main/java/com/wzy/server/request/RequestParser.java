@@ -38,6 +38,7 @@ public class RequestParser {
     public void parse() throws IOException {
         BoxHttpResponseImpl boxHttpResponse = new BoxHttpResponseImpl();
         BoxHttpRequestImpl boxHttpRequest = new BoxHttpRequestImpl();
+        boxHttpRequest.setChx(chx);
         HttpRequest request = (HttpRequest)fullReq;
         HttpMethod method = request.method();
         request.headers().forEach(v -> {

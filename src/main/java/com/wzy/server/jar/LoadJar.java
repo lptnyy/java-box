@@ -7,7 +7,10 @@ import com.wzy.server.jar.api.vo.BoxMoudulaVo;
 import com.wzy.server.jar.api.vo.BoxProjectVo;
 import com.wzy.server.jar.loader.BoxUrlClassLoader;
 import com.wzy.server.jar.loader.vo.JarVo;
+import com.wzy.server.request.BoxHttpRequest;
+import com.wzy.server.response.BoxHttpResponse;
 
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,7 +19,6 @@ public class LoadJar {
     static Map<String,BoxProjectVo> addProjectMaps = new HashMap<>();
     static Map<String,BoxMoudulaVo> addMdudulaVoMaps = new HashMap<>();
     static Map<String,BoxApiVo> addApiVoMaps = new HashMap<>();
-    static final BoxUrlClassLoader urlClassLoader = new BoxUrlClassLoader();
 
     /**
      * 初始化Http 执行步骤1
@@ -58,10 +60,25 @@ public class LoadJar {
             jarVo.setJarDownUrl(Config.config.getJarDownServerUrl()+v.getJarUrl());
             jarVo.setJarVersion(v.getJarVersion());
             try {
-                urlClassLoader.addJar(jarVo);
+                BoxUrlClassLoader.addJar(jarVo);
             } catch (Exception e) {
                Config.log.error(e);
             }
         });
+    }
+
+
+    public boolean runClass(BoxHttpRequest request, BoxHttpResponse response) throws Exception{
+        String uri = "";
+        if(request.uri().indexOf("?") != -1) {
+            uri = request.uri().substring(0,request.uri().indexOf("?"));
+        }
+        BoxApiVo boxApiVo = addApiVoMaps.get(uri);
+        JarVo jarVo = BoxUrlClassLoader.getJar(boxApiVo.getModurRoute());
+        Class objClass = jarVo.getClassLoader().loadClass(boxApiVo.getClassFuntion());
+        Method method = objClass.getMethod("run", BoxHttpRequest.class, BoxHttpResponse.class);
+        Object obj = objClass.newInstance();
+        Object result = method.invoke(obj,request,response);
+        return (boolean) result;
     }
 }

@@ -1,5 +1,7 @@
 package com.wzy.server.request;
 
+import io.netty.channel.ChannelHandlerContext;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
@@ -21,4 +23,6 @@ public interface BoxHttpRequest {
     public void setUri(String uri);
     public Map<String,String> headers();
     public void setHeader(String key, String value);
+    public ChannelHandlerContext getChx();
+    public void setChx(ChannelHandlerContext chx);
 }
