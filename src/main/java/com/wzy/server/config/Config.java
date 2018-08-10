@@ -2,13 +2,8 @@ package com.wzy.server.config;
 
 import com.wzy.server.config.vo.BoxConfig;
 import com.wzy.server.jar.LoadJar;
-import com.wzy.server.log.BoxLogImpl;
+import com.wzy.server.log.BoxLog;
 import com.wzy.server.log.JavaBoxLog;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.util.Properties;
 
 /**
  * 系统配置
@@ -16,7 +11,7 @@ import java.util.Properties;
 public class Config {
 
     // 配置日志管理
-    public static JavaBoxLog log = new BoxLogImpl();
+    public static JavaBoxLog log = new BoxLog();
 
     // 配置服务
     public static BoxConfig config = new BoxConfig();

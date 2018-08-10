@@ -2,7 +2,7 @@ package com.wzy.server.log;
 
 import javax.swing.*;
 
-public class BoxLogImpl implements JavaBoxLog {
+public class BoxLog implements JavaBoxLog {
 
     @Override
     public void info(String info) {

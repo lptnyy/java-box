@@ -1,4 +1,4 @@
-package com.wzy.test;
+package com.wzy.server;
 
 import com.wzy.server.HttpServer;
 import com.wzy.server.HttpServerImpl;
