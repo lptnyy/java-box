@@ -1,6 +1,6 @@
 package com.wzy.server.handle;
 
-import com.wzy.server.request.RequestParser;
+import com.wzy.server.http.request.RequestParser;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.*;

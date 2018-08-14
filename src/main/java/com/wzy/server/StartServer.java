@@ -1,8 +1,6 @@
 package com.wzy.server;
 
-import com.wzy.server.HttpServer;
-import com.wzy.server.HttpServerImpl;
-import com.wzy.server.config.Config;
+import com.wzy.config.Config;
 
 public class StartServer {
 

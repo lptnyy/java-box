@@ -1,7 +1,7 @@
 package com.wzy.work;
 
-import com.wzy.server.request.BoxHttpRequest;
-import com.wzy.server.response.BoxHttpResponse;
+import com.wzy.server.http.request.BoxHttpRequest;
+import com.wzy.server.http.response.BoxHttpResponse;
 
 public interface BoxWorkFilter {
 
