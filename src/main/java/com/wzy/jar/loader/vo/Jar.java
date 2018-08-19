@@ -2,7 +2,7 @@ package com.wzy.jar.loader.vo;
 
 import java.net.URLClassLoader;
 
-public class JarVo {
+public class Jar {
     String httpUrl;
     String className;
     URLClassLoader classLoader;

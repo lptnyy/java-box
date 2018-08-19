@@ -1,7 +1,7 @@
-package com.wzy.region.zookeeper;
+package com.wzy.server.master.zookeeper;
 
-import com.wzy.region.RegionServer;
-import com.wzy.region.ServerNode;
+import com.wzy.server.master.RegionServer;
+import com.wzy.server.master.ServerNode;
 
 public class ZkServer implements RegionServer{
 

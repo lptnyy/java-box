@@ -1,4 +1,4 @@
-package com.wzy.region;
+package com.wzy.server.master;
 
 import com.wzy.config.Config;
 

@@ -1,6 +1,6 @@
 package com.wzy.test;
 
-import com.wzy.region.ServerNode;
+import com.wzy.server.master.ServerNode;
 
 public class zookeeperTest {
 

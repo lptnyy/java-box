@@ -6,7 +6,7 @@ import com.wzy.jar.api.vo.BoxApiVo;
 import com.wzy.jar.api.vo.BoxMoudulaVo;
 import com.wzy.jar.api.vo.BoxProjectVo;
 import com.wzy.jar.loader.BoxUrlClassLoader;
-import com.wzy.jar.loader.vo.JarVo;
+import com.wzy.jar.loader.vo.Jar;
 import com.wzy.server.http.request.BoxHttpRequest;
 import com.wzy.server.http.response.BoxHttpResponse;
 
@@ -55,7 +55,7 @@ public class LoadJar {
 
         // 初始化加载jar
         addMdudulaVoMaps.forEach((k,v)->{
-            JarVo jarVo = new JarVo();
+            Jar jarVo = new Jar();
             jarVo.setHttpUrl(k);
             jarVo.setJarDownUrl(Config.config.getJarDownServerUrl()+v.getJarUrl());
             jarVo.setJarVersion(v.getJarVersion());
@@ -77,7 +77,7 @@ public class LoadJar {
             uri = request.uri();
         }
         BoxApiVo boxApiVo = addApiVoMaps.get(uri);
-        JarVo jarVo = BoxUrlClassLoader.getJar(boxApiVo.getModurRoute());
+        Jar jarVo = BoxUrlClassLoader.getJar(boxApiVo.getModurRoute());
         Class objClass = jarVo.getClassLoader().loadClass(boxApiVo.getClassFuntion());
         Method method = objClass.getMethod("run", BoxHttpRequest.class, BoxHttpResponse.class);
         Object obj = objClass.newInstance();
