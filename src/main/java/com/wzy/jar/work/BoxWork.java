@@ -1,4 +1,4 @@
-package com.wzy.work;
+package com.wzy.jar.work;
 
 import com.wzy.server.http.request.BoxHttpRequest;
 import com.wzy.server.http.response.BoxHttpResponse;

@@ -1,4 +1,4 @@
-package com.wzy.config.vo;
+package com.wzy.config;
 
 public class BoxConfig {
     String serverMainPath;
