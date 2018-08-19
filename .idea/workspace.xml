@@ -6,17 +6,32 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a36b499-7313-4ae2-afee-edc2cc1834bc" name="Default" comment="修改项目结构 追加zookeeper redis">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/wzy/region/ServerNode.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/wzy/region/zookeeper/ZkServer.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/wzy/test/zookeeperTest.java" />
+    <list default="true" id="8a36b499-7313-4ae2-afee-edc2cc1834bc" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/wzy/server/jar/LoadJar.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/wzy/server/jar/api/NetApi.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/wzy/server/jar/api/vo/BaseVo.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/wzy/server/jar/api/vo/BoxApiVo.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/wzy/server/jar/api/vo/BoxMoudulaVo.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/wzy/server/jar/api/vo/BoxProjectVo.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/wzy/server/jar/api/vo/ProjectMapVo.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/wzy/server/jar/loader/BoxUrlClassLoader.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/wzy/server/jar/loader/vo/Jar.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/wzy/server/jar/work/BoxWork.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/wzy/server/jar/work/BoxWorkFilter.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/config/Config.java" afterPath="$PROJECT_DIR$/src/main/java/com/wzy/config/Config.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/config/vo/BoxConfig.java" afterPath="$PROJECT_DIR$/src/main/java/com/wzy/config/BoxConfig.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/region/RegionServer.java" afterPath="$PROJECT_DIR$/src/main/java/com/wzy/region/RegionServer.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/region/vo/ServerNode.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/work/BoxWork.java" afterPath="$PROJECT_DIR$/src/main/java/com/wzy/jar/work/BoxWork.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/work/BoxWorkFilter.java" afterPath="$PROJECT_DIR$/src/main/java/com/wzy/jar/work/BoxWorkFilter.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/jar/LoadJar.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/jar/api/NetApi.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/jar/api/vo/BaseVo.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/jar/api/vo/BoxApiVo.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/jar/api/vo/BoxMoudulaVo.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/jar/api/vo/BoxProjectVo.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/jar/api/vo/ProjectMapVo.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/jar/loader/BoxUrlClassLoader.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/jar/loader/vo/Jar.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/jar/work/BoxWork.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/jar/work/BoxWorkFilter.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/test/zookeeperTest.java" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -86,7 +101,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/request/BoxHttpRequestImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/request/RequestParser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/config/Config.java" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/java/com/wzy/work/BoxWork.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wzy/work/BoxWorkFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/StartServer.java" />
@@ -113,6 +127,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/wzy/test/zookeeperTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wzy/config/BoxConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wzy/region/ServerNode.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -123,8 +138,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="23" />
-    <option name="width" value="1440" />
+    <option name="x" value="137" />
+    <option name="y" value="83" />
+    <option name="width" value="1612" />
     <option name="height" value="827" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -143,6 +159,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -180,9 +199,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -199,25 +215,26 @@
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="java-box" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Arquillian JUnit4" />
+    <property name="GO_FMT" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.wzy.server.api" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.wzy.server" />
       <recent name="com.wzy.jar" />
       <recent name="com.wzy" />
-      <recent name="com.wzy.server" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/wzy/server/api/vo" />
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.wzy.server.cache.redis" />
     </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/wzy/server/api/vo" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -469,7 +486,8 @@
       <workItem from="1534254885073" duration="3918000" />
       <workItem from="1534259217921" duration="494000" />
       <workItem from="1534436516164" duration="1342000" />
-      <workItem from="1534682638322" duration="461000" />
+      <workItem from="1534682638322" duration="3887000" />
+      <workItem from="1534686954910" duration="3948000" />
     </task>
     <task id="LOCAL-00001" summary="Netty增加">
       <created>1532404647049</created>
@@ -555,11 +573,67 @@
       <option name="project" value="LOCAL" />
       <updated>1534259497081</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="修改目录结构">
+      <created>1534683169215</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1534683169215</updated>
+    </task>
+    <task id="LOCAL-00014" summary="修改目录结构">
+      <created>1534684009121</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1534684009121</updated>
+    </task>
+    <task id="LOCAL-00015" summary="编写文档">
+      <created>1534688790484</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1534688790484</updated>
+    </task>
+    <task id="LOCAL-00016" summary="编写文档">
+      <created>1534689029521</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1534689029521</updated>
+    </task>
+    <task id="LOCAL-00017" summary="编写文档">
+      <created>1534689167368</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1534689167368</updated>
+    </task>
+    <task id="LOCAL-00018" summary="编写文档">
+      <created>1534689255825</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1534689255825</updated>
+    </task>
+    <task id="LOCAL-00019" summary="编写文档">
+      <created>1534689360857</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1534689360857</updated>
+    </task>
+    <task id="LOCAL-00020" summary="编写文档">
+      <created>1534690284640</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1534690284640</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97846000" />
+    <option name="totallyTimeSpent" value="105220000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="827" extended-state="6" />
@@ -576,7 +650,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32863188" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21173105" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17811158" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -674,14 +748,16 @@
     <MESSAGE value="动态加载Jar访问已成功" />
     <MESSAGE value="添加work过滤器" />
     <MESSAGE value="修改项目结构 追加zookeeper redis" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改项目结构 追加zookeeper redis" />
+    <MESSAGE value="修改目录结构" />
+    <MESSAGE value="编写文档" />
+    <option name="LAST_COMMIT_MESSAGE" value="编写文档" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/wzy/server/http/request/RequestParser.java</url>
-          <line>33</line>
+          <line>35</line>
           <properties />
           <option name="timeStamp" value="83" />
         </line-breakpoint>
@@ -691,13 +767,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.1.26.Final/netty-all-4.1.26.Final.jar!/io/netty/handler/codec/http/HttpRequest.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="44" lean-forward="true" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/io/netty/netty-all/4.1.26.Final/netty-all-4.1.26.Final.jar!/io/netty/handler/codec/http/HttpMessage.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -776,16 +845,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="15">
-            <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/test/HttpTest.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/test/NewTestJar.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/StartServer.java">
@@ -795,35 +854,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/jar/api/vo/BaseVo.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/jar/api/vo/BaseVo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="29" lean-forward="false" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/jar/api/vo/BoxApiVo.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/jar/api/vo/BoxApiVo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="600">
           <caret line="68" column="33" lean-forward="false" selection-start-line="68" selection-start-column="33" selection-end-line="68" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/jar/api/vo/BoxMoudulaVo.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/jar/api/vo/BoxMoudulaVo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="31" lean-forward="false" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/jar/api/vo/BoxProjectVo.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/jar/api/vo/BoxProjectVo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="20" lean-forward="false" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/jar/api/vo/ProjectMapVo.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/jar/api/vo/ProjectMapVo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
@@ -865,17 +924,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/jar/api/NetApi.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/jar/api/NetApi.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="581">
           <caret line="86" column="16" lean-forward="true" selection-start-line="86" selection-start-column="16" selection-end-line="86" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/jar/loader/BoxUrlClassLoader.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/jar/loader/BoxUrlClassLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="29" column="33" lean-forward="false" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -893,46 +954,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/cache/BoxCache.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/HttpServerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/HttpServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/http/request/RequestParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/filter/HttpFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="26" lean-forward="false" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/filter/HttpFiterImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -943,39 +969,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/config/Config.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/jar/work/BoxWorkFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state relative-caret-position="60">
+          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/jar/loader/vo/JarVo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="31" lean-forward="false" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/jar/work/BoxWorkFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/jar/work/BoxWork.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/jar/work/BoxWork.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="8" column="16" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/jar/LoadJar.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/jar/LoadJar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="750">
           <caret line="63" column="22" lean-forward="false" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -983,16 +997,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/region/zookeeper/ZkServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1008,6 +1013,95 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="7" column="76" lean-forward="false" selection-start-line="7" selection-start-column="76" selection-end-line="7" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/test/zookeeperTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/master/RegionServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/master/zookeeper/ZkServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/master/ServerNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="76" column="40" lean-forward="false" selection-start-line="76" selection-start-column="40" selection-end-line="76" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/jar/loader/vo/Jar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="29" lean-forward="false" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/filter/HttpFiterImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/filter/HttpFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="26" lean-forward="false" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/HttpServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/HttpServerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../java-box容器流程图.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="180">
+            <caret line="12" column="35" lean-forward="true" selection-start-line="12" selection-start-column="35" selection-end-line="12" selection-end-column="35" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/cache/BoxCache.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -1020,26 +1114,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/test/zookeeperTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/config/Config.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/region/RegionServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/region/ServerNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1380">
-          <caret line="92" column="46" lean-forward="false" selection-start-line="92" selection-start-column="46" selection-end-line="92" selection-end-column="46" />
+        <state relative-caret-position="390">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -1,12 +1,12 @@
-package com.wzy.jar;
+package com.wzy.server.jar;
 
 import com.wzy.config.Config;
-import com.wzy.jar.api.NetApi;
-import com.wzy.jar.api.vo.BoxApiVo;
-import com.wzy.jar.api.vo.BoxMoudulaVo;
-import com.wzy.jar.api.vo.BoxProjectVo;
-import com.wzy.jar.loader.BoxUrlClassLoader;
-import com.wzy.jar.loader.vo.Jar;
+import com.wzy.server.jar.api.NetApi;
+import com.wzy.server.jar.api.vo.BoxApiVo;
+import com.wzy.server.jar.api.vo.BoxMoudulaVo;
+import com.wzy.server.jar.api.vo.BoxProjectVo;
+import com.wzy.server.jar.loader.BoxUrlClassLoader;
+import com.wzy.server.jar.loader.vo.Jar;
 import com.wzy.server.http.request.BoxHttpRequest;
 import com.wzy.server.http.response.BoxHttpResponse;
 

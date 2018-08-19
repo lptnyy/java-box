@@ -1,6 +1,6 @@
-package com.wzy.jar.loader;
+package com.wzy.server.jar.loader;
 
-import com.wzy.jar.loader.vo.Jar;
+import com.wzy.server.jar.loader.vo.Jar;
 import sun.misc.ClassLoaderUtil;
 import java.net.URL;
 import java.net.URLClassLoader;

@@ -1,6 +1,6 @@
 package com.wzy.config;
 
-import com.wzy.jar.LoadJar;
+import com.wzy.server.jar.LoadJar;
 import com.wzy.util.log.BoxLog;
 import com.wzy.util.log.JavaBoxLog;
 

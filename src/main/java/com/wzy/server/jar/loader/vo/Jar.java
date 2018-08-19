@@ -1,4 +1,4 @@
-package com.wzy.jar.loader.vo;
+package com.wzy.server.jar.loader.vo;
 
 import java.net.URLClassLoader;
 

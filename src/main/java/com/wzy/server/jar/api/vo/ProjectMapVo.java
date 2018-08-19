@@ -1,4 +1,4 @@
-package com.wzy.jar.api.vo;
+package com.wzy.server.jar.api.vo;
 
 import java.util.List;
 

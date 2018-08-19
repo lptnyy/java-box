@@ -1,11 +1,11 @@
-package com.wzy.jar.api;
+package com.wzy.server.jar.api;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.wzy.jar.api.vo.BoxApiVo;
-import com.wzy.jar.api.vo.BoxMoudulaVo;
-import com.wzy.jar.api.vo.BoxProjectVo;
+import com.wzy.server.jar.api.vo.BoxApiVo;
+import com.wzy.server.jar.api.vo.BoxMoudulaVo;
+import com.wzy.server.jar.api.vo.BoxProjectVo;
 import com.wzy.config.Config;
 import com.wzy.util.http.HttpGetUtil;
 
