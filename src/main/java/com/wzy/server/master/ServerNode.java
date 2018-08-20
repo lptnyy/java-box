@@ -1,6 +1,9 @@
 package com.wzy.server.master;
 
 import com.wzy.config.Config;
+import com.wzy.util.ip.IpUtil;
+
+import java.net.UnknownHostException;
 
 public class ServerNode {
     public String javaVersion;         // Java 运行时环境版本
@@ -92,6 +95,10 @@ public class ServerNode {
 
         userDir = System.getProperty("user.dir");  //当前程序的物理路径
         port = Config.config.getPort();
-
+        try {
+            ip = IpUtil.getServerIp();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
     }
 }

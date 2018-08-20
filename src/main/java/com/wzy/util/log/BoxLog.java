@@ -24,6 +24,6 @@ public class BoxLog implements JavaBoxLog {
 
     public void error(Exception e)
     {
-
+        e.printStackTrace();
     }
 }

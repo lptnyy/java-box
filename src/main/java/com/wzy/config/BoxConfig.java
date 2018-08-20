@@ -6,6 +6,25 @@ public class BoxConfig {
     String getMouderList;
     String getApiList;
     String jarDownServerUrl;
+    String regionServerIp;
+    int regsionServerPort;
+    int port;
+
+    public String getRegionServerIp() {
+        return regionServerIp;
+    }
+
+    public void setRegionServerIp(String regionServerIp) {
+        this.regionServerIp = regionServerIp;
+    }
+
+    public int getRegsionServerPort() {
+        return regsionServerPort;
+    }
+
+    public void setRegsionServerPort(int regsionServerPort) {
+        this.regsionServerPort = regsionServerPort;
+    }
 
     public String getJarDownServerUrl() {
         return jarDownServerUrl;
@@ -14,8 +33,6 @@ public class BoxConfig {
     public void setJarDownServerUrl(String jarDownServerUrl) {
         this.jarDownServerUrl = jarDownServerUrl;
     }
-
-    int port;
 
     public String getServerMainPath() {
         return serverMainPath;

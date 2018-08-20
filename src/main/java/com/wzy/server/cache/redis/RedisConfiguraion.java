@@ -1,4 +1,4 @@
-package com.wzy.cache.redis;
+package com.wzy.server.cache.redis;
 
 import com.wzy.util.properties.PropertiesUtil;
 import redis.clients.jedis.JedisPool;

@@ -26,6 +26,8 @@ public class Config {
         config.setGetMouderList("/butt/getMoudularList");
         config.setGetProjectList("/butt/getProjectList");
         config.setJarDownServerUrl("http://localhost:8762/downJar?downUrl=");
+        config.setRegionServerIp("localhost");
+        config.setRegsionServerPort(2181);
         try {
             loadJar.initHttp();
             loadJar.initJar();

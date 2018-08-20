@@ -1,4 +1,4 @@
-package com.wzy.cache;
+package com.wzy.server.cache;
 
 import java.util.List;
 

@@ -1,5 +1,5 @@
-package com.wzy.cache.redis;
-import com.wzy.cache.BoxCache;
+package com.wzy.server.cache.redis;
+import com.wzy.server.cache.BoxCache;
 import com.wzy.config.Config;
 import redis.clients.jedis.Jedis;
 import java.util.List;

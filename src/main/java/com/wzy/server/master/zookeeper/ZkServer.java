@@ -9,4 +9,24 @@ public class ZkServer implements RegionServer{
     public void regionService(ServerNode serverNode) {
 
     }
+
+    @Override
+    public void serverNodeTriggering() {
+
+    }
+
+    @Override
+    public void projectTroggering() {
+
+    }
+
+    @Override
+    public void moudularTroggering() {
+
+    }
+
+    @Override
+    public void apiTroggering() {
+
+    }
 }
