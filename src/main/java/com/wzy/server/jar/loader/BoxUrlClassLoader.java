@@ -4,7 +4,9 @@ import com.wzy.server.jar.loader.vo.Jar;
 import sun.misc.ClassLoaderUtil;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -63,7 +65,11 @@ public class BoxUrlClassLoader {
      * 获取所有已经加载的jar
      * @return
      */
-    public static Map<String, Jar> getJarmaps(){
-        return jarmaps;
+    public static List<Jar> getJarmaps(){
+        List<Jar> jars = new ArrayList<>();
+        jarmaps.forEach((k,v) ->{
+            jars.add(v);
+        });
+        return jars;
     }
 }

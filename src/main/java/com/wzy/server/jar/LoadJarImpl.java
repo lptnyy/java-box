@@ -11,6 +11,7 @@ import com.wzy.server.http.request.BoxHttpRequest;
 import com.wzy.server.http.response.BoxHttpResponse;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,19 +49,32 @@ public class LoadJarImpl implements LoadJar{
     }
 
     @Override
-    public Map<String, BoxProjectVo> getProjectMaps() {
-        return addProjectMaps;
+    public List<BoxProjectVo> getProjectMaps() {
+        List<BoxProjectVo> projectVos = new ArrayList<>();
+        addProjectMaps.forEach((k,v) -> {
+            projectVos.add(v);
+        });
+        return projectVos;
     }
 
     @Override
-    public Map<String, BoxMoudulaVo> getMdudulaVoMaps() {
-        return addMdudulaVoMaps;
+    public List<BoxMoudulaVo> getMdudulaVoMaps() {
+        List<BoxMoudulaVo> moudulaVos = new ArrayList<>();
+        addMdudulaVoMaps.forEach((k,v) -> {
+            moudulaVos.add(v);
+        });
+        return moudulaVos;
     }
 
     @Override
-    public Map<String, BoxApiVo> getApiVoMaps() {
-        return addApiVoMaps;
+    public List<BoxApiVo> getApiVoMaps() {
+        List<BoxApiVo> apiVos = new ArrayList<>();
+        addApiVoMaps.forEach((k,v) ->{
+            apiVos.add(v);
+        });
+        return apiVos;
     }
+
 
     /**
      * 初始化接口jar 执行步骤2
