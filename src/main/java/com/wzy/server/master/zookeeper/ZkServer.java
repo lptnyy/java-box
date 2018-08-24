@@ -2,6 +2,7 @@ package com.wzy.server.master.zookeeper;
 
 import com.alibaba.fastjson.JSON;
 import com.wzy.config.Config;
+import com.wzy.server.jar.LoadJar;
 import com.wzy.server.jar.loader.BoxUrlClassLoader;
 import com.wzy.server.master.RegionServer;
 import com.wzy.server.master.ServerNode;
@@ -16,6 +17,7 @@ import java.io.IOException;
 
 public class ZkServer implements RegionServer{
     JavaBoxLog log = Config.log;
+    LoadJar jars = Config.loadJar;
 
     // 注册服务目录
     public String REGION_SERVER_NODE="/regionServerNode";
@@ -56,26 +58,44 @@ public class ZkServer implements RegionServer{
             path = REGION_SERVER_NODE+"/"+serverNode.ip+":"+serverNode.port+NODE_PROJECT;
             log.info("zookeeper创建路径:"+path);
 
+            // 获取加载的项目信息
+            String projectJson = JSON.toJSONString(jars.getProjectMaps());
+            log.info("zookeeper projectJson json:"+projectJson);
+
             // 添加项目触发器
             if (zooKeeper.exists(path, null) == null) {
-                zooKeeper.create(path,"".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
+                zooKeeper.create(path,projectJson.getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
+            } else {
+                zooKeeper.setData(path, projectJson.getBytes(), -1);
             }
             // 添加一次性触发器
             zooKeeper.getChildren(path, new ProjectWatch(path, zooKeeper,this));
+
+            // 获取加载的模块信息
+            String moudularJson = JSON.toJSONString(jars.getMdudulaVoMaps());
+            log.info("zookeeper moudularJson json:"+moudularJson);
 
             // 添加模块触发器
             path = REGION_SERVER_NODE+"/"+serverNode.ip+":"+serverNode.port+NODE_MOUDULAR;
             log.info("zookeeper创建路径:"+path);
             if (zooKeeper.exists(path, null) == null) {
-                zooKeeper.create(path,"".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
+                zooKeeper.create(path,moudularJson.getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
+            } else {
+                zooKeeper.setData(path,moudularJson.getBytes(), -1);
             }
             zooKeeper.getChildren(path, new MoudularWatch(path, zooKeeper,this));
+
+            // 获取加载的api信息
+            String apiJson = JSON.toJSONString(jars.getApiVoMaps());
+            log.info("zookeeper apiJson json:"+apiJson);
 
             // 添加APi触发器
             path = REGION_SERVER_NODE+"/"+serverNode.ip+":"+serverNode.port+NODE_API;
             log.info("zookeeper创建路径:"+path);
             if (zooKeeper.exists(path, null) == null) {
-                zooKeeper.create(path,"".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
+                zooKeeper.create(path,apiJson.getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
+            } else {
+                zooKeeper.setData(path,apiJson.getBytes(), -1);
             }
             zooKeeper.getChildren(path, new ApiWatch(path, zooKeeper, this));
 
