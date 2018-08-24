@@ -8,7 +8,16 @@ public class BoxConfig {
     String jarDownServerUrl;
     String regionServerIp;
     int regsionServerPort;
+    int regsionServerTimeOut;
     int port;
+
+    public int getRegsionServerTimeOut() {
+        return regsionServerTimeOut;
+    }
+
+    public void setRegsionServerTimeOut(int regsionServerTimeOut) {
+        this.regsionServerTimeOut = regsionServerTimeOut;
+    }
 
     public String getRegionServerIp() {
         return regionServerIp;

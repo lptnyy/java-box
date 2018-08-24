@@ -4,7 +4,7 @@ public class BoxLog implements JavaBoxLog {
 
     @Override
     public void info(String info) {
-
+        System.out.println(info);
     }
 
     @Override

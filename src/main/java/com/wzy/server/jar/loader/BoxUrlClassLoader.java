@@ -58,4 +58,12 @@ public class BoxUrlClassLoader {
     public static Jar getJar(String key) throws Exception{
         return jarmaps.get(key);
     }
+
+    /**
+     * 获取所有已经加载的jar
+     * @return
+     */
+    public static Map<String, Jar> getJarmaps(){
+        return jarmaps;
+    }
 }

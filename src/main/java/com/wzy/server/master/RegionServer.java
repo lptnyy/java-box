@@ -16,4 +16,7 @@ public interface RegionServer {
 
     // api节点触发
     public void apiTroggering();
+
+    // 载入jar
+    public void jarTroggering();
 }

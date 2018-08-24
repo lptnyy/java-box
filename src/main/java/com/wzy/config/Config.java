@@ -1,6 +1,6 @@
 package com.wzy.config;
 
-import com.wzy.server.jar.LoadJar;
+import com.wzy.server.jar.LoadJarImpl;
 import com.wzy.util.log.BoxLog;
 import com.wzy.util.log.JavaBoxLog;
 
@@ -16,7 +16,7 @@ public class Config {
     public static BoxConfig config = new BoxConfig();
 
     // 配置Jar
-    public static LoadJar loadJar = new LoadJar();
+    public static LoadJarImpl loadJar = new LoadJarImpl();
 
     // 初始化配置信息
     public static void initConfig(){
@@ -28,6 +28,7 @@ public class Config {
         config.setJarDownServerUrl("http://localhost:8762/downJar?downUrl=");
         config.setRegionServerIp("localhost");
         config.setRegsionServerPort(2181);
+        config.setRegsionServerTimeOut(3000);
         try {
             loadJar.initHttp();
             loadJar.initJar();
