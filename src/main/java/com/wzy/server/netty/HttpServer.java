@@ -1,4 +1,4 @@
-package com.wzy.server;
+package com.wzy.server.netty;
 
 /**
  * 定义服务的接口

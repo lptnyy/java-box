@@ -1,6 +1,6 @@
-package com.wzy.server.master;
+package com.wzy.server.region;
 
-import com.wzy.config.Config;
+import com.wzy.server.config.Config;
 import com.wzy.util.ip.IpUtil;
 
 import java.net.UnknownHostException;

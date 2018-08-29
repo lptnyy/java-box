@@ -1,6 +1,6 @@
 package com.wzy.server.filter;
 
-import com.wzy.config.Config;
+import com.wzy.server.config.Config;
 import com.wzy.server.http.request.BoxHttpRequest;
 import com.wzy.server.http.request.HttpCode;
 import com.wzy.server.http.response.BoxHttpResponse;

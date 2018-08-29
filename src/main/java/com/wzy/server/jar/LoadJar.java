@@ -2,12 +2,11 @@ package com.wzy.server.jar;
 
 import com.wzy.server.http.request.BoxHttpRequest;
 import com.wzy.server.http.response.BoxHttpResponse;
-import com.wzy.server.jar.api.vo.BoxApiVo;
-import com.wzy.server.jar.api.vo.BoxMoudulaVo;
-import com.wzy.server.jar.api.vo.BoxProjectVo;
+import com.wzy.server.jar.api.config.BoxApiVo;
+import com.wzy.server.jar.api.config.BoxMoudulaVo;
+import com.wzy.server.jar.api.config.BoxProjectVo;
 
 import java.util.List;
-import java.util.Map;
 
 public interface LoadJar {
     public boolean runClass(BoxHttpRequest request, BoxHttpResponse response) throws Exception;

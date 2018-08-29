@@ -1,4 +1,4 @@
-package com.wzy.server.jar.api.vo;
+package com.wzy.server.jar.api.config;
 
 public class BoxMoudulaVo {
     Integer moudularId;

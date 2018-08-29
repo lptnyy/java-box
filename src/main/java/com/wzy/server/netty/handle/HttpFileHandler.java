@@ -1,4 +1,4 @@
-package com.wzy.server.handle;
+package com.wzy.server.netty.handle;
 
 import com.wzy.server.http.request.RequestParser;
 import io.netty.channel.ChannelHandlerContext;

@@ -1,7 +1,7 @@
-package com.wzy.server;
+package com.wzy.server.netty;
 
-import com.wzy.config.Config;
-import com.wzy.server.handle.HttpFileHandler;
+import com.wzy.server.config.Config;
+import com.wzy.server.netty.handle.HttpFileHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;

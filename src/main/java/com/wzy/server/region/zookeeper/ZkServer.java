@@ -1,15 +1,15 @@
-package com.wzy.server.master.zookeeper;
+package com.wzy.server.region.zookeeper;
 
 import com.alibaba.fastjson.JSON;
-import com.wzy.config.Config;
+import com.wzy.server.config.Config;
 import com.wzy.server.jar.LoadJar;
 import com.wzy.server.jar.loader.BoxUrlClassLoader;
-import com.wzy.server.master.RegionServer;
-import com.wzy.server.master.ServerNode;
-import com.wzy.server.master.zookeeper.watch.ApiWatch;
-import com.wzy.server.master.zookeeper.watch.JarWatch;
-import com.wzy.server.master.zookeeper.watch.MoudularWatch;
-import com.wzy.server.master.zookeeper.watch.ProjectWatch;
+import com.wzy.server.region.RegionServer;
+import com.wzy.server.region.ServerNode;
+import com.wzy.server.region.zookeeper.watch.ApiWatch;
+import com.wzy.server.region.zookeeper.watch.JarWatch;
+import com.wzy.server.region.zookeeper.watch.MoudularWatch;
+import com.wzy.server.region.zookeeper.watch.ProjectWatch;
 import com.wzy.util.log.JavaBoxLog;
 import org.apache.zookeeper.*;
 
@@ -50,7 +50,7 @@ public class ZkServer implements RegionServer{
             // 服务注册
             if (zooKeeper.exists(path, null) == null) {
                 log.info("zookeeper注册服务信息："+beanJson);
-                zooKeeper.create(path, beanJson.getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
+                zooKeeper.create(path, beanJson.getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
             } else {
                 zooKeeper.setData(path,beanJson.getBytes(),-1);
             }

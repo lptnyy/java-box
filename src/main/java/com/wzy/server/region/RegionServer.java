@@ -1,4 +1,4 @@
-package com.wzy.server.master;
+package com.wzy.server.region;
 
 public interface RegionServer {
 
