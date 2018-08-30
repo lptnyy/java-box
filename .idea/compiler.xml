@@ -9,12 +9,14 @@
         <module name="java-box-dev" />
         <module name="java-box-server" />
         <module name="java-box-util" />
+        <module name="java-box-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
-      <module name="java-box-dev" target="1.5" />
-      <module name="java-box-server" target="1.5" />
-      <module name="java-box-util" target="1.5" />
+      <module name="java-box-dev" target="1.8" />
+      <module name="java-box-server" target="1.8" />
+      <module name="java-box-util" target="1.8" />
+      <module name="java-box-web" target="1.8" />
       <module name="JavaBox" target="1.5" />
     </bytecodeTargetLevel>
   </component>

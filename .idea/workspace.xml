@@ -1,104 +1,222 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ArtifactsWorkspaceSettings">
-    <artifacts-to-build>
-      <artifact name="JavaBox:jar" />
-    </artifacts-to-build>
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a36b499-7313-4ae2-afee-edc2cc1834bc" name="Default" comment="">
+    <list default="true" id="8902fba3-1225-4ca5-8a1e-f6bf5240f43f" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-dev/src/main/java/com/demo/UserWork.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/README.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/pom.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/UserServiceStart.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/BoxApiController.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/BoxButtApiController.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/BoxModularController.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/BoxProjectController.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/BoxZkController.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/UploadDownFileController.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/parameter/api/AddApi.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/parameter/api/GetApiLIst.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/parameter/api/IdApi.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/parameter/butt/ButtApi.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/parameter/butt/ButtModular.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/parameter/moudular/AddMoudular.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/parameter/moudular/GetMoudularLIst.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/parameter/moudular/IdMoudular.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/parameter/project/IdProject.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/parameter/project/ListProject.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/parameter/project/Project.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/parameter/project/UpdateOpenStat.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/parameter/zk/ServerApi.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/entity/BoxApi.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/entity/BoxMoudula.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/entity/BoxProject.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/entity/vo/BoxApiVo.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/entity/vo/BoxMoudulaVo.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/entity/vo/BoxProjectVo.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/entity/vo/ServerNodeVo.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/mapper/BoxApiMapper.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/mapper/BoxMoudulaMapper.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/mapper/BoxProjectMapper.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/mapper/provide/BoxApiProvide.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/mapper/provide/BoxMoudulaProvide.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/mapper/provide/BoxProjectProvide.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/service/ApiService.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/service/ButtApiService.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/service/ModulaService.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/service/ProjectService.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/service/ProjectServiceI.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/service/ZookeeperService.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/AESOperator.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/BaseController.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/Constent.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/DateUtil.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/MapUtil.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/Md5Util.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/MybaitsEntityUtil.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/PageUtil.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/RandomUtil.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/RegexUtil.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/SerializableUtil.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/annotation/Test.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/annotation/check/IsContrastString.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/annotation/check/IsNotEmail.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/annotation/check/IsNotInteger.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/annotation/check/IsNotLong.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/annotation/check/IsNotNull.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/annotation/factory/Verification.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/annotation/set/SetStringMd5.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/base/BaseMapperI.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/base/BaseServiceI.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/exception/MyExceptionUtil.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/jsonvo/JsonVo.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/jsonvo/JsonVoInterface.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/redis/IRedisCallback.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/redis/RedisConfig.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/redis/RedisUtil.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/upload/FileVo.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/upload/UploadI.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/upload/UploadImpl.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/upload/UploadUtil.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/zookeeper/ZookeeperUtil.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/application.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/README.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/css/admin.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/css/amazeui.min.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/css/app.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/fonts/FontAwesome.otf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/fonts/fontawesome-webfont.eot" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/fonts/fontawesome-webfont.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/fonts/fontawesome-webfont.woff" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/fonts/fontawesome-webfont.woff2" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/i/app-icon72x72@2x.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/i/examples/admin-chrome.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/i/examples/admin-firefox.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/i/examples/admin-ie.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/i/examples/admin-opera.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/i/examples/admin-safari.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/i/examples/adminPage.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/i/examples/blogPage.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/i/examples/landing.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/i/examples/landingPage.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/i/examples/loginPage.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/i/examples/sidebarPage.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/i/favicon.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/i/startup-640x1096.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/32.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/43.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/a1.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/a10.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/a2.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/a3.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/a4.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/a5.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/a6.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/a7.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/a8.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/a9.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/lbbg.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/logo.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/syncfusion-icons-white.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/user01.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/user02.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/user03.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/user04.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/user05.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/user06.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/user07.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/js/amazeui.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/js/app.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/js/echarts.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/js/iscroll.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/js/jquery.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/chart.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/form-amazeui.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/form-line.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/form-news-list.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/form-news.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/index.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/indexbf.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/js/ajax.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/js/base.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/js/page/api/add.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/js/page/api/list.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/js/page/moudlar/add.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/js/page/moudlar/list.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/js/page/project/add.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/js/page/project/list.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/js/page/server/list.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/js/upload.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/login.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/page/api/edit.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/page/api/list.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/page/moudlar/edit.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/page/moudlar/list.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/page/project/edit.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/page/project/list.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/page/server/list.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/table-font-list.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/table-images-list.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/说明.txt" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/zk.properties" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/1522821911745521605.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/1523155911675692601.mp4" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/1532527248508.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/153252737411546148.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/153260121528067724.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/153262387310120057.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/153284390110525359.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/153304598843280959.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/153369852242457290.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/153390984859683130.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/153399998039150465.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/153400001306692588.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/153400017041672906.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/153400028933950337.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/153561330916237031.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/JavaBox.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/javabuilder.jar" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/工作簿2.xlsx" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/方正藏体简体.ttf" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/JavaBox_jar.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Arquillian_JUnit_Release.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_6.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_adyliu_zkclient_2_1_1.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_3_10_5_Final.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_all_4_1_26_Final.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jline_jline_0_9_94.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_0.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_16.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_pool2_2_4_2.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_zookeeper_zookeeper_3_4_5.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_6_1.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_6_1.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__redis_clients_jedis_2_9_0.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change beforePath="$PROJECT_DIR$/JavaBox.iml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java-box-dev/java-box-dev.iml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java-box-dev/pom.xml" afterPath="$PROJECT_DIR$/java-box-dev/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/java-box-server/java-box-server.iml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java-box-server/pom.xml" afterPath="$PROJECT_DIR$/java-box-server/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/java-box-util/java-box-util.iml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/java-box-util/pom.xml" afterPath="$PROJECT_DIR$/java-box-util/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/java-box-dev/target/" />
-    <ignored path="$PROJECT_DIR$/java-box-server/target/" />
     <ignored path="$PROJECT_DIR$/java-box-util/target/" />
+    <ignored path="$PROJECT_DIR$/java-box-web/target/" />
+    <ignored path="$PROJECT_DIR$/java-box-server/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="ErrorTreeViewConfiguration">
-    <option name="hideWarnings" value="true" />
-    <option name="HIDE_WARNINGS" value="true" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="StartServer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/StartServer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NetApi.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/jar/api/NetApi.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="21" column="48" lean-forward="false" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/java-box-dev/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="39" lean-forward="false" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="16" column="39" lean-forward="false" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="300">
-                <caret line="20" column="5" lean-forward="false" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Arquillian JUnit Test Class" />
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <dirStrings>
-      <dir>C:\Users\Administrator\Workspaces\MyEclipse Professional\JavaBox\out\artifacts\JavaBox_jar</dir>
-      <dir>C:\Users\Administrator\Workspaces\MyEclipse Professional\JavaBox</dir>
-      <dir>$PROJECT_DIR$/src/main/java/com/wzy/util</dir>
-      <dir>$PROJECT_DIR$/out/artifacts/JavaBox_jar</dir>
-    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -108,84 +226,17 @@
       <projects_view />
     </option>
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/jar/api/vo/BoxMoudulaVo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/jar/api/NetApi.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/request/HttpCode.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/filter/HttpFiterImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/jar/loader/vo/JarVo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/region/vo/ServerNode.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/region/RegionServer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/cache/BoxCache.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/cache/redis/RedisConfiguraion.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/cache/redis/RedisCache.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/netty/server/HttpServer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/netty/server/HttpServerImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/netty/server/handle/HttpFileHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/handle/HttpFileHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/http/request/RequestParser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/region/zookeeper/ZkServer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/region/vo/ServerNode.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/test/zookeeperTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/region/ServerNode.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/util/ip/IpUtil.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/master/ServerNode.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/wzy/server/StartServerTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/wzy/server/master/zookeeper/ZkServerTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/config/BoxConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/config/Config.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/jar/loader/vo/Jar.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/master/zookeeper/watch/ProjectWatch.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/master/zookeeper/watch/MoudularWatch.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/master/zookeeper/watch/ApiWatch.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/util/log/BoxLog.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/master/RegionServer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/master/zookeeper/watch/JarWatch.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/jar/LoadJar.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/jar/loader/BoxUrlClassLoader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/master/zookeeper/ZkServer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/ServerTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/netty/HttpServer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/netty/HttpServerImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/work/BoxWork.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/work/BoxWorkFilter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/work/proxy/WorkHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/jar/LoadJarImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/StartServer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/work/proxy/BoxWorkProxy.java" />
-        <option value="$PROJECT_DIR$/java-box-server/src/main/java/wzy/server/http/request/RequestParser.java" />
-        <option value="$PROJECT_DIR$/java-box-util/src/main/java/util/log/BoxLog.java" />
-        <option value="$PROJECT_DIR$/java-box-util/src/main/java/com/wzy/util/log/BoxLog.java" />
-        <option value="$PROJECT_DIR$/java-box-server/pom.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/java-box-dev/pom.xml" />
-        <option value="$PROJECT_DIR$/README.md" />
-      </list>
-    </option>
-  </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
-  </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="JavaBox" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="JavaBox" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
-        </path>
-      </expand>
-      <select />
-    </treeState>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
@@ -210,65 +261,29 @@
     <panes>
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="java-box" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JavaBox" type="b2602c69:ProjectViewProjectNode" />
               <item name="java-box" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
-    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
-    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
-    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="java-box" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="Arquillian JUnit4" />
-    <property name="GO_FMT" value="false" />
-    <property name="jdk.selected.PYTHON_MODULE" value="Python 2.7" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="com.wzy.server.master.zookeeper" />
-      <recent name="com.wzy.server" />
-      <recent name="com.wzy.server.api" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.wzy.server" />
-      <recent name="com.wzy.jar" />
-      <recent name="com.wzy" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/java-box-util/src/main/java" />
-      <recent name="$PROJECT_DIR$/java-box-server/src/main/java" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/wzy/server/api/vo" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.wzy.server.master.zookeeper.watch" />
-      <recent name="com.wzy.server.cache.redis" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/conf" />
-      <recent name="$PROJECT_DIR$/src/main/resources" />
-    </key>
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -282,70 +297,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.StartServer (1)">
+  <component name="RunManager">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
       <option name="HEIGHT" value="300" />
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <module />
-    </configuration>
-    <configuration name="ServerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.wzy.server.netty.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="com.wzy.server.ServerTest" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="JavaBox" />
-      <envs />
-    </configuration>
-    <configuration name="StartServer (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.wzy.server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="com.wzy.server.StartServer" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="java-box-server" />
-      <envs />
-    </configuration>
-    <configuration name="StartServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.wzy.server.netty.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="com.wzy.server.StartServer" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="JavaBox" />
-      <envs />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
@@ -361,55 +319,6 @@
       <module name="" />
       <envs />
     </configuration>
-    <configuration name="zookeeperTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.wzy.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="com.wzy.test.zookeeperTest" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="JavaBox" />
-      <envs />
-    </configuration>
-    <configuration name="ZkServerTest" type="ArquillianJUnit" factoryName="" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.wzy.server.region.zookeeper.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="JavaBox" />
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.wzy.server.master.zookeeper" />
-      <option name="MAIN_CLASS_NAME" value="com.wzy.server.master.zookeeper.ZkServerTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -421,7 +330,7 @@
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
@@ -437,6 +346,12 @@
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
     </configuration>
+    <configuration name="UserServiceStart" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.wzy.UserServiceStart" />
+      <module name="java-box-web" />
+      <envs />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -450,7 +365,7 @@
       <option name="TEST_OBJECT" value="CLASS" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
       <option name="OUTPUT_DIRECTORY" />
       <option name="ANNOTATION_TYPE" />
       <option name="ENV_VARIABLES" />
@@ -470,857 +385,139 @@
       <option name="PROGRAM_PARAMETERS" />
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
-    <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Application.StartServer" />
-      <item index="1" class="java.lang.String" itemvalue="Application.zookeeperTest" />
-      <item index="2" class="java.lang.String" itemvalue="Arquillian JUnit.ZkServerTest" />
-      <item index="3" class="java.lang.String" itemvalue="Application.ServerTest" />
-      <item index="4" class="java.lang.String" itemvalue="Application.StartServer (1)" />
-    </list>
-    <recent_temporary>
-      <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.StartServer (1)" />
-        <item index="1" class="java.lang.String" itemvalue="Application.StartServer" />
-        <item index="2" class="java.lang.String" itemvalue="Application.ServerTest" />
-        <item index="3" class="java.lang.String" itemvalue="Arquillian JUnit.ZkServerTest" />
-        <item index="4" class="java.lang.String" itemvalue="Application.zookeeperTest" />
-      </list>
-    </recent_temporary>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Twisted Trial">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
-    <configuration>C:\Users\Administrator\AppData\Roaming\Subversion</configuration>
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8a36b499-7313-4ae2-afee-edc2cc1834bc" name="Default" comment="" />
-      <created>1531371661969</created>
+      <changelist id="8902fba3-1225-4ca5-8a1e-f6bf5240f43f" name="Default" comment="" />
+      <created>1535617551474</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1531371661969</updated>
-      <workItem from="1531371665098" duration="6430000" />
-      <workItem from="1531382911201" duration="583000" />
-      <workItem from="1532397389472" duration="6663000" />
-      <workItem from="1532415742231" duration="1259000" />
-      <workItem from="1532791750492" duration="3862000" />
-      <workItem from="1532796011289" duration="444000" />
-      <workItem from="1532796486926" duration="13000" />
-      <workItem from="1532796554937" duration="363000" />
-      <workItem from="1532838688015" duration="51000" />
-      <workItem from="1533000790024" duration="18234000" />
-      <workItem from="1533045420074" duration="4499000" />
-      <workItem from="1533085827454" duration="3584000" />
-      <workItem from="1533134714544" duration="3640000" />
-      <workItem from="1533172868423" duration="6196000" />
-      <workItem from="1533259401396" duration="6000" />
-      <workItem from="1533290052783" duration="617000" />
-      <workItem from="1533533794519" duration="3592000" />
-      <workItem from="1533539142601" duration="20000" />
-      <workItem from="1533539172968" duration="2581000" />
-      <workItem from="1533565714243" duration="6553000" />
-      <workItem from="1533654691984" duration="3897000" />
-      <workItem from="1533693595047" duration="13066000" />
-      <workItem from="1533739044684" duration="704000" />
-      <workItem from="1533909345624" duration="2871000" />
-      <workItem from="1534000656241" duration="1333000" />
-      <workItem from="1534056167082" duration="563000" />
-      <workItem from="1534086379684" duration="7000" />
-      <workItem from="1534254885073" duration="3918000" />
-      <workItem from="1534259217921" duration="494000" />
-      <workItem from="1534436516164" duration="1342000" />
-      <workItem from="1534682638322" duration="3887000" />
-      <workItem from="1534686954910" duration="5434000" />
-      <workItem from="1534695097240" duration="116000" />
-      <workItem from="1534736065504" duration="124000" />
-      <workItem from="1534736198553" duration="5675000" />
-      <workItem from="1534742254990" duration="5166000" />
-      <workItem from="1535121651523" duration="5604000" />
-      <workItem from="1535293146539" duration="2437000" />
-      <workItem from="1535335387995" duration="148000" />
-      <workItem from="1535352365867" duration="3241000" />
-      <workItem from="1535382690746" duration="992000" />
-      <workItem from="1535526520648" duration="237000" />
-      <workItem from="1535559942606" duration="1358000" />
-      <workItem from="1535607174274" duration="4634000" />
+      <updated>1535617551474</updated>
+      <workItem from="1535617552918" duration="21000" />
     </task>
-    <task id="LOCAL-00001" summary="Netty增加">
-      <created>1532404647049</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1532404647049</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Netty增加">
-      <created>1532793580368</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1532793580368</updated>
-    </task>
-    <task id="LOCAL-00003" summary="增加项目模块api查询接口，动态加载jar">
-      <created>1533027642843</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1533027642843</updated>
-    </task>
-    <task id="LOCAL-00004" summary="增加http请求相关功能">
-      <created>1533537820774</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1533537820774</updated>
-    </task>
-    <task id="LOCAL-00005" summary="增加http请求相关功能">
-      <created>1533540142797</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1533540142797</updated>
-    </task>
-    <task id="LOCAL-00006" summary="修改一下包名位置">
-      <created>1533540260624</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1533540260624</updated>
-    </task>
-    <task id="LOCAL-00007" summary="增加过滤器 以及输入 输出参数">
-      <created>1533572329999</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1533572329999</updated>
-    </task>
-    <task id="LOCAL-00008" summary="增加work开发接口 boxwork">
-      <created>1533656960638</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1533656960638</updated>
-    </task>
-    <task id="LOCAL-00009" summary="动态加载Jar访问已成功">
-      <created>1533710191975</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1533710191975</updated>
-    </task>
-    <task id="LOCAL-00010" summary="动态加载Jar访问已成功">
-      <created>1533710203763</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1533710203763</updated>
-    </task>
-    <task id="LOCAL-00011" summary="添加work过滤器">
-      <created>1533919085494</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1533919085495</updated>
-    </task>
-    <task id="LOCAL-00012" summary="修改项目结构 追加zookeeper redis">
-      <created>1534259497081</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1534259497081</updated>
-    </task>
-    <task id="LOCAL-00013" summary="修改目录结构">
-      <created>1534683169215</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1534683169215</updated>
-    </task>
-    <task id="LOCAL-00014" summary="修改目录结构">
-      <created>1534684009121</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1534684009121</updated>
-    </task>
-    <task id="LOCAL-00015" summary="编写文档">
-      <created>1534688790484</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1534688790484</updated>
-    </task>
-    <task id="LOCAL-00016" summary="编写文档">
-      <created>1534689029521</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1534689029521</updated>
-    </task>
-    <task id="LOCAL-00017" summary="编写文档">
-      <created>1534689167368</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1534689167368</updated>
-    </task>
-    <task id="LOCAL-00018" summary="编写文档">
-      <created>1534689255825</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1534689255825</updated>
-    </task>
-    <task id="LOCAL-00019" summary="编写文档">
-      <created>1534689360857</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1534689360857</updated>
-    </task>
-    <task id="LOCAL-00020" summary="编写文档">
-      <created>1534690284640</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1534690284640</updated>
-    </task>
-    <task id="LOCAL-00021" summary="修改目录结构">
-      <created>1534691118342</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1534691118342</updated>
-    </task>
-    <task id="LOCAL-00022" summary="编写文档">
-      <created>1534695126620</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1534695126620</updated>
-    </task>
-    <task id="LOCAL-00023" summary="修改目录 增加zookeeper 接口">
-      <created>1534738362855</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1534738362855</updated>
-    </task>
-    <task id="LOCAL-00024" summary="实现zookeeper接口实现注册服务">
-      <created>1535125159751</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1535125159752</updated>
-    </task>
-    <task id="LOCAL-00025" summary="修改获取载入配置">
-      <created>1535126843774</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1535126843775</updated>
-    </task>
-    <task id="LOCAL-00026" summary="往zookeeper注册信息">
-      <created>1535126899146</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1535126899146</updated>
-    </task>
-    <task id="LOCAL-00027" summary="修改目录结构">
-      <created>1535561081522</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1535561081522</updated>
-    </task>
-    <task id="LOCAL-00028" summary="拆分项目 模块">
-      <created>1535611779889</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1535611779889</updated>
-    </task>
-    <task id="LOCAL-00029" summary="新增注释">
-      <created>1535611934997</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1535611934997</updated>
-    </task>
-    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136438000" />
+    <option name="totallyTimeSpent" value="21000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="827" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="827" extended-state="6" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32016924" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11158799" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39915374" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2961918" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32863188" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26967096" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47464788" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.033850495" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38928068" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41607898" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2961918" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32863188" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21244635" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ORDER">
-      <list>
-        <option value="0" />
-        <option value="2" />
-        <option value="3" />
-        <option value="1" />
-      </list>
-    </option>
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Netty增加" />
-    <MESSAGE value="增加项目模块api查询接口，动态加载jar" />
-    <MESSAGE value="增加http请求相关功能" />
-    <MESSAGE value="修改一下包名位置" />
-    <MESSAGE value="增加过滤器 以及输入 输出参数" />
-    <MESSAGE value="增加work开发接口 boxwork" />
-    <MESSAGE value="动态加载Jar访问已成功" />
-    <MESSAGE value="添加work过滤器" />
-    <MESSAGE value="修改项目结构 追加zookeeper redis" />
-    <MESSAGE value="编写文档" />
-    <MESSAGE value="修改目录 增加zookeeper 接口" />
-    <MESSAGE value="实现zookeeper接口实现注册服务" />
-    <MESSAGE value="修改获取载入配置" />
-    <MESSAGE value="往zookeeper注册信息" />
-    <MESSAGE value="修改目录结构" />
-    <MESSAGE value="拆分项目 模块" />
-    <MESSAGE value="新增注释" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增注释" />
-  </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="101" />
-    </breakpoint-manager>
+    <breakpoint-manager />
     <watches-manager />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/config/Config.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="18" column="36" lean-forward="false" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/region/zookeeper/ZkServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="40" column="13" lean-forward="false" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/netty/HttpServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/netty/HttpServerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/netty/handle/HttpFileHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/util/log/BoxLog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="40" lean-forward="false" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/util/log/JavaBoxLog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/region/RegionServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="12" lean-forward="false" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/region/ServerNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/http/request/BoxHttpRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="10" column="30" lean-forward="false" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/jar/work/BoxWork.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/jar/loader/config/Jar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="16" lean-forward="true" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/jar/api/NetApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="21" column="48" lean-forward="false" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/jar/LoadJar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/jar/loader/BoxUrlClassLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="41" column="6" lean-forward="false" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/StartServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="15" column="31" lean-forward="true" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/ServerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="37" lean-forward="false" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/work/proxy/BoxWorkProxy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/work/BoxWork.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/work/BoxWorkFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/http/request/HttpCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="13" column="10" lean-forward="false" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/http/request/BoxHttpRequestImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="874">
-          <caret line="90" column="0" lean-forward="true" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/filter/HttpFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="16" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/http/request/RequestParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="85" column="21" lean-forward="false" selection-start-line="85" selection-start-column="21" selection-end-line="85" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/jar/LoadJarImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="108" column="0" lean-forward="false" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/http/response/BoxHttpResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="31" lean-forward="false" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/http/response/BoxHttpResponseImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/javabox.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/cache/BoxCache.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/jar/loader/BoxUrlClassLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/http/response/BoxHttpResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/region/zookeeper/watch/JarWatch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/cache/redis/RedisCache.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/util/properties/PropertiesUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/util/log/JavaBoxLog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/http/request/HttpCode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/http/request/RequestParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="6" lean-forward="false" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/cache/redis/RedisCache.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/ServerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java-box-util/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java-box-util/src/main/java/com/wzy/util/ip/IpUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java-box-util/src/main/java/com/wzy/util/log/JavaBoxLog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java-box-util/src/main/java/com/wzy/util/http/HttpGetUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java-box-util/src/main/java/com/wzy/util/properties/PropertiesUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java-box-util/src/main/java/com/wzy/util/log/BoxLog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java-box-server/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="37" lean-forward="false" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/StartServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/jar/api/NetApi.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="21" column="48" lean-forward="false" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/java-box-dev/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="39" lean-forward="false" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="16" column="39" lean-forward="false" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="300">
-            <caret line="20" column="5" lean-forward="false" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
   </component>
   <component name="masterDetails">
     <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <last-edited>JavaBox:jar</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.5" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Python 2.7 interpreter library</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1342,19 +539,6 @@
           </splitter-proportions>
         </settings>
       </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>java-box-dev</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
       <state key="ProjectJDKs.UI">
         <settings>
           <last-edited>1.8</last-edited>
@@ -1369,7 +553,6 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: io.netty:netty-all:4.1.26.Final</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

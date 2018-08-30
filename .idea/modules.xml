@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/java-box-dev/java-box-dev.iml" filepath="$PROJECT_DIR$/java-box-dev/java-box-dev.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-box-server/java-box-server.iml" filepath="$PROJECT_DIR$/java-box-server/java-box-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-box-util/java-box-util.iml" filepath="$PROJECT_DIR$/java-box-util/java-box-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-box-web/java-box-web.iml" filepath="$PROJECT_DIR$/java-box-web/java-box-web.iml" />
     </modules>
   </component>
 </project>
