@@ -11,3 +11,8 @@
    https://github.com/lptnyy/java-box-api-service  管理后台接口服务
    <br/>
    https://github.com/lptnyy/java-box-web 后台管理页面
+   
+# 项目结构
+java-box-dev  开发打包jar模块
+java-box-server 容器服务模块
+java-box-util 项目工具包
