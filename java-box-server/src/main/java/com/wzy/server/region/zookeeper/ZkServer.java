@@ -33,7 +33,8 @@ public class ZkServer implements RegionServer{
                     + Config.config.getRegsionServerPort(), Config.config.getRegsionServerTimeOut(), new Watcher() {
                 @Override
                 public void process(WatchedEvent watchedEvent) {
-                    serverNodeTriggering();
+                    if (watchedEvent.getType() != Event.EventType.None)
+                    serverNodeTriggering(watchedEvent);
                 }
             });
             if (zooKeeper.exists(REGION_SERVER_NODE, null) == null) {
@@ -123,27 +124,27 @@ public class ZkServer implements RegionServer{
     }
 
     @Override
-    public void serverNodeTriggering() {
+    public void serverNodeTriggering(Object watchedEvent) {
         log.info("节点注册触发");
     }
 
     @Override
-    public void projectTroggering() {
+    public void projectTroggering(Object watchedEvent) {
         log.info("项目更新触发");
     }
 
     @Override
-    public void moudularTroggering() {
+    public void moudularTroggering(Object watchedEvent) {
         log.info("模块更新触发");
     }
 
     @Override
-    public void apiTroggering() {
+    public void apiTroggering(Object watchedEvent) {
         log.info("api更新触发");
     }
 
     @Override
-    public void jarTroggering() {
+    public void jarTroggering(Object watchedEvent) {
         log.info("jar载入触发");
     }
 }

@@ -8,7 +8,6 @@ import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.ZooKeeper;
 
 public class ApiWatch implements Watcher{
-
     String path;
     ZooKeeper zooKeeper;
     RegionServer regionServer;
@@ -21,7 +20,7 @@ public class ApiWatch implements Watcher{
     @Override
     public void process(WatchedEvent watchedEvent) {
         System.out.println(watchedEvent.getType());
-        regionServer.apiTroggering();
+        regionServer.apiTroggering(watchedEvent);
 
         // 执行完毕之后重新载入触发器
         try {

@@ -20,7 +20,7 @@ public class ProjectWatch implements Watcher {
     @Override
     public void process(WatchedEvent watchedEvent) {
         System.out.println(watchedEvent.getType());
-        regionServer.projectTroggering();
+        regionServer.projectTroggering(watchedEvent);
         // 执行完毕之后重新载入触发器
         try {
             zooKeeper.getChildren(path, this);
