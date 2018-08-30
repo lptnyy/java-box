@@ -7,62 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8a36b499-7313-4ae2-afee-edc2cc1834bc" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-dev/java-box-dev.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-dev/pom.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-server/java-box-server.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-server/pom.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/work/proxy/BoxWorkProxy.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-util/java-box-util.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-util/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/JavaBox.iml" afterPath="$PROJECT_DIR$/JavaBox.iml" />
-      <change beforePath="$PROJECT_DIR$/conf/javabox.properties" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/ServerTest.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/ServerTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/StartServer.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/StartServer.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/cache/BoxCache.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/cache/BoxCache.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/cache/redis/RedisCache.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/cache/redis/RedisCache.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/cache/redis/RedisConfiguraion.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/cache/redis/RedisConfiguraion.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/config/BoxConfig.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/config/BoxConfig.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/config/Config.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/config/Config.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/filter/HttpFilter.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/filter/HttpFilter.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/filter/HttpFiterImpl.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/filter/HttpFiterImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/http/request/BoxHttpRequest.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/http/request/BoxHttpRequest.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/http/request/BoxHttpRequestImpl.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/http/request/BoxHttpRequestImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/http/request/HttpCode.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/http/request/HttpCode.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/http/request/RequestParser.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/http/request/RequestParser.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/http/response/BoxHttpResponse.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/http/response/BoxHttpResponse.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/http/response/BoxHttpResponseImpl.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/http/response/BoxHttpResponseImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/jar/LoadJar.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/jar/LoadJar.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/jar/LoadJarImpl.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/jar/LoadJarImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/jar/api/NetApi.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/jar/api/NetApi.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/jar/api/config/BaseVo.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/jar/api/config/BaseVo.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/jar/api/config/BoxApiVo.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/jar/api/config/BoxApiVo.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/jar/api/config/BoxMoudulaVo.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/jar/api/config/BoxMoudulaVo.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/jar/api/config/BoxProjectVo.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/jar/api/config/BoxProjectVo.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/jar/api/config/ProjectMapVo.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/jar/api/config/ProjectMapVo.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/jar/loader/BoxUrlClassLoader.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/jar/loader/BoxUrlClassLoader.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/jar/loader/config/Jar.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/jar/loader/config/Jar.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/netty/HttpServer.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/netty/HttpServer.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/netty/HttpServerImpl.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/netty/HttpServerImpl.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/netty/handle/HttpFileHandler.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/netty/handle/HttpFileHandler.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/region/RegionServer.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/region/RegionServer.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/region/ServerNode.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/region/ServerNode.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/region/zookeeper/ZkServer.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/region/zookeeper/ZkServer.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/region/zookeeper/watch/ApiWatch.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/region/zookeeper/watch/ApiWatch.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/region/zookeeper/watch/JarWatch.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/region/zookeeper/watch/JarWatch.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/region/zookeeper/watch/MoudularWatch.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/region/zookeeper/watch/MoudularWatch.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/region/zookeeper/watch/ProjectWatch.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/region/zookeeper/watch/ProjectWatch.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/work/BoxWork.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/work/BoxWork.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/server/work/BoxWorkFilter.java" afterPath="$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/work/BoxWorkFilter.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/util/http/HttpGetUtil.java" afterPath="$PROJECT_DIR$/java-box-util/src/main/java/com/wzy/util/http/HttpGetUtil.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/util/ip/IpUtil.java" afterPath="$PROJECT_DIR$/java-box-util/src/main/java/com/wzy/util/ip/IpUtil.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/util/log/BoxLog.java" afterPath="$PROJECT_DIR$/java-box-util/src/main/java/com/wzy/util/log/BoxLog.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/util/log/JavaBoxLog.java" afterPath="$PROJECT_DIR$/java-box-util/src/main/java/com/wzy/util/log/JavaBoxLog.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/wzy/util/properties/PropertiesUtil.java" afterPath="$PROJECT_DIR$/java-box-util/src/main/java/com/wzy/util/properties/PropertiesUtil.java" />
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -102,7 +48,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/java-box-dev/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
@@ -118,6 +64,19 @@
             <state relative-caret-position="202">
               <caret line="16" column="39" lean-forward="false" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="300">
+                <caret line="20" column="5" lean-forward="false" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -174,7 +133,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/wzy/util/ip/IpUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wzy/server/master/ServerNode.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/wzy/server/StartServerTest.java" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/test/java/com/wzy/server/master/zookeeper/ZkServerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wzy/config/BoxConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/wzy/config/Config.java" />
@@ -203,6 +161,7 @@
         <option value="$PROJECT_DIR$/java-box-server/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/java-box-dev/pom.xml" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -584,7 +543,7 @@
       <workItem from="1535382690746" duration="992000" />
       <workItem from="1535526520648" duration="237000" />
       <workItem from="1535559942606" duration="1358000" />
-      <workItem from="1535607174274" duration="4379000" />
+      <workItem from="1535607174274" duration="4634000" />
     </task>
     <task id="LOCAL-00001" summary="Netty增加">
       <created>1532404647049</created>
@@ -775,11 +734,25 @@
       <option name="project" value="LOCAL" />
       <updated>1535561081522</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="拆分项目 模块">
+      <created>1535611779889</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1535611779889</updated>
+    </task>
+    <task id="LOCAL-00029" summary="新增注释">
+      <created>1535611934997</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1535611934997</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136183000" />
+    <option name="totallyTimeSpent" value="136438000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="827" extended-state="0" />
@@ -797,7 +770,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32863188" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30758226" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26967096" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -901,7 +874,9 @@
     <MESSAGE value="修改获取载入配置" />
     <MESSAGE value="往zookeeper注册信息" />
     <MESSAGE value="修改目录结构" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改目录结构" />
+    <MESSAGE value="拆分项目 模块" />
+    <MESSAGE value="新增注释" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增注释" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -910,14 +885,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/config/BoxConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="45" column="18" lean-forward="false" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/wzy/server/config/Config.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -1295,6 +1262,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/java-box-dev/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="39" lean-forward="false" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
@@ -1303,11 +1278,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/java-box-dev/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="39" lean-forward="false" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
-          <folding />
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="300">
+            <caret line="20" column="5" lean-forward="false" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
