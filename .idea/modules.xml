@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/JavaBox.iml" filepath="$PROJECT_DIR$/JavaBox.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-box-dev/java-box-dev.iml" filepath="$PROJECT_DIR$/java-box-dev/java-box-dev.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-box-server/java-box-server.iml" filepath="$PROJECT_DIR$/java-box-server/java-box-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-box-util/java-box-util.iml" filepath="$PROJECT_DIR$/java-box-util/java-box-util.iml" />
     </modules>
   </component>
 </project>
