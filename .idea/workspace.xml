@@ -2,209 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8902fba3-1225-4ca5-8a1e-f6bf5240f43f" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-dev/src/main/java/com/demo/UserWork.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/pom.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/UserServiceStart.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/BoxApiController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/BoxButtApiController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/BoxModularController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/BoxProjectController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/BoxZkController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/UploadDownFileController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/parameter/api/AddApi.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/parameter/api/GetApiLIst.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/parameter/api/IdApi.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/parameter/butt/ButtApi.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/parameter/butt/ButtModular.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/parameter/moudular/AddMoudular.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/parameter/moudular/GetMoudularLIst.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/parameter/moudular/IdMoudular.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/parameter/project/IdProject.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/parameter/project/ListProject.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/parameter/project/Project.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/parameter/project/UpdateOpenStat.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/action/parameter/zk/ServerApi.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/entity/BoxApi.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/entity/BoxMoudula.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/entity/BoxProject.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/entity/vo/BoxApiVo.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/entity/vo/BoxMoudulaVo.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/entity/vo/BoxProjectVo.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/entity/vo/ServerNodeVo.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/mapper/BoxApiMapper.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/mapper/BoxMoudulaMapper.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/mapper/BoxProjectMapper.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/mapper/provide/BoxApiProvide.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/mapper/provide/BoxMoudulaProvide.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/mapper/provide/BoxProjectProvide.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/service/ApiService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/service/ButtApiService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/service/ModulaService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/service/ProjectService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/service/ProjectServiceI.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/service/ZookeeperService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/AESOperator.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/BaseController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/Constent.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/DateUtil.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/MapUtil.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/Md5Util.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/MybaitsEntityUtil.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/PageUtil.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/RandomUtil.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/RegexUtil.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/SerializableUtil.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/annotation/Test.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/annotation/check/IsContrastString.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/annotation/check/IsNotEmail.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/annotation/check/IsNotInteger.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/annotation/check/IsNotLong.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/annotation/check/IsNotNull.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/annotation/factory/Verification.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/annotation/set/SetStringMd5.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/base/BaseMapperI.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/base/BaseServiceI.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/exception/MyExceptionUtil.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/jsonvo/JsonVo.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/jsonvo/JsonVoInterface.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/redis/IRedisCallback.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/redis/RedisConfig.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/redis/RedisUtil.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/upload/FileVo.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/upload/UploadI.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/upload/UploadImpl.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/upload/UploadUtil.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/zookeeper/ZookeeperUtil.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/application.yml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/README.md" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/css/admin.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/css/amazeui.min.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/css/app.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/fonts/FontAwesome.otf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/fonts/fontawesome-webfont.eot" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/fonts/fontawesome-webfont.ttf" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/fonts/fontawesome-webfont.woff" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/fonts/fontawesome-webfont.woff2" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/i/app-icon72x72@2x.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/i/examples/admin-chrome.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/i/examples/admin-firefox.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/i/examples/admin-ie.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/i/examples/admin-opera.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/i/examples/admin-safari.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/i/examples/adminPage.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/i/examples/blogPage.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/i/examples/landing.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/i/examples/landingPage.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/i/examples/loginPage.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/i/examples/sidebarPage.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/i/favicon.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/i/startup-640x1096.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/32.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/43.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/a1.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/a10.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/a2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/a3.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/a4.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/a5.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/a6.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/a7.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/a8.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/a9.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/lbbg.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/logo.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/syncfusion-icons-white.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/user01.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/user02.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/user03.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/user04.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/user05.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/user06.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/img/user07.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/js/amazeui.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/js/app.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/js/echarts.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/js/iscroll.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/assets/js/jquery.min.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/chart.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/form-amazeui.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/form-line.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/form-news-list.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/form-news.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/index.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/indexbf.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/js/ajax.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/js/base.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/js/page/api/add.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/js/page/api/list.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/js/page/moudlar/add.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/js/page/moudlar/list.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/js/page/project/add.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/js/page/project/list.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/js/page/server/list.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/js/upload.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/login.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/page/api/edit.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/page/api/list.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/page/moudlar/edit.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/page/moudlar/list.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/page/project/edit.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/page/project/list.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/page/server/list.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/table-font-list.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/table-images-list.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/static/说明.txt" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/src/main/resources/zk.properties" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/1522821911745521605.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/1523155911675692601.mp4" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/1532527248508.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/153252737411546148.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/153260121528067724.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/153262387310120057.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/153284390110525359.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/153304598843280959.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/153369852242457290.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/153390984859683130.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/153399998039150465.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/153400001306692588.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/153400017041672906.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/153400028933950337.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/153561330916237031.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/JavaBox.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/javabuilder.jar" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/工作簿2.xlsx" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/java-box-web/upload/方正藏体简体.ttf" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/JavaBox_jar.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Arquillian_JUnit_Release.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_6.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_adyliu_zkclient_2_1_1.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_3_10_5_Final.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_all_4_1_26_Final.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jline_jline_0_9_94.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_0.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_16.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_pool2_2_4_2.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_zookeeper_zookeeper_3_4_5.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_6_1.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_6_1.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__redis_clients_jedis_2_9_0.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/JavaBox.iml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java-box-dev/java-box-dev.iml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java-box-dev/pom.xml" afterPath="$PROJECT_DIR$/java-box-dev/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/java-box-server/java-box-server.iml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java-box-server/pom.xml" afterPath="$PROJECT_DIR$/java-box-server/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/java-box-util/java-box-util.iml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/java-box-util/pom.xml" afterPath="$PROJECT_DIR$/java-box-util/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change beforePath="$PROJECT_DIR$/java-box-web/README.md" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/java-box-dev/target/" />
@@ -218,12 +18,36 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="135">
+                <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
       <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/README.md" />
+      </list>
     </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
@@ -284,6 +108,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="GO_FMT" value="false" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -461,12 +286,34 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1535617551474</updated>
-      <workItem from="1535617552918" duration="21000" />
+      <workItem from="1535617552918" duration="998000" />
     </task>
+    <task id="LOCAL-00001" summary="合并模块">
+      <created>1535617597559</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1535617597559</updated>
+    </task>
+    <task id="LOCAL-00002" summary="合并模块">
+      <created>1535617632406</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1535617632406</updated>
+    </task>
+    <task id="LOCAL-00003" summary="合并模块">
+      <created>1535617733979</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1535617733979</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21000" />
+    <option name="totallyTimeSpent" value="998000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="827" extended-state="6" />
@@ -510,9 +357,122 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="合并模块" />
+    <option name="LAST_COMMIT_MESSAGE" value="合并模块" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/service/ZookeeperService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="55" column="20" lean-forward="false" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/entity/vo/ServerNodeVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java-box-web/src/main/java/com/wzy/util/zookeeper/ZookeeperUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/jar/LoadJar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/jar/LoadJarImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/jar/loader/config/Jar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/ServerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/StartServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/work/proxy/BoxWorkProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/work/BoxWork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java-box-server/src/main/java/com/wzy/server/work/BoxWorkFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/java-box-dev/src/main/java/com/demo/UserWork.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="135">
+            <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>

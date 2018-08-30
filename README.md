@@ -7,11 +7,6 @@
 # 项目业务图
  ![Image 项目业务图](https://freenetfile.oss-ap-southeast-1.aliyuncs.com/javaBox%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B%E5%9B%BE.jpg)
 
-# 相关项目
-   https://github.com/lptnyy/java-box-api-service  管理后台接口服务
-   <br/>
-   https://github.com/lptnyy/java-box-web 后台管理页面
-   
 # 项目结构
 java-box-dev  开发打包jar模块
 <br/>
