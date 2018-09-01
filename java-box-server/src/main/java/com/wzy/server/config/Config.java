@@ -20,7 +20,9 @@ public class Config {
 
     // 初始化配置信息
     public static void initConfig(){
-        config.setPort(8000);
+        config.setAdminPort(8001);
+        config.setOpenAdmin(true);
+        config.setServerPort(8000);
         config.setServerMainPath("http://localhost:8762");
         config.setGetApiList("/butt/getApiList");
         config.setGetMouderList("/butt/getMoudularList");

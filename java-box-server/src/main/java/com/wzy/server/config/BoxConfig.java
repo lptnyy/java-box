@@ -9,7 +9,9 @@ public class BoxConfig {
     String regionServerIp;
     int regsionServerPort;
     int regsionServerTimeOut;
-    int port;
+    boolean openAdmin;
+    int adminPort;
+    int ServerPort;
 
     public int getRegsionServerTimeOut() {
         return regsionServerTimeOut;
@@ -75,11 +77,27 @@ public class BoxConfig {
         this.getApiList = getApiList;
     }
 
-    public int getPort() {
-        return port;
+    public int getAdminPort() {
+        return adminPort;
     }
 
-    public void setPort(int port) {
-        this.port = port;
+    public void setAdminPort(int adminPort) {
+        this.adminPort = adminPort;
+    }
+
+    public int getServerPort() {
+        return ServerPort;
+    }
+
+    public void setServerPort(int serverPort) {
+        ServerPort = serverPort;
+    }
+
+    public boolean getOpenAdmin() {
+        return openAdmin;
+    }
+
+    public void setOpenAdmin(boolean openAdmin) {
+        this.openAdmin = openAdmin;
     }
 }
