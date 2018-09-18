@@ -10,7 +10,6 @@
         <module name="java-box-dev" />
         <module name="java-box-server" />
         <module name="java-box-util" />
-        <module name="java-box-web" />
         <module name="JavaBoxWeb" />
       </profile>
     </annotationProcessing>
