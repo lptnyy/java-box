@@ -12,6 +12,7 @@
         <module>java-box-server</module>
         <module>java-box-dev</module>
         <module>java-box-api-service</module>
+        <module>java-box-web</module>
     </modules>
     <dependencies>
         <dependency>

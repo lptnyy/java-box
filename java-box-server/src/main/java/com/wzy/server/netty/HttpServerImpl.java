@@ -44,7 +44,7 @@ public class HttpServerImpl implements HttpServer {
                         }
                     }).option(ChannelOption.SO_BACKLOG, 128)
                     .childOption(ChannelOption.SO_KEEPALIVE, true);
-            ChannelFuture f = b.bind(Config.config.getPort()).sync();
+            ChannelFuture f = b.bind(Config.config.getServerPort()).sync();
             f.channel().closeFuture().sync();
         } finally {
             workerGroup.shutdownGracefully();

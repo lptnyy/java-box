@@ -11,6 +11,7 @@
         <module name="java-box-server" />
         <module name="java-box-util" />
         <module name="java-box-web" />
+        <module name="JavaBoxWeb" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
@@ -20,6 +21,7 @@
       <module name="java-box-util" target="1.8" />
       <module name="java-box-web" target="1.8" />
       <module name="JavaBox" target="1.5" />
+      <module name="JavaBoxWeb" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
