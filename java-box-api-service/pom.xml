@@ -15,13 +15,6 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <distributionManagement>
-        <repository>
-            <id>dev</id>
-            <url>http://192.168.30.199:8081/repository/maven-public/</url>
-        </repository>
-    </distributionManagement>
-
     <dependencies>
        <dependency>
             <groupId>org.springframework.boot</groupId>
