@@ -5,11 +5,20 @@ public class BoxMoudulaVo {
     Integer projectId;
     String moddularName;
     String moddularRoute;
+    String projectRoute;
     String jarName;
     String jarUrl;
     String jarVersion;
     Integer isUpdate;
     String jarMd5;
+
+    public String getProjectRoute() {
+        return projectRoute;
+    }
+
+    public void setProjectRoute(String projectRoute) {
+        this.projectRoute = projectRoute;
+    }
 
     public String getJarMd5() {
         return jarMd5;

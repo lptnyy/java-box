@@ -76,6 +76,13 @@ public class LoadJarImpl implements LoadJar{
         return apiVos;
     }
 
+    @Override
+    public boolean scanJar() {
+        return false;
+    }
+
+
+
 
     /**
      * 初始化接口jar 执行步骤2

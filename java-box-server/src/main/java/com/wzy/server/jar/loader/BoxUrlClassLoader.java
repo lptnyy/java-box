@@ -1,14 +1,23 @@
 package com.wzy.server.jar.loader;
 
+import com.wzy.server.jar.annotation.BoxApi;
+import com.wzy.server.jar.annotation.BoxModule;
+import com.wzy.server.jar.annotation.BoxProject;
+import com.wzy.server.jar.api.config.BoxApiVo;
+import com.wzy.server.jar.api.config.BoxMoudulaVo;
+import com.wzy.server.jar.api.config.BoxProjectVo;
 import com.wzy.server.jar.loader.config.Jar;
+import com.wzy.server.jar.loader.config.ScanJar;
 import sun.misc.ClassLoaderUtil;
 
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
+import java.net.JarURLConnection;
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 
 /**
  * 动态加载JAR
@@ -40,6 +49,84 @@ public class BoxUrlClassLoader {
         return true;
     }
 
+    public synchronized static ScanJar scanJar(Jar jarVo) throws Exception{
+        URL url = new URL("jar:"+jarVo.getJarDownUrl()+"!/");
+            JarURLConnection jarURLConnection = (JarURLConnection) url.openConnection();
+            JarFile jarFile = jarURLConnection.getJarFile();
+            Enumeration enu = jarFile.entries();
+            Map<String, Object> classMap = new HashMap<>();
+            while (enu.hasMoreElements()) {
+                JarEntry jarEntry = (JarEntry) enu.nextElement();
+                String name = jarEntry.getName();
+                if (name.endsWith(".class")) {
+                    System.out.println("name=" + name);
+                    String value = name.replace("/",".");
+                    classMap.put(name, value.substring(0, value.lastIndexOf(".")));
+                }
+        }
+        ScanJar scanJar = new ScanJar();
+        List<BoxProjectVo> boxProjectVos = new ArrayList<>();
+        List<BoxMoudulaVo> boxMoudulaVos = new ArrayList<>();
+        List<BoxApiVo> boxApiVos = new ArrayList<>();
+
+        URLClassLoader myClassLoader = new URLClassLoader( new URL[] { url } );
+        classMap.forEach((k,v) ->{
+            try {
+                Class classObj = myClassLoader.loadClass(v.toString());
+
+                // 获取类标记的注解信息
+                BoxProject boxProjectAn = (BoxProject) classObj.getAnnotation(BoxProject.class);
+                if (boxProjectAn != null) {
+
+                    // 封装项目信息
+                    BoxProjectVo boxProjectVo = new BoxProjectVo();
+                    boxProjectVo.setProjectName(boxProjectAn.name());
+                    boxProjectVo.setRoute(boxProjectAn.route());
+                    boxProjectVos.add(boxProjectVo);
+
+                    // 循环获取类中的方法
+                    Method[] publicMethod = classObj.getMethods();
+                    for (Method method: publicMethod) {
+
+                        // 获得方法标记的注解信息
+                        BoxApi boxApi = method.getAnnotation(BoxApi.class);
+                        BoxModule boxModule = method.getAnnotation(BoxModule.class);
+                        if (boxApi != null && boxModule != null) {
+
+                            // 封装模块信息
+                            BoxMoudulaVo moudulaVo = new BoxMoudulaVo();
+                            moudulaVo.setModdularName(boxModule.name());
+                            moudulaVo.setModdularRoute(boxModule.route());
+                            moudulaVo.setProjectRoute(boxProjectVo.getRoute());
+                            boxMoudulaVos.add(moudulaVo);
+
+                            // 封装接口访问信息
+                            BoxApiVo boxApiVo = new BoxApiVo();
+                            boxApiVo.setApiName(boxApi.name());
+                            boxApiVo.setApiRoute(boxApi.route());
+                            boxApiVo.setClassFuntion(method.getName());
+                            boxApiVo.setModurRoute(moudulaVo.getModdularRoute());
+                            boxApiVos.add(boxApiVo);
+                        }
+                    }
+                }
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+        });
+
+        // 释放jar
+        myClassLoader.close();
+        ClassLoaderUtil.releaseLoader(myClassLoader);
+        jarFile.close();
+
+        // 封装jar获取的注解信息 以及反馈
+        scanJar.setBoxApiVoList(boxApiVos);
+        scanJar.setBoxMoudulaVoList(boxMoudulaVos);
+        scanJar.setBoxProjectVo(boxProjectVos);
+        return scanJar;
+    }
+
     /**
      * 释放Jar
      * @param jarVo
@@ -66,7 +153,7 @@ public class BoxUrlClassLoader {
      * 获取所有已经加载的jar
      * @return
      */
-    public static List<Jar> getJarmaps(){
+    public static synchronized List<Jar> getJarmaps(){
         List<Jar> jars = new ArrayList<>();
         jarmaps.forEach((k,v) ->{
             jars.add(v);

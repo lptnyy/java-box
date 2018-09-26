@@ -94,7 +94,7 @@ public class ServerNode {
         userHome = System.getProperty("user.home");        //  用户的主目录
 
         userDir = System.getProperty("user.dir");  //当前程序的物理路径
-        port = Config.config.getPort();
+        port = Config.config.getServerPort();
         try {
             ip = IpUtil.getServerIp();
         } catch (UnknownHostException e) {
