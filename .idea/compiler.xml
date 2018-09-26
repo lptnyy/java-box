@@ -12,5 +12,12 @@
         <module name="java-box-util" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel target="1.8">
+      <module name="java-box-api-service" target="1.8" />
+      <module name="java-box-dev" target="1.8" />
+      <module name="java-box-server" target="1.8" />
+      <module name="java-box-util" target="1.5" />
+      <module name="JavaBox" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
