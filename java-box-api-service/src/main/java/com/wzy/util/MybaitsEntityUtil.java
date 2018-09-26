@@ -11,13 +11,13 @@ public class MybaitsEntityUtil {
 
     public static void main(String[] args) {
         MybaitsEntityUtil mybaist = new MybaitsEntityUtil();
-        mybaist.generate("box_moudularapi");
+        mybaist.generate("box_user");
     }
 
-    public static final String url = "jdbc:mysql://localhost:3306/java_box?useUnicode=true&characterEncoding=utf-8";
+    public static final String url = "jdbc:mysql://localhost:3306/java-box?useUnicode=true&characterEncoding=utf-8";
     public static final String name = "com.mysql.jdbc.Driver";
     public static final String user = "root";
-    public static final String password = "wangyang";
+    public static final String password = "74108520963.";
     public Connection conn = null;
     public PreparedStatement pst = null;
     public ResultSet resultSet = null;

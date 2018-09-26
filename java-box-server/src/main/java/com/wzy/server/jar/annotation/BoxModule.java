@@ -5,6 +5,6 @@ import java.lang.annotation.RetentionPolicy;
 
 @Retention(value= RetentionPolicy.RUNTIME)
 public @interface BoxModule {
-    String moduleName() default "";
-    String moduleRoute() default "";
+    String name();
+    String route();
 }

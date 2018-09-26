@@ -14,19 +14,30 @@
         <version>1.4.3.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
+    <distributionManagement>
+        <repository>
+            <id>dev</id>
+            <url>http://192.168.30.199:8081/repository/maven-public/</url>
+        </repository>
+    </distributionManagement>
+
+
     <dependencies>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka-server</artifactId>
+            <groupId>com.xqbase</groupId>
+            <artifactId>etcd4j</artifactId>
+            <version>1.2</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
-        </dependency>
-        <dependency>
+       <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.7</version>
         </dependency>
         <!-- mysql依赖 -->
         <dependency>
@@ -38,7 +49,6 @@
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>1.0.0</version>
-
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>

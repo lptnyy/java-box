@@ -5,6 +5,6 @@ import java.lang.annotation.RetentionPolicy;
 
 @Retention(value= RetentionPolicy.RUNTIME)
 public @interface BoxProject {
-    String projectName() default "";
-    String projectRoute() default "";
+    String name() default "";
+    String route() default "";
 }

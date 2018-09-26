@@ -1,24 +1,17 @@
 #端口
 server:
   port: 8762
-  tomcat:
-    accesslog:
-      enabled: true
-    basedir: target/tomcat
-
 
 spring:
-  cache: redis
   application:
     name: freenet-service-user
-
 
   #数据库链接
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/java_box?useUnicode=true&characterEncoding=utf-8
     username: root
-    password: wangyang
+    password: 74108520963.
 
   #redis 配置
   redis:
@@ -39,19 +32,10 @@ spring:
     multipart:
       max-file-size: 1000mb
       max-request-size: 1000mb
-    #sentinel:
-     # Redis服务器master的名字
-     # master: master8026
-     # redis-sentinel的配置地址和端口
-     # nodes: ip,ip,ip
   thymeleaf:
     cache: false
   mvc:
     static-path-pattern: /static/**
-
 mybatis:
   type-aliases-package: com.freenet.entity
-
-
-
 
