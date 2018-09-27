@@ -11,7 +11,7 @@ import io.netty.util.CharsetUtil;
 
 import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
 
-public class HttpCode {
+public class HttpCodePrint {
 
     public static void sendError(ChannelHandlerContext ctx, HttpResponseStatus status) {
         FullHttpResponse response = new DefaultFullHttpResponse(HTTP_1_1,
