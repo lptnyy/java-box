@@ -3,7 +3,6 @@ package com.wzy.server.config;
 import com.wzy.server.jar.LoadJarImpl;
 import com.wzy.util.log.BoxLog;
 import com.wzy.util.log.JavaBoxLog;
-
 /**
  * 系统配置
  */

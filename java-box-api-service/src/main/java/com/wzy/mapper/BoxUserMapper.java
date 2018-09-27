@@ -15,8 +15,8 @@ public interface BoxUserMapper {
     @Delete("delete from box_user t  where t.user_id=#{user_id}")
     int del(@Param(value = "user_id") Integer id);
 
-    @Select("select t.user_id,t.user_name,t.user_pass,t.user_stat,t.login_time,t.user_token,t.create_time from box_user t where t.user_id=#{user_id}")
-    BoxUser get(@Param(value = "user_id") Integer id);
+    @SelectProvider(type = BoxUserProvide.class, method = "get")
+    BoxUser get(Map map);
 
     @SelectProvider(type = BoxUserProvide.class, method = "getList")
     List<BoxUser> getList(Map map);
