@@ -1,7 +1,7 @@
 package com.wzy.server.http.request;
 
-import com.wzy.server.filter.HttpFilter;
-import com.wzy.server.filter.HttpFiterImpl;
+import com.wzy.server.http.filter.HttpFilter;
+import com.wzy.server.http.filter.HttpFiterImpl;
 import com.wzy.server.http.response.BoxHttpResponseImpl;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.*;

@@ -1,13 +1,14 @@
-package com.wzy.server.filter;
-
+package com.wzy.server.http.filter;
 import com.wzy.server.config.Config;
 import com.wzy.server.http.request.BoxHttpRequest;
 import com.wzy.server.http.request.HttpCode;
 import com.wzy.server.http.response.BoxHttpResponse;
+import com.wzy.util.time.DateUtil;
 import io.netty.channel.ChannelHandlerContext;
 
-import static io.netty.handler.codec.http.HttpResponseStatus.NOT_FOUND;
+import java.util.Date;
 
+import static io.netty.handler.codec.http.HttpResponseStatus.NOT_FOUND;
 public class HttpFiterImpl implements HttpFilter {
 
     @Override
@@ -18,10 +19,11 @@ public class HttpFiterImpl implements HttpFilter {
     @Override
     public void service(ChannelHandlerContext chx, BoxHttpRequest request, BoxHttpResponse response) {
         try {
+            Config.log.visit("url:"+request.uri()+",times:"+ DateUtil.getyyMMddHHmmss(new Date()));
             if(Config.loadJar.runClass(request,response)){
 
             } else {
-
+                HttpCode.sendError(chx, NOT_FOUND);
             };
         } catch (Exception e) {
             HttpCode.sendError(chx, NOT_FOUND);

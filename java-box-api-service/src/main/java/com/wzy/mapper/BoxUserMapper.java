@@ -16,7 +16,7 @@ public interface BoxUserMapper {
     int del(@Param(value = "user_id") Integer id);
 
     @SelectProvider(type = BoxUserProvide.class, method = "get")
-    BoxUser get(Map map);
+    BoxUser get(int id);
 
     @SelectProvider(type = BoxUserProvide.class, method = "getList")
     List<BoxUser> getList(Map map);

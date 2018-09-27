@@ -8,7 +8,6 @@ import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.ZooKeeper;
 
 public class JarWatch implements Watcher{
-
     String path;
     ZooKeeper zooKeeper;
     RegionServer regionServer;

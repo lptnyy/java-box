@@ -81,9 +81,6 @@ public class LoadJarImpl implements LoadJar{
         return false;
     }
 
-
-
-
     /**
      * 初始化接口jar 执行步骤2
      * @throws Exception
@@ -113,6 +110,7 @@ public class LoadJarImpl implements LoadJar{
             uri = request.uri();
         }
         BoxApiVo boxApiVo = addApiVoMaps.get(uri);
+        if (boxApiVo == null) return false;
         Jar jarVo = BoxUrlClassLoader.getJar(boxApiVo.getModurRoute());
         Class objClass = jarVo.getClassLoader().loadClass(boxApiVo.getClassFuntion());
         Object obj = objClass.newInstance();
