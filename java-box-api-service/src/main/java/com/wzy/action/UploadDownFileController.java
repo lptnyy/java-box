@@ -1,8 +1,12 @@
 package com.wzy.action;
 
+import com.wzy.server.jar.loader.BoxUrlClassLoader;
+import com.wzy.server.jar.loader.config.Jar;
+import com.wzy.server.jar.loader.config.ScanJar;
 import com.wzy.util.BaseController;
 import com.wzy.util.exception.MyExceptionUtil;
 import com.wzy.util.jsonvo.JsonVo;
+import com.wzy.util.upload.FileVo;
 import com.wzy.util.upload.UploadUtil;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.ResponseEntity;
@@ -32,6 +36,34 @@ public class UploadDownFileController extends BaseController{
                 .setBusiness(jsonVo -> {
                     try{
                         jsonVo.setObject(UploadUtil.uploadRandomFile(file));
+                    }catch (Exception e){
+                        MyExceptionUtil.error(e);
+                        jsonVo.setBody(e.getMessage(),false);
+                    }
+                    return jsonVo;
+                }).init().returnJsonString();
+    }
+
+    /**
+     * 上传文件
+     * @param file
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/uploadPlJar", method = RequestMethod.POST)
+    public String uploadPlJar(@RequestParam("file") MultipartFile file, HttpServletRequest request){
+        String option = request.getMethod();
+        return new JsonVo()
+                .setResult(true)
+                .setBusiness(jsonVo -> {
+                    try{
+                        FileVo fileVo = UploadUtil.uploadRandomFile(file);
+                        String baseUtl = System.getProperty("user.dir");
+                        String dpwnUrl = baseUtl+fileVo.getFileUrl();
+                        Jar jarVo = new Jar();
+                        jarVo.setJarDownUrl("file:"+dpwnUrl);
+                        ScanJar scanJar = BoxUrlClassLoader.scanJar(jarVo);
+                        System.out.println();
                     }catch (Exception e){
                         MyExceptionUtil.error(e);
                         jsonVo.setBody(e.getMessage(),false);
