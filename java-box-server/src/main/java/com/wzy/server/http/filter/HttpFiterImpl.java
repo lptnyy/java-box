@@ -22,12 +22,15 @@ public class HttpFiterImpl implements HttpFilter {
     @Override
     public void service(ChannelHandlerContext chx, BoxHttpRequest request, BoxHttpResponse response) {
         try {
-            Config.log.visit("url:"+request.uri()+",times:"+ DateUtil.getyyMMddHHmmss(new Date()));
+            long startTimes = System.currentTimeMillis();
             if(Config.loadJar.runClass(request,response)){
 
             } else {
                 HttpCodePrint.sendError(chx, NOT_FOUND);
             };
+            long endTimes = System.currentTimeMillis();
+            request.setRunTime(endTimes-startTimes);
+            httpMonitor.monitor(chx,request,response);
         } catch (Exception e) {
             HttpCodePrint.sendError(chx, NOT_FOUND);
             Config.log.error(e);
