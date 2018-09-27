@@ -26,4 +26,9 @@ public class BoxLog implements JavaBoxLog {
     {
         e.printStackTrace();
     }
+
+    @Override
+    public void visit(String info) {
+        System.out.println(info);
+    }
 }

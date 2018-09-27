@@ -7,7 +7,7 @@ import com.wzy.server.region.ServerNode;
 import com.wzy.server.region.zookeeper.ZkServer;
 
 public class StartServer {
-    
+
     public static void main(String[] args) throws Exception {
         Config.initConfig();
         ServerNode node = new ServerNode();

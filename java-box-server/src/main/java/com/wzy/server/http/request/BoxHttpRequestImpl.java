@@ -10,6 +10,7 @@ import java.util.Map;
 
 public class BoxHttpRequestImpl implements BoxHttpRequest {
     Map<String,Object> requestMaps = new HashMap<>();
+    long times;
     String method;
     String uri;
     InputStream inputStream;
@@ -101,5 +102,15 @@ public class BoxHttpRequestImpl implements BoxHttpRequest {
     @Override
     public void setChx(ChannelHandlerContext chx) {
         this.chx = chx;
+    }
+
+    @Override
+    public long getRunTime() {
+        return times;
+    }
+
+    @Override
+    public void setRunTime(long times) {
+        this.times = times;
     }
 }

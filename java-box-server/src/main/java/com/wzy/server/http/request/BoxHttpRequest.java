@@ -23,4 +23,6 @@ public interface BoxHttpRequest {
     public void setHeader(String key, String value);
     public ChannelHandlerContext getChx();
     public void setChx(ChannelHandlerContext chx);
+    public long getRunTime();
+    public void setRunTime(long times);
 }

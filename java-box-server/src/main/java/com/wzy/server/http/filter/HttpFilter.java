@@ -1,4 +1,4 @@
-package com.wzy.server.filter;
+package com.wzy.server.http.filter;
 
 import com.wzy.server.http.request.BoxHttpRequest;
 import com.wzy.server.http.response.BoxHttpResponse;

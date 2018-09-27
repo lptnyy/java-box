@@ -6,4 +6,5 @@ public interface JavaBoxLog {
     void debug(String info);
     void warning(String info);
     void error(Exception e);
+    void visit(String info);
 }
