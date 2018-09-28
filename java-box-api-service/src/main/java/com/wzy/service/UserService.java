@@ -78,4 +78,14 @@ public class UserService implements BaseServiceI<BoxUserVo>, UserServiceI {
         boxUserVo.setCreate_time(DateUtil.getyyMMddHHmmss(boxUser.getCreate_time()));
         return boxUserVo;
     }
+
+    @Override
+    public boolean checkUserToken(String userId, String token) {
+        Map<String, String> keys = new HashMap<>();
+        keys.put("user_id", userId);
+        keys.put("user_token", token);
+        BoxUser boxUser = boxUserMapper.get(keys);
+        if (boxUser == null) return false;
+        return true;
+    }
 }

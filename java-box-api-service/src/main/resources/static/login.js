@@ -1,5 +1,4 @@
 layui.define(['element'],function(exports){
-
     var $ = layui.$;
     $('.input-field').on('change',function(){
         var $this = $(this),
@@ -11,7 +10,6 @@ layui.define(['element'],function(exports){
             $parent.removeClass('field-focus');
         }
     })
-    
     $('.login-button').on('click', function(){
    		var user_name = $("#username").val();
    		var user_pass = $("#password").val();

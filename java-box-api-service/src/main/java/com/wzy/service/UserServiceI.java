@@ -11,4 +11,12 @@ public interface UserServiceI {
      * @return
      */
     public BoxUserVo checkUser(String userName, String passWord);
+
+    /**
+     * 验证用户的token是否正确
+     * @param userId
+     * @param token
+     * @return
+     */
+    public boolean checkUserToken(String userId, String token);
 }
