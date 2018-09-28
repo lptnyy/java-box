@@ -1,51 +1,39 @@
-<!doctype html>
-<html>
-
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Amaze UI Admin index Examples</title>
-  <meta name="description" content="这是一个 index 页面">
-  <meta name="keywords" content="index">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <link rel="icon" type="image/png" href="assets/i/favicon.png">
-  <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
-  <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-  <link rel="stylesheet" href="assets/css/amazeui.min.css" />
-  <link rel="stylesheet" href="assets/css/admin.css">
-  <link rel="stylesheet" href="assets/css/app.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="assets/css/layui.css">
+    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="icon" href="/favicon.ico">
+    <title>JavaBox</title>
 </head>
-
-<body data-type="login">
-  <div class="am-g myapp-login">
-	<div class="myapp-login-logo-block  tpl-login-max">
-		<div class="myapp-login-logo-text">
-			<div class="myapp-login-logo-text">
-				Amaze UI<span> Login</span> <i class="am-icon-skyatlas"></i>
-			</div>
-		</div>
-		<div class="login-font">
-			<i>Log In </i> or <span> Sign Up</span>
-		</div>
-		<div class="am-u-sm-10 login-am-center">
-			<form class="am-form">
-				<fieldset>
-					<div class="am-form-group">
-						<input type="email" class="" id="doc-ipt-email-1" placeholder="输入电子邮件">
-					</div>
-					<div class="am-form-group">
-						<input type="password" class="" id="doc-ipt-pwd-1" placeholder="设置个密码吧">
-					</div>
-					<p><button type="submit" class="am-btn am-btn-default">登录</button></p>
-				</fieldset>
-			</form>
-		</div>
-	</div>
-</div>
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/amazeui.min.js"></script>
-  <script src="assets/js/app.js"></script>
+<body class="login-wrap">
+    <div class="login-container">
+        <form class="login-form">
+            <div class="input-group" style="text-align: center; font-weight: bold;">
+                    <span class="label-title layui-text">JavaBox</span>
+            </div>
+            <div class="input-group">
+                <input type="text" id="username" class="input-field">
+                <label for="username" class="input-label">
+                    <span class="label-title">用户名</span>
+                </label>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" class="input-field">
+                <label for="password" class="input-label">
+                    <span class="label-title">密码</span>
+                </label>
+            </div>
+            <button type="button" class="login-button">登录<i class="ai ai-enter"></i></button>
+        </form>
+    </div>
 </body>
+<script src="assets/layui.js"></script>
+<script src="index.js" data-main="login"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/base.js"></script>
+<script src="js/ajax.js"></script>
 </html>

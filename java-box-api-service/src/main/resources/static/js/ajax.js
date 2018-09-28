@@ -3,7 +3,7 @@ var Ajax = function() {
 		data.jsonp=true;
 		$.ajax({  
 				data: data,
-                url: javaurl+url,  
+                url: baseUrl+url,  
                 type: 'get',  
                 dataType: 'jsonp',  
                 timeout: 1000,  

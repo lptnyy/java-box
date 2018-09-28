@@ -9,7 +9,7 @@ spring:
   #数据库链接
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/java_box?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://127.0.0.1:3306/java_box?useUnicode=true&characterEncoding=utf-8
     username: root
     password: wangyang
 
