@@ -10,13 +10,21 @@ public class Login {
     String user_pass;
     @IsNotNull(message = "账号不能为空")
     String user_name;
-
+    String jsonp;
     public String getUser_name() {
         return user_name;
     }
 
     public void setUser_name(String user_name) {
         this.user_name = user_name;
+    }
+
+    public String getJsonp() {
+        return jsonp;
+    }
+
+    public void setJsonp(String jsonp) {
+        this.jsonp = jsonp;
     }
 
     public String getUser_pass() {

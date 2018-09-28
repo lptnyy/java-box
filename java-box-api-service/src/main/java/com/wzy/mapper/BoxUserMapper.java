@@ -15,9 +15,12 @@ public interface BoxUserMapper {
     @Delete("delete from box_user t  where t.user_id=#{user_id}")
     int del(@Param(value = "user_id") Integer id);
 
+    @Update("update box_user set user_token=#{token} where user_id=#{user_id}")
+    int updateToKen(@Param(value = "user_id") int id,@Param(value ="token") String token);
+
     @SelectProvider(type = BoxUserProvide.class, method = "get")
-    BoxUser get(int id);
+    BoxUser get(@Param(value = "keys") Map map);
 
     @SelectProvider(type = BoxUserProvide.class, method = "getList")
-    List<BoxUser> getList(Map map);
+    List<BoxUser> getList(@Param(value = "keys") Map map);
 }

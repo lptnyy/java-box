@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 
 @RestController
+@RequestMapping("user")
 public class UploadDownFileController extends BaseController{
 
     /**

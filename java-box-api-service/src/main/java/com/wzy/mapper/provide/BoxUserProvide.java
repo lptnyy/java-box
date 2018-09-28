@@ -11,6 +11,14 @@ public class BoxUserProvide {
     }
 
     public String get(Map map) {
-        return "";
+        Map<String, String> keys = (Map<String, String>) map.get("keys");
+        StringBuffer sql = new StringBuffer();
+        sql.append(selectSql);
+        sql.append(" where 1=1 ");
+        keys.forEach((k,v) ->{
+            sql.append(" and t."+k+"='"+v+"'");
+        });
+        System.out.println(sql.toString());
+        return sql.toString();
     }
 }

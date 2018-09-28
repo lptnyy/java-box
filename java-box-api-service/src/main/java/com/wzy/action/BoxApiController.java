@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
+@RequestMapping(value = "user")
 public class BoxApiController {
 
     @Autowired

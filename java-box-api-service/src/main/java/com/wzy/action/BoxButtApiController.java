@@ -1,18 +1,11 @@
 package com.wzy.action;
 
-import com.wzy.action.parameter.api.AddApi;
-import com.wzy.action.parameter.api.GetApiLIst;
-import com.wzy.action.parameter.api.IdApi;
 import com.wzy.action.parameter.butt.ButtApi;
 import com.wzy.action.parameter.butt.ButtModular;
-import com.wzy.entity.vo.BoxApiVo;
 import com.wzy.service.ButtApiService;
-import com.wzy.util.MapUtil;
 import com.wzy.util.annotation.factory.Verification;
-import com.wzy.util.base.BaseServiceI;
 import com.wzy.util.exception.MyExceptionUtil;
 import com.wzy.util.jsonvo.JsonVo;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -4,13 +4,19 @@ import com.wzy.entity.BoxUser;
 import com.wzy.entity.vo.BoxUserVo;
 import com.wzy.mapper.BoxUserMapper;
 import com.wzy.util.DateUtil;
+import com.wzy.util.RandomUtil;
 import com.wzy.util.base.BaseServiceI;
 import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class UserService implements BaseServiceI<BoxUserVo> {
+@Service
+public class UserService implements BaseServiceI<BoxUserVo>, UserServiceI {
 
     @Resource
     BoxUserMapper boxUserMapper;
@@ -36,12 +42,7 @@ public class UserService implements BaseServiceI<BoxUserVo> {
 
     @Override
     public BoxUserVo get(int id) throws Exception {
-        BoxUserVo boxUserVo = new BoxUserVo();
-        BoxUser boxUser = boxUserMapper.get(id);
-        BeanUtils.copyProperties(boxUser, boxUserVo);
-        boxUserVo.setCreate_time(DateUtil.getyyMMddHHmmss(boxUser.getCreate_time()));
-        boxUserVo.setLogin_time(DateUtil.getyyMMddHHmmss(boxUser.getLogin_time()));
-        return boxUserVo;
+       return null;
     }
 
     @Override
@@ -57,5 +58,24 @@ public class UserService implements BaseServiceI<BoxUserVo> {
     @Override
     public int getFindListCount(Map<String, Object> keys) {
         return 0;
+    }
+
+
+    @Override
+    @Transactional
+    public BoxUserVo checkUser(String userName, String passWord) {
+        Map<String, String> keys = new HashMap<>();
+        keys.put("user_name", userName);
+        keys.put("user_pass", passWord);
+        BoxUserVo boxUserVo = new BoxUserVo();
+        BoxUser boxUser = boxUserMapper.get(keys);
+        if (boxUser == null) return null;
+        String code = RandomUtil.getOrderNum();
+        boxUserMapper.updateToKen(boxUser.getUser_id(), code);
+        BeanUtils.copyProperties(boxUser, boxUserVo);
+        boxUserVo.setUser_token(code);
+        boxUserVo.setLogin_time(DateUtil.getyyMMddHHmmss(boxUser.getLogin_time()));
+        boxUserVo.setCreate_time(DateUtil.getyyMMddHHmmss(boxUser.getCreate_time()));
+        return boxUserVo;
     }
 }

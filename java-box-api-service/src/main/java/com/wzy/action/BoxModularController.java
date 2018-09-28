@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
+@RequestMapping("user")
 public class BoxModularController {
 
     @Autowired
