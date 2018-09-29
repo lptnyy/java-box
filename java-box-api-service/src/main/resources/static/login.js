@@ -1,5 +1,4 @@
 layui.define(['element'],function(exports){
-
     var $ = layui.$;
     $('.input-field').on('change',function(){
         var $this = $(this),
