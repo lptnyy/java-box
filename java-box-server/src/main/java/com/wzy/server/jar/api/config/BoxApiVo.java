@@ -9,9 +9,27 @@ public class BoxApiVo {
     String classFuntion;
     Integer sendStat;
     String createTime;
+    String packageClass;
+    String projectRoute;
 
     public Integer getApiId() {
         return apiId;
+    }
+
+    public String getPackageClass() {
+        return packageClass;
+    }
+
+    public String getProjectRoute() {
+        return projectRoute;
+    }
+
+    public void setProjectRoute(String projectRoute) {
+        this.projectRoute = projectRoute;
+    }
+
+    public void setPackageClass(String packageClass) {
+        this.packageClass = packageClass;
     }
 
     public void setApiId(Integer apiId) {

@@ -1,8 +1,7 @@
 package com.wzy.server.jar.loader;
 
 import com.wzy.server.jar.annotation.BoxApi;
-import com.wzy.server.jar.annotation.BoxModule;
-import com.wzy.server.jar.annotation.BoxProject;
+import com.wzy.server.jar.annotation.BoxApp;
 import com.wzy.server.jar.api.config.BoxApiVo;
 import com.wzy.server.jar.api.config.BoxMoudulaVo;
 import com.wzy.server.jar.api.config.BoxProjectVo;
@@ -10,7 +9,6 @@ import com.wzy.server.jar.loader.config.Jar;
 import com.wzy.server.jar.loader.config.ScanJar;
 import sun.misc.ClassLoaderUtil;
 
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.net.JarURLConnection;
 import java.net.URL;
@@ -66,7 +64,6 @@ public class BoxUrlClassLoader {
         }
         ScanJar scanJar = new ScanJar();
         List<BoxProjectVo> boxProjectVos = new ArrayList<>();
-        List<BoxMoudulaVo> boxMoudulaVos = new ArrayList<>();
         List<BoxApiVo> boxApiVos = new ArrayList<>();
 
         URLClassLoader myClassLoader = new URLClassLoader( new URL[] { url } );
@@ -75,13 +72,13 @@ public class BoxUrlClassLoader {
                 Class classObj = myClassLoader.loadClass(v.toString());
 
                 // 获取类标记的注解信息
-                BoxProject boxProjectAn = (BoxProject) classObj.getAnnotation(BoxProject.class);
-                if (boxProjectAn != null) {
+                BoxApp boxAppAn = (BoxApp) classObj.getAnnotation(BoxApp.class);
+                if (boxAppAn != null) {
 
                     // 封装项目信息
                     BoxProjectVo boxProjectVo = new BoxProjectVo();
-                    boxProjectVo.setProjectName(boxProjectAn.name());
-                    boxProjectVo.setRoute(boxProjectAn.route());
+                    boxProjectVo.setProjectName(boxAppAn.name());
+                    boxProjectVo.setRoute(boxAppAn.route());
                     boxProjectVos.add(boxProjectVo);
 
                     // 循环获取类中的方法
@@ -90,22 +87,14 @@ public class BoxUrlClassLoader {
 
                         // 获得方法标记的注解信息
                         BoxApi boxApi = method.getAnnotation(BoxApi.class);
-                        BoxModule boxModule = method.getAnnotation(BoxModule.class);
-                        if (boxApi != null && boxModule != null) {
-
-                            // 封装模块信息
-                            BoxMoudulaVo moudulaVo = new BoxMoudulaVo();
-                            moudulaVo.setModdularName(boxModule.name());
-                            moudulaVo.setModdularRoute(boxModule.route());
-                            moudulaVo.setProjectRoute(boxProjectVo.getRoute());
-                            boxMoudulaVos.add(moudulaVo);
-
+                        if (boxApi != null) {
                             // 封装接口访问信息
                             BoxApiVo boxApiVo = new BoxApiVo();
                             boxApiVo.setApiName(boxApi.name());
                             boxApiVo.setApiRoute(boxApi.route());
                             boxApiVo.setClassFuntion(method.getName());
-                            boxApiVo.setModurRoute(moudulaVo.getModdularRoute());
+                            boxApiVo.setProjectRoute(boxProjectVo.getRoute());
+                            boxApiVo.setPackageClass(v.toString());
                             boxApiVos.add(boxApiVo);
                         }
                     }
@@ -122,7 +111,6 @@ public class BoxUrlClassLoader {
 
         // 封装jar获取的注解信息 以及反馈
         scanJar.setBoxApiVoList(boxApiVos);
-        scanJar.setBoxMoudulaVoList(boxMoudulaVos);
         scanJar.setBoxProjectVo(boxProjectVos);
         return scanJar;
     }
