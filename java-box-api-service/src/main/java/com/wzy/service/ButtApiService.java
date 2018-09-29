@@ -1,18 +1,15 @@
 package com.wzy.service;
-
-import com.wzy.entity.BoxApi;
-import com.wzy.entity.BoxMoudula;
-import com.wzy.entity.BoxProject;
-import com.wzy.entity.vo.BoxApiVo;
-import com.wzy.entity.vo.BoxMoudulaVo;
-import com.wzy.entity.vo.BoxProjectVo;
-import com.wzy.mapper.BoxApiMapper;
-import com.wzy.mapper.BoxMoudulaMapper;
-import com.wzy.mapper.BoxProjectMapper;
+import com.wzy.entity.*;
+import com.wzy.entity.vo.BoxAppVo;
+import com.wzy.mapper.*;
+import com.wzy.mapper.table.TabBoxApp;
+import com.wzy.server.jar.loader.config.ScanJar;
 import com.wzy.util.DateUtil;
+import com.wzy.util.PageUtil;
+import com.wzy.util.upload.FileVo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
-
+import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,67 +20,96 @@ import java.util.Map;
 public class ButtApiService{
 
     @Resource
-    BoxApiMapper apiMapper;
+    BoxAppMapper boxAppMapper;
     @Resource
-    BoxProjectMapper projectMapper;
-    @Resource
-    BoxMoudulaMapper moudulaMapper;
+    BoxAppApiMapper boxAppApiMapper;
 
     /**
-     * 根据模块ID获取所有api接口
-     * @param moudularId
+     * 通过上传添加应用信息，通过扫描注解生成项目信息
+     * @param scanJar
+     * @param fileVo
      * @return
      * @throws Exception
      */
-    public List<BoxApiVo> getApiList(Integer moudularId) throws Exception{
-        Map map = new HashMap();
-        map.put("moudularId", moudularId);
-        List<BoxApi> apiList = apiMapper.getList(0,Integer.MAX_VALUE, map);
-        List<BoxApiVo> apiVos = new ArrayList<>();
-        apiList.forEach(boxApi -> {
-            BoxApiVo apiVo = new BoxApiVo();
-            BeanUtils.copyProperties(boxApi,apiVo);
-            apiVo.setCreateTime(DateUtil.getyyMMddHHmmss(boxApi.getCreateTime()));
-            apiVos.add(apiVo);
+    @Transactional
+    public boolean addProject(ScanJar scanJar, FileVo fileVo) throws Exception{
+        scanJar.getBoxProjectVo().forEach(boxProjectVo -> {
+
+            // 查看項目是否存在不存在插入新數據
+            BoxApp boxApp = boxAppMapper.getRouteApp(boxProjectVo.getRoute());
+            if (boxApp == null) {
+                boxApp = new BoxApp();
+                boxApp.setJarMd5(fileVo.getFileMd5());
+                boxApp.setJarName(fileVo.getFileName());
+                boxApp.setJarUrl(fileVo.getFileUrl());
+                boxApp.setName(boxProjectVo.getProjectName());
+                boxApp.setRoute(boxProjectVo.getRoute());
+                boxApp.setStats(0);
+                boxAppMapper.add(boxApp);
+            } else {
+                boxApp.setJarMd5(fileVo.getFileMd5());
+                boxApp.setJarName(fileVo.getFileName());
+                boxApp.setJarUrl(fileVo.getFileUrl());
+                boxApp.setName(boxProjectVo.getProjectName());
+                boxApp.setRoute(boxProjectVo.getRoute());
+                boxAppMapper.update(boxApp);
+            }
+
+            // 生成访问接口信息
+            BoxApp finalBoxApp = boxApp;
+            scanJar.getBoxApiVoList().forEach(boxApiVo -> {
+                BoxAppApi boxAppApi = boxAppApiMapper.getRouteAppApi(boxApiVo.getApiRoute(), finalBoxApp.getAppId().toString());
+                if (boxAppApi == null) {
+                    boxAppApi = new BoxAppApi();
+                    boxAppApi.setAppId(finalBoxApp.getAppId());
+                    boxAppApi.setJarMd5(finalBoxApp.getJarMd5());
+                    boxAppApi.setStats(0);
+                    boxAppApi.setName(boxApiVo.getApiName());
+                    boxAppApi.setRoute(boxApiVo.getApiRoute());
+                    boxAppApi.setRunClass(boxApiVo.getPackageClass());
+                    boxAppApi.setRunFunction(boxApiVo.getClassFuntion());
+                    boxAppApi.setLinkUrl(finalBoxApp.getRoute()+boxApiVo.getApiRoute());
+                    boxAppApiMapper.add(boxAppApi);
+                } else {
+                    boxAppApi.setAppId(finalBoxApp.getAppId());
+                    boxAppApi.setJarMd5(finalBoxApp.getJarMd5());
+                    boxAppApi.setStats(0);
+                    boxAppApi.setName(boxApiVo.getApiName());
+                    boxAppApi.setRoute(boxApiVo.getApiRoute());
+                    boxAppApi.setRunClass(boxApiVo.getPackageClass());
+                    boxAppApi.setRunFunction(boxApiVo.getClassFuntion());
+                    boxAppApi.setLinkUrl(finalBoxApp.getRoute()+boxApiVo.getApiRoute());
+                    boxAppApiMapper.update(boxAppApi);
+                }
+            });
         });
-        return apiVos;
+       return false;
     }
 
     /**
-     * 获取所有项目
+     * 分页查询应用列表
+     * @param appName
+     * @param pageNo
+     * @param pageSize
      * @return
      * @throws Exception
      */
-   public List<BoxProjectVo> getProjectList() throws Exception{
-        Map map = new HashMap();
-        List<BoxProject> apiList = projectMapper.getList(map,0,Integer.MAX_VALUE);
-        List<BoxProjectVo> apiVos = new ArrayList<>();
-        apiList.forEach(boxApi -> {
-            BoxProjectVo apiVo = new BoxProjectVo();
-            BeanUtils.copyProperties(boxApi,apiVo);
-            apiVo.setCreateTime(DateUtil.getyyMMddHHmmss(boxApi.getCreateTime()));
-            apiVos.add(apiVo);
-        });
-        return apiVos;
-    }
+    public List<BoxAppVo> getList(String appName, int pageNo, int pageSize) throws Exception {
+        // 组合查询语句
+        Map<String,String> keys = new HashMap<>();
+        keys.put(TabBoxApp.NAME, "like '%"+appName+"%'");
+        pageNo = PageUtil.returnPageNo(pageNo,pageSize);
+        keys.put("pageNo", pageNo+"");
+        keys.put("pageSize", pageSize+"");
 
-    /**
-     * 获取所有模块
-     * @param projectId
-     * @return
-     * @throws Exception
-     */
-   public List<BoxMoudulaVo> getMoudulaList(Integer projectId) throws Exception{
-        Map map = new HashMap();
-        map.put("projectId", projectId);
-        List<BoxMoudula> apiList = moudulaMapper.getlist(map, 0,Integer.MAX_VALUE);
-        List<BoxMoudulaVo> apiVos = new ArrayList<>();
-        apiList.forEach(boxApi -> {
-            BoxMoudulaVo apiVo = new BoxMoudulaVo();
-            BeanUtils.copyProperties(boxApi,apiVo);
-            apiVo.setCreateTime(DateUtil.getyyMMddHHmmss(boxApi.getCreateTime()));
-            apiVos.add(apiVo);
+        // 查询数据
+        List<BoxAppVo> boxAppVos = new ArrayList<>();
+        boxAppMapper.getList(keys).forEach(boxApp -> {
+            BoxAppVo boxAppVo = new BoxAppVo();
+            BeanUtils.copyProperties(boxApp,boxAppVo);
+            boxAppVo.setCreateTime(DateUtil.getyyMMddHHmmss(boxApp.getCreateTime()));
+            boxAppVos.add(boxAppVo);
         });
-        return apiVos;
+        return boxAppVos;
     }
 }

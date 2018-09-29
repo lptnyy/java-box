@@ -11,7 +11,7 @@ public class MybaitsEntityUtil {
 
     public static void main(String[] args) {
         MybaitsEntityUtil mybaist = new MybaitsEntityUtil();
-        mybaist.generate("box_user");
+        mybaist.generate("box_app");
     }
     public static final String url = "jdbc:mysql://localhost:3306/java_box?useUnicode=true&characterEncoding=utf-8";
     public static final String name = "com.mysql.jdbc.Driver";
@@ -58,6 +58,23 @@ public class MybaitsEntityUtil {
 
     // 生成实体类
     public void generateEntity(List<TableClass> tableLs, String tableName){
+
+        System.out.println("生成表数据静态类表结构 start");
+        String[] tableNameSz = tableName.split("_");
+        String tableNameSx = "";
+        for(String name: tableNameSz) {
+            tableNameSx+=name.substring(0,1).toUpperCase().concat(name.substring(1).toLowerCase());
+        }
+        String classStr = "public class Tab"+tableNameSx+" {"+"\n";
+        for (TableClass tableClass: tableLs) {
+            classStr += "   public static final String "+tableClass.getTabname().toUpperCase()+" = \""+tableClass.getTabname()+"\";\n";
+        }
+        classStr += "}";
+        System.out.println(classStr);
+
+        System.out.println("生成表数据静态类表结构 end");
+
+
         System.out.println("生成实体类Start------------------------------------------");
         System.out.println("");
 

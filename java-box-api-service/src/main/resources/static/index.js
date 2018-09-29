@@ -11,7 +11,8 @@
         // 如果你在引入此脚本的script标签上没有设置data-main属性，程序将会默认访问home.js文件
         app = {
             home : '{/}home',
-            login : '{/}login'
+            login : '{/}login',
+            commonAjax : 'commonAjax'
         };
 
     (function(){
@@ -27,9 +28,7 @@
         [].slice.call(scripts).forEach(eachScripts);
 
     })();
-
     layui.config({
         base: 'assets/lay/modules/'
     }).extend(app).use(entry || 'home');
-
 })();

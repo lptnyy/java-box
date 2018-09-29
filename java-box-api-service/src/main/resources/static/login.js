@@ -16,7 +16,9 @@ layui.define(['element'],function(exports){
    		var data = new Object();
    		data.user_name = user_name;
    		data.user_pass = user_pass;
-   		ajax.ajaxGet(login, data, function(result){
+   		layui.use(['commonAjax'], function () {        
+			var commajax = layui.commonAjax;
+			commajax.ajax(login, data, function(result){
    			if (result.result) {
    				var user_id = result.object.user_id;
    				var user_token = result.object.user_token;
@@ -28,9 +30,10 @@ layui.define(['element'],function(exports){
    			} else {
    				alert(result.msg);
    			}
-   		}, function(error){
-   			alert(error);	
-   		});
+   			}, function(error){
+     			alert(error);	
+     		});
+   		})
     })
     exports('login');
 });

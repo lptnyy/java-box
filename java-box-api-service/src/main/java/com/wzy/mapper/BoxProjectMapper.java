@@ -19,6 +19,14 @@ public interface BoxProjectMapper {
     public BoxProject get(int id);
 
     /**
+     * 通過訪問路徑獲取項目信息
+     * @param route
+     * @return
+     */
+    @Select("select t.projectId,t.projectName,t.Route,t.openStat,t.createTime from box_project t where t.Route=#{route}")
+    public BoxProject getRoute(@Param(value = "route") String route);
+
+    /**
      * 删除一条数据
      * @param id
      * @return
@@ -32,6 +40,7 @@ public interface BoxProjectMapper {
      * @return
      */
     @Insert("insert into box_project(projectId,projectName,Route,openStat,createTime) values (#{projectId},#{projectName},#{Route},#{openStat},#{createTime})")
+    @Options(useGeneratedKeys=true, keyProperty="projectId", keyColumn="projectId")
     public int save(BoxProject boxProject);
 
     /**

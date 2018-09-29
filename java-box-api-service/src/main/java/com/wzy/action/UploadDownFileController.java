@@ -3,11 +3,13 @@ package com.wzy.action;
 import com.wzy.server.jar.loader.BoxUrlClassLoader;
 import com.wzy.server.jar.loader.config.Jar;
 import com.wzy.server.jar.loader.config.ScanJar;
+import com.wzy.service.ButtApiService;
 import com.wzy.util.BaseController;
 import com.wzy.util.exception.MyExceptionUtil;
 import com.wzy.util.jsonvo.JsonVo;
 import com.wzy.util.upload.FileVo;
 import com.wzy.util.upload.UploadUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +24,8 @@ import java.io.File;
 @RestController
 @RequestMapping("user")
 public class UploadDownFileController extends BaseController{
+    @Autowired
+    ButtApiService buttApiService;
 
     /**
      * 上传文件
@@ -64,7 +68,7 @@ public class UploadDownFileController extends BaseController{
                         Jar jarVo = new Jar();
                         jarVo.setJarDownUrl("file:"+dpwnUrl);
                         ScanJar scanJar = BoxUrlClassLoader.scanJar(jarVo);
-                        System.out.println();
+                        buttApiService.addProject(scanJar, fileVo);
                     }catch (Exception e){
                         MyExceptionUtil.error(e);
                         jsonVo.setBody(e.getMessage(),false);

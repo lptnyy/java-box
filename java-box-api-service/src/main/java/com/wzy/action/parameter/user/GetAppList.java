@@ -1,23 +1,26 @@
-package com.wzy.action.parameter.api;
+package com.wzy.action.parameter.user;
 
 import com.wzy.util.annotation.check.IsNotLong;
 import com.wzy.util.annotation.check.IsNotNull;
 
-public class GetApiLIst {
-    @IsNotNull(message = "pageNo不能为空")
-    @IsNotLong(message = "pageNo只能是数字")
+public class GetAppList {
+    String appName;
+    @IsNotLong(message = "pageNo is number")
+    @IsNotNull(message = "pageNo is not null")
     Integer pageNo;
-    @IsNotNull(message = "pageSize不能为空")
-    @IsNotLong(message = "pageSize只能是数字")
+    @IsNotLong(message = "pageSize is number")
+    @IsNotNull(message = "pageSize is not null")
     Integer pageSize;
-    Integer moudularId;
+    String jsonp;
 
-    public Integer getMoudularId() {
-        return moudularId;
+    public String getAppName() {
+        return appName;
     }
-    public void setMoudularId(Integer moudularId) {
-        this.moudularId = moudularId;
+
+    public void setAppName(String appName) {
+        this.appName = appName;
     }
+
     public Integer getPageNo() {
         return pageNo;
     }
@@ -41,6 +44,4 @@ public class GetApiLIst {
     public void setJsonp(String jsonp) {
         this.jsonp = jsonp;
     }
-
-    String jsonp;
 }
