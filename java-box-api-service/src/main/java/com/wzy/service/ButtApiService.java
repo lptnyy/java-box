@@ -95,6 +95,7 @@ public class ButtApiService{
      * @throws Exception
      */
     public List<BoxAppVo> getList(String appName, int pageNo, int pageSize) throws Exception {
+
         // 组合查询语句
         Map<String,String> keys = new HashMap<>();
         keys.put(TabBoxApp.NAME, "like '%"+appName+"%'");
@@ -111,5 +112,19 @@ public class ButtApiService{
             boxAppVos.add(boxAppVo);
         });
         return boxAppVos;
+    }
+
+    /**
+     * 获取数据行数
+     * @param appName
+     * @return
+     * @throws Exception
+     */
+    public int getListCount(String appName) throws Exception {
+
+        // 组合查询语句
+        Map<String,String> keys = new HashMap<>();
+        keys.put(TabBoxApp.NAME, "like '%"+appName+"%'");
+        return boxAppMapper.getListCount(keys);
     }
 }

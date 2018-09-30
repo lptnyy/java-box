@@ -12,7 +12,6 @@
         app = {
             home : '{/}home',
             login : '{/}login',
-            commonAjax : 'commonAjax'
         };
 
     (function(){

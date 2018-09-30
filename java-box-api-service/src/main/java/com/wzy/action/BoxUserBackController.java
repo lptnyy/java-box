@@ -25,6 +25,7 @@ public class BoxUserBackController {
                 .setBusiness(jsonVo -> {
                     try{
                         jsonVo.setObject(buttApiService.getList(getAppList.getAppName(), getAppList.getPageNo(), getAppList.getPageSize()));
+                        jsonVo.setSumPage(buttApiService.getListCount(getAppList.getAppName()));
                     } catch (Exception e) {
                        jsonVo.setBody(e.getMessage(), false);
                     }

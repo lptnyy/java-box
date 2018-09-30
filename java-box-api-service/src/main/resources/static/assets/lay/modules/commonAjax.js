@@ -21,7 +21,6 @@ layui.define(['jquery'], function(exports){
            });
 		}
 	}
-	
 	//输出接口
     exports('commonAjax', obj);
 });
