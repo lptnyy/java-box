@@ -2,9 +2,6 @@ package com.wzy.server.jar.loader;
 
 import com.wzy.server.jar.annotation.BoxApi;
 import com.wzy.server.jar.annotation.BoxApp;
-import com.wzy.server.jar.api.config.BoxApiVo;
-import com.wzy.server.jar.api.config.BoxMoudulaVo;
-import com.wzy.server.jar.api.config.BoxProjectVo;
 import com.wzy.server.jar.loader.config.Jar;
 import com.wzy.server.jar.loader.config.ScanJar;
 import sun.misc.ClassLoaderUtil;

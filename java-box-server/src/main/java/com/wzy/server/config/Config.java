@@ -27,12 +27,12 @@ public class Config {
         config.setGetMouderList("/butt/getMoudularList");
         config.setGetProjectList("/butt/getProjectList");
         config.setJarDownServerUrl("http://localhost:8762/downJar?downUrl=");
-        config.setRegionServerIp("localhost");
+        config.setRegionServerIp("192.168.30.199");
         config.setRegsionServerPort(2181);
         config.setRegsionServerTimeOut(3000);
         try {
             loadJar.initHttp();
-            loadJar.initJar();
+            //loadJar.initJar();
         } catch (Exception e) {
             log.error(e);
         }

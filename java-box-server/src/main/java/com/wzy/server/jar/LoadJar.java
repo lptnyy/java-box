@@ -2,9 +2,7 @@ package com.wzy.server.jar;
 
 import com.wzy.server.http.request.BoxHttpRequest;
 import com.wzy.server.http.response.BoxHttpResponse;
-import com.wzy.server.jar.api.config.BoxApiVo;
-import com.wzy.server.jar.api.config.BoxMoudulaVo;
-import com.wzy.server.jar.api.config.BoxProjectVo;
+
 import java.util.List;
 
 public interface LoadJar {

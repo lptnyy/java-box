@@ -3,10 +3,6 @@ package com.wzy.server.jar;
 import com.wzy.server.config.Config;
 import com.wzy.server.http.request.BoxHttpRequest;
 import com.wzy.server.http.response.BoxHttpResponse;
-import com.wzy.server.jar.api.NetApi;
-import com.wzy.server.jar.api.config.BoxApiVo;
-import com.wzy.server.jar.api.config.BoxMoudulaVo;
-import com.wzy.server.jar.api.config.BoxProjectVo;
 import com.wzy.server.jar.loader.BoxUrlClassLoader;
 import com.wzy.server.jar.loader.config.Jar;
 import com.wzy.server.work.BoxWork;
@@ -26,27 +22,7 @@ public class LoadJarImpl implements LoadJar{
      * 初始化Http 执行步骤1
      */
     public void initHttp() throws Exception {
-        List<BoxProjectVo> projectVos = NetApi.getProjectList();
-        projectVos.forEach(boxProjectVo -> {
-            addProjectMaps.put(boxProjectVo.getRoute(), boxProjectVo);
-            try {
-                List<BoxMoudulaVo> boxMoudulaVos = NetApi.getNoudulaVo(boxProjectVo.getProjectId().toString());
-                boxMoudulaVos.forEach(boxMoudulaVo -> {
-                    addMdudulaVoMaps.put(boxProjectVo.getRoute()+boxMoudulaVo.getModdularRoute(), boxMoudulaVo);
-                    try {
-                        List<BoxApiVo> boxApiVos = NetApi.getApiVo(boxMoudulaVo.getMoudularId().toString());
-                        boxApiVos.forEach(boxApiVo -> {
-                            boxApiVo.setModurRoute(boxProjectVo.getRoute()+boxMoudulaVo.getModdularRoute());
-                            addApiVoMaps.put(boxProjectVo.getRoute()+boxMoudulaVo.getModdularRoute()+boxApiVo.getApiRoute(), boxApiVo);
-                        });
-                    } catch (Exception e) {
-                        Config.log.error(e);
-                    }
-                });
-            } catch (Exception e) {
-                Config.log.error(e);
-            }
-        });
+
     }
 
     @Override

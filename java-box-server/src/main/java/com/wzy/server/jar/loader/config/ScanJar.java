@@ -1,10 +1,5 @@
 package com.wzy.server.jar.loader.config;
 
-import com.wzy.server.jar.annotation.BoxApi;
-import com.wzy.server.jar.api.config.BoxApiVo;
-import com.wzy.server.jar.api.config.BoxMoudulaVo;
-import com.wzy.server.jar.api.config.BoxProjectVo;
-
 import java.util.List;
 
 public class ScanJar {
