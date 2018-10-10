@@ -138,7 +138,7 @@ public class ButtApiService{
      * 获取应应用的接口信息
      * @return
      */
-    public List<BoxAppApiVo> getBoxAppApiVoList(Integer appId){
+    public List<BoxAppApiVo> getBoxAppApiVoList(Integer appId) throws Exception{
         List<BoxAppApi> boxAppApis = boxAppApiMapper.getBoxAppApiList(appId);
         List<BoxAppApiVo> boxAppApiVos = new ArrayList<>();
         boxAppApis.forEach(boxAppApi -> {
@@ -148,5 +148,23 @@ public class ButtApiService{
             boxAppApiVos.add(boxAppApiVo);
         });
         return boxAppApiVos;
+    }
+
+    /**
+     * BOx容器获取载入的项目
+     * @return
+     * @throws Exception
+     */
+    public List<BoxApp> getBoxApp() throws Exception{
+        return boxAppMapper.getList(new HashMap());
+    }
+
+    /**
+     * Box容器查询应用的Api信息
+     * @return
+     * @throws Exception
+     */
+    public List<BoxAppApi> getBoxAppApi(Integer appId) throws Exception {
+        return boxAppApiMapper.getBoxAppApiList(appId);
     }
 }

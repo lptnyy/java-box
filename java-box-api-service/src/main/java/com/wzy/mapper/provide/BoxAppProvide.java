@@ -20,7 +20,7 @@ public class BoxAppProvide {
 
             } else {
                 if (!v.equals("") && v != null && v.indexOf("null") == -1)
-                sql.append(" and t.").append(k).append(" ").append(v).append(" ");
+                    sql.append(" and t.").append(k).append(" ").append(v).append(" ");
             }
         });
         String pageNoStr = keys.get("pageNo");
