@@ -15,7 +15,7 @@
                 <form class="layui-form layui-card-body">
                   <div class="layui-form-item">
                     <div class="layui-input-block">
-                    	<button type="button" class="layui-btn" id="test1">
+                    	<button type="button" class="layui-btn" id="upload">
   						<i class="layui-icon">&#xe67c;</i>上传Jar
 						</button> 
                     </div>
@@ -38,7 +38,7 @@
   			var upload = layui.upload;
  			 //执行实例
   			var uploadInst = upload.render({
-    			elem: '#test1' //绑定元素
+    			elem: '#upload' //绑定元素
     			,url: baseUrl+uploadJar //上传接口
     			,accept: 'file'
     			,data:data

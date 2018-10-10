@@ -1,5 +1,6 @@
 package com.wzy.action;
 
+import com.wzy.action.parameter.user.GetAppApiList;
 import com.wzy.action.parameter.user.GetAppList;
 import com.wzy.service.ButtApiService;
 import com.wzy.util.annotation.factory.Verification;
@@ -33,4 +34,21 @@ public class BoxUserBackController {
                 }).init().returnJsonString();
     }
 
+    /**
+     * 查询上传完毕的应用api列表
+     * @param getAppApiList
+     * @return
+     */
+    @RequestMapping(value = "/getAppApiList")
+    public String getAppApiList(GetAppApiList getAppApiList){
+        return Verification.verification(getAppApiList).setJsonp(getAppApiList.getJsonp())
+                .setBusiness(jsonVo -> {
+                    try{
+                        jsonVo.setObject(buttApiService.getBoxAppApiVoList(getAppApiList.getAppId()));
+                    } catch (Exception e) {
+                       jsonVo.setBody(e.getMessage(), false);
+                    }
+                    return jsonVo;
+                }).init().returnJsonString();
+    }
 }

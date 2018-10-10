@@ -1,5 +1,6 @@
 package com.wzy.service;
 import com.wzy.entity.*;
+import com.wzy.entity.vo.BoxAppApiVo;
 import com.wzy.entity.vo.BoxAppVo;
 import com.wzy.mapper.*;
 import com.wzy.mapper.table.TabBoxApp;
@@ -108,6 +109,11 @@ public class ButtApiService{
         boxAppMapper.getList(keys).forEach(boxApp -> {
             BoxAppVo boxAppVo = new BoxAppVo();
             BeanUtils.copyProperties(boxApp,boxAppVo);
+            if (boxApp.getStats().equals(1)){
+                boxAppVo.setStats("已发布");
+            } else {
+                boxAppVo.setStats("未发布");
+            }
             boxAppVo.setCreateTime(DateUtil.getyyMMddHHmmss(boxApp.getCreateTime()));
             boxAppVos.add(boxAppVo);
         });
@@ -126,5 +132,21 @@ public class ButtApiService{
         Map<String,String> keys = new HashMap<>();
         keys.put(TabBoxApp.NAME, "like '%"+appName+"%'");
         return boxAppMapper.getListCount(keys);
+    }
+
+    /**
+     * 获取应应用的接口信息
+     * @return
+     */
+    public List<BoxAppApiVo> getBoxAppApiVoList(Integer appId){
+        List<BoxAppApi> boxAppApis = boxAppApiMapper.getBoxAppApiList(appId);
+        List<BoxAppApiVo> boxAppApiVos = new ArrayList<>();
+        boxAppApis.forEach(boxAppApi -> {
+            BoxAppApiVo boxAppApiVo = new BoxAppApiVo();
+            BeanUtils.copyProperties(boxAppApi, boxAppApiVo);
+            boxAppApiVo.setCreateTime(DateUtil.getyyMMddHHmmss(boxAppApi.getCreateTime()));
+            boxAppApiVos.add(boxAppApiVo);
+        });
+        return boxAppApiVos;
     }
 }

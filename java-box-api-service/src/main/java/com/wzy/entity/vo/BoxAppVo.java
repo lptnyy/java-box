@@ -7,7 +7,7 @@ public class BoxAppVo {
     String jarUrl;
     String jarName;
     String jarMd5;
-    Integer stats;
+    String stats;
     String createTime;
 
     public Integer getAppId() {
@@ -58,11 +58,11 @@ public class BoxAppVo {
         this.jarMd5 = jarMd5;
     }
 
-    public Integer getStats() {
+    public String getStats() {
         return stats;
     }
 
-    public void setStats(Integer stats) {
+    public void setStats(String stats) {
         this.stats = stats;
     }
 

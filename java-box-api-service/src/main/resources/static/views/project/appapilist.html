@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../assets/css/layui.css">
+    <link rel="stylesheet" href="../../assets/css/view.css"/>
+    <link rel="icon" href="/favicon.ico">
+    <title>管理后台</title>
+</head>
+<body class="layui-view-body">
+    <div class="layui-content">
+        <div class="layui-row">
+            <div class="layui-card">
+                <div class="layui-card-body">
+                    <div class="form-box">
+                       <div class="layui-form layui-form-item">
+                            <div class="layui-inline"> 
+                                <button onclick="sendHtml('')" id="returnbtn" class="layui-btn layui-btn-blue">返回</button>
+                            </div>
+                        </div>
+					  <table class="layui-table">
+						<colgroup>
+						  <col width="100">
+						  <col width="100">
+						  <col width="100">
+						  <col width="200">
+						  <col width="200">
+						  <col width="100">
+						  <col width="50">
+						</colgroup>
+						<thead>
+						  <tr>
+							<th>名称</th>
+							<th>访问跟目录</th>
+							<th>访问全路径</th>
+							<th>运行类名</th>
+							<th>运行方法</th>
+							<th>创建时间</th>
+							<th>操作</th>
+						  </tr> 
+						</thead>
+						<tbody id="tablebody">
+							
+						</tbody>
+					  </table>
+              			<div id="pagehtml"></div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../assets/layui.js"></script>
+    <script src="../../index.js" data-main="commonAjax"></script>
+    <script src="../../js/base.js"></script>
+    <script>
+    	
+    	function sendHtml(url){
+    		window.history.back(-1);
+    	}
+    	
+    	function initTable(){
+    		layui.use(['commonAjax'], function () {        
+				var commajax = layui.commonAjax;
+				var $ = layui.jquery;
+				var data = new Object();
+				data.appId = localStorage.getItem("list_appId");
+				data.tokenUserId= localStorage.getItem("user_id");
+  				data.token= localStorage.getItem("user_token");
+				commajax.ajax(getAppApiList, data, function(result){
+   				if (result.result) {
+   					var obj = result.object;
+   					var bodytable="";
+   					$("#tablebody").html(bodytable);
+   					for(var i = 0; i<obj.length; i++) {
+   						var objo = obj[i];
+   						bodytable+="<tr>";
+   						bodytable+="<td>"+objo.name+"</td>";
+   						bodytable+="<td>"+objo.route+"</td>";
+   						bodytable+="<td>"+objo.linkUrl+"</td>";
+   						bodytable+="<td>"+objo.runClass+"</td>";
+   						bodytable+="<td>"+objo.runFunction+"</td>";
+   						bodytable+="<td>"+objo.createTime+"</td>";
+   						bodytable+="<td><a></a></td>";
+   						bodytable+="</tr>";
+   					}
+   					$("#tablebody").html(bodytable);
+   				} else {
+   					alert(result.msg);
+   				}
+   				}, function(error){
+     				alert(error);	
+     			});
+   			});
+    	}
+    	
+    	initTable();
+    </script>
+</body>
+</html>
