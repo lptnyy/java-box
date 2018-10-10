@@ -2,6 +2,7 @@ package com.wzy.server.jar.loader;
 
 import com.wzy.server.jar.annotation.BoxApi;
 import com.wzy.server.jar.annotation.BoxApp;
+import com.wzy.server.jar.api.config.BoxAppApi;
 import com.wzy.server.jar.loader.config.Jar;
 import com.wzy.server.jar.loader.config.ScanJar;
 import sun.misc.ClassLoaderUtil;
@@ -60,8 +61,8 @@ public class BoxUrlClassLoader {
                 }
         }
         ScanJar scanJar = new ScanJar();
-        List<BoxProjectVo> boxProjectVos = new ArrayList<>();
-        List<BoxApiVo> boxApiVos = new ArrayList<>();
+        List<com.wzy.server.jar.api.config.BoxApp> boxProjectVos = new ArrayList<>();
+        List<BoxAppApi> boxApiVos = new ArrayList<>();
 
         URLClassLoader myClassLoader = new URLClassLoader( new URL[] { url } );
         classMap.forEach((k,v) ->{
@@ -73,8 +74,8 @@ public class BoxUrlClassLoader {
                 if (boxAppAn != null) {
 
                     // 封装项目信息
-                    BoxProjectVo boxProjectVo = new BoxProjectVo();
-                    boxProjectVo.setProjectName(boxAppAn.name());
+                    com.wzy.server.jar.api.config.BoxApp boxProjectVo = new com.wzy.server.jar.api.config.BoxApp();
+                    boxProjectVo.setName(boxAppAn.name());
                     boxProjectVo.setRoute(boxAppAn.route());
                     boxProjectVos.add(boxProjectVo);
 
@@ -86,12 +87,12 @@ public class BoxUrlClassLoader {
                         BoxApi boxApi = method.getAnnotation(BoxApi.class);
                         if (boxApi != null) {
                             // 封装接口访问信息
-                            BoxApiVo boxApiVo = new BoxApiVo();
-                            boxApiVo.setApiName(boxApi.name());
-                            boxApiVo.setApiRoute(boxApi.route());
-                            boxApiVo.setClassFuntion(method.getName());
-                            boxApiVo.setProjectRoute(boxProjectVo.getRoute());
-                            boxApiVo.setPackageClass(v.toString());
+                            BoxAppApi boxApiVo = new BoxAppApi();
+                            boxApiVo.setName(boxApi.name());
+                            boxApiVo.setRoute(boxApi.route());
+                            boxApiVo.setRunClass(method.getName());
+                            boxApiVo.setLinkUrl(boxProjectVo.getRoute());
+                            boxApiVo.setRunFunction(v.toString());
                             boxApiVos.add(boxApiVo);
                         }
                     }
