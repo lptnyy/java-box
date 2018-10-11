@@ -167,4 +167,17 @@ public class ButtApiService{
     public List<BoxAppApi> getBoxAppApi(Integer appId) throws Exception {
         return boxAppApiMapper.getBoxAppApiList(appId);
     }
+
+    /**
+     * 删除App
+     * @param appId
+     * @return
+     * @throws Exception
+     */
+    @Transactional
+    public int deleteApp(Integer appId) throws Exception{
+        int num = boxAppMapper.deleteApp(appId);
+        num+=boxAppApiMapper.deleteAppApi(appId);
+        return num;
+    }
 }

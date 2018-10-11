@@ -1,5 +1,6 @@
 package com.wzy.server.jar.loader;
 
+import com.wzy.server.config.Config;
 import com.wzy.server.jar.annotation.BoxApi;
 import com.wzy.server.jar.annotation.BoxApp;
 import com.wzy.server.jar.api.config.BoxAppApi;
@@ -22,6 +23,7 @@ public class BoxUrlClassLoader {
 
     // 存放Jar加载集合
     static Map<String, Jar> jarmaps = new HashMap<String, Jar>();
+    static Map<Integer, String> jarIdToMd5Map = new HashMap<>();
 
     /**
      * 加载Jar包
@@ -30,18 +32,11 @@ public class BoxUrlClassLoader {
      * @throws Exception
      */
     public synchronized static boolean addJar(Jar jarVo) throws Exception{
-        Jar oldJarVo = getJar(jarVo.getHttpUrl());
-        if (oldJarVo != null) {
-            if (jarVo.getJarMd5().equals(oldJarVo.getJarMd5())) {
-                return true;
-            } else {
-                removeJar(jarVo);
-            }
-        }
-        URL url = new URL(jarVo.getJarDownUrl());
+        URL url = new URL(Config.config.getJarDownServerUrl()+jarVo.getJarDownUrl());
         URLClassLoader myClassLoader = new URLClassLoader( new URL[] { url } );
         jarVo.setClassLoader(myClassLoader);
-        jarmaps.put(jarVo.getHttpUrl(), jarVo);
+        jarmaps.put(jarVo.getJarMd5(), jarVo);
+        jarIdToMd5Map.put(jarVo.getBaseId(), jarVo.getJarMd5());
         return true;
     }
 
@@ -65,7 +60,9 @@ public class BoxUrlClassLoader {
         List<BoxAppApi> boxApiVos = new ArrayList<>();
 
         URLClassLoader myClassLoader = new URLClassLoader( new URL[] { url } );
-        classMap.forEach((k,v) ->{
+
+        for(Object v: classMap.values()) {
+
             try {
                 Class classObj = myClassLoader.loadClass(v.toString());
 
@@ -81,7 +78,7 @@ public class BoxUrlClassLoader {
 
                     // 循环获取类中的方法
                     Method[] publicMethod = classObj.getMethods();
-                    for (Method method: publicMethod) {
+                    for (Method method : publicMethod) {
 
                         // 获得方法标记的注解信息
                         BoxApi boxApi = method.getAnnotation(BoxApi.class);
@@ -90,18 +87,21 @@ public class BoxUrlClassLoader {
                             BoxAppApi boxApiVo = new BoxAppApi();
                             boxApiVo.setName(boxApi.name());
                             boxApiVo.setRoute(boxApi.route());
-                            boxApiVo.setRunClass(method.getName());
+                            boxApiVo.setRunClass(v.toString());
                             boxApiVo.setLinkUrl(boxProjectVo.getRoute());
-                            boxApiVo.setRunFunction(v.toString());
+                            boxApiVo.setRunFunction(method.getName());
                             boxApiVos.add(boxApiVo);
                         }
                     }
                 }
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            } catch (Throwable e) {
+                e.printStackTrace();
             }
-        });
-
+        }
         // 释放jar
         myClassLoader.close();
         ClassLoaderUtil.releaseLoader(myClassLoader);

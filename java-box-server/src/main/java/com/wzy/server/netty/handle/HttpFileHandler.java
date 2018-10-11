@@ -1,5 +1,6 @@
 package com.wzy.server.netty.handle;
 
+import com.wzy.server.config.Config;
 import com.wzy.server.http.request.RequestParser;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -22,6 +23,6 @@ public class HttpFileHandler extends SimpleChannelInboundHandler<HttpObject> {
 
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, HttpObject httpObject) throws Exception {
-        new RequestParser(httpObject,channelHandlerContext).parse();
+       RequestParser.getInstance().parse(httpObject, channelHandlerContext);
     }
 }

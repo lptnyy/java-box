@@ -1,5 +1,7 @@
 package com.demo2;
 
+import com.alibaba.fastjson.JSON;
+import com.demo2.sql.UserDao;
 import com.wzy.server.http.request.BoxHttpRequest;
 import com.wzy.server.http.response.BoxHttpResponse;
 import com.wzy.server.jar.annotation.BoxApi;
@@ -17,6 +19,14 @@ public class UserZdyWork {
     @BoxApi(name="demolistapi", route = "/demolist")
     public boolean test(BoxHttpRequest request, BoxHttpResponse response){
         response.print(request.getChx(), "demolist");
+        return true;
+    }
+
+    @BoxApi(name = "查询sql", route = "/sqltest")
+    public boolean sqlTest(BoxHttpRequest request, BoxHttpResponse response){
+        UserDao userDao = new UserDao();
+        String result = JSON.toJSONString(userDao.getUserList());
+        response.print(request.getChx(), result);
         return true;
     }
 }

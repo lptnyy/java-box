@@ -8,21 +8,32 @@ import io.netty.handler.codec.http.*;
 import io.netty.handler.codec.http.multipart.*;
 
 import java.io.IOException;
+import java.lang.ref.ReferenceQueue;
 
 public class RequestParser {
     private  HttpDataFactory factory = new DefaultHttpDataFactory(DefaultHttpDataFactory.MINSIZE);
-    private HttpObject fullReq;
-    private ChannelHandlerContext chx;
     private HttpFilter filter = new HttpFiterImpl();
+    static RequestParser requestParser;
+
+    public RequestParser(){
+        System.out.println("1");
+    }
 
     /**
-     * 构造一个解析器
-     * @param req
+     * 单例模式
+     * @return
      */
-    public RequestParser(HttpObject req, ChannelHandlerContext chx) {
-        this.fullReq = req;
-        this.chx = chx;
+    public static RequestParser getInstance(){
+        if (requestParser == null) {
+            synchronized (RequestParser.class) {
+                if (requestParser == null) {
+                    requestParser = new RequestParser();
+                }
+            }
+        }
+        return requestParser;
     }
+
 
     /**
      * 解析请求参数
@@ -30,7 +41,7 @@ public class RequestParser {
      *
      * @throws IOException
      */
-    public void parse() throws IOException {
+    public void parse(HttpObject fullReq, ChannelHandlerContext chx) throws IOException {
         BoxHttpResponseImpl boxHttpResponse = new BoxHttpResponseImpl();
         BoxHttpRequestImpl boxHttpRequest = new BoxHttpRequestImpl();
         boxHttpRequest.setChx(chx);

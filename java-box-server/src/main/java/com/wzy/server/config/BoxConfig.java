@@ -2,16 +2,35 @@ package com.wzy.server.config;
 
 public class BoxConfig {
     String serverMainPath;
-    String getProjectList;
-    String getMouderList;
-    String getApiList;
     String jarDownServerUrl;
     String regionServerIp;
+    String getApplist;
+    String getAppApiList;
     int regsionServerPort;
     int regsionServerTimeOut;
     boolean openAdmin;
     int adminPort;
     int ServerPort;
+
+    public String getGetApplist() {
+        return getApplist;
+    }
+
+    public void setGetApplist(String getApplist) {
+        this.getApplist = getApplist;
+    }
+
+    public String getGetAppApiList() {
+        return getAppApiList;
+    }
+
+    public void setGetAppApiList(String getAppApiList) {
+        this.getAppApiList = getAppApiList;
+    }
+
+    public boolean isOpenAdmin() {
+        return openAdmin;
+    }
 
     public int getRegsionServerTimeOut() {
         return regsionServerTimeOut;
@@ -51,30 +70,6 @@ public class BoxConfig {
 
     public void setServerMainPath(String serverMainPath) {
         this.serverMainPath = serverMainPath;
-    }
-
-    public String getGetProjectList() {
-        return getProjectList;
-    }
-
-    public void setGetProjectList(String getProjectList) {
-        this.getProjectList = getProjectList;
-    }
-
-    public String getGetMouderList() {
-        return getMouderList;
-    }
-
-    public void setGetMouderList(String getMouderList) {
-        this.getMouderList = getMouderList;
-    }
-
-    public String getGetApiList() {
-        return getApiList;
-    }
-
-    public void setGetApiList(String getApiList) {
-        this.getApiList = getApiList;
     }
 
     public int getAdminPort() {

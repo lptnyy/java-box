@@ -51,4 +51,22 @@ public class BoxUserBackController {
                     return jsonVo;
                 }).init().returnJsonString();
     }
+
+    /**
+     * 删除一个app
+     * @param getAppApiList
+     * @return
+     */
+    @RequestMapping(value = "/deleteApp")
+    public String deleteApp(GetAppApiList getAppApiList){
+        return Verification.verification(getAppApiList).setJsonp(getAppApiList.getJsonp())
+                .setBusiness(jsonVo -> {
+                    try{
+                        jsonVo.setObject(buttApiService.deleteApp(getAppApiList.getAppId()));
+                    } catch (Exception e) {
+                       jsonVo.setBody(e.getMessage(), false);
+                    }
+                    return jsonVo;
+                }).init().returnJsonString();
+    }
 }

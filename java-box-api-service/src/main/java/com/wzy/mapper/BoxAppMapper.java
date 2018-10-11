@@ -27,4 +27,7 @@ public interface BoxAppMapper {
 
     @SelectProvider(type = BoxAppProvide.class, method = "getCount")
     public int getListCount(@Param(value = "keys") Map maps);
+
+    @Delete("delete from box_app where appId=#{appId}")
+    public int deleteApp(Integer appId);
 }

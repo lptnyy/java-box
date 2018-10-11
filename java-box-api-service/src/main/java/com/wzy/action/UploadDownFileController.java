@@ -76,16 +76,4 @@ public class UploadDownFileController extends BaseController{
                     return jsonVo;
                 }).init().returnJsonString();
     }
-
-    /**
-     * 下载jar文件
-     * @param downUrl
-     * @return
-     */
-    @RequestMapping(value = "/downJar")
-    public ResponseEntity<FileSystemResource> listExport(String downUrl) {
-        String baseUrl = System.getProperty("user.dir");
-        File file = new File(baseUrl+downUrl);
-        return export(file);
-    }
 }

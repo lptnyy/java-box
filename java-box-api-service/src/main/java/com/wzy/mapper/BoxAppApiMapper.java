@@ -32,4 +32,7 @@ public interface BoxAppApiMapper {
             ",t.runClass,t.runFunction,t.createTime,t.linkUrl from box_app_api " +
             "t where t.appId=#{appId}")
     public List<BoxAppApi> getBoxAppApiList(Integer appId);
+
+    @Delete("delete from box_app_api where appId=#{appId}")
+    public int deleteAppApi(Integer appId);
 }

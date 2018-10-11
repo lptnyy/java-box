@@ -1,5 +1,6 @@
 package com.wzy.server.config;
 
+import com.wzy.server.http.request.RequestParser;
 import com.wzy.server.jar.loader.LoadJarImpl;
 import com.wzy.util.log.BoxLog;
 import com.wzy.util.log.JavaBoxLog;
@@ -22,17 +23,15 @@ public class Config {
         config.setAdminPort(8001);
         config.setOpenAdmin(true);
         config.setServerPort(8000);
-        config.setServerMainPath("http://localhost:8762");
-        config.setGetApiList("/butt/getApiList");
-        config.setGetMouderList("/butt/getMoudularList");
-        config.setGetProjectList("/butt/getProjectList");
         config.setJarDownServerUrl("http://localhost:8762/downJar?downUrl=");
+        config.setGetApplist("http://localhost:8762/butt/getApplist");
+        config.setGetAppApiList("http://localhost:8762/butt/getAppApiList");
         config.setRegionServerIp("192.168.30.199");
         config.setRegsionServerPort(2181);
         config.setRegsionServerTimeOut(3000);
         try {
             loadJar.initHttp();
-            //loadJar.initJar();
+            loadJar.initJar();
         } catch (Exception e) {
             log.error(e);
         }

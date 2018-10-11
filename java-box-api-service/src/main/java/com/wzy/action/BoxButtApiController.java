@@ -1,15 +1,20 @@
 package com.wzy.action;
 import com.wzy.service.ButtApiService;
+import com.wzy.util.BaseController;
 import com.wzy.util.jsonvo.JsonVo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.io.File;
 
 /**
  * 服务对接接口
  */
 @RestController
-public class BoxButtApiController {
+public class BoxButtApiController extends BaseController {
 
     @Autowired
     ButtApiService apiService;
@@ -45,5 +50,17 @@ public class BoxButtApiController {
             }
             return jsonVo;
         }).init().returnJsonString();
+    }
+
+    /**
+     * 下载jar文件
+     * @param downUrl
+     * @return
+     */
+    @RequestMapping(value = "/downJar")
+    public ResponseEntity<FileSystemResource> listExport(String downUrl) {
+        String baseUrl = System.getProperty("user.dir");
+        File file = new File(baseUrl+downUrl);
+        return export(file);
     }
 }

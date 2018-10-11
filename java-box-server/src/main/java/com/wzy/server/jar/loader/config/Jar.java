@@ -5,11 +5,14 @@ import java.net.URLClassLoader;
 public class Jar {
     String httpUrl;
     String className;
+    String runFuntion;
     URLClassLoader classLoader;
     String jarDownUrl;
     Class objClass;
     String jarVersion;
     String jarMd5;
+    Integer baseId;
+    Object initObject;
     public String getJarMd5() {
         return jarMd5;
     }
@@ -22,6 +25,31 @@ public class Jar {
     public void setHttpUrl(String httpUrl) {
         this.httpUrl = httpUrl;
     }
+
+    public Object getInitObject() {
+        return initObject;
+    }
+
+    public void setInitObject(Object initObject) {
+        this.initObject = initObject;
+    }
+
+    public String getRunFuntion() {
+        return runFuntion;
+    }
+
+    public void setRunFuntion(String runFuntion) {
+        this.runFuntion = runFuntion;
+    }
+
+    public Integer getBaseId() {
+        return baseId;
+    }
+
+    public void setBaseId(Integer baseId) {
+        this.baseId = baseId;
+    }
+
     public Class getObjClass() {
         return objClass;
     }

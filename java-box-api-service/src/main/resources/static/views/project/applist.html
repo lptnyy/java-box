@@ -22,6 +22,7 @@
                                   <input type="text" autocomplete="off" class="layui-input">
                                 </div>
                                 <button class="layui-btn layui-btn-blue">查询</button>
+                                <button class="layui-btn layui-btn-blue">刷新</button>
                             </div>
                         </div>
 					  <table class="layui-table">
@@ -110,7 +111,8 @@
    						bodytable+="<td>"+objo.route+"</td>";
    						bodytable+="<td>"+objo.stats+"</td>";
    						bodytable+="<td>"+objo.createTime+"</td>";
-   						bodytable+='<td><a onclick="sendHtml(\'appapilist.html?app=1\','+objo.appId+')">Api列表</a></td>';
+   						bodytable+='<td><a onclick="sendHtml(\'appapilist.html?app=1\','+objo.appId+')">Api列表</a>';
+   						bodytable+='&nbsp;&nbsp;<a onclick="deleteApp('+objo.appId+')">删除</a></td>';
    						bodytable+="</tr>";
    					}
    					$("#tablebody").html(bodytable);
@@ -122,6 +124,27 @@
      			});
    			});
     	}
+    	
+    	function deleteApp(appId){
+    		layui.use(['commonAjax'], function () {        
+				var commajax = layui.commonAjax;
+				var data = new Object();
+				data.tokenUserId= localStorage.getItem("user_id");
+  				data.token= localStorage.getItem("user_token");
+  				data.appId=appId;
+				commajax.ajax(deleteAppnet, data, function(result){
+   				if (result.result) {
+   					initTable(1,limitnum);
+   					alert("删除成功");
+   				} else {
+   					alert(result.msg);
+   				}
+   				}, function(error){
+     				alert(error);	
+     			});
+   			});
+    	}
+    	
     	initTable(1,limitnum);
     </script>
 </body>
