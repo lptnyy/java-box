@@ -15,13 +15,6 @@ import java.io.IOException;
         @PropertySource("classpath:zk.properties"),
         @PropertySource(value = "${zk.properties}", ignoreResourceNotFound = true)})
 public class ZookeeperUtil {
-    // 注册服务目录
-    public String REGION_SERVER_NODE="/regionServerNode";
-    public String NODE_PROJECT="/project";
-    public String NODE_MOUDULAR="/moudlar";
-    public String NODE_API = "/api";
-    public String NODE_JAR = "/jar";
-
     @Value("${zkIp}")
     String zookeeperIp;
     @Value("${zkPort}")

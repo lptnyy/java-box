@@ -2,6 +2,7 @@ package com.wzy.action;
 
 import com.wzy.action.parameter.user.GetAppApiList;
 import com.wzy.action.parameter.user.GetAppList;
+import com.wzy.action.parameter.user.UpdateAppStats;
 import com.wzy.service.ButtApiService;
 import com.wzy.util.annotation.factory.Verification;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,6 +64,24 @@ public class BoxUserBackController {
                 .setBusiness(jsonVo -> {
                     try{
                         jsonVo.setObject(buttApiService.deleteApp(getAppApiList.getAppId()));
+                    } catch (Exception e) {
+                       jsonVo.setBody(e.getMessage(), false);
+                    }
+                    return jsonVo;
+                }).init().returnJsonString();
+    }
+
+    /**
+     * 发布/下架一个app
+     * @param updateAppStats
+     * @return
+     */
+    @RequestMapping(value = "/updateAppStats")
+    public String updateApp(UpdateAppStats updateAppStats){
+        return Verification.verification(updateAppStats).setJsonp(updateAppStats.getJsonp())
+                .setBusiness(jsonVo -> {
+                    try{
+                        jsonVo.setObject(buttApiService.updateStats(updateAppStats.getAppId(), updateAppStats.getStats()));
                     } catch (Exception e) {
                        jsonVo.setBody(e.getMessage(), false);
                     }

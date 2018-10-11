@@ -5,3 +5,4 @@ var uploadJar="/user/uploadPlJar";
 var getAppList="/user/getAppList";
 var getAppApiList="/user/getAppApiList";
 var deleteAppnet="/user/deleteApp";
+var updateAppStats="/user/updateAppStats";

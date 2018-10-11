@@ -180,4 +180,15 @@ public class ButtApiService{
         num+=boxAppApiMapper.deleteAppApi(appId);
         return num;
     }
+
+    /**
+     * 修改状态
+     * @param appId
+     * @param stats
+     * @return
+     * @throws Exception
+     */
+    public int updateStats(Integer appId, Integer stats) throws Exception{
+        return boxAppMapper.updateStats(appId,stats);
+    }
 }

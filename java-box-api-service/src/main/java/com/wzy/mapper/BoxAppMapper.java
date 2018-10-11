@@ -30,4 +30,7 @@ public interface BoxAppMapper {
 
     @Delete("delete from box_app where appId=#{appId}")
     public int deleteApp(Integer appId);
+
+    @Update("update box_app set stats=#{stats} where appId=#{appId}")
+    public int updateStats(@Param(value = "appId") Integer appId,@Param(value = "stats") Integer stats);
 }

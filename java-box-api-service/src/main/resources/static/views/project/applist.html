@@ -112,7 +112,11 @@
    						bodytable+="<td>"+objo.stats+"</td>";
    						bodytable+="<td>"+objo.createTime+"</td>";
    						bodytable+='<td><a onclick="sendHtml(\'appapilist.html?app=1\','+objo.appId+')">Api列表</a>';
-   						bodytable+='&nbsp;&nbsp;<a onclick="deleteApp('+objo.appId+')">删除</a></td>';
+   						bodytable+='&nbsp;&nbsp;<a onclick="deleteApp('+objo.appId+')">删除</a>&nbsp;&nbsp;';
+   						if (objo.stats == '未发布') 
+   						bodytable+='<a onclick="updateAppStatsweb('+objo.appId+','+1+')">发布</a></td>';
+   						if (objo.stats == '已发布')
+   						bodytable+='<a onclick="updateAppStatsweb('+objo.appId+','+0+')">取消</a></td>';
    						bodytable+="</tr>";
    					}
    					$("#tablebody").html(bodytable);
@@ -136,6 +140,27 @@
    				if (result.result) {
    					initTable(1,limitnum);
    					alert("删除成功");
+   				} else {
+   					alert(result.msg);
+   				}
+   				}, function(error){
+     				alert(error);	
+     			});
+   			});
+    	}
+    	
+    	function updateAppStatsweb(appId, stats){
+    		layui.use(['commonAjax'], function () {        
+				var commajax = layui.commonAjax;
+				var data = new Object();
+				data.tokenUserId= localStorage.getItem("user_id");
+  				data.token= localStorage.getItem("user_token");
+  				data.appId=appId;
+  				data.stats=stats;
+				commajax.ajax(updateAppStats, data, function(result){
+   				if (result.result) {
+   					initTable(1,limitnum);
+   					alert("操作成功");
    				} else {
    					alert(result.msg);
    				}

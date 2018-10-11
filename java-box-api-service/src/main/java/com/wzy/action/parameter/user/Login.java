@@ -1,6 +1,5 @@
 package com.wzy.action.parameter.user;
 
-import com.wzy.util.annotation.check.IsContrastString;
 import com.wzy.util.annotation.check.IsNotNull;
 import com.wzy.util.annotation.set.SetStringMd5;
 
