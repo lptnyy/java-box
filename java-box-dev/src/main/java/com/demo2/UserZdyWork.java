@@ -1,20 +1,22 @@
-package com.demo;
+package com.demo2;
 
 import com.wzy.server.http.request.BoxHttpRequest;
 import com.wzy.server.http.response.BoxHttpResponse;
 import com.wzy.server.jar.annotation.BoxApi;
 import com.wzy.server.jar.annotation.BoxApp;
 
-@BoxApp(name = "test", route = "/test")
+@BoxApp(name = "demo", route = "/demo")
 public class UserZdyWork {
 
-    @BoxApi(name = "getuser", route = "/getuserlist")
+    @BoxApi(name = "demoapi", route = "/demo")
     public boolean getTest(BoxHttpRequest request, BoxHttpResponse response) {
-       return false;
+       response.print(request.getChx(), "demo");
+       return true;
     }
 
-    @BoxApi(name="測試數據", route = "/test123")
+    @BoxApi(name="demolistapi", route = "/demolist")
     public boolean test(BoxHttpRequest request, BoxHttpResponse response){
-        return false;
+        response.print(request.getChx(), "demolist");
+        return true;
     }
 }
