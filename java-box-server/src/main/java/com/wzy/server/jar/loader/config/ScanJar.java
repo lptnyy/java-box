@@ -1,33 +1,27 @@
 package com.wzy.server.jar.loader.config;
 
+import com.wzy.server.jar.api.config.BoxApp;
+import com.wzy.server.jar.api.config.BoxAppApi;
+
 import java.util.List;
 
 public class ScanJar {
-    List<BoxProjectVo> boxProjectVo;
-    List<BoxMoudulaVo> boxMoudulaVoList;
-    List<BoxApiVo> boxApiVoList;
+    List<BoxApp> boxProjectVo;
+    List<BoxAppApi> boxApiVoList;
 
-    public List<BoxMoudulaVo> getBoxMoudulaVoList() {
-        return boxMoudulaVoList;
-    }
-
-    public void setBoxMoudulaVoList(List<BoxMoudulaVo> boxMoudulaVoList) {
-        this.boxMoudulaVoList = boxMoudulaVoList;
-    }
-
-    public List<BoxProjectVo> getBoxProjectVo() {
+    public List<BoxApp> getBoxProjectVo() {
         return boxProjectVo;
     }
 
-    public void setBoxProjectVo(List<BoxProjectVo> boxProjectVo) {
+    public void setBoxProjectVo(List<BoxApp> boxProjectVo) {
         this.boxProjectVo = boxProjectVo;
     }
 
-    public List<BoxApiVo> getBoxApiVoList() {
+    public List<BoxAppApi> getBoxApiVoList() {
         return boxApiVoList;
     }
 
-    public void setBoxApiVoList(List<BoxApiVo> boxApiVoList) {
+    public void setBoxApiVoList(List<BoxAppApi> boxApiVoList) {
         this.boxApiVoList = boxApiVoList;
     }
 }

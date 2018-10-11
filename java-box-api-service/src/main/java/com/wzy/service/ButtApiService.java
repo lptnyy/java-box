@@ -43,7 +43,7 @@ public class ButtApiService{
                 boxApp.setJarMd5(fileVo.getFileMd5());
                 boxApp.setJarName(fileVo.getFileName());
                 boxApp.setJarUrl(fileVo.getFileUrl());
-                boxApp.setName(boxProjectVo.getProjectName());
+                boxApp.setName(boxProjectVo.getName());
                 boxApp.setRoute(boxProjectVo.getRoute());
                 boxApp.setStats(0);
                 boxAppMapper.add(boxApp);
@@ -51,7 +51,7 @@ public class ButtApiService{
                 boxApp.setJarMd5(fileVo.getFileMd5());
                 boxApp.setJarName(fileVo.getFileName());
                 boxApp.setJarUrl(fileVo.getFileUrl());
-                boxApp.setName(boxProjectVo.getProjectName());
+                boxApp.setName(boxProjectVo.getName());
                 boxApp.setRoute(boxProjectVo.getRoute());
                 boxAppMapper.update(boxApp);
             }
@@ -59,27 +59,27 @@ public class ButtApiService{
             // 生成访问接口信息
             BoxApp finalBoxApp = boxApp;
             scanJar.getBoxApiVoList().forEach(boxApiVo -> {
-                BoxAppApi boxAppApi = boxAppApiMapper.getRouteAppApi(boxApiVo.getApiRoute(), finalBoxApp.getAppId().toString());
+                BoxAppApi boxAppApi = boxAppApiMapper.getRouteAppApi(boxApiVo.getRoute(), finalBoxApp.getAppId().toString());
                 if (boxAppApi == null) {
                     boxAppApi = new BoxAppApi();
                     boxAppApi.setAppId(finalBoxApp.getAppId());
                     boxAppApi.setJarMd5(finalBoxApp.getJarMd5());
                     boxAppApi.setStats(0);
-                    boxAppApi.setName(boxApiVo.getApiName());
-                    boxAppApi.setRoute(boxApiVo.getApiRoute());
-                    boxAppApi.setRunClass(boxApiVo.getPackageClass());
-                    boxAppApi.setRunFunction(boxApiVo.getClassFuntion());
-                    boxAppApi.setLinkUrl(finalBoxApp.getRoute()+boxApiVo.getApiRoute());
+                    boxAppApi.setName(boxApiVo.getName());
+                    boxAppApi.setRoute(boxApiVo.getRoute());
+                    boxAppApi.setRunClass(boxApiVo.getRunClass());
+                    boxAppApi.setRunFunction(boxApiVo.getRunFunction());
+                    boxAppApi.setLinkUrl(finalBoxApp.getRoute()+boxApiVo.getRoute());
                     boxAppApiMapper.add(boxAppApi);
                 } else {
                     boxAppApi.setAppId(finalBoxApp.getAppId());
                     boxAppApi.setJarMd5(finalBoxApp.getJarMd5());
                     boxAppApi.setStats(0);
-                    boxAppApi.setName(boxApiVo.getApiName());
-                    boxAppApi.setRoute(boxApiVo.getApiRoute());
-                    boxAppApi.setRunClass(boxApiVo.getPackageClass());
-                    boxAppApi.setRunFunction(boxApiVo.getClassFuntion());
-                    boxAppApi.setLinkUrl(finalBoxApp.getRoute()+boxApiVo.getApiRoute());
+                    boxAppApi.setName(boxApiVo.getName());
+                    boxAppApi.setRoute(boxApiVo.getRoute());
+                    boxAppApi.setRunClass(boxApiVo.getRunClass());
+                    boxAppApi.setRunFunction(boxApiVo.getRunFunction());
+                    boxAppApi.setLinkUrl(finalBoxApp.getRoute()+boxApiVo.getRoute());
                     boxAppApiMapper.update(boxAppApi);
                 }
             });
