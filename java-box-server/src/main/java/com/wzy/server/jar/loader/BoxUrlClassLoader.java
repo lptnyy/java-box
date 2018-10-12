@@ -8,6 +8,7 @@ import com.wzy.server.jar.loader.config.Jar;
 import com.wzy.server.jar.loader.config.ScanJar;
 import sun.misc.ClassLoaderUtil;
 
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.net.JarURLConnection;
 import java.net.URL;
@@ -145,5 +146,31 @@ public class BoxUrlClassLoader {
             jars.add(v);
         });
         return jars;
+    }
+
+    public static synchronized void remove(String md5, Integer appId){
+        try {
+            Jar jar = getJar(md5);
+            if (jar == null) return;
+            jar.getClassLoader().close();
+            ClassLoaderUtil.releaseLoader(jar.getClassLoader());
+            jarmaps.remove(md5);
+            jarIdToMd5Map.remove(appId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static synchronized void removes(){
+        jarIdToMd5Map.clear();
+        jarmaps.forEach((k,v)->{
+            try {
+                v.getClassLoader().close();
+                ClassLoaderUtil.releaseLoader(v.getClassLoader());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        jarmaps.clear();
     }
 }

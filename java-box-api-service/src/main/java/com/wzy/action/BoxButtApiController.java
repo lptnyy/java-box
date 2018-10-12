@@ -36,6 +36,26 @@ public class BoxButtApiController extends BaseController {
     }
 
     /**
+     * 容器查询应用列表
+     * @return
+     */
+    @RequestMapping(path = "/butt/getAppId")
+    public String getApp(Integer appId){
+        return new JsonVo()
+                .setResult(true)
+                .setBusiness(jsonVo -> {
+                    try{
+                        jsonVo.setObject(apiService.getBoxApp(appId));
+                    } catch (Exception e) {
+                        jsonVo.setBody(e.getMessage(),  false);
+                    }
+                    return jsonVo;
+                })
+                .init()
+                .returnJsonString();
+    }
+
+    /**
      * 容器查询应用列表下的api信息
      * @param appId
      * @return

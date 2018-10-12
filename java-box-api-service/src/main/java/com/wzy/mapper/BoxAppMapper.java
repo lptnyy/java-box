@@ -22,6 +22,9 @@ public interface BoxAppMapper {
     @Select("select t.appId,t.name,t.route,t.jarUrl,t.jarName,t.jarMd5,t.stats,t.createTime from box_app t where t.route=#{route}")
     public BoxApp getRouteApp(@Param(value = "route") String route);
 
+    @Select("select t.appId,t.name,t.route,t.jarUrl,t.jarName,t.jarMd5,t.stats,t.createTime from box_app t where t.appId=#{appId}")
+    public BoxApp getApp(@Param(value = "appId") Integer appId);
+
     @SelectProvider(type = BoxAppProvide.class, method = "getList")
     public List<BoxApp> getList(@Param(value = "keys") Map map);
 

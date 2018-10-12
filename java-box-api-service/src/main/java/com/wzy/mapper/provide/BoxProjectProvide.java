@@ -1,8 +1,5 @@
 package com.wzy.mapper.provide;
 
-import com.wzy.action.parameter.project.ListProject;
-import com.wzy.util.MapUtil;
-
 import java.util.Map;
 
 public class BoxProjectProvide {

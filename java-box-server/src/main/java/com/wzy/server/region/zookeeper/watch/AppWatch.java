@@ -1,7 +1,7 @@
 package com.wzy.server.region.zookeeper.watch;
 
 import com.wzy.server.config.Config;
-import com.wzy.server.region.RegionServer;
+import com.wzy.server.jar.api.NetApi;
 import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
@@ -9,29 +9,33 @@ import org.apache.zookeeper.ZooKeeper;
 
 import java.util.List;
 
-public class JarWatch implements Watcher{
+public class AppWatch implements Watcher {
     String path;
     ZooKeeper zooKeeper;
-    RegionServer regionServer;
-    public JarWatch(String path, ZooKeeper zooKeeper, RegionServer regionServer){
+    public AppWatch(String path, ZooKeeper zooKeeper){
         this.path = path;
         this.zooKeeper = zooKeeper;
-        this.regionServer = regionServer;
     }
 
     @Override
     public void process(WatchedEvent watchedEvent) {
+        // 执行完毕之后重新载入触发器
         if (watchedEvent.getType() == Event.EventType.NodeChildrenChanged) {
             try {
                 List<String> values = zooKeeper.getChildren(watchedEvent.getPath(), false);
-                System.out.println();
+                try {
+                       //Config.loadJar.initHttp(Integer.valueOf(str));
+                        Config.loadJar.initHttp(values);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
             } catch (KeeperException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-        // 执行完毕之后重新载入触发器
         try {
             zooKeeper.getChildren(path, this);
         } catch (KeeperException e) {

@@ -6,6 +6,7 @@ public class BoxConfig {
     String regionServerIp;
     String getApplist;
     String getAppApiList;
+    String getAppInfo;
     int regsionServerPort;
     int regsionServerTimeOut;
     boolean openAdmin;
@@ -22,6 +23,14 @@ public class BoxConfig {
 
     public String getGetAppApiList() {
         return getAppApiList;
+    }
+
+    public String getGetAppInfo() {
+        return getAppInfo;
+    }
+
+    public void setGetAppInfo(String getAppInfo) {
+        this.getAppInfo = getAppInfo;
     }
 
     public void setGetAppApiList(String getAppApiList) {

@@ -23,7 +23,9 @@ public class BoxUserBackController {
      */
     @RequestMapping(value = "/getAppList")
     public String getAppList(GetAppList getAppList){
-        return Verification.verification(getAppList).setJsonp(getAppList.getJsonp())
+        return Verification
+                .verification(getAppList)
+                .setJsonp(getAppList.getJsonp())
                 .setBusiness(jsonVo -> {
                     try{
                         jsonVo.setObject(buttApiService.getList(getAppList.getAppName(), getAppList.getPageNo(), getAppList.getPageSize()));
@@ -32,7 +34,9 @@ public class BoxUserBackController {
                        jsonVo.setBody(e.getMessage(), false);
                     }
                     return jsonVo;
-                }).init().returnJsonString();
+                })
+                .init()
+                .returnJsonString();
     }
 
     /**

@@ -3,17 +3,18 @@ package com.wzy.server.jar.loader;
 import com.wzy.server.config.Config;
 import com.wzy.server.http.request.BoxHttpRequest;
 import com.wzy.server.http.response.BoxHttpResponse;
+import com.wzy.server.jar.annotation.BoxApi;
 import com.wzy.server.jar.api.NetApi;
 import com.wzy.server.jar.api.config.BoxApp;
 import com.wzy.server.jar.api.config.BoxAppApi;
-import com.wzy.server.jar.loader.LoadJar;
 import com.wzy.server.jar.loader.config.Jar;
 
-import javax.swing.*;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class LoadJarImpl implements LoadJar {
 
@@ -48,28 +49,28 @@ public class LoadJarImpl implements LoadJar {
     }
 
     @Override
-    public void initJar() throws Exception {
+    public synchronized void initJar() throws Exception {
 
-        // 循环加载jar
-        boxAppMap.forEach((k, v) -> {
-            Jar jar = new Jar();
-            jar.setBaseId(v.getAppId());
-            jar.setJarDownUrl(v.getJarUrl());
-            jar.setJarMd5(v.getJarMd5());
-            try {
-                BoxUrlClassLoader.addJar(jar);
-            } catch (Exception e) {
-                Config.log.error(e);
-            }
-            boxAppMap.put(v.getAppId(), v);
-        });
-
-        // 存放api访问映射路径
-        boxAppApiMap.forEach((k,v) ->{
-            v.forEach(boxAppApi -> {
-                httpMap.put(boxAppApi.getLinkUrl(), boxAppApi);
-            });
-        });
+//        // 循环加载jar
+//        boxAppMap.forEach((k, v) -> {
+//            Jar jar = new Jar();
+//            jar.setBaseId(v.getAppId());
+//            jar.setJarDownUrl(v.getJarUrl());
+//            jar.setJarMd5(v.getJarMd5());
+//            try {
+//                BoxUrlClassLoader.addJar(jar);
+//            } catch (Exception e) {
+//                Config.log.error(e);
+//            }
+//            boxAppMap.put(v.getAppId(), v);
+//        });
+//
+//        // 存放api访问映射路径
+//        boxAppApiMap.forEach((k,v) ->{
+//            v.forEach(boxAppApi -> {
+//                httpMap.put(boxAppApi.getLinkUrl(), boxAppApi);
+//            });
+//        });
     }
 
     /**
@@ -77,17 +78,91 @@ public class LoadJarImpl implements LoadJar {
      * @throws Exception
      */
     @Override
-    public void initHttp() throws Exception {
-        List<BoxApp> boxApps = NetApi.getBoxAppList();
-        boxApps.forEach(boxApp -> {
-            boxAppMap.put(boxApp.getAppId(), boxApp);
-            try {
-                List<BoxAppApi> boxAppApis = NetApi.getBoxAppApiList(boxApp.getAppId().toString());
-                boxAppApiMap.put(boxApp.getAppId(), boxAppApis);
-            } catch (Exception e) {
-                Config.log.error(e);
+    public synchronized void initHttp() throws Exception {
+//        List<BoxApp> boxApps = NetApi.getBoxAppList();
+//        boxApps.forEach(boxApp -> {
+//            boxAppMap.put(boxApp.getAppId(), boxApp);
+//            try {
+//                List<BoxAppApi> boxAppApis = NetApi.getBoxAppApiList(boxApp.getAppId().toString());
+//                boxAppApiMap.put(boxApp.getAppId(), boxAppApis);
+//            } catch (Exception e) {
+//                Config.log.error(e);
+//            }
+//        });
+    }
+
+    @Override
+    public synchronized void initHttp(Integer appId) throws Exception {
+        BoxApp boxApp = NetApi.getBoxApp(appId);
+        boxAppMap.put(boxApp.getAppId(), boxApp);
+        try {
+            List<BoxAppApi> boxAppApis = NetApi.getBoxAppApiList(boxApp.getAppId().toString());
+            boxAppApiMap.put(boxApp.getAppId(), boxAppApis);
+        } catch (Exception e) {
+            Config.log.error(e);
+        }
+    }
+
+    @Override
+    public synchronized void initHttp(List<String> appIds) {
+        if (appIds.size() > boxAppMap.size()) {
+            appIds.forEach(str ->{
+                if(!boxAppMap.containsKey(Integer.valueOf(str))){
+                    BoxApp boxApp = null;
+                    try {
+                        boxApp = NetApi.getBoxApp(Integer.valueOf(str));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    boxAppMap.put(boxApp.getAppId(), boxApp);
+                    try {
+                        List<BoxAppApi> boxAppApis = NetApi.getBoxAppApiList(boxApp.getAppId().toString());
+                        boxAppApiMap.put(boxApp.getAppId(), boxAppApis);
+                        boxAppApis.forEach(v ->{
+                            httpMap.put(v.getLinkUrl(), v);
+                        });
+                    } catch (Exception e) {
+                        Config.log.error(e);
+                    }
+                    Jar jar = new Jar();
+                    jar.setBaseId(boxApp.getAppId());
+                    jar.setJarDownUrl(boxApp.getJarUrl());
+                    jar.setJarMd5(boxApp.getJarMd5());
+                    try {
+                        BoxUrlClassLoader.addJar(jar);
+                    } catch (Exception e) {
+                        Config.log.error(e);
+                    }
+                }
+            });
+        } else if (appIds.size() == 0){
+            boxAppMap.clear();
+            boxAppApiMap.clear();
+            httpMap.clear();
+            BoxUrlClassLoader.removes();
+        } else {
+            List<BoxApp> appIdlist = new ArrayList<>();
+            for(BoxApp boxApp: boxAppMap.values()){
+                boolean dis = true;
+                for(String str:appIds) {
+                    if (Integer.valueOf(str).equals(boxApp.getAppId())) {
+                        dis = false;
+                    }
+                }
+                if (dis){
+                    appIdlist.add(boxApp);
+                }
             }
-        });
+            for(BoxApp addId:appIdlist){
+                BoxUrlClassLoader.remove(addId.getJarMd5(), addId.getAppId());
+                List<BoxAppApi> list = boxAppApiMap.get(addId.getAppId());
+                list.forEach(boxAppApi -> {
+                    httpMap.remove(boxAppApi.getLinkUrl());
+                });
+                boxAppApiMap.remove(addId.getAppId());
+                boxAppMap.remove(addId.getAppId());
+            }
+        }
     }
 
     @Override

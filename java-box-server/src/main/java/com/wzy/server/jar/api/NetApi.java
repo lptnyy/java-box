@@ -42,6 +42,30 @@ public class NetApi {
     }
 
     /**
+     * 获取应用列表
+     * @throws Exception
+     */
+    public static BoxApp getBoxApp(Integer appId) throws Exception{
+        BoxApp boxApp = null;
+        String returnJson = HttpGetUtil.get(Config.config.getGetAppInfo(),"appId="+appId);
+        JSONObject jsonObject = JSON.parseObject(returnJson);
+        boolean result = jsonObject.getBoolean("result");
+        if (result) {
+            boxApp = new BoxApp();
+            JSONObject obj = jsonObject.getJSONObject("object");
+            boxApp.setAppId(obj.getInteger("appId"));
+            boxApp.setJarMd5(obj.getString("jarMd5"));
+            boxApp.setJarUrl(obj.getString("jarUrl"));
+            boxApp.setName(obj.getString("name"));
+            boxApp.setRoute(obj.getString("route"));
+            boxApp.setStats(obj.getInteger("stats"));
+        } else {
+            Config.log.error(jsonObject.getString("msg"));
+        }
+        return boxApp;
+    }
+
+    /**
      * 查询应用下的所有api
      * @param appId
      * @return

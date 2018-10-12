@@ -20,7 +20,6 @@ public class ApiWatch implements Watcher{
     @Override
     public void process(WatchedEvent watchedEvent) {
         System.out.println(watchedEvent.getType());
-        regionServer.apiTroggering(watchedEvent);
 
         // 执行完毕之后重新载入触发器
         try {

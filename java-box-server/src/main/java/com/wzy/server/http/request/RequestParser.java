@@ -93,6 +93,9 @@ public class RequestParser {
                 }
             }
         }
+        if (boxHttpRequest.uri().indexOf("?") !=-1){
+            boxHttpRequest.setUri(boxHttpRequest.uri().substring(0,boxHttpRequest.uri().lastIndexOf("?")));
+        }
         if (filter.init(chx,boxHttpRequest,boxHttpResponse)){
             filter.service(chx,boxHttpRequest,boxHttpResponse);
             filter.release();

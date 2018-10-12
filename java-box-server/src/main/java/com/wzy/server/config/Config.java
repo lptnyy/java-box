@@ -20,15 +20,14 @@ public class Config {
 
     // 初始化配置信息
     public static void initConfig(){
-        config.setAdminPort(8001);
-        config.setOpenAdmin(true);
         config.setServerPort(8000);
         config.setJarDownServerUrl("http://localhost:8762/downJar?downUrl=");
         config.setGetApplist("http://localhost:8762/butt/getApplist");
         config.setGetAppApiList("http://localhost:8762/butt/getAppApiList");
+        config.setGetAppInfo("http://localhost:8762/butt/getAppId");
         config.setRegionServerIp("192.168.30.199");
         config.setRegsionServerPort(2181);
-        config.setRegsionServerTimeOut(3000);
+        config.setRegsionServerTimeOut(600000);
         try {
             loadJar.initHttp();
             loadJar.initJar();

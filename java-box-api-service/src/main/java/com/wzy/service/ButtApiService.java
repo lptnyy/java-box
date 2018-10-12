@@ -8,7 +8,10 @@ import com.wzy.server.jar.loader.config.ScanJar;
 import com.wzy.util.DateUtil;
 import com.wzy.util.PageUtil;
 import com.wzy.util.upload.FileVo;
+import com.wzy.util.zookeeper.ZookeeperUtil;
+import org.apache.zookeeper.KeeperException;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
@@ -24,6 +27,9 @@ public class ButtApiService{
     BoxAppMapper boxAppMapper;
     @Resource
     BoxAppApiMapper boxAppApiMapper;
+
+    @Autowired
+    ZookeeperUtil zookeeperUtil;
 
     /**
      * 通过上传添加应用信息，通过扫描注解生成项目信息
@@ -178,6 +184,7 @@ public class ButtApiService{
     public int deleteApp(Integer appId) throws Exception{
         int num = boxAppMapper.deleteApp(appId);
         num+=boxAppApiMapper.deleteAppApi(appId);
+        zookeeperUtil.deleteAppNode(appId);
         return num;
     }
 
@@ -189,6 +196,21 @@ public class ButtApiService{
      * @throws Exception
      */
     public int updateStats(Integer appId, Integer stats) throws Exception{
+        if (stats.equals(0)) {
+            zookeeperUtil.deleteAppNode(appId);
+        } else {
+            zookeeperUtil.addAppNode(appId);
+        }
         return boxAppMapper.updateStats(appId,stats);
+    }
+
+    /**
+     * 查询详情
+     * @param appId
+     * @return
+     * @throws Exception
+     */
+    public BoxApp getBoxApp(Integer appId) throws Exception{
+        return boxAppMapper.getApp(appId);
     }
 }
