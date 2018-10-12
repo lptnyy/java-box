@@ -14,7 +14,11 @@ import io.netty.handler.codec.http.HttpContentCompressor;
 import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpRequestDecoder;
 import io.netty.handler.codec.http.HttpResponseEncoder;
+import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.codec.string.StringEncoder;
 import io.netty.handler.stream.ChunkedWriteHandler;
+
+import java.nio.charset.Charset;
 
 /**
  * 启动Http服务
@@ -40,7 +44,6 @@ public class HttpServerImpl implements HttpServer {
                             ch.pipeline().addLast("http-encoder", new HttpResponseEncoder());//响应解码器
                             ch.pipeline().addLast("http-chunked", new ChunkedWriteHandler());//目的是支持异步大文件传输（）
                             ch.pipeline().addLast("fileServerHandler", new HttpFileHandler());// 业务逻辑
-                            ch.pipeline().addLast("compressor", new HttpContentCompressor());
                         }
                     }).option(ChannelOption.SO_BACKLOG, 128)
                     .childOption(ChannelOption.SO_KEEPALIVE, true);

@@ -28,6 +28,7 @@ public class Config {
         config.setRegionServerIp("192.168.30.199");
         config.setRegsionServerPort(2181);
         config.setRegsionServerTimeOut(600000);
+        config.setCharSet("gbk");
         try {
             loadJar.initHttp();
             loadJar.initJar();

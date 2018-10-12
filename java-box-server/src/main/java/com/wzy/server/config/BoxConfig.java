@@ -7,11 +7,20 @@ public class BoxConfig {
     String getApplist;
     String getAppApiList;
     String getAppInfo;
+    String charSet;
     int regsionServerPort;
     int regsionServerTimeOut;
     boolean openAdmin;
     int adminPort;
     int ServerPort;
+
+    public String getCharSet() {
+        return charSet;
+    }
+
+    public void setCharSet(String charSet) {
+        this.charSet = charSet;
+    }
 
     public String getGetApplist() {
         return getApplist;
