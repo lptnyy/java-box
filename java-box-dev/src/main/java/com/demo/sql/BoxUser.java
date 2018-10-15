@@ -1,4 +1,4 @@
-package com.demo3.sql;
+package com.demo.sql;
 
 import java.util.Date;
 

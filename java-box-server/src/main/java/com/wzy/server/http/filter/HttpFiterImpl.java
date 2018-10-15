@@ -10,6 +10,7 @@ import io.netty.channel.ChannelHandlerContext;
 
 import java.util.Date;
 
+import static io.netty.handler.codec.http.HttpResponseStatus.INTERNAL_SERVER_ERROR;
 import static io.netty.handler.codec.http.HttpResponseStatus.NOT_FOUND;
 public class HttpFiterImpl implements HttpFilter {
     HttpMonitor httpMonitor = HttpMonitorImpl.getHttpMonitor();
@@ -32,7 +33,7 @@ public class HttpFiterImpl implements HttpFilter {
             request.setRunTime(endTimes-startTimes);
             httpMonitor.monitor(chx,request,response);
         } catch (Exception e) {
-            HttpCodePrint.sendError(chx, NOT_FOUND);
+            HttpCodePrint.sendError(chx, INTERNAL_SERVER_ERROR);
             Config.log.error(e);
         }
     }

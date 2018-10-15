@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="../../assets/css/layui.css">
     <link rel="stylesheet" href="../../assets/css/view.css"/>
+    <link rel="icon" href="/favicon.ico">
     <title></title>
 </head>
 <body class="layui-view-body">
@@ -14,23 +16,27 @@
                 <div class="layui-card-header">上传</div>
                 <form class="layui-form layui-card-body">
                   <div class="layui-form-item">
+                  	<div class="layui-inline">
+                        <a class="layui-btn layui-btn-blue" href="applist.html">返回</a>
+                    </div>
                     <div class="layui-input-block">
                     	<button type="button" class="layui-btn" id="upload">
   						<i class="layui-icon">&#xe67c;</i>上传Jar
-						</button> 
+						</button>
                     </div>
                   </div>
                 </form>  
             </div>
         </div>
     </div>
-    <script src="../../assets/layui.all.js"></script>
+    <script src="../../assets/layui.js"></script>
+    <script src="../../index.js" data-main="commonAjax"></script>
     <script src="../../js/base.js"></script>
     <script>
-      var form = layui.form
-        ,layer = layui.layer;
-    </script>
-    <script>
+        function sendHtmls(url){
+            window.location=url;
+    	}
+
 		layui.use('upload', function(){
   			var data = new Object();
   			data.tokenUserId= localStorage.getItem("user_id");

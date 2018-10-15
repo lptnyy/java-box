@@ -1,5 +1,6 @@
 package com.wzy.server.http.request;
 
+import com.wzy.server.config.Config;
 import com.wzy.server.http.filter.HttpFilter;
 import com.wzy.server.http.filter.HttpFiterImpl;
 import com.wzy.server.http.response.BoxHttpResponseImpl;
@@ -9,6 +10,7 @@ import io.netty.handler.codec.http.multipart.*;
 
 import java.io.IOException;
 import java.lang.ref.ReferenceQueue;
+import java.nio.charset.Charset;
 
 public class RequestParser {
     private  HttpDataFactory factory = new DefaultHttpDataFactory(DefaultHttpDataFactory.MINSIZE);
@@ -58,7 +60,7 @@ public class RequestParser {
                 // entry.getValue()是一个List, 只取第一个元素
                 boxHttpRequest.setParameter(entry.getKey(), entry.getValue().get(0));
             });
-            boxHttpRequest.setUri(request.uri());
+            boxHttpRequest.setUri(decoder.uri());
 
         } else if (HttpMethod.POST == method) {
             boxHttpRequest.setUri(request.uri());

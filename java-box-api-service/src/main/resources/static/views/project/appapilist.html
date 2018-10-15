@@ -17,7 +17,7 @@
                     <div class="form-box">
                        <div class="layui-form layui-form-item">
                             <div class="layui-inline"> 
-                                <button onclick="sendHtml('')" id="returnbtn" class="layui-btn layui-btn-blue">返回</button>
+                                <button onclick="sendHtml('applist.html')" class="layui-btn layui-btn-blue">返回</button>
                             </div>
                         </div>
 					  <table class="layui-table">
@@ -57,7 +57,7 @@
     <script>
     	
     	function sendHtml(url){
-    		window.location.href='applist.html';
+    		location =url;
     	}
     	
     	function initTable(){
@@ -93,8 +93,7 @@
      				alert(error);	
      			});
    			});
-    	}
-    	
+    	}	
     	initTable();
     </script>
 </body>
