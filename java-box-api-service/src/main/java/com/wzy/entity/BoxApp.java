@@ -9,10 +9,19 @@ public class BoxApp {
     String jarUrl;
     String jarName;
     String jarMd5;
+    Integer jarType;
     Integer stats;
 
     public Integer getAppId() {
         return appId;
+    }
+
+    public Integer getJarType() {
+        return jarType;
+    }
+
+    public void setJarType(Integer jarType) {
+        this.jarType = jarType;
     }
 
     public void setAppId(Integer appId) {

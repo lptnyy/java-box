@@ -40,12 +40,18 @@ public class LoadJarImpl implements LoadJar {
         if (boxAppApi == null) return false;
         Jar jar = BoxUrlClassLoader.getJar(boxAppApi.getJarMd5());
         if (jar == null) return false;
-        jar.setObjClass(jar.getClassLoader().loadClass(boxAppApi.getRunClass()));
-        Object obj = jar.getObjClass().newInstance();
-        Method method = jar.getObjClass().getMethod(boxAppApi.getRunFunction(),BoxHttpRequest.class,BoxHttpResponse.class);
-        boolean returnError = false;
-        returnError = (boolean) method.invoke(obj, request,response);
-        return returnError;
+        if (jar.getInitObject() == null) {
+            synchronized (this) {
+                if (jar.getInitObject() == null) {
+                    jar.setObjClass(jar.getClassLoader().loadClass(boxAppApi.getRunClass()));
+                    Object obj = jar.getObjClass().newInstance();
+                    jar.setInitObject(obj);
+                    Method method = jar.getObjClass().getMethod(boxAppApi.getRunFunction(), BoxHttpRequest.class, BoxHttpResponse.class);
+                    jar.setMethod(method);
+                }
+            }
+        }
+        return (boolean) jar.getMethod().invoke(jar.getInitObject(), request,response);
     }
 
     @Override

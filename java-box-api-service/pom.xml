@@ -86,6 +86,12 @@
             <artifactId>java-box-server</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.eclipse.jgit/org.eclipse.jgit -->
+        <dependency>
+            <groupId>org.eclipse.jgit</groupId>
+            <artifactId>org.eclipse.jgit</artifactId>
+            <version>5.1.2.201810061102-r</version>
+        </dependency>
     </dependencies>
     <dependencyManagement>
         <dependencies>

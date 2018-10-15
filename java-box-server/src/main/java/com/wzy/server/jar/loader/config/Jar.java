@@ -1,5 +1,6 @@
 package com.wzy.server.jar.loader.config;
 
+import java.lang.reflect.Method;
 import java.net.URLClassLoader;
 
 public class Jar {
@@ -13,6 +14,16 @@ public class Jar {
     String jarMd5;
     Integer baseId;
     Object initObject;
+    Method method;
+
+    public Method getMethod() {
+        return method;
+    }
+
+    public void setMethod(Method method) {
+        this.method = method;
+    }
+
     public String getJarMd5() {
         return jarMd5;
     }

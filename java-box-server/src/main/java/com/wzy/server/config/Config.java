@@ -25,7 +25,7 @@ public class Config {
         config.setGetApplist("http://localhost:8762/butt/getApplist");
         config.setGetAppApiList("http://localhost:8762/butt/getAppApiList");
         config.setGetAppInfo("http://localhost:8762/butt/getAppId");
-        config.setRegionServerIp("192.168.30.199");
+        config.setRegionServerIp("localhost");
         config.setRegsionServerPort(2181);
         config.setRegsionServerTimeOut(600000);
         config.setCharSet("gbk");

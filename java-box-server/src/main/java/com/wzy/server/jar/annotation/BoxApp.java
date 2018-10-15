@@ -6,5 +6,5 @@ import java.lang.annotation.RetentionPolicy;
 @Retention(value= RetentionPolicy.RUNTIME)
 public @interface BoxApp {
     String name() default "";
-    String route() default "";
+    String path() default "";
 }

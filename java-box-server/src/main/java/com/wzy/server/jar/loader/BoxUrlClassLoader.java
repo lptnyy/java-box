@@ -74,7 +74,7 @@ public class BoxUrlClassLoader {
                     // 封装项目信息
                     com.wzy.server.jar.api.config.BoxApp boxProjectVo = new com.wzy.server.jar.api.config.BoxApp();
                     boxProjectVo.setName(boxAppAn.name());
-                    boxProjectVo.setRoute(boxAppAn.route());
+                    boxProjectVo.setRoute(boxAppAn.path());
                     boxProjectVos.add(boxProjectVo);
 
                     // 循环获取类中的方法
@@ -87,7 +87,7 @@ public class BoxUrlClassLoader {
                             // 封装接口访问信息
                             BoxAppApi boxApiVo = new BoxAppApi();
                             boxApiVo.setName(boxApi.name());
-                            boxApiVo.setRoute(boxApi.route());
+                            boxApiVo.setRoute(boxApi.path());
                             boxApiVo.setRunClass(v.toString());
                             boxApiVo.setLinkUrl(boxProjectVo.getRoute());
                             boxApiVo.setRunFunction(method.getName());

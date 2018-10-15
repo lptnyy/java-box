@@ -6,5 +6,5 @@ import java.lang.annotation.RetentionPolicy;
 @Retention(value= RetentionPolicy.RUNTIME)
 public @interface BoxApi {
     String name();
-    String route();
+    String path();
 }

@@ -8,8 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface BoxAppMapper {
-
-    @Insert("insert into box_app(name,route,jarUrl,jarName,jarMd5,stats) values (#{name},#{route},#{jarUrl},#{jarName},#{jarMd5},#{stats})")
+    @Insert("insert into box_app(name,route,jarUrl,jarName,jarType,jarMd5,stats) values (#{name},#{route},#{jarUrl},#{jarName},#{jarType},#{jarMd5},#{stats})")
     @Options(useGeneratedKeys=true, keyProperty="appId", keyColumn="appId")
     public int add(BoxApp boxApp);
 

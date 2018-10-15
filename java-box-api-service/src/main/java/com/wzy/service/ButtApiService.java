@@ -52,6 +52,7 @@ public class ButtApiService{
                 boxApp.setName(boxProjectVo.getName());
                 boxApp.setRoute(boxProjectVo.getRoute());
                 boxApp.setStats(0);
+                boxApp.setJarType(1);
                 boxAppMapper.add(boxApp);
             } else {
                 boxApp.setJarMd5(fileVo.getFileMd5());
