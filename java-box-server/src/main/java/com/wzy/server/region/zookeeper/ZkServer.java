@@ -71,7 +71,12 @@ public class ZkServer implements RegionServer {
         initAppNode(zooKeeper);
     }
 
-
+    /**
+     * 初始化jar信息
+     * @param zooKeeper
+     * @throws KeeperException
+     * @throws InterruptedException
+     */
     public void initAppNode(ZooKeeper zooKeeper) throws KeeperException, InterruptedException {
         if (zooKeeper.exists(ZkConfig.APP_NODE,false) != null){
             List<String> stringList = zooKeeper.getChildren(ZkConfig.APP_NODE, false);
