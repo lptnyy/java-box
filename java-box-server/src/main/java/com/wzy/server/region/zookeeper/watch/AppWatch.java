@@ -24,7 +24,6 @@ public class AppWatch implements Watcher {
             try {
                 List<String> values = zooKeeper.getChildren(watchedEvent.getPath(), false);
                 try {
-                       //Config.loadJar.initHttp(Integer.valueOf(str));
                         Config.loadJar.initHttp(values);
                     } catch (Exception e) {
                         e.printStackTrace();
