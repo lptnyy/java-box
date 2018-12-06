@@ -57,26 +57,6 @@ public class LoadJarImpl implements LoadJar {
     @Override
     public synchronized void initJar() throws Exception {
 
-//        // 循环加载jar
-//        boxAppMap.forEach((k, v) -> {
-//            Jar jar = new Jar();
-//            jar.setBaseId(v.getAppId());
-//            jar.setJarDownUrl(v.getJarUrl());
-//            jar.setJarMd5(v.getJarMd5());
-//            try {
-//                BoxUrlClassLoader.addJar(jar);
-//            } catch (Exception e) {
-//                Config.log.error(e);
-//            }
-//            boxAppMap.put(v.getAppId(), v);
-//        });
-//
-//        // 存放api访问映射路径
-//        boxAppApiMap.forEach((k,v) ->{
-//            v.forEach(boxAppApi -> {
-//                httpMap.put(boxAppApi.getLinkUrl(), boxAppApi);
-//            });
-//        });
     }
 
     /**
@@ -85,16 +65,7 @@ public class LoadJarImpl implements LoadJar {
      */
     @Override
     public synchronized void initHttp() throws Exception {
-//        List<BoxApp> boxApps = NetApi.getBoxAppList();
-//        boxApps.forEach(boxApp -> {
-//            boxAppMap.put(boxApp.getAppId(), boxApp);
-//            try {
-//                List<BoxAppApi> boxAppApis = NetApi.getBoxAppApiList(boxApp.getAppId().toString());
-//                boxAppApiMap.put(boxApp.getAppId(), boxAppApis);
-//            } catch (Exception e) {
-//                Config.log.error(e);
-//            }
-//        });
+
     }
 
     @Override

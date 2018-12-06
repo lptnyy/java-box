@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDao {
-
     public List<BoxUser> getUserList(){
         String sql = "select * from box_user";
         List<BoxUser> boxUsers = new ArrayList<>();
