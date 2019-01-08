@@ -19,9 +19,9 @@
                             <div class="layui-inline">
                                 <div class="layui-form-mid">应用名:</div>
                                 <div class="layui-input-inline" style="width: 100px;">
-                                  <input type="text" autocomplete="off" class="layui-input">
+                                  <input id="name" type="text" autocomplete="off" class="layui-input">
                                 </div>
-                                <button class="layui-btn layui-btn-blue">查询</button>
+                                <button onclick="seanchBtn()" class="layui-btn layui-btn-blue">查询</button>
                                 <button class="layui-btn" onclick="reUrl('upload.html')">上传</button>
                             </div>
                         </div>
@@ -101,6 +101,7 @@
 				this.pageNo = pageNo;
 				data.tokenUserId= localStorage.getItem("user_id");
   				data.token= localStorage.getItem("user_token");
+                data.appName = $("#name").val();
 				commajax.ajax(getAppList, data, function(result){
    				if (result.result) {
    					var obj = result.object;
@@ -173,6 +174,11 @@
      			});
    			});
     	}
+
+    	function seanchBtn() {
+            initTable(1,limitnum);
+        }
+
     	initTable(1,limitnum);
     </script>
 </body>

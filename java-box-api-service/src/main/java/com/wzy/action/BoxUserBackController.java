@@ -4,7 +4,11 @@ import com.wzy.action.parameter.user.GetAppApiList;
 import com.wzy.action.parameter.user.GetAppList;
 import com.wzy.action.parameter.user.UpdateAppStats;
 import com.wzy.service.ButtApiService;
+import com.wzy.service.ZookeeperService;
 import com.wzy.util.annotation.factory.Verification;
+import com.wzy.util.jsonvo.JsonVo;
+import org.apache.zookeeper.ZooKeeper;
+import org.apache.zookeeper.server.ZooKeeperServer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +19,9 @@ public class BoxUserBackController {
 
     @Autowired
     ButtApiService buttApiService;
+
+    @Autowired
+    ZookeeperService zookeeperService;
 
     /**
      * 查询上传完毕的应用列表
@@ -86,6 +93,25 @@ public class BoxUserBackController {
                 .setBusiness(jsonVo -> {
                     try{
                         jsonVo.setObject(buttApiService.updateStats(updateAppStats.getAppId(), updateAppStats.getStats()));
+                    } catch (Exception e) {
+                       jsonVo.setBody(e.getMessage(), false);
+                    }
+                    return jsonVo;
+                }).init().returnJsonString();
+    }
+
+    /**
+     * 获取所有注册中心的盒子
+     * @return
+     */
+    @RequestMapping(value = "/getservernodes")
+    public String getServerNodes(String jsonp){
+        return new JsonVo()
+                .setResult(true)
+                .setJsonp(jsonp)
+                .setBusiness(jsonVo -> {
+                    try{
+                        jsonVo.setObject(zookeeperService.getServerNodes());
                     } catch (Exception e) {
                        jsonVo.setBody(e.getMessage(), false);
                     }

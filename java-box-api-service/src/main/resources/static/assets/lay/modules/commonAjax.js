@@ -12,15 +12,18 @@ layui.define(['jquery'], function(exports){
                 cache: false, 
                 jsonpCallback:"callback",
                 error: function(neterror){
-                		if (error != null)
-                		error(neterror);
+                		if (error != null) {
+                            error(neterror);
+                        } else {
+                		    result(neterror);
+                        }
                 },  //错误执行方法
                 success: function(netresult){
                 		result(netresult);
                 } //成功执行方法
            });
 		}
-	}
+  	}
 	//输出接口
     exports('commonAjax', obj);
 });

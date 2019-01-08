@@ -1,6 +1,9 @@
 package com.wzy.util.zookeeper;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.wzy.entity.BoxApp;
+import com.wzy.server.region.ServerNode;
 import org.apache.zookeeper.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -8,6 +11,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Configuration
 @PropertySources({
@@ -63,6 +68,27 @@ public class ZookeeperUtil {
         if (zooKeeper.exists(appPath,false) == null) {
             zooKeeper.create(appPath,appId.toString().getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
         }
+    }
+
+    public List<ServerNode> serverNodeList() throws KeeperException, InterruptedException {
+        List<ServerNode> serverNodes = new ArrayList<>();
+        List<String> nodes = zooKeeper.getChildren(ZkConfig.REGION_SERVER, false);
+        nodes.forEach(str->{
+            try {
+                byte[] jsonByte = zooKeeper.getData(ZkConfig.REGION_SERVER+"/"+str,false,null);
+                String json = new String(jsonByte);
+                JSONObject jsonObject = JSON.parseObject(json);
+                ServerNode serverNode = JSON.toJavaObject(jsonObject, ServerNode.class);
+                serverNode.fileSeparator = "";
+                serverNode.lineSeparator = "";
+                serverNodes.add(serverNode);
+            } catch (KeeperException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        return serverNodes;
     }
 
     public void deleteAppNode(Integer appId) throws KeeperException, InterruptedException {

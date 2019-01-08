@@ -106,7 +106,8 @@ public class ButtApiService{
 
         // 组合查询语句
         Map<String,String> keys = new HashMap<>();
-        keys.put(TabBoxApp.NAME, "like '%"+appName+"%'");
+        if (appName != null && !appName.trim().equals(""))
+        keys.put(TabBoxApp.NAME, "like '%"+appName.trim()+"%'");
         pageNo = PageUtil.returnPageNo(pageNo,pageSize);
         keys.put("pageNo", pageNo+"");
         keys.put("pageSize", pageSize+"");

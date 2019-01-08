@@ -1,14 +1,10 @@
 package com.wzy.service;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.wzy.entity.vo.BoxApiVo;
-import com.wzy.entity.vo.ServerNodeVo;
+import com.wzy.server.region.ServerNode;
 import com.wzy.util.zookeeper.ZookeeperUtil;
-import org.apache.zookeeper.KeeperException;
-import org.apache.zookeeper.ZooKeeper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,4 +14,12 @@ public class ZookeeperService {
     @Autowired
     ZookeeperUtil zookeeperUtil;
 
+    /**
+     * 获取所有注册服务器列表
+     * @return
+     * @throws Exception
+     */
+    public List<ServerNode> getServerNodes() throws Exception{
+        return zookeeperUtil.serverNodeList();
+    }
 }
