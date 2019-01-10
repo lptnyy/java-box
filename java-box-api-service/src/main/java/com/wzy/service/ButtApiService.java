@@ -31,6 +31,9 @@ public class ButtApiService{
     @Autowired
     ZookeeperUtil zookeeperUtil;
 
+    @Resource
+    BoxWorkFilterMapper boxWorkFilterMapper;
+
     /**
      * 通过上传添加应用信息，通过扫描注解生成项目信息
      * @param scanJar
@@ -90,6 +93,15 @@ public class ButtApiService{
                     boxAppApiMapper.update(boxAppApi);
                 }
             });
+        });
+
+        // 新增过滤器
+        scanJar.getBoxFilters().forEach(boxFilter -> {
+            BoxWorkFilter boxWorkFilter = new BoxWorkFilter();
+            boxWorkFilter.setName(boxFilter.getName());
+            boxWorkFilter.setPath(boxFilter.getPath());
+            boxWorkFilter.setClassName(boxFilter.getClassName());
+            boxWorkFilterMapper.add(boxWorkFilter);
         });
        return false;
     }

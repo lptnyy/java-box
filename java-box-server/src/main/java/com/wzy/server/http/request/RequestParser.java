@@ -13,10 +13,9 @@ import java.lang.ref.ReferenceQueue;
 import java.nio.charset.Charset;
 
 public class RequestParser {
-    private  HttpDataFactory factory = new DefaultHttpDataFactory(DefaultHttpDataFactory.MINSIZE);
+    private HttpDataFactory factory = new DefaultHttpDataFactory(DefaultHttpDataFactory.MINSIZE);
     private HttpFilter filter = new HttpFiterImpl();
     static RequestParser requestParser;
-
     public RequestParser(){
         System.out.println("1");
     }
@@ -98,9 +97,6 @@ public class RequestParser {
         if (boxHttpRequest.uri().indexOf("?") !=-1){
             boxHttpRequest.setUri(boxHttpRequest.uri().substring(0,boxHttpRequest.uri().lastIndexOf("?")));
         }
-        if (filter.init(chx,boxHttpRequest,boxHttpResponse)){
-            filter.service(chx,boxHttpRequest,boxHttpResponse);
-            filter.release();
-        }
+        filter.service(chx,boxHttpRequest,boxHttpResponse);
     }
 }

@@ -3,11 +3,12 @@ package com.wzy.server.jar.loader;
 import com.wzy.server.config.Config;
 import com.wzy.server.jar.annotation.BoxApi;
 import com.wzy.server.jar.annotation.BoxApp;
+import com.wzy.server.jar.annotation.BoxWorkFilter;
 import com.wzy.server.jar.api.config.BoxAppApi;
+import com.wzy.server.jar.api.config.BoxFilter;
 import com.wzy.server.jar.loader.config.Jar;
 import com.wzy.server.jar.loader.config.ScanJar;
 import sun.misc.ClassLoaderUtil;
-
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.net.JarURLConnection;
@@ -59,12 +60,14 @@ public class BoxUrlClassLoader {
         ScanJar scanJar = new ScanJar();
         List<com.wzy.server.jar.api.config.BoxApp> boxProjectVos = new ArrayList<>();
         List<BoxAppApi> boxApiVos = new ArrayList<>();
+        List<BoxFilter> boxFilters = new ArrayList<>();
 
         URLClassLoader myClassLoader = new URLClassLoader( new URL[] { url } );
 
         for(Object v: classMap.values()) {
 
             try {
+                // 应用发布部分
                 Class classObj = myClassLoader.loadClass(v.toString());
 
                 // 获取类标记的注解信息
@@ -92,10 +95,21 @@ public class BoxUrlClassLoader {
                             boxApiVo.setLinkUrl(boxProjectVo.getRoute());
                             boxApiVo.setRunFunction(method.getName());
                             boxApiVos.add(boxApiVo);
-                        }
+                       }
+                   }
+                } else {
+                    // 过滤器发布部分
+                    BoxWorkFilter workFilter = (BoxWorkFilter) classObj.getAnnotation(BoxWorkFilter.class);
+                    if (workFilter != null) {
+                        BoxFilter boxFilter = new BoxFilter();
+                        boxFilter.setName(workFilter.name());
+                        boxFilter.setPath(workFilter.path());
+                        boxFilter.setClassName(classObj.getName());
+                        boxFilters.add(boxFilter);
                     }
                 }
-            } catch (ClassNotFoundException e) {
+
+           } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -111,6 +125,7 @@ public class BoxUrlClassLoader {
         // 封装jar获取的注解信息 以及反馈
         scanJar.setBoxApiVoList(boxApiVos);
         scanJar.setBoxProjectVo(boxProjectVos);
+        scanJar.setBoxFilters(boxFilters);
         return scanJar;
     }
 

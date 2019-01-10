@@ -11,7 +11,7 @@ public class MybaitsEntityUtil {
 
     public static void main(String[] args) {
         MybaitsEntityUtil mybaist = new MybaitsEntityUtil();
-        mybaist.generate("box_app");
+        mybaist.generate("box_work_filter");
     }
     public static final String url = "jdbc:mysql://localhost:3306/java_box?useUnicode=true&characterEncoding=utf-8";
     public static final String name = "com.mysql.jdbc.Driver";

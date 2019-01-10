@@ -1,6 +1,4 @@
 package com.wzy.server.config;
-
-import com.wzy.server.http.request.RequestParser;
 import com.wzy.server.jar.loader.LoadJarImpl;
 import com.wzy.util.log.BoxLog;
 import com.wzy.util.log.JavaBoxLog;
@@ -10,13 +8,13 @@ import com.wzy.util.log.JavaBoxLog;
 public class Config {
 
     // 配置日志管理
-    public static JavaBoxLog log = new BoxLog();
+    public final static JavaBoxLog log = new BoxLog();
 
     // 配置服务
-    public static BoxConfig config = new BoxConfig();
+    public final static BoxConfig config = new BoxConfig();
 
     // 配置Jar
-    public static LoadJarImpl loadJar = new LoadJarImpl();
+    public final static LoadJarImpl loadJar = new LoadJarImpl();
 
     // 初始化配置信息
     public static void initConfig(){

@@ -5,17 +5,9 @@ import com.wzy.server.http.response.BoxHttpResponse;
 import io.netty.channel.ChannelHandlerContext;
 
 public class HttpMonitorImpl implements HttpMonitor{
-    static HttpMonitor httpMonitor = null;
 
-    private HttpMonitorImpl(){
+    public HttpMonitorImpl(){
 
-    }
-
-    public static synchronized HttpMonitor getHttpMonitor(){
-        if (httpMonitor==null){
-            httpMonitor = new HttpMonitorImpl();
-        }
-        return httpMonitor;
     }
 
     @Override
