@@ -1,7 +1,6 @@
 package com.wzy.server.region.zookeeper.watch;
 
 import com.wzy.server.config.Config;
-import com.wzy.server.jar.api.NetApi;
 import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
@@ -9,10 +8,10 @@ import org.apache.zookeeper.ZooKeeper;
 
 import java.util.List;
 
-public class AppWatch implements Watcher {
+public class FliterWatch implements Watcher {
     String path;
     ZooKeeper zooKeeper;
-    public AppWatch(String path, ZooKeeper zooKeeper){
+    public FliterWatch(String path, ZooKeeper zooKeeper){
         this.path = path;
         this.zooKeeper = zooKeeper;
     }

@@ -9,7 +9,5 @@ public class JarLoadTest {
     public static void main(String[] args) throws Exception {
         Config.initConfig();
         LoadJar loadJar = new LoadJarImpl();
-        loadJar.initHttp();
-        loadJar.initJar();
     }
 }

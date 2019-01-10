@@ -7,6 +7,7 @@ public class BoxConfig {
     String getApplist;
     String getAppApiList;
     String getAppInfo;
+    String getFliter;
     String charSet;
     int regsionServerPort;
     int regsionServerTimeOut;
@@ -20,6 +21,14 @@ public class BoxConfig {
 
     public void setCharSet(String charSet) {
         this.charSet = charSet;
+    }
+
+    public String getGetFliter() {
+        return getFliter;
+    }
+
+    public void setGetFliter(String getFliter) {
+        this.getFliter = getFliter;
     }
 
     public String getGetApplist() {

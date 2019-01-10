@@ -1,16 +1,16 @@
-package com.wzy.entity;
+package com.wzy.entity.vo;
 
 import java.util.Date;
 
-public class BoxWorkFilter {
+public class BoxWorkFilterVo {
     Integer id;
     String jarUrl;
     String jarMd5;
     String name;
     String path;
     String className;
-    Integer stat;
-    Date createTime;
+    String stat;
+    String createTime;
 
     public Integer getId() {
         return id;
@@ -26,6 +26,14 @@ public class BoxWorkFilter {
 
     public void setJarUrl(String jarUrl) {
         this.jarUrl = jarUrl;
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 
     public String getJarMd5() {
@@ -60,19 +68,11 @@ public class BoxWorkFilter {
         this.className = className;
     }
 
-    public Integer getStat() {
+    public String  getStat() {
         return stat;
     }
 
-    public void setStat(Integer stat) {
+    public void setStat(String stat) {
         this.stat = stat;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
     }
 }

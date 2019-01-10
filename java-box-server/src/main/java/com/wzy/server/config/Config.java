@@ -23,15 +23,10 @@ public class Config {
         config.setGetApplist("http://localhost:8762/butt/getApplist");
         config.setGetAppApiList("http://localhost:8762/butt/getAppApiList");
         config.setGetAppInfo("http://localhost:8762/butt/getAppId");
+        config.setGetFliter("http://localhost:8762/butt/getfliters");
         config.setRegionServerIp("192.168.30.199");
         config.setRegsionServerPort(2181);
         config.setRegsionServerTimeOut(600000);
         config.setCharSet("gbk");
-        try {
-            loadJar.initHttp();
-            loadJar.initJar();
-        } catch (Exception e) {
-            log.error(e);
-        }
     }
 }

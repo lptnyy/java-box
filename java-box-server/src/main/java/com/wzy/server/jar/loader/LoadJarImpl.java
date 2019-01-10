@@ -7,6 +7,7 @@ import com.wzy.server.jar.annotation.BoxApi;
 import com.wzy.server.jar.api.NetApi;
 import com.wzy.server.jar.api.config.BoxApp;
 import com.wzy.server.jar.api.config.BoxAppApi;
+import com.wzy.server.jar.api.config.BoxFilter;
 import com.wzy.server.jar.loader.config.Jar;
 
 import java.lang.reflect.Method;
@@ -26,6 +27,9 @@ public class LoadJarImpl implements LoadJar {
 
     // 存放api 访问映射路径
     static Map<String,BoxAppApi> httpMap = new HashMap<>();
+
+    // 存放过滤器信息
+    static Map<String, BoxFilter> httpFliter = new HashMap<>();
 
     /**
      * 运行jar当中的方法
@@ -54,22 +58,9 @@ public class LoadJarImpl implements LoadJar {
         return (boolean) jar.getMethod().invoke(jar.getInitObject(), request,response);
     }
 
-    @Override
-    public synchronized void initJar() throws Exception {
-
-    }
-
-    /**
-     * 获取网络jar
-     * @throws Exception
-     */
-    @Override
-    public synchronized void initHttp() throws Exception {
-
-    }
 
     @Override
-    public synchronized void initHttp(Integer appId) throws Exception {
+    public synchronized void initAppHttp(Integer appId) throws Exception {
         BoxApp boxApp = NetApi.getBoxApp(appId);
         boxAppMap.put(boxApp.getAppId(), boxApp);
         try {
@@ -81,7 +72,7 @@ public class LoadJarImpl implements LoadJar {
     }
 
     @Override
-    public synchronized void initHttp(List<String> appIds) {
+    public synchronized void initAppHttp(List<String> appIds) {
         if (appIds.size() > boxAppMap.size()) {
             appIds.forEach(str ->{
                 if(!boxAppMap.containsKey(Integer.valueOf(str))){
@@ -140,6 +131,16 @@ public class LoadJarImpl implements LoadJar {
                 boxAppMap.remove(addId.getAppId());
             }
         }
+    }
+
+    @Override
+    public void initFliterHttp(Integer id) {
+
+    }
+
+    @Override
+    public void initFliterHttp(List<String> ids) {
+
     }
 
     @Override

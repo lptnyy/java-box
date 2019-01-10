@@ -2,8 +2,10 @@ package com.wzy.service;
 import com.wzy.entity.*;
 import com.wzy.entity.vo.BoxAppApiVo;
 import com.wzy.entity.vo.BoxAppVo;
+import com.wzy.entity.vo.BoxWorkFilterVo;
 import com.wzy.mapper.*;
 import com.wzy.mapper.table.TabBoxApp;
+import com.wzy.mapper.table.TabBoxWorkFilter;
 import com.wzy.server.jar.loader.config.ScanJar;
 import com.wzy.util.DateUtil;
 import com.wzy.util.PageUtil;
@@ -43,8 +45,8 @@ public class ButtApiService{
      */
     @Transactional
     public boolean addProject(ScanJar scanJar, FileVo fileVo) throws Exception{
+        boolean isProjcet = false;
         scanJar.getBoxProjectVo().forEach(boxProjectVo -> {
-
             // 查看項目是否存在不存在插入新數據
             BoxApp boxApp = boxAppMapper.getRouteApp(boxProjectVo.getRoute());
             if (boxApp == null) {
@@ -97,11 +99,31 @@ public class ButtApiService{
 
         // 新增过滤器
         scanJar.getBoxFilters().forEach(boxFilter -> {
-            BoxWorkFilter boxWorkFilter = new BoxWorkFilter();
-            boxWorkFilter.setName(boxFilter.getName());
-            boxWorkFilter.setPath(boxFilter.getPath());
-            boxWorkFilter.setClassName(boxFilter.getClassName());
-            boxWorkFilterMapper.add(boxWorkFilter);
+            Map<String,String> keys = new HashMap<>();
+            keys.put(TabBoxWorkFilter.NAME,boxFilter.getName());
+            keys.put(TabBoxWorkFilter.PATH,boxFilter.getPath());
+            BoxWorkFilter boxWorkFilter = boxWorkFilterMapper.get(keys);
+            if (boxWorkFilter != null) {
+                if (boxWorkFilter.getJarMd5().equals(fileVo.getFileMd5()))
+                return;
+                else {
+                    boxWorkFilter.setName(boxFilter.getName());
+                    boxWorkFilter.setPath(boxFilter.getPath());
+                    boxWorkFilter.setClassName(boxFilter.getClassName());
+                    boxWorkFilter.setJarMd5(fileVo.getFileMd5());
+                    boxWorkFilter.setJarUrl(fileVo.getFileUrl());
+                    boxWorkFilterMapper.update(boxWorkFilter);
+                }
+            } else {
+                boxWorkFilter = new BoxWorkFilter();
+                boxWorkFilter.setName(boxFilter.getName());
+                boxWorkFilter.setPath(boxFilter.getPath());
+                boxWorkFilter.setClassName(boxFilter.getClassName());
+                boxWorkFilter.setJarMd5(fileVo.getFileMd5());
+                boxWorkFilter.setJarUrl(fileVo.getFileUrl());
+                boxWorkFilterMapper.add(boxWorkFilter);
+            }
+
         });
        return false;
     }
@@ -226,5 +248,45 @@ public class ButtApiService{
      */
     public BoxApp getBoxApp(Integer appId) throws Exception{
         return boxAppMapper.getApp(appId);
+    }
+
+    /**
+     * 获取过滤器
+     * @param map
+     * @return
+     */
+    public List<BoxWorkFilterVo> getBoxWorkFilters(Map map){
+        List<BoxWorkFilter> boxWorkFilters = boxWorkFilterMapper.getList(map);
+        List<BoxWorkFilterVo> boxWorkFilterVos = new ArrayList<>();
+        boxWorkFilters.forEach(boxWorkFilter->{
+            BoxWorkFilterVo boxWorkFilterVo = new BoxWorkFilterVo();
+            BeanUtils.copyProperties(boxWorkFilter,boxWorkFilterVo);
+            boxWorkFilterVo.setCreateTime(DateUtil.getyyMMddHHmmss(boxWorkFilter.getCreateTime()));
+            if (boxWorkFilter.getStat().equals(0)) {
+                boxWorkFilterVo.setStat("未发布");
+            } else {
+                boxWorkFilterVo.setStat("已发布");
+            }
+            boxWorkFilterVos.add(boxWorkFilterVo);
+        });
+        return boxWorkFilterVos;
+    }
+
+    /**
+     * 获取过滤器分页数量
+     * @return
+     */
+    public int getBoxWorkFiltersCount(Map map){
+        return boxWorkFilterMapper.getListCount(map);
+    }
+
+     /**
+     * 获取过滤器
+     * @param map
+     * @return
+     */
+    public List<BoxWorkFilter> getButBoxWorkFilters(Map map){
+        List<BoxWorkFilter> boxWorkFilters = boxWorkFilterMapper.getList(map);
+        return boxWorkFilters;
     }
 }

@@ -18,7 +18,6 @@ public class BoxUserProvide {
         keys.forEach((k,v) ->{
             sql.append(" and t."+k+"='"+v+"'");
         });
-        System.out.println(sql.toString());
         return sql.toString();
     }
 }

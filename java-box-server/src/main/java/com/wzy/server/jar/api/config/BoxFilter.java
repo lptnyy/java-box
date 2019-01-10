@@ -4,12 +4,31 @@ public class BoxFilter {
     String name;
     String path;
     String className;
+    String jarUrl;
+    String jarMd5;
+
     public String getName() {
         return name;
     }
 
     public String getClassName() {
         return className;
+    }
+
+    public String getJarMd5() {
+        return jarMd5;
+    }
+
+    public void setJarMd5(String jarMd5) {
+        this.jarMd5 = jarMd5;
+    }
+
+    public String getJarUrl() {
+        return jarUrl;
+    }
+
+    public void setJarUrl(String jarUrl) {
+        this.jarUrl = jarUrl;
     }
 
     public void setClassName(String className) {

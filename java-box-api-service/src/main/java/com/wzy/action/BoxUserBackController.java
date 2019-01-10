@@ -2,16 +2,22 @@ package com.wzy.action;
 
 import com.wzy.action.parameter.user.GetAppApiList;
 import com.wzy.action.parameter.user.GetAppList;
+import com.wzy.action.parameter.user.GetFliter;
 import com.wzy.action.parameter.user.UpdateAppStats;
 import com.wzy.service.ButtApiService;
 import com.wzy.service.ZookeeperService;
+import com.wzy.util.MapUtil;
+import com.wzy.util.PageUtil;
 import com.wzy.util.annotation.factory.Verification;
 import com.wzy.util.jsonvo.JsonVo;
 import org.apache.zookeeper.ZooKeeper;
 import org.apache.zookeeper.server.ZooKeeperServer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping(value = "user")
@@ -112,6 +118,27 @@ public class BoxUserBackController {
                 .setBusiness(jsonVo -> {
                     try{
                         jsonVo.setObject(zookeeperService.getServerNodes());
+                    } catch (Exception e) {
+                       jsonVo.setBody(e.getMessage(), false);
+                    }
+                    return jsonVo;
+                }).init().returnJsonString();
+    }
+
+    /**
+     * 获取所有过滤器
+     * @return
+     */
+    @RequestMapping(value = "/getfliters")
+    public String getFiters(GetFliter getFliter){
+        return  Verification.verification(getFliter)
+                .setJsonp(getFliter.getJsonp())
+                .setBusiness(jsonVo -> {
+                    try{
+                        getFliter.setPageNo(PageUtil.returnPageNo(getFliter.getPageNo(), getFliter.getPageSize()));
+                        Map map = MapUtil.objectToMap(getFliter);
+                        jsonVo.setObject(buttApiService.getBoxWorkFilters(map));
+                        jsonVo.setSumPage(buttApiService.getBoxWorkFiltersCount(map));
                     } catch (Exception e) {
                        jsonVo.setBody(e.getMessage(), false);
                     }
