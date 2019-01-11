@@ -98,6 +98,32 @@ public class ZookeeperUtil {
         }
     }
 
+    /**
+     * 添加一个过滤器通知
+     * @param id
+     * @throws KeeperException
+     * @throws InterruptedException
+     */
+    public void addFliters(Integer id) throws KeeperException, InterruptedException {
+        String filiters = ZkConfig.APP_FLITER+"/"+id;
+        if (zooKeeper.exists(filiters, false) == null) {
+            zooKeeper.create(filiters,"".getBytes(),ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+        }
+    }
+
+    /**
+     * 删除一个过滤器通知
+     * @param id
+     * @throws KeeperException
+     * @throws InterruptedException
+     */
+    public void delFliters(Integer id) throws KeeperException, InterruptedException {
+        String filiters = ZkConfig.APP_FLITER+"/"+id;
+        if (zooKeeper.exists(filiters, false) != null) {
+            zooKeeper.delete(filiters,-1);
+        }
+    }
+
     public ZooKeeper getZooKeeper() {
         return zooKeeper;
     }

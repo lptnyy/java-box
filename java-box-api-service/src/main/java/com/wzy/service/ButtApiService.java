@@ -122,7 +122,15 @@ public class ButtApiService{
                 boxWorkFilter.setJarMd5(fileVo.getFileMd5());
                 boxWorkFilter.setJarUrl(fileVo.getFileUrl());
                 boxWorkFilterMapper.add(boxWorkFilter);
+                try {
+                    zookeeperUtil.addFliters(boxWorkFilter.getId());
+                } catch (KeeperException e) {
+                     e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
+
 
         });
        return false;

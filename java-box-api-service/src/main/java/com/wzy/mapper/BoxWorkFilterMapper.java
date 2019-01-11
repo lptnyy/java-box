@@ -2,10 +2,7 @@ package com.wzy.mapper;
 
 import com.wzy.entity.BoxWorkFilter;
 import com.wzy.mapper.provide.BoxWorkFilterProvide;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.SelectProvider;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 import java.util.Map;
@@ -18,6 +15,7 @@ public interface BoxWorkFilterMapper {
      * @return
      */
     @Insert("insert into box_work_filter(jarUrl,jarMd5,name,path,className) values (#{jarUrl},#{jarMd5},#{name},#{path},#{className})")
+    @Options(useGeneratedKeys=true, keyProperty="id", keyColumn="id")
     int add(BoxWorkFilter workFilter);
 
     /**
