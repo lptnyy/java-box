@@ -122,13 +122,7 @@ public class ButtApiService{
                 boxWorkFilter.setJarMd5(fileVo.getFileMd5());
                 boxWorkFilter.setJarUrl(fileVo.getFileUrl());
                 boxWorkFilterMapper.add(boxWorkFilter);
-                try {
-                    zookeeperUtil.addFliters(boxWorkFilter.getId());
-                } catch (KeeperException e) {
-                     e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+
             }
 
 
@@ -296,5 +290,33 @@ public class ButtApiService{
     public List<BoxWorkFilter> getButBoxWorkFilters(Map map){
         List<BoxWorkFilter> boxWorkFilters = boxWorkFilterMapper.getList(map);
         return boxWorkFilters;
+    }
+
+    /*
+    delete data
+     */
+    public int deleteButBoxWorkFilters(Integer id){
+        try {
+            zookeeperUtil.delFliters(id);
+        } catch (KeeperException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return boxWorkFilterMapper.del(id);
+    }
+
+    public int updateBoxWorkFileters(Integer id, Integer stat) {
+         try {
+             if (stat.equals(1))
+                zookeeperUtil.addFliters(id);
+             else
+                zookeeperUtil.delFliters(id);
+         } catch (KeeperException e) {
+             e.printStackTrace();
+         } catch (InterruptedException e) {
+            e.printStackTrace();
+         }
+        return boxWorkFilterMapper.updateStart(id,stat);
     }
 }

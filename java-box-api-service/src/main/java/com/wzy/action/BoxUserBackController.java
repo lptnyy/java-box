@@ -145,4 +145,40 @@ public class BoxUserBackController {
                     return jsonVo;
                 }).init().returnJsonString();
     }
+
+    /**
+     * 刪除過濾器
+     * @return
+     */
+    @RequestMapping(value = "/deletefliters")
+    public String deleteFiters(Integer id, String jsonp){
+        return  new JsonVo().setResult(true)
+                .setJsonp(jsonp)
+                .setBusiness(jsonVo -> {
+                    try{
+                        jsonVo.setObject(buttApiService.deleteButBoxWorkFilters(id));
+                    } catch (Exception e) {
+                       jsonVo.setBody(e.getMessage(), false);
+                    }
+                    return jsonVo;
+                }).init().returnJsonString();
+    }
+
+    /**
+     * 發佈 取消
+     * @return
+     */
+    @RequestMapping(value = "/updateflitersStat")
+    public String updateflitersStat(Integer id,Integer stat, String jsonp){
+        return  new JsonVo().setResult(true)
+                .setJsonp(jsonp)
+                .setBusiness(jsonVo -> {
+                    try{
+                        jsonVo.setObject(buttApiService.updateBoxWorkFileters(id,stat));
+                    } catch (Exception e) {
+                       jsonVo.setBody(e.getMessage(), false);
+                    }
+                    return jsonVo;
+                }).init().returnJsonString();
+    }
 }

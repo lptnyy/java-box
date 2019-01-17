@@ -8,3 +8,5 @@ var deleteAppnet="/user/deleteApp";
 var updateAppStats="/user/updateAppStats";
 var getServerNodes="/user/getservernodes";
 var getFliters = "/user/getfliters";
+var deleteFliters = "/user/deletefliters";
+var updateFiitersStat = "/user/updateflitersStat";

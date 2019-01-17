@@ -104,11 +104,11 @@
                         bodytable+="<td>"+objo.className+"</td>";
                         bodytable+="<td>"+objo.createTime+"</td>";
                         bodytable+='<td>';
-                        bodytable+='<a onclick="deleteApp('+objo.appId+')">删除</a>&nbsp;&nbsp;';
+                        bodytable+='<a onclick="deleteApp('+objo.id+')">删除</a>&nbsp;&nbsp;';
                         if (objo.stat == '未发布')
-                            bodytable+='<a onclick="updateAppStatsweb('+objo.appId+','+1+')">发布</a></td>';
+                            bodytable+='<a onclick="updateAppStatsweb('+objo.id+','+1+')">发布</a></td>';
                         if (objo.stat == '已发布')
-                            bodytable+='<a onclick="updateAppStatsweb('+objo.appId+','+0+')">取消</a></td>';
+                            bodytable+='<a onclick="updateAppStatsweb('+objo.id+','+0+')">取消</a></td>';
                         bodytable+="</tr>";
                     }
                     $("#tablebody").html(bodytable);
@@ -127,8 +127,8 @@
             var data = new Object();
             data.tokenUserId= localStorage.getItem("user_id");
             data.token= localStorage.getItem("user_token");
-            data.appId=appId;
-            commajax.ajax(deleteAppnet, data, function(result){
+            data.id=appId;
+            commajax.ajax(deleteFliters, data, function(result){
                 if (result.result) {
                     initTable(1,limitnum);
                     alert("删除成功");
@@ -147,9 +147,9 @@
             var data = new Object();
             data.tokenUserId= localStorage.getItem("user_id");
             data.token= localStorage.getItem("user_token");
-            data.appId=appId;
-            data.stats=stats;
-            commajax.ajax(updateAppStats, data, function(result){
+            data.id=appId;
+            data.stat=stats;
+            commajax.ajax(updateFiitersStat, data, function(result){
                 if (result.result) {
                     initTable(1,limitnum);
                     alert("操作成功");
