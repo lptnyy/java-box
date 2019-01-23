@@ -8,7 +8,6 @@ import com.wzy.server.region.zookeeper.watch.FliterWatch;
 import com.wzy.util.log.JavaBoxLog;
 import com.wzy.util.zookeeper.ZkConfig;
 import org.apache.zookeeper.*;
-
 import java.util.List;
 
 public class ZkServer implements RegionServer {
@@ -71,10 +70,9 @@ public class ZkServer implements RegionServer {
 
         // 监控过滤器节点
         String fliterNode = ZkConfig.APP_FLITER;
-        if (zooKeeper.exists(fliterNode,false) == null){
+        if (zooKeeper.exists(fliterNode,false) == null)
             zooKeeper.create(fliterNode,"".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
-            zooKeeper.getChildren(fliterNode, new FliterWatch(appNode, zooKeeper));
-        }
+            zooKeeper.getChildren(fliterNode, new FliterWatch(fliterNode, zooKeeper));
 
         initAppNode(zooKeeper);
         initFilterNode(zooKeeper);
@@ -104,9 +102,9 @@ public class ZkServer implements RegionServer {
     public void initFilterNode(ZooKeeper zooKeeper) throws KeeperException, InterruptedException {
         if (zooKeeper.exists(ZkConfig.APP_FLITER,false) != null){
             List<String> stringList = zooKeeper.getChildren(ZkConfig.APP_FLITER, false);
-            if (stringList.size()>0) {
-                System.out.println(stringList);
-            }
+            stringList.forEach(str->{
+                FliterWatch.initWater(str,zooKeeper);
+            });
         }
     }
 }

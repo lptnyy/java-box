@@ -9,7 +9,6 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
@@ -99,10 +98,10 @@ public class BoxButtApiController extends BaseController {
                     try{
                         Map<String,String> map = new HashMap<>();
                         map.put(TabBoxWorkFilter.STAT, "1");
-                        if (getFliter.getId() != null)
-                        map.put(TabBoxWorkFilter.ID, getFliter.getId().toString());
+                        map.put(TabBoxWorkFilter.ID, " in ('"+getFliter.getId()+"')");
                         jsonVo.setObject(apiService.getButBoxWorkFilters(map));
                     } catch (Exception e) {
+                        e.printStackTrace();
                        jsonVo.setBody(e.getMessage(), false);
                     }
                     return jsonVo;

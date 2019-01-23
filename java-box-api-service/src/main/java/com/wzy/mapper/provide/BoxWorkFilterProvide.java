@@ -20,7 +20,10 @@ public class BoxWorkFilterProvide {
                     && keys.get(k) != null
                     && !keys.get(k).equals("")
                     && !k.equals("jsonp"))
-                sql.append(" and t." + k + "='" + keys.get(k) + "'");
+                if (keys.get(k).toString().indexOf("in") == -1)
+                    sql.append(" and t." + k + "='" + keys.get(k) + "'");
+                else
+                    sql.append(" and t."+k+keys.get(k));
             else if (k.equals("pageNo")) {
                 sql.append(" limit " + keys.get(k) + "," + keys.get("pageSize"));
             }

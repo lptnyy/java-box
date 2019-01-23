@@ -5,6 +5,7 @@ import com.wzy.server.http.monitor.HttpMonitorImpl;
 import com.wzy.server.http.request.BoxHttpRequest;
 import com.wzy.server.http.request.HttpCodePrint;
 import com.wzy.server.http.response.BoxHttpResponse;
+import com.wzy.server.jar.api.config.BoxFilterRun;
 import io.netty.channel.ChannelHandlerContext;
 import static io.netty.handler.codec.http.HttpResponseStatus.INTERNAL_SERVER_ERROR;
 import static io.netty.handler.codec.http.HttpResponseStatus.NOT_FOUND;
@@ -15,8 +16,9 @@ public class HttpFiterImpl implements HttpFilter {
     public boolean service(ChannelHandlerContext chx, BoxHttpRequest request, BoxHttpResponse response) {
         try {
             long startTimes = System.currentTimeMillis();
+            if(Config.loadJar.runFliter(request,response).getCode() == BoxFilterRun.RUNSU)
+                return false;
             if(Config.loadJar.runClass(request,response)){
-
             } else {
                 HttpCodePrint.sendError(chx, NOT_FOUND);
             };

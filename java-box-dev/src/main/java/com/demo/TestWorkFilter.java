@@ -11,6 +11,7 @@ public class TestWorkFilter implements WorkFilter {
     @Override
     public boolean service(BoxHttpRequest request, BoxHttpResponse response) {
         System.out.println("Filter true");
-        return true;
+        response.print(request.getChx(),"error");
+        return false;
     }
 }

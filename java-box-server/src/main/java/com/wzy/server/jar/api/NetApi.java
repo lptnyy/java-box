@@ -101,9 +101,9 @@ public class NetApi {
      * @return
      * @throws Exception
      */
-    public static List<BoxFilter> getBoxFilterList() throws Exception {
+    public static List<BoxFilter> getBoxFilterList(String ids) throws Exception {
         List<BoxFilter> boxAppApis = new ArrayList<>();
-        String returnJson = HttpGetUtil.get(Config.config.getGetFliter(),"");
+        String returnJson = HttpGetUtil.get(Config.config.getGetFliter(),"id="+ids);
         JSONObject jsonObject = JSON.parseObject(returnJson);
         boolean result = jsonObject.getBoolean("result");
         if (result) {
@@ -111,6 +111,7 @@ public class NetApi {
             for(int i =0;i<jsonArray.size(); i++) {
                 JSONObject obj = jsonArray.getJSONObject(i);
                 BoxFilter boxFilter = new BoxFilter();
+                boxFilter.setId(obj.getInteger("id"));
                 boxFilter.setClassName(obj.getString("className"));
                 boxFilter.setPath(obj.getString("path"));
                 boxFilter.setName(obj.getString("name"));

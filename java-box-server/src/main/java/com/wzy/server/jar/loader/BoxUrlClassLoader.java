@@ -27,6 +27,10 @@ public class BoxUrlClassLoader {
     static Map<String, Jar> jarmaps = new HashMap<String, Jar>();
     static Map<Integer, String> jarIdToMd5Map = new HashMap<>();
 
+    // 存放加载过滤器的jar
+    static Map<String, Jar> jarFailtermaps = new HashMap<String, Jar>();
+    static Map<Integer, String> jarIdFailterMd5Map = new HashMap<>();
+
     /**
      * 加载Jar包
      * @param jarVo
@@ -39,6 +43,45 @@ public class BoxUrlClassLoader {
         jarVo.setClassLoader(myClassLoader);
         jarmaps.put(jarVo.getJarMd5(), jarVo);
         jarIdToMd5Map.put(jarVo.getBaseId(), jarVo.getJarMd5());
+        return true;
+    }
+
+    /**
+     * 加载Jar包
+     * @param jarVo
+     * @return
+     * @throws Exception
+     */
+    public synchronized static boolean addFliterJar(Jar jarVo) throws Exception{
+        URL url = new URL(Config.config.getJarDownServerUrl()+jarVo.getJarDownUrl());
+        URLClassLoader myClassLoader = new URLClassLoader( new URL[] { url } );
+        jarVo.setClassLoader(myClassLoader);
+        jarFailtermaps.put(jarVo.getJarMd5(), jarVo);
+        jarIdFailterMd5Map.put(jarVo.getBaseId(), jarVo.getJarMd5());
+        return true;
+    }
+
+    /**
+     * 获取要执行的jar
+     * @return
+     */
+    public static Jar getFilterJar(String md5){
+        return jarFailtermaps.get(md5);
+    }
+
+    /**
+     * 卸载过滤器
+     * @param id
+     * @return
+     * @throws IOException
+     */
+    public synchronized static boolean removeFliterJar(Integer id) throws IOException {
+        String jarMd5 = jarIdFailterMd5Map.get(id);
+        jarIdFailterMd5Map.remove(id);
+        Jar jar = jarFailtermaps.get(jarMd5);
+        jar.getClassLoader().close();
+        ClassLoaderUtil.releaseLoader(jar.getClassLoader());
+        jarFailtermaps.remove(jarMd5);
         return true;
     }
 
