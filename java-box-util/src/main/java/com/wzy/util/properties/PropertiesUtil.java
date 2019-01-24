@@ -14,7 +14,7 @@ public class PropertiesUtil {
      */
     public static String getConfigKey(String key){
        String configUrl = System.getProperty("user.dir");
-       try(InputStream is = new FileInputStream(new File(configUrl))){
+       try(InputStream is = new FileInputStream(new File(configUrl+"/java-box-server/config/config.properties"))){
            Properties p = new Properties();
            p.load(is);
            return p.getProperty(key);
