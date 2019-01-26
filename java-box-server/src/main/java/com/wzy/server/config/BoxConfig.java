@@ -9,6 +9,7 @@ public class BoxConfig {
     String getAppInfo;
     String getFliter;
     String charSet;
+    String serverIp;
     int regsionServerPort;
     int regsionServerTimeOut;
     boolean openAdmin;
@@ -25,6 +26,14 @@ public class BoxConfig {
 
     public String getGetFliter() {
         return getFliter;
+    }
+
+    public String getServerIp() {
+        return serverIp;
+    }
+
+    public void setServerIp(String serverIp) {
+        this.serverIp = serverIp;
     }
 
     public void setGetFliter(String getFliter) {
