@@ -7,11 +7,27 @@
     <artifactId>JavaBox</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
+    <!--指定仓库地址 -->
+    <distributionManagement>
+        <repository>
+            <!--此名称要和.m2/settings.xml中设置的ID一致 -->
+            <id>dev</id>
+            <url>http://192.168.30.199:8081/repository/maven-public/</url>
+        </repository>
+    </distributionManagement>
+
     <modules>
         <module>java-box-util</module>
         <module>java-box-server</module>
         <module>java-box-dev</module>
         <module>java-box-api-service</module>
+        <module>java-box-quartz</module>
+        <module>java-box-logs</module>
+        <module>java-box-registration</module>
+        <module>java-box-config</module>
+        <module>java-box-jar</module>
+        <module>java-box-func</module>
     </modules>
     <dependencies>
         <dependency>

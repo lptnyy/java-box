@@ -1,12 +1,12 @@
 package com.wzy.server.cache.redis;
-
+import com.wzy.log.BoxLog;
+import com.wzy.log.ILog;
 import com.wzy.server.cache.BoxCache;
 import com.wzy.server.config.Config;
 import redis.clients.jedis.Jedis;
-
 import java.util.List;
-
 public class RedisCache implements BoxCache{
+    ILog log = BoxLog.getInstance();
 
     @Override
     public String get(String key) {
@@ -16,10 +16,10 @@ public class RedisCache implements BoxCache{
             jedis = RedisConfiguraion.jedisPool().getResource();
             if (jedis.exists(key)) {
                 value = jedis.get(key);
-                Config.log.debug("getString {"+key+"} = {"+value+"}");
+                log.debug("getString {"+key+"} = {"+value+"}");
             }
         } catch (Exception e) {
-            Config.log.error(e);
+            log.error(e);
         } finally {
             jedis.close();
         }
@@ -37,15 +37,15 @@ public class RedisCache implements BoxCache{
             }else{
                 result = jedis.set(key, value);
             }
-            Config.log.debug("getString {"+key+"} = {"+value+"}");
+            log.debug("getString {"+key+"} = {"+value+"}");
         } catch (Exception e) {
-            Config.log.error(e);
+            log.error(e);
         } finally {
             jedis.close();
         }
         return result;
     }
-
+    
     @Override
     public List<String> getList(String key) {
         List<String> value = null;
@@ -54,10 +54,10 @@ public class RedisCache implements BoxCache{
             jedis = RedisConfiguraion.jedisPool().getResource();
             if (jedis.exists(key)) {
                 value = jedis.lrange(key, 0, -1);
-                Config.log.debug("getString {"+key+"} = {"+value+"}");
+                log.debug("getString {"+key+"} = {"+value+"}");
             }
         } catch (Exception e) {
-            Config.log.error(e);
+            log.error(e);
         } finally {
             jedis.close();
         }

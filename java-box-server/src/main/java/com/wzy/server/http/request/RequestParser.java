@@ -1,18 +1,22 @@
 package com.wzy.server.http.request;
 
-import com.wzy.server.config.Config;
-import com.wzy.server.http.filter.HttpFilter;
+import com.wzy.func.fc.HttpFilter;
+import com.wzy.log.BoxLog;
+import com.wzy.log.ILog;
 import com.wzy.server.http.filter.HttpFiterImpl;
 import com.wzy.server.http.response.BoxHttpResponseImpl;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.*;
 import io.netty.handler.codec.http.multipart.*;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.lang.ref.ReferenceQueue;
-import java.nio.charset.Charset;
+import java.nio.channels.FileChannel;
 
 public class RequestParser {
+    ILog log = BoxLog.getInstance();
     private HttpDataFactory factory = new DefaultHttpDataFactory(DefaultHttpDataFactory.MINSIZE);
     private HttpFilter filter = new HttpFiterImpl();
     static RequestParser requestParser;
@@ -51,6 +55,7 @@ public class RequestParser {
         request.headers().forEach(v -> {
             boxHttpRequest.setHeader(v.getKey(),v.getValue());
         });
+
         if (HttpMethod.GET == method) {
             boxHttpRequest.setMethod("get");
             // 是GET请求
@@ -81,13 +86,14 @@ public class RequestParser {
                                         break;
                                     case FileUpload:
                                         FileUpload fileUpload = (FileUpload) data;
+                                        writeChunk(fileUpload);
                                         break;
                                 }
                                 data.release();
                             }
                         }
                     }catch (Exception e){
-
+                        log.error(e);
                     } finally {
 
                     }
@@ -98,5 +104,18 @@ public class RequestParser {
             boxHttpRequest.setUri(boxHttpRequest.uri().substring(0,boxHttpRequest.uri().lastIndexOf("?")));
         }
         filter.service(chx,boxHttpRequest,boxHttpResponse);
+    }
+
+    private void writeChunk(FileUpload fileUpload) throws IOException {
+        File file = new File("C:\\test\\" + fileUpload.getFilename());
+        if (!file.exists()) {
+            file.createNewFile();
+        }
+        try (FileChannel inputChannel = new FileInputStream(fileUpload.getFile()).getChannel();
+                     FileChannel outputChannel = new FileOutputStream(file).getChannel()) {
+                    outputChannel.transferFrom(inputChannel, 0, inputChannel.size());
+        } catch (Exception e) {
+
+        }
     }
 }

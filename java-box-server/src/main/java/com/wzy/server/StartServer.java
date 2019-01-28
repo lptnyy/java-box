@@ -1,12 +1,15 @@
 package com.wzy.server;
 
+import com.wzy.func.fc.HttpServer;
+import com.wzy.log.BoxLog;
+import com.wzy.log.ILog;
 import com.wzy.server.config.Config;
-import com.wzy.server.netty.HttpServer;
 import com.wzy.server.netty.HttpServerImpl;
 import com.wzy.server.region.ServerNode;
 import com.wzy.server.region.zookeeper.ZkServer;
 
 public class StartServer {
+    static ILog log = BoxLog.getInstance();
 
     public static void main(String[] args) throws Exception {
         // 初始化 配置文件
@@ -18,7 +21,7 @@ public class StartServer {
             HttpServer httpServer = new HttpServerImpl();
             httpServer.init();
         } else {
-            Config.log.error("启动服务失败");
+            log.error("启动服务失败");
         }
     }
 }

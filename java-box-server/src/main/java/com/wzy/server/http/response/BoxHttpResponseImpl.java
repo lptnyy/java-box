@@ -1,5 +1,6 @@
 package com.wzy.server.http.response;
 
+import com.wzy.func.fc.BoxHttpResponse;
 import com.wzy.server.config.Config;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFutureListener;
@@ -9,7 +10,6 @@ import io.netty.handler.codec.http.FullHttpResponse;
 import io.netty.handler.codec.http.HttpHeaderValues;
 
 import java.io.UnsupportedEncodingException;
-import java.nio.charset.Charset;
 
 import static io.netty.handler.codec.http.HttpHeaderNames.*;
 import static io.netty.handler.codec.http.HttpResponseStatus.OK;

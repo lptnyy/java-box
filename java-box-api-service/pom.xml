@@ -83,7 +83,12 @@
         </dependency>
         <dependency>
             <groupId>com.wzy</groupId>
-            <artifactId>java-box-server</artifactId>
+            <artifactId>java-box-jar</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.wzy</groupId>
+            <artifactId>java-box-registration</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.eclipse.jgit/org.eclipse.jgit -->

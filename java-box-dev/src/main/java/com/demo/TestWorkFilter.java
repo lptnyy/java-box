@@ -1,9 +1,9 @@
 package com.demo;
 
-import com.wzy.server.http.request.BoxHttpRequest;
-import com.wzy.server.http.response.BoxHttpResponse;
-import com.wzy.server.jar.annotation.BoxWorkFilter;
-import com.wzy.server.jar.fuc.WorkFilter;
+import com.wzy.func.fc.BoxHttpRequest;
+import com.wzy.func.fc.BoxHttpResponse;
+import com.wzy.func.fc.WorkFilter;
+import com.wzy.func.annotation.BoxWorkFilter;
 
 @BoxWorkFilter(name = "测试过滤器", path = "/demo/*")
 public class TestWorkFilter implements WorkFilter {

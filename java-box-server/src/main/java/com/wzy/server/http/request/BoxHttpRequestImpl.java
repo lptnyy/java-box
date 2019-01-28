@@ -1,5 +1,6 @@
 package com.wzy.server.http.request;
 
+import com.wzy.func.fc.BoxHttpRequest;
 import io.netty.channel.ChannelHandlerContext;
 
 import java.io.InputStream;
