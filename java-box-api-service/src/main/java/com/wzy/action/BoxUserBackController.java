@@ -1,10 +1,10 @@
 package com.wzy.action;
 
-import com.wzy.action.parameter.user.GetAppApiList;
-import com.wzy.action.parameter.user.GetAppList;
-import com.wzy.action.parameter.user.GetFliter;
-import com.wzy.action.parameter.user.UpdateAppStats;
+import com.wzy.action.parameter.user.*;
+import com.wzy.entity.vo.BoxConfigVo;
+import com.wzy.server.config.Config;
 import com.wzy.service.ButtApiService;
+import com.wzy.service.ConfigService;
 import com.wzy.service.ZookeeperService;
 import com.wzy.util.MapUtil;
 import com.wzy.util.PageUtil;
@@ -12,7 +12,9 @@ import com.wzy.util.annotation.factory.Verification;
 import com.wzy.util.jsonvo.JsonVo;
 import org.apache.zookeeper.ZooKeeper;
 import org.apache.zookeeper.server.ZooKeeperServer;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,6 +30,9 @@ public class BoxUserBackController {
 
     @Autowired
     ZookeeperService zookeeperService;
+
+    @Autowired
+    ConfigService configService;
 
     /**
      * 查询上传完毕的应用列表
@@ -177,6 +182,46 @@ public class BoxUserBackController {
                         jsonVo.setObject(buttApiService.updateBoxWorkFileters(id,stat));
                     } catch (Exception e) {
                        jsonVo.setBody(e.getMessage(), false);
+                    }
+                    return jsonVo;
+                }).init().returnJsonString();
+    }
+
+    /**
+     * 查看所有配置文件
+     * @return
+     */
+    @RequestMapping(value = "/getConfigs")
+    public String getConfigs(GetAddConfig addConfig){
+        return  Verification.verification(addConfig)
+                .setJsonp(addConfig.getJsonp())
+                .setBusiness(jsonVo -> {
+                    try{
+                        jsonVo.setObject(configService.getList(addConfig.getPageNo(), Integer.MAX_VALUE));
+                    } catch (Exception e) {
+                       jsonVo.setBody(e.getMessage(), false);
+                    }
+                    return jsonVo;
+                }).init().returnJsonString();
+    }
+
+    /**
+     * 保存配置信息
+     * @return
+     */
+    @RequestMapping(value = "/addConfig")
+    public String addConfig(AddConfig addConfig){
+        return  Verification.verification(addConfig)
+                .setJsonp(addConfig.getJsonp())
+                .setBusiness(jsonVo -> {
+                    try{
+                        BoxConfigVo boxConfigVo = new BoxConfigVo();
+                        boxConfigVo.setK(addConfig.getKey());
+                        boxConfigVo.setV(addConfig.getValue());
+                        jsonVo.setObject(configService.add(boxConfigVo));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        jsonVo.setBody(e.getMessage(), false);
                     }
                     return jsonVo;
                 }).init().returnJsonString();

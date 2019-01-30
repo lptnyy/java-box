@@ -16,8 +16,8 @@ import java.util.List;
 
 @Configuration
 @PropertySources({
-        @PropertySource("file:${user.dir}/config/zk.properties"),
-        //@PropertySource("classpath:zk.properties"),
+        //@PropertySource("file:${user.dir}/config/zk.properties"),
+        @PropertySource("classpath:zk.properties"),
         @PropertySource(value = "${zk.properties}", ignoreResourceNotFound = true)})
 public class ZookeeperUtil {
     @Value("${zkIp}")
@@ -39,6 +39,13 @@ public class ZookeeperUtil {
                             + zookeeperPort, Integer.valueOf(timeOut), new Watcher() {
                         @Override
                         public void process(WatchedEvent watchedEvent) {
+                            try {
+                                initNode();
+                            } catch (KeeperException e) {
+                                e.printStackTrace();
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
                             System.out.println("zookeeper 初始化成功");
                         }
                     });
@@ -50,6 +57,25 @@ public class ZookeeperUtil {
         return true;
     }
 
+    public void initNode() throws KeeperException, InterruptedException {
+        String appNode = ZkConfig.APP_NODE;
+        // 创建App 根节点
+        if (zooKeeper.exists(appNode,false) == null) {
+            zooKeeper.create(appNode,"".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+        }
+
+        // 创建
+        String configPath= ZkConfig.APP_CONFIG;
+        if (zooKeeper.exists(configPath,false) == null) {
+            zooKeeper.create(configPath, "".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+        }
+
+        String filiters = ZkConfig.APP_FLITER;
+        if (zooKeeper.exists(filiters, false) == null) {
+            zooKeeper.create(filiters,"".getBytes(),ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+        }
+    }
+
     /**
      * zookeeper 添加一个应用信息
      * @param appId
@@ -59,16 +85,12 @@ public class ZookeeperUtil {
     public void addAppNode(Integer appId) throws KeeperException, InterruptedException {
         String appNode = ZkConfig.APP_NODE;
 
-        // 创建App 根节点
-        if (zooKeeper.exists(appNode,false) == null) {
-            zooKeeper.create(appNode,"".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
-        }
-
         // 插入appNode信息
         String appPath=appNode+"/"+appId;
         if (zooKeeper.exists(appPath,false) == null) {
             zooKeeper.create(appPath,appId.toString().getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
         }
+
     }
 
     public List<ServerNode> serverNodeList() throws KeeperException, InterruptedException {
@@ -122,6 +144,35 @@ public class ZookeeperUtil {
         String filiters = ZkConfig.APP_FLITER+"/"+id;
         if (zooKeeper.exists(filiters, false) != null) {
             zooKeeper.delete(filiters,-1);
+        }
+    }
+
+    /**
+     * 添加一个配置信息
+     * @param key
+     * @param value
+     * @throws KeeperException
+     * @throws InterruptedException
+     */
+    public void addConfig(String key,String value) throws KeeperException, InterruptedException {
+        String configfile = ZkConfig.APP_CONFIG+"/"+key;
+        if (zooKeeper.exists(configfile,false) == null) {
+            zooKeeper.create(configfile,value.getBytes(),ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+        } else {
+            zooKeeper.setData(configfile,value.getBytes(), -1);
+        }
+    }
+
+    /**
+     * 删除一个配置信息
+     * @param key
+     * @throws KeeperException
+     * @throws InterruptedException
+     */
+    public void deleteConfig(String key) throws KeeperException, InterruptedException {
+        String configfile = ZkConfig.APP_CONFIG+"/"+key;
+        if (zooKeeper.exists(configfile, false) != null) {
+            zooKeeper.delete(configfile,-1);
         }
     }
 
