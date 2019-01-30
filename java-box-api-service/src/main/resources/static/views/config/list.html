@@ -35,6 +35,7 @@
 							<th>Key</th>
 							<th>Value</th>
 							<th>创建时间</th>
+							  <th>操作</th>
 						  </tr> 
 						</thead>
 						<tbody id="tablebody">
@@ -70,6 +71,10 @@
                         bodytable+="<td>"+objo.k+"</td>";
                         bodytable+="<td>"+objo.v+"</td>";
                         bodytable+="<td>"+objo.createTime+"</td>";
+                        bodytable+="<td>";
+                        bodytable+="<a onclick=\"deleteConfig('"+objo.id+"','"+objo.k+"')\">刪除</a>";
+                        bodytable+="&nbsp;&nbsp;<a onclick=\"update('"+objo.k+"','"+objo.v+"')\">修改</a>";
+                        bodytable+="</td>";
                         bodytable+="</tr>";
                     }
                     $("#tablebody").html(bodytable);
@@ -93,6 +98,7 @@
             commajax.ajax("/user/initConfig", data, function(result){
                 if (result.result) {
                     alert("成功");
+                    initTable();
                 } else {
                     alert(result.msg);
                 }
@@ -101,6 +107,35 @@
                 console.log(error.responseText);
             });
         });
+    }
+    
+    function deleteConfig(id,key) {
+        layui.use(['commonAjax'], function () {
+            var commajax = layui.commonAjax;
+            var $ = layui.jquery;
+            var data = new Object();
+            data.id = id;
+            data.key = key;
+            data.tokenUserId= localStorage.getItem("user_id");
+            data.token= localStorage.getItem("user_token");
+            commajax.ajax("/user/delConfig", data, function(result){
+                if (result.result) {
+                    alert("成功");
+                    initTable();
+                } else {
+                    alert(result.msg);
+                }
+            }, function(error){
+                console.log(error.status);
+                console.log(error.responseText);
+            });
+        });
+    }
+
+    function update(key,value) {
+		sessionStorage.setItem("updatekey",key);
+		sessionStorage.setItem(key,value);
+		sendHtmls("edt.html");
     }
 
     function sendHtmls(url){

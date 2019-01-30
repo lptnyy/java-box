@@ -66,16 +66,19 @@ CREATE TABLE IF NOT EXISTS `box_config` (
   `v` varchar(50) NOT NULL,
   `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COMMENT='读取配置文件信息';
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COMMENT='读取配置文件信息';
 
--- テーブル java_box.box_config: ~0 rows (approximately) のデータをダンプしています
+-- テーブル java_box.box_config: ~7 rows (approximately) のデータをダンプしています
 DELETE FROM `box_config`;
 /*!40000 ALTER TABLE `box_config` DISABLE KEYS */;
 INSERT INTO `box_config` (`id`, `k`, `v`, `createTime`) VALUES
-	(1, 'keys', 'ahha', '2019-01-30 15:32:44'),
-	(8, '123', '44444', '2019-01-30 16:38:07'),
-	(9, '456', '4444', '2019-01-30 16:39:08'),
-	(10, '456789', '123123123', '2019-01-30 16:40:27');
+	(46, 'service_api_get_fliters', '/butt/getfliters', '2019-01-30 20:38:30'),
+	(47, 'service_api_get_app_api_list', '/butt/getAppApiList', '2019-01-30 20:38:30'),
+	(48, 'service_api_get_app_list', '/butt/getApplist', '2019-01-30 20:38:30'),
+	(49, 'service_api_get_id', '/butt/getAppId', '2019-01-30 20:38:30'),
+	(50, 'service_api_base_url', 'http://192.168.30.199:9980', '2019-01-30 20:38:30'),
+	(51, 'server_charset', 'utf-8', '2019-01-30 20:38:30'),
+	(52, 'service_apt_down_jar', '/downJar?downUrl=', '2019-01-30 21:05:51');
 /*!40000 ALTER TABLE `box_config` ENABLE KEYS */;
 
 --  テーブル java_box.box_project の構造をダンプしています
@@ -96,10 +99,12 @@ DELETE FROM `box_project`;
 --  テーブル java_box.box_public_jar の構造をダンプしています
 CREATE TABLE IF NOT EXISTS `box_public_jar` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `stat` int(11) NOT NULL,
   `jarName` varchar(50) NOT NULL,
   `jarUrl` varchar(50) NOT NULL,
   `jarMd5` varchar(50) NOT NULL,
-  `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `createTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `isInit` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -125,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `box_user` (
 DELETE FROM `box_user`;
 /*!40000 ALTER TABLE `box_user` DISABLE KEYS */;
 INSERT INTO `box_user` (`user_id`, `user_name`, `user_pass`, `user_stat`, `login_time`, `user_token`, `create_time`) VALUES
-	(1, '123', '202cb962ac59075b964b07152d234b70', 0, '2018-09-28 13:39:52', '2019013015310580343', '2018-09-28 13:39:54');
+	(1, '123', '202cb962ac59075b964b07152d234b70', 0, '2018-09-28 13:39:52', '2019013018385925596', '2018-09-28 13:39:54');
 /*!40000 ALTER TABLE `box_user` ENABLE KEYS */;
 
 --  テーブル java_box.box_work_filter の構造をダンプしています

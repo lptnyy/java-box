@@ -1,6 +1,7 @@
 package com.wzy.server.region.zookeeper;
 
 import com.alibaba.fastjson.JSON;
+import com.wzy.func.fc.IConfig;
 import com.wzy.func.fc.ILoadJar;
 import com.wzy.log.BoxLog;
 import com.wzy.log.ILog;
@@ -9,13 +10,14 @@ import com.wzy.server.jar.loader.LoadJarImpl;
 import com.wzy.server.region.RegionServer;
 import com.wzy.server.region.ServerNode;
 import com.wzy.server.region.zookeeper.watch.AppWatch;
+import com.wzy.server.region.zookeeper.watch.ConfigWatch;
 import com.wzy.server.region.zookeeper.watch.FliterWatch;
 import com.wzy.util.zookeeper.ZkConfig;
 import org.apache.zookeeper.*;
 
 import java.util.List;
 
-public class ZkServer implements RegionServer {
+public class ZkServer implements RegionServer, IConfig {
     ILog log = BoxLog.getInstance();
     ZooKeeper zooKeeper = null;
     ILoadJar loadJar = LoadJarImpl.getInstance();
@@ -80,6 +82,12 @@ public class ZkServer implements RegionServer {
             zooKeeper.create(fliterNode,"".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
             zooKeeper.getChildren(fliterNode, new FliterWatch(fliterNode, zooKeeper));
 
+        // 监控过滤器节点
+        String configNode = ZkConfig.APP_CONFIG;
+        if (zooKeeper.exists(configNode,false) == null)
+            zooKeeper.create(configNode,"".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+            zooKeeper.getChildren(configNode, new ConfigWatch(configNode, zooKeeper));
+
         initAppNode(zooKeeper);
         initFilterNode(zooKeeper);
     }
@@ -112,5 +120,19 @@ public class ZkServer implements RegionServer {
                 FliterWatch.initWater(str,zooKeeper);
             });
         }
+    }
+
+    @Override
+    public List<String> keys() {
+        return null;
+    }
+
+    @Override
+    public String getValue(String key) throws KeeperException, InterruptedException {
+        String configNode = ZkConfig.APP_CONFIG+"/"+key;
+        if (zooKeeper.exists(configNode,false) != null) {
+            return new String(zooKeeper.getData(configNode,false,null));
+        }
+        return "";
     }
 }

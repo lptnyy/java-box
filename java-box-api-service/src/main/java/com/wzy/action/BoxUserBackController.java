@@ -1,6 +1,7 @@
 package com.wzy.action;
 
 import com.wzy.action.parameter.user.*;
+import com.wzy.entity.BoxConfig;
 import com.wzy.entity.vo.BoxConfigVo;
 import com.wzy.server.config.Config;
 import com.wzy.service.ButtApiService;
@@ -215,7 +216,13 @@ public class BoxUserBackController {
                 .setJsonp(addConfig.getJsonp())
                 .setBusiness(jsonVo -> {
                     try{
-                        BoxConfigVo boxConfigVo = new BoxConfigVo();
+                        BoxConfigVo boxConfigVo = configService.get(addConfig.getKey());
+                        if (boxConfigVo != null) {
+                            jsonVo.setResult(false);
+                            jsonVo.setMsg("key不能重複");
+                            return jsonVo;
+                        }
+                        boxConfigVo = new BoxConfigVo();
                         boxConfigVo.setK(addConfig.getKey());
                         boxConfigVo.setV(addConfig.getValue());
                         jsonVo.setObject(configService.add(boxConfigVo));
@@ -238,6 +245,47 @@ public class BoxUserBackController {
                 .setBusiness(jsonVo -> {
                     try{
                         jsonVo.setObject(configService.initConfig());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        jsonVo.setBody(e.getMessage(), false);
+                    }
+                    return jsonVo;
+                }).init().returnJsonString();
+    }
+
+    /**
+     * 刪除一個key
+     * @return
+     */
+    @RequestMapping(value = "/delConfig")
+    public String delConfig(delConfig delConfig){
+        return  Verification.verification(delConfig)
+                .setJsonp(delConfig.getJsonp())
+                .setBusiness(jsonVo -> {
+                    try{
+                        jsonVo.setObject(configService.del(delConfig.getId(), delConfig.getKey()));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        jsonVo.setBody(e.getMessage(), false);
+                    }
+                    return jsonVo;
+                }).init().returnJsonString();
+    }
+
+    /**
+     * 修改一個Key
+     * @return
+     */
+    @RequestMapping(value = "/updateConfig")
+    public String updateConfig(AddConfig addConfig){
+        return  Verification.verification(addConfig)
+                .setJsonp(addConfig.getJsonp())
+                .setBusiness(jsonVo -> {
+                    try{
+                        BoxConfigVo boxConfigVo = new BoxConfigVo();
+                        boxConfigVo.setK(addConfig.getKey());
+                        boxConfigVo.setV(addConfig.getValue());
+                        configService.update(boxConfigVo);
                     } catch (Exception e) {
                         e.printStackTrace();
                         jsonVo.setBody(e.getMessage(), false);

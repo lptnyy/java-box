@@ -12,12 +12,13 @@ public class StartServer {
     static ILog log = BoxLog.getInstance();
 
     public static void main(String[] args) throws Exception {
+        ServerNode node = new ServerNode();
+        ZkServer zkServer = new ZkServer();
+        zkServer.regionService(node);
+
         // 初始化 配置文件
-        if (Config.initConfig()) {
+        if (Config.initConfig(zkServer)) {
             // 启动服务
-            ServerNode node = new ServerNode();
-            ZkServer zkServer = new ZkServer();
-            zkServer.regionService(node);
             HttpServer httpServer = new HttpServerImpl();
             httpServer.init();
         } else {

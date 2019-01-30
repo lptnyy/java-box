@@ -41,7 +41,9 @@ public class ConfigService{
     }
 
     public int update(BoxConfigVo boxConfigVo) throws Exception {
-        return 0;
+        BoxConfig boxConfig = new BoxConfig();
+        BeanUtils.copyProperties(boxConfigVo,boxConfig);
+        return mapper.update(boxConfig);
     }
 
     public BoxConfigVo get(int id) throws Exception {
@@ -50,6 +52,9 @@ public class ConfigService{
 
     public BoxConfigVo get(String key) throws Exception{
         BoxConfig config = mapper.get(key);
+        if (config == null) {
+            return null;
+        }
         BoxConfigVo boxConfigVo = new BoxConfigVo();
         BeanUtils.copyProperties(config, boxConfigVo);
         boxConfigVo.setCreateTime(DateUtil.getyyMMddHHmmss(config.getCreateTime()));
@@ -87,10 +92,14 @@ public class ConfigService{
         mps.put("service_apt_down_jar","/downJar?downUrl=");
         mps.put("server_charset","utf-8");
         for(String key: mps.keySet()) {
-            BoxConfigVo boxConfig = new BoxConfigVo();
-            boxConfig.setK(key);
-            boxConfig.setV(mps.get(key));
-            add(boxConfig);
+            BoxConfigVo boxConfig = get(key);
+            if (boxConfig == null) {
+                boxConfig = new BoxConfigVo();
+                boxConfig.setK(key);
+                boxConfig.setV(mps.get(key));
+                zookeeperUtil.addConfig(key,mps.get(key));
+                add(boxConfig);
+            }
         }
         return 0;
     }

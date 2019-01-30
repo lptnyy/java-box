@@ -22,7 +22,7 @@
                   </div>
                     <div class="layui-form-item">
                         <div class="layui-inline">
-                            Key：<input type="text" class="layui-input" id="key" name="key">
+                            Key：<input disabled="disabled" class="layui-input" type="text" id="key" name="key">
                         </div>
                         <div class="layui-inline">
                             Value：<input type="text" class="layui-input" id="value" name="value">
@@ -48,11 +48,9 @@
                 data.value = value;
                 data.tokenUserId= localStorage.getItem("user_id");
                 data.token= localStorage.getItem("user_token");
-                commajax.ajax("/user/addConfig", data, function(result){
+                commajax.ajax("/user/updateConfig", data, function(result){
                     if (result.result) {
                         alert("保存成功")
-                        $("#key").val("");
-                        $("#value").val("");
                     } else {
                         alert(result.msg);
                     }
@@ -65,6 +63,15 @@
         function sendHtmls(url){
             window.location=url;
     	}
+
+
+        layui.use(['commonAjax'], function () {
+            var $ = layui.jquery;
+            var key = sessionStorage.getItem("updatekey");
+            var value = sessionStorage.getItem(key);
+            $("#key").val(key);
+            $("#value").val(value);
+        });
 </script>
 </body>
 </html>

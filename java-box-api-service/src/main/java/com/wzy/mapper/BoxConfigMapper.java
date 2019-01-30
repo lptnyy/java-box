@@ -21,4 +21,7 @@ public interface BoxConfigMapper {
 
     @Select("select count(*) from box_config t")
     int getListCount();
+
+    @Update("update box_config set v=#{v} where k = #{k}")
+    int update(BoxConfig boxConfig);
 }
