@@ -1,7 +1,6 @@
 package com.wzy.func.fc;
 
 import io.netty.channel.ChannelHandlerContext;
-
 import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
@@ -25,4 +24,6 @@ public interface BoxHttpRequest {
     public void setChx(ChannelHandlerContext chx);
     public long getRunTime();
     public void setRunTime(long times);
+    public IConfig getConfig();
+    public IConfig setConifg(IConfig config);
 }

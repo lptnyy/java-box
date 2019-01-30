@@ -21,9 +21,10 @@ public class ZkServer implements RegionServer, IConfig {
     ILog log = BoxLog.getInstance();
     ZooKeeper zooKeeper = null;
     ILoadJar loadJar = LoadJarImpl.getInstance();
+    boolean isConnect = true;
 
     @Override
-    public void regionService(ServerNode serverNode) {
+    public void regionService() {
         try {
 
             // 创建连接客户端
@@ -35,11 +36,9 @@ public class ZkServer implements RegionServer, IConfig {
                     if(watchedEvent.getState() == Event.KeeperState.SyncConnected) {
                         log.info("zookeeper 初始化成功");
                         try {
-                            initNode(zooKeeper,serverNode);
+                            isConnect = false;
                             log.info("初始化节点成功");
-                        } catch (KeeperException e) {
-                            e.printStackTrace();
-                        } catch (InterruptedException e) {
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
@@ -52,12 +51,11 @@ public class ZkServer implements RegionServer, IConfig {
 
     /**
      * 初始化节点数据
-     * @param zooKeeper
      * @param serverNode
      * @throws KeeperException
      * @throws InterruptedException
      */
-    public void initNode(ZooKeeper zooKeeper,ServerNode serverNode) throws KeeperException, InterruptedException {
+    public void initNode(ServerNode serverNode) throws KeeperException, InterruptedException {
 
         // 创建服务根节点
         if (zooKeeper.exists(ZkConfig.REGION_SERVER,false) == null) {
@@ -134,5 +132,13 @@ public class ZkServer implements RegionServer, IConfig {
             return new String(zooKeeper.getData(configNode,false,null));
         }
         return "";
+    }
+
+    public boolean isConnect() {
+        return isConnect;
+    }
+
+    public void setConnect(boolean connect) {
+        isConnect = connect;
     }
 }

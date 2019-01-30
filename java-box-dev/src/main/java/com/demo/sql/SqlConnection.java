@@ -12,7 +12,7 @@ public class SqlConnection {
      */
     public static Connection getConn() {
         String driver = "com.mysql.jdbc.Driver";
-        String url = "jdbc:mysql://192.168.20.173:3306/java_box";
+        String url = "jdbc:mysql://localhost:3306/java_box";
         String username = "root";
         String password = "wangyang";
         Connection conn = null;

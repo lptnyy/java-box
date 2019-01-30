@@ -43,7 +43,9 @@ public class ConfigService{
     public int update(BoxConfigVo boxConfigVo) throws Exception {
         BoxConfig boxConfig = new BoxConfig();
         BeanUtils.copyProperties(boxConfigVo,boxConfig);
-        return mapper.update(boxConfig);
+        int num = mapper.update(boxConfig);
+        zookeeperUtil.addConfig(boxConfig.getK(),boxConfig.getV());
+        return num;
     }
 
     public BoxConfigVo get(int id) throws Exception {

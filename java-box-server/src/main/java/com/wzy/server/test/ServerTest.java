@@ -10,7 +10,7 @@ public class ServerTest {
         Config.initConfig();
         ServerNode node = new ServerNode();
         ZkServer zkServer = new ZkServer();
-        zkServer.regionService(node);
+
         Thread.sleep(1000 * 60 * 5);
     }
 }

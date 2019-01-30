@@ -3,6 +3,7 @@ package com.wzy.server.http.request;
 import com.wzy.func.fc.HttpFilter;
 import com.wzy.log.BoxLog;
 import com.wzy.log.ILog;
+import com.wzy.server.StartServer;
 import com.wzy.server.http.filter.HttpFiterImpl;
 import com.wzy.server.http.response.BoxHttpResponseImpl;
 import io.netty.channel.ChannelHandlerContext;
@@ -103,6 +104,7 @@ public class RequestParser {
         if (boxHttpRequest.uri().indexOf("?") !=-1){
             boxHttpRequest.setUri(boxHttpRequest.uri().substring(0,boxHttpRequest.uri().lastIndexOf("?")));
         }
+        boxHttpRequest.setConifg(StartServer.zkServer);
         filter.service(chx,boxHttpRequest,boxHttpResponse);
     }
 

@@ -1,6 +1,7 @@
 package com.wzy.server.http.request;
 
 import com.wzy.func.fc.BoxHttpRequest;
+import com.wzy.func.fc.IConfig;
 import io.netty.channel.ChannelHandlerContext;
 
 import java.io.InputStream;
@@ -17,6 +18,8 @@ public class BoxHttpRequestImpl implements BoxHttpRequest {
     InputStream inputStream;
     Map<String,String> headers = new HashMap<>();
     ChannelHandlerContext chx;
+    IConfig config;
+
     @Override
     public Object getParameter(String name) {
         return requestMaps.get(name);
@@ -113,5 +116,16 @@ public class BoxHttpRequestImpl implements BoxHttpRequest {
     @Override
     public void setRunTime(long times) {
         this.times = times;
+    }
+
+    @Override
+    public IConfig getConfig() {
+        return config;
+    }
+
+    @Override
+    public IConfig setConifg(IConfig config) {
+        this.config = config;
+        return config;
     }
 }
