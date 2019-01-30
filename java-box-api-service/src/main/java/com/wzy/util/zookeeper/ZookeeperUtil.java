@@ -2,7 +2,6 @@ package com.wzy.util.zookeeper;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.wzy.entity.BoxApp;
 import com.wzy.server.region.ServerNode;
 import org.apache.zookeeper.*;
 import org.springframework.beans.factory.annotation.Value;
