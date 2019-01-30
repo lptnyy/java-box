@@ -226,4 +226,23 @@ public class BoxUserBackController {
                     return jsonVo;
                 }).init().returnJsonString();
     }
+
+    /**
+     * 初始化配置信息
+     * @return
+     */
+    @RequestMapping(value = "/initConfig")
+    public String initConfig(String jsonp){
+        return  new JsonVo().setResult(true)
+                .setJsonp(jsonp)
+                .setBusiness(jsonVo -> {
+                    try{
+                        jsonVo.setObject(configService.initConfig());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        jsonVo.setBody(e.getMessage(), false);
+                    }
+                    return jsonVo;
+                }).init().returnJsonString();
+    }
 }

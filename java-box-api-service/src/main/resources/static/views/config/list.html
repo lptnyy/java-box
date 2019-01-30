@@ -19,7 +19,7 @@
 							<div class="layui-inline">
 								<button onclick="initTable()" class="layui-btn layui-btn-blue">刷新</button>
 								<button onclick="sendHtmls('add.html')" class="layui-btn layui-btn-blue">添加</button>
-								<button onclick="" class="layui-btn layui-btn-blue">初始化配置</button>
+								<button onclick="initConfig()" class="layui-btn layui-btn-blue">初始化配置</button>
 							</div>
 						</div>
 					  <table class="layui-table">
@@ -78,6 +78,26 @@
                 }
             }, function(error){
 				console.log(error.status);
+                console.log(error.responseText);
+            });
+        });
+    }
+    
+    function initConfig() {
+        layui.use(['commonAjax'], function () {
+            var commajax = layui.commonAjax;
+            var $ = layui.jquery;
+            var data = new Object();
+            data.tokenUserId= localStorage.getItem("user_id");
+            data.token= localStorage.getItem("user_token");
+            commajax.ajax("/user/initConfig", data, function(result){
+                if (result.result) {
+                    alert("成功");
+                } else {
+                    alert(result.msg);
+                }
+            }, function(error){
+                console.log(error.status);
                 console.log(error.responseText);
             });
         });

@@ -10,9 +10,9 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -75,5 +75,23 @@ public class ConfigService{
 
     public int getFindListCount(Map<String, Object> keys) {
         return mapper.getListCount();
+    }
+
+    public int initConfig() throws Exception{
+        Map<String,String> mps = new HashMap<>();
+        mps.put("service_api_base_url","http://192.168.30.199:9980");
+        mps.put("service_api_get_app_list","/butt/getApplist");
+        mps.put("service_api_get_app_api_list","/butt/getAppApiList");
+        mps.put("service_api_get_id","/butt/getAppId");
+        mps.put("service_api_get_fliters","/butt/getfliters");
+        mps.put("service_apt_down_jar","/downJar?downUrl=");
+        mps.put("server_charset","utf-8");
+        for(String key: mps.keySet()) {
+            BoxConfigVo boxConfig = new BoxConfigVo();
+            boxConfig.setK(key);
+            boxConfig.setV(mps.get(key));
+            add(boxConfig);
+        }
+        return 0;
     }
 }
