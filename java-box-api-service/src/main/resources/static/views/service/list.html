@@ -54,13 +54,13 @@
         layui.use(['commonAjax'], function () {
             var commajax = layui.commonAjax;
             var $ = layui.jquery;
-            var data = new Object();
-            data.tokenUserId= localStorage.getItem("user_id");
-            data.token= localStorage.getItem("user_token");
-            commajax.ajax(getServerNodes, data, function(result){
-                if (result.result) {
-					var obj = result.object;
-                    var bodytable="";
+                    var data = new Object();
+                    data.tokenUserId= localStorage.getItem("user_id");
+                    data.token= localStorage.getItem("user_token");
+                    commajax.ajax(getServerNodes, data, function(result){
+                        if (result.result) {
+                            var obj = result.object;
+                            var bodytable="";
                     $("#tablebody").html(bodytable);
                     for(var i = 0; i<obj.length; i++) {
                         var objo = obj[i];
