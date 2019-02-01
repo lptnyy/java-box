@@ -17,6 +17,7 @@ public class StartServer {
         // 初始化 配置文件
         if (Config.initConfig()) {
             ServerNode node = new ServerNode();
+            node.serverType = 1;
             zkServer = new ZkServer();
             zkServer.regionService();
             while (zkServer.isConnect()) {

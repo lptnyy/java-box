@@ -20,7 +20,7 @@ public class UserZdyWork {
         response.print(request.getChx(), JSON.toJSONString(boxUserList));
         return true;
     }
-
+    
     /**
      * 初始化部分调用过程中只执行一次
      */

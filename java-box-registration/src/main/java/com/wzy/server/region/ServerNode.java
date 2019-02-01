@@ -2,10 +2,10 @@ package com.wzy.server.region;
 
 import com.wzy.server.config.Config;
 import com.wzy.util.ip.IpUtil;
-
 import java.net.UnknownHostException;
-
 public class ServerNode {
+    // 1 Box服務
+    public int serverType;
     public String javaVersion;         // Java 运行时环境版本
     public String javaVendor;         //Java 运行时环境供应商
     public String javaVendorUrl;        // Java 供应商的 URL
@@ -36,8 +36,6 @@ public class ServerNode {
     public String userDir;  //当前程序的物理路径
     public Integer port;    //服务绑定的端口
     public String ip; // 服务端绑定的Ip
-
-
     public ServerNode(){
         javaVersion =  System.getProperty("java.version");          //Java 运行时环境版本
 

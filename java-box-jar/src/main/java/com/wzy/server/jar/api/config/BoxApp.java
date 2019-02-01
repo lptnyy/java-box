@@ -63,9 +63,7 @@ public class BoxApp {
         return stats;
     }
 
-    public void setStats(Integer stats) {
-        this.stats = stats;
-    }
+    public void setStats(Integer stats) { this.stats = stats; }
 
     public Date getCreateTime() {
         return createTime;
