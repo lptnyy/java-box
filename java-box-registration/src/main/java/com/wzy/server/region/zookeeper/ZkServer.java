@@ -1,7 +1,6 @@
 package com.wzy.server.region.zookeeper;
 
 import com.alibaba.fastjson.JSON;
-import com.wzy.func.fc.IConfig;
 import com.wzy.func.fc.ILoadJar;
 import com.wzy.log.BoxLog;
 import com.wzy.log.ILog;
@@ -14,14 +13,17 @@ import com.wzy.server.region.zookeeper.watch.ConfigWatch;
 import com.wzy.server.region.zookeeper.watch.FliterWatch;
 import com.wzy.util.zookeeper.ZkConfig;
 import org.apache.zookeeper.*;
-
 import java.util.List;
 
-public class ZkServer implements RegionServer, IConfig {
+public class ZkServer implements RegionServer {
     ILog log = BoxLog.getInstance();
-    ZooKeeper zooKeeper = null;
+    static ZooKeeper zooKeeper = null;
     ILoadJar loadJar = LoadJarImpl.getInstance();
     boolean isConnect = true;
+
+    public ZooKeeper getZooKeeper(){
+        return zooKeeper;
+    }
 
     @Override
     public void regionService() {
@@ -120,20 +122,30 @@ public class ZkServer implements RegionServer, IConfig {
         }
     }
 
-    @Override
-    public List<String> keys() {
-        return null;
-    }
-
-    @Override
-    public String getValue(String key) throws KeeperException, InterruptedException {
-        String configNode = ZkConfig.APP_CONFIG+"/"+key;
-        if (zooKeeper.exists(configNode,false) != null) {
-            return new String(zooKeeper.getData(configNode,false,null));
-        }
-        return "";
-    }
-
+//    @Override
+//    public List<String> keys() {
+//        return null;
+//    }
+//
+//    @Override
+//    public List<String> values() {
+//        return null;
+//    }
+//
+//    @Override
+//    public String getValue(String key) throws KeeperException, InterruptedException {
+//        String configNode = ZkConfig.APP_CONFIG+"/"+key;
+//        if (zooKeeper.exists(configNode,false) != null) {
+//            return new String(zooKeeper.getData(configNode,false,null));
+//        }
+//        return "";
+//    }
+//
+//    @Override
+//    public IConfig addView(String key, String value) {
+//        return null;
+//    }
+//
     public boolean isConnect() {
         return isConnect;
     }

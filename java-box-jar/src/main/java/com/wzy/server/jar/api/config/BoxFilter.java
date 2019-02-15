@@ -1,5 +1,7 @@
 package com.wzy.server.jar.api.config;
 
+import java.util.Map;
+
 public class BoxFilter {
     String name;
     String path;

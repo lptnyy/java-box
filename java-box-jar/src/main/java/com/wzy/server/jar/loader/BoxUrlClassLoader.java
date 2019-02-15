@@ -1,15 +1,13 @@
 package com.wzy.server.jar.loader;
-
+import com.wzy.func.annotation.*;
+import com.wzy.func.fc.IBoxDataSource;
 import com.wzy.server.config.Config;
-import com.wzy.func.annotation.BoxApi;
-import com.wzy.func.annotation.BoxApp;
-import com.wzy.func.annotation.BoxWorkFilter;
 import com.wzy.server.jar.api.config.BoxAppApi;
+import com.wzy.server.jar.api.config.BoxDataSource;
 import com.wzy.server.jar.api.config.BoxFilter;
 import com.wzy.server.jar.loader.config.Jar;
 import com.wzy.server.jar.loader.config.ScanJar;
 import sun.misc.ClassLoaderUtil;
-
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.net.JarURLConnection;
@@ -27,7 +25,6 @@ public class BoxUrlClassLoader {
     // 存放Jar加载集合
     static Map<String, Jar> jarmaps = new HashMap<String, Jar>();
     static Map<Integer, String> jarIdToMd5Map = new HashMap<>();
-
     // 存放加载过滤器的jar
     static Map<String, Jar> jarFailtermaps = new HashMap<String, Jar>();
     static Map<Integer, String> jarIdFailterMd5Map = new HashMap<>();
@@ -111,14 +108,50 @@ public class BoxUrlClassLoader {
         List<com.wzy.server.jar.api.config.BoxApp> boxProjectVos = new ArrayList<>();
         List<BoxAppApi> boxApiVos = new ArrayList<>();
         List<BoxFilter> boxFilters = new ArrayList<>();
-
+        List<BoxDataSource> boxDataSources = new ArrayList<>();
         URLClassLoader myClassLoader = new URLClassLoader( new URL[] { url } );
-
+        Map<String,String> configs = new HashMap<>();
         for(Object v: classMap.values()) {
 
             try {
                 // 应用发布部分
                 Class classObj = myClassLoader.loadClass(v.toString());
+                BoxConfigAdds boxConfigAdds = (BoxConfigAdds) classObj.getAnnotation(BoxConfigAdds.class);
+                String configsStr = "";
+                String methods = "";
+                if (boxConfigAdds != null){
+                    String[] keys = boxConfigAdds.configKeys();
+                    String[] values = boxConfigAdds.configValues();
+                    for(int i = 0; i<keys.length; i++) {
+                        try{
+                            configs.put(keys[i], values[i]);
+                        } catch (Exception e) {
+                            configs.put(keys[i], "");
+                        }
+                        configsStr+=keys[i]+";";
+                    }
+                }
+
+                BoxConfigAdd boxConfigAdd = (BoxConfigAdd) classObj.getAnnotation(BoxConfigAdd.class);
+                if (boxConfigAdd != null) {
+                    configs.put(boxConfigAdd.key(), boxConfigAdd.value());
+                }
+
+                Class<?> interfaces[] = classObj.getInterfaces();//获得Dog所实现的所有接口
+                for (Class<?> inte : interfaces) {//打印
+                    // 连接池对象加载
+                    if (inte.equals(IBoxDataSource.class)){
+                        BoxDataSource boxDataSource = new BoxDataSource();
+                        boxDataSource.setClassName(classObj.getName());
+                        boxDataSource.setConfigStr(configsStr);
+                        Method[] inteMethod = classObj.getMethods();
+                        for (Method method: inteMethod){
+                            methods+=method.getName()+";";
+                        }
+                        boxDataSource.setMethods(methods);
+                        boxDataSources.add(boxDataSource);
+                    }
+                }
 
                 // 获取类标记的注解信息
                 BoxApp boxAppAn = (BoxApp) classObj.getAnnotation(BoxApp.class);
@@ -176,6 +209,8 @@ public class BoxUrlClassLoader {
         scanJar.setBoxApiVoList(boxApiVos);
         scanJar.setBoxProjectVo(boxProjectVos);
         scanJar.setBoxFilters(boxFilters);
+        scanJar.setBoxDataSources(boxDataSources);
+        scanJar.setConfigs(configs);
         return scanJar;
     }
 

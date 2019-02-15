@@ -9,7 +9,6 @@ import com.wzy.server.http.response.BoxHttpResponseImpl;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.*;
 import io.netty.handler.codec.http.multipart.*;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -19,7 +18,7 @@ import java.nio.channels.FileChannel;
 public class RequestParser {
     ILog log = BoxLog.getInstance();
     private HttpDataFactory factory = new DefaultHttpDataFactory(DefaultHttpDataFactory.MINSIZE);
-    private HttpFilter filter = new HttpFiterImpl();
+    private HttpFilter filter = HttpFiterImpl.getInstance();
     static RequestParser requestParser;
     public RequestParser(){
         System.out.println("1");
@@ -104,7 +103,7 @@ public class RequestParser {
         if (boxHttpRequest.uri().indexOf("?") !=-1){
             boxHttpRequest.setUri(boxHttpRequest.uri().substring(0,boxHttpRequest.uri().lastIndexOf("?")));
         }
-        boxHttpRequest.setConifg(StartServer.zkServer);
+        boxHttpRequest.setConifg(StartServer.zkNetConfig);
         filter.service(chx,boxHttpRequest,boxHttpResponse);
     }
 

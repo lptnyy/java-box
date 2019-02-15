@@ -10,6 +10,18 @@ import static io.netty.handler.codec.http.HttpResponseStatus.NOT_FOUND;
 public class HttpFiterImpl implements HttpFilter {
     ILog log = BoxLog.getInstance();
     ILoadJar loadJar = LoadJarImpl.getInstance();
+    static HttpFilter httpFilter;
+
+    public static HttpFilter getInstance() {
+        if (httpFilter == null) {
+            synchronized (ILoadJar.class) {
+                if (httpFilter == null) {
+                    httpFilter = new HttpFiterImpl();
+                }
+            }
+        }
+        return httpFilter;
+    }
 
     @Override
     public boolean service(ChannelHandlerContext chx, BoxHttpRequest request, BoxHttpResponse response) {

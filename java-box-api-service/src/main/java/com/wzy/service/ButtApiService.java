@@ -2,6 +2,7 @@ package com.wzy.service;
 import com.wzy.entity.*;
 import com.wzy.entity.vo.BoxAppApiVo;
 import com.wzy.entity.vo.BoxAppVo;
+import com.wzy.entity.vo.BoxConfigVo;
 import com.wzy.entity.vo.BoxWorkFilterVo;
 import com.wzy.mapper.*;
 import com.wzy.mapper.table.TabBoxApp;
@@ -27,6 +28,7 @@ public class ButtApiService{
 
     @Resource
     BoxAppMapper boxAppMapper;
+
     @Resource
     BoxAppApiMapper boxAppApiMapper;
 
@@ -35,6 +37,12 @@ public class ButtApiService{
 
     @Resource
     BoxWorkFilterMapper boxWorkFilterMapper;
+
+    @Resource
+    BoxConnectionMapper boxConnectionMapper;
+
+    @Autowired
+    ConfigService configService;
 
     /**
      * 通过上传添加应用信息，通过扫描注解生成项目信息
@@ -45,7 +53,6 @@ public class ButtApiService{
      */
     @Transactional
     public boolean addProject(ScanJar scanJar, FileVo fileVo) throws Exception{
-        boolean isProjcet = false;
         scanJar.getBoxProjectVo().forEach(boxProjectVo -> {
 
             // 查看項目是否存在不存在插入新數據
@@ -125,8 +132,38 @@ public class ButtApiService{
                 boxWorkFilterMapper.add(boxWorkFilter);
 
             }
+        });
 
+        /**
+         * 存放连接池信息
+         */
+        scanJar.getBoxDataSources().forEach(boxDataSource -> {
+            BoxConnectionPool boxConnectionPool = new BoxConnectionPool();
+            boxConnectionPool.setClassName(boxDataSource.getClassName());
+            boxConnectionPool.setConfigStr(boxDataSource.getConfigStr());
+            boxConnectionPool.setJarMd5(fileVo.getFileMd5());
+            boxConnectionPool.setJarName(fileVo.getFileName());
+            boxConnectionPool.setJarUrl(fileVo.getFileUrl());
+            boxConnectionPool.setMethods(boxDataSource.getMethods());
+            boxConnectionPool.setName("");
+            boxConnectionMapper.save(boxConnectionPool);
+        });
 
+        /**
+         * 存放配置信息
+         */
+        scanJar.getConfigs().forEach((k,v) ->{
+            try {
+                BoxConfigVo boxConfig = configService.get(k);
+                if (boxConfig == null) {
+                    BoxConfigVo boxConfigVo = new BoxConfigVo();
+                    boxConfigVo.setK(k);
+                    boxConfigVo.setV(v);
+                    configService.add(boxConfigVo);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         });
        return false;
     }

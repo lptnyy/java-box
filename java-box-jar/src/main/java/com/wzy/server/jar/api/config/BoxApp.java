@@ -1,6 +1,7 @@
 package com.wzy.server.jar.api.config;
 
 import java.util.Date;
+import java.util.Map;
 
 public class BoxApp {
     Integer appId;

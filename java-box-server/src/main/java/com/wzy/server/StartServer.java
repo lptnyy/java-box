@@ -7,24 +7,27 @@ import com.wzy.log.ILog;
 import com.wzy.server.config.Config;
 import com.wzy.server.netty.HttpServerImpl;
 import com.wzy.server.region.ServerNode;
+import com.wzy.server.region.zookeeper.ZkNetConfig;
 import com.wzy.server.region.zookeeper.ZkServer;
 
 public class StartServer {
     static ILog log = BoxLog.getInstance();
-    public static ZkServer zkServer;
+    public static ZkNetConfig zkNetConfig;
 
     public static void main(String[] args) throws Exception {
         // 初始化 配置文件
         if (Config.initConfig()) {
             ServerNode node = new ServerNode();
             node.serverType = 1;
-            zkServer = new ZkServer();
+            ZkServer zkServer = new ZkServer();
             zkServer.regionService();
             while (zkServer.isConnect()) {
                 log.info("load zk");
                 Thread.sleep(1000);
             }
-            Config.initZkConfig(zkServer);
+            zkNetConfig = new ZkNetConfig();
+            zkNetConfig.setZkServer(zkServer);
+            Config.initZkConfig(zkNetConfig);
             zkServer.initNode(node);
 
             // 启动服务

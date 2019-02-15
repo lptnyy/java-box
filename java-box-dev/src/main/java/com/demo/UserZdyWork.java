@@ -15,9 +15,9 @@ public class UserZdyWork {
 
     @BoxApi(name = "demoapi4", path = "/demo")
     public boolean getTest(BoxHttpRequest request, BoxHttpResponse response) {
-        UserDao userDao = new UserDao();
-        List<BoxUser> boxUserList = userDao.getUserList();
-        response.print(request.getChx(), JSON.toJSONString(boxUserList));
+//        UserDao userDao = new UserDao();
+//        List<BoxUser> boxUserList = userDao.getUserList();
+        response.print(request.getChx(), "ok");
         return true;
     }
     

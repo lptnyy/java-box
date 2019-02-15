@@ -1,6 +1,7 @@
 package com.wzy.server.jar.api.config;
 
 import java.util.Date;
+import java.util.Map;
 
 public class BoxAppApi {
     Integer apiId;
@@ -13,10 +14,10 @@ public class BoxAppApi {
     String runClass;
     String runFunction;
     Date createTime;
-
     public Integer getApiId() {
         return apiId;
     }
+
 
     public String getLinkUrl() {
         return linkUrl;

@@ -1,21 +1,68 @@
 package com.wzy.plug.db.druid;
 import com.alibaba.druid.pool.DruidDataSource;
-import com.wzy.func.annotation.BoxInit;
+import com.wzy.func.annotation.BoxConfigAdds;
 import com.wzy.func.fc.IBoxDataSource;
 import com.wzy.func.fc.IConfig;
 import com.wzy.log.BoxLog;
 import com.wzy.log.ILog;
 import javax.sql.DataSource;
+import java.util.Map;
 
-public class DruidUtil implements IBoxDataSource {
+// add config info zookeeper
+@BoxConfigAdds(
+        configKeys = {
+                "druidurl",
+                "druidusername",
+                "druidpassword",
+                "druiddriverClassName",
+                "druidinitialSize",
+                "druidminIdle",
+                "druidmaxActive",
+                "druidmaxWait",
+                "druidtimeBetweenEvictionRunsMillis",
+                "druidminEvictableIdleTimeMillis",
+                "druidvalidationQuery",
+                "druidtestWhileIdle",
+                "druidtestOnBorrow",
+                "druidtestOnReturn",
+                "druidpoolPreparedStatements",
+                "druidmaxPoolPreparedStatementPerConnectionSize",
+                "druidconnectionProperties"
+        },
+        configValues = {
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""}
+)
+public class BoxDruidDataSource implements IBoxDataSource {
     ILog log = BoxLog.getInstance();
     DruidDataSource datasource;
+
     public DataSource dataSource() {
         return datasource;
     }
 
     @Override
-    @BoxInit // java Box根据此注解进行自动初始化
+    public Map<String, DataSource> dataSources() {
+        return null;
+    }
+
+    // 初始化连接池
+    @Override
     public void init(IConfig config) throws Exception {
         String url = config.getValue("druidurl");
         String username = config.getValue("druidusername");
@@ -34,7 +81,6 @@ public class DruidUtil implements IBoxDataSource {
         boolean poolPreparedStatements = Boolean.valueOf(config.getValue("druidpoolPreparedStatements"));
         int maxPoolPreparedStatementPerConnectionSize = Integer.valueOf(config.getValue("druidmaxPoolPreparedStatementPerConnectionSize"));
         String connectionProperties = config.getValue("druidconnectionProperties");
-
         datasource = new DruidDataSource();
         datasource.setUrl(url);
         datasource.setUsername(username);
@@ -54,5 +100,10 @@ public class DruidUtil implements IBoxDataSource {
         datasource.setMaxPoolPreparedStatementPerConnectionSize(maxPoolPreparedStatementPerConnectionSize);
         datasource.setConnectionProperties(connectionProperties);
         log.info("阿里云链接池 成功");
+    }
+
+    @Override
+    public void close() {
+        datasource.close();
     }
 }
