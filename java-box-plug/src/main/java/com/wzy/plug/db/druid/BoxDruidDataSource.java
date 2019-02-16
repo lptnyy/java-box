@@ -1,5 +1,7 @@
 package com.wzy.plug.db.druid;
 import com.alibaba.druid.pool.DruidDataSource;
+import com.wzy.func.annotation.BoxBean;
+import com.wzy.func.annotation.BoxBeanType;
 import com.wzy.func.annotation.BoxConfigAdds;
 import com.wzy.func.fc.IBoxDataSource;
 import com.wzy.func.fc.IConfig;
@@ -10,44 +12,27 @@ import java.util.Map;
 
 // add config info zookeeper
 @BoxConfigAdds(
-        configKeys = {
-                "druidurl",
-                "druidusername",
-                "druidpassword",
-                "druiddriverClassName",
-                "druidinitialSize",
-                "druidminIdle",
-                "druidmaxActive",
-                "druidmaxWait",
-                "druidtimeBetweenEvictionRunsMillis",
-                "druidminEvictableIdleTimeMillis",
-                "druidvalidationQuery",
-                "druidtestWhileIdle",
-                "druidtestOnBorrow",
-                "druidtestOnReturn",
-                "druidpoolPreparedStatements",
-                "druidmaxPoolPreparedStatementPerConnectionSize",
-                "druidconnectionProperties"
-        },
-        configValues = {
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                "",
-                ""}
-)
+        configs= {
+                "druidurl=",
+                "druidusername=",
+                "druidpassword=",
+                "druiddriverClassName=",
+                "druidinitialSize=",
+                "druidminIdle=",
+                "druidmaxActive=",
+                "druidmaxWait=",
+                "druidtimeBetweenEvictionRunsMillis=",
+                "druidminEvictableIdleTimeMillis=",
+                "druidvalidationQuery=",
+                "druidtestWhileIdle=",
+                "druidtestOnBorrow=",
+                "druidtestOnReturn=",
+                "druidpoolPreparedStatements=",
+                "druidmaxPoolPreparedStatementPerConnectionSize=",
+                "druidconnectionProperties="
+        }
+        )
+@BoxBean(type = BoxBeanType.SINGLE_OBJECT)
 public class BoxDruidDataSource implements IBoxDataSource {
     ILog log = BoxLog.getInstance();
     DruidDataSource datasource;

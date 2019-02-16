@@ -2,7 +2,6 @@ package com.wzy.server.cache.redis;
 import com.wzy.log.BoxLog;
 import com.wzy.log.ILog;
 import com.wzy.server.cache.BoxCache;
-import com.wzy.server.config.Config;
 import redis.clients.jedis.Jedis;
 import java.util.List;
 public class RedisCache implements BoxCache{

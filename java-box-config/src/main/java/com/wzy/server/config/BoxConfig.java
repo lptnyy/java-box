@@ -8,6 +8,7 @@ public class BoxConfig {
     String getAppApiList;
     String getAppInfo;
     String getFliter;
+    String getConnectPools;
     String charSet;
     String serverIp;
     int regsionServerPort;
@@ -15,6 +16,15 @@ public class BoxConfig {
     boolean openAdmin;
     int adminPort;
     int ServerPort;
+
+
+    public String getGetConnectPools() {
+        return getConnectPools;
+    }
+
+    public void setGetConnectPools(String getConnectPools) {
+        this.getConnectPools = getConnectPools;
+    }
 
     public String getCharSet() {
         return charSet;

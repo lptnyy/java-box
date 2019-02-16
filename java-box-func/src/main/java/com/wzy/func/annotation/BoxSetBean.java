@@ -4,6 +4,6 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 @Retention(value= RetentionPolicy.RUNTIME)
-public @interface BoxDataSourceId {
-    int id();
+public @interface BoxSetBean {
+    class bean{};
 }

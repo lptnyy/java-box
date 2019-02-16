@@ -2,8 +2,10 @@ package com.wzy.action;
 
 import com.wzy.action.parameter.user.*;
 import com.wzy.entity.BoxConfig;
+import com.wzy.entity.BoxConnectionPool;
 import com.wzy.entity.vo.BoxConfigVo;
 import com.wzy.server.config.Config;
+import com.wzy.service.BoxConnectionPoolService;
 import com.wzy.service.ButtApiService;
 import com.wzy.service.ConfigService;
 import com.wzy.service.ZookeeperService;
@@ -34,6 +36,9 @@ public class BoxUserBackController {
 
     @Autowired
     ConfigService configService;
+
+    @Autowired
+    BoxConnectionPoolService boxConnectionPoolService;
 
     /**
      * 查询上传完毕的应用列表
@@ -286,6 +291,69 @@ public class BoxUserBackController {
                         boxConfigVo.setK(addConfig.getKey());
                         boxConfigVo.setV(addConfig.getValue());
                         configService.update(boxConfigVo);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        jsonVo.setBody(e.getMessage(), false);
+                    }
+                    return jsonVo;
+                }).init().returnJsonString();
+    }
+
+    /**
+     * 获取连接池列表
+     * @param jsonp
+     * @return
+     */
+    @RequestMapping(value = "/getconnectpool")
+    public String getConnectionPool(String jsonp){
+        return  new JsonVo().setResult(true)
+                .setJsonp(jsonp)
+                .setBusiness(jsonVo -> {
+                    try{
+                        jsonVo.setObject(boxConnectionPoolService.getList(0,0));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        jsonVo.setBody(e.getMessage(), false);
+                    }
+                    return jsonVo;
+                }).init().returnJsonString();
+    }
+
+    /**
+     * 获取连接池列表
+     * @param delConnectionPool
+     * @return
+     */
+    @RequestMapping(value = "/deleteconnectpool")
+    public String deleteConnectionPool(delConnectionPool delConnectionPool){
+        return  Verification.verification(delConnectionPool)
+                .setJsonp(delConnectionPool.getJsonp())
+                .setBusiness(jsonVo -> {
+                    try{
+                        boxConnectionPoolService.del(delConnectionPool.getId());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        jsonVo.setBody(e.getMessage(), false);
+                    }
+                    return jsonVo;
+                }).init().returnJsonString();
+    }
+
+    /**
+     * 获取连接池列表
+     * @param delConnectionPool
+     * @return
+     */
+    @RequestMapping(value = "/statconnectpool")
+    public String statConnectionPool(StatConnectionPool delConnectionPool){
+        return  Verification.verification(delConnectionPool)
+                .setJsonp(delConnectionPool.getJsonp())
+                .setBusiness(jsonVo -> {
+                    try{
+                        BoxConnectionPool boxConnectionPool = new BoxConnectionPool();
+                        boxConnectionPool.setId(delConnectionPool.getId());
+                        boxConnectionPool.setStat(delConnectionPool.getStat());
+                        boxConnectionPoolService.updateStats(boxConnectionPool);
                     } catch (Exception e) {
                         e.printStackTrace();
                         jsonVo.setBody(e.getMessage(), false);

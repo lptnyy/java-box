@@ -8,6 +8,7 @@ import com.wzy.log.ILog;
 import com.wzy.server.config.Config;
 import com.wzy.server.jar.api.config.BoxApp;
 import com.wzy.server.jar.api.config.BoxAppApi;
+import com.wzy.server.jar.api.config.BoxConnectionPool;
 import com.wzy.server.jar.api.config.BoxFilter;
 import com.wzy.util.http.HttpGetUtil;
 
@@ -121,6 +122,27 @@ public class NetApi {
                 boxFilter.setName(obj.getString("name"));
                 boxFilter.setJarMd5(obj.getString("jarMd5"));
                 boxFilter.setJarUrl(obj.getString("jarUrl"));
+                boxAppApis.add(boxFilter);
+            }
+        }
+        return boxAppApis;
+    }
+
+    /**
+     * 查询过滤器信息
+     * @return
+     * @throws Exception
+     */
+    public static List<BoxConnectionPool> getBoxConnectPools(String ids) throws Exception {
+        List<BoxConnectionPool> boxAppApis = new ArrayList<>();
+        String returnJson = HttpGetUtil.get(Config.config.getGetConnectPools(),"id="+ids);
+        JSONObject jsonObject = JSON.parseObject(returnJson);
+        boolean result = jsonObject.getBoolean("result");
+        if (result) {
+            JSONArray jsonArray = jsonObject.getJSONArray("object");
+            for(int i =0;i<jsonArray.size(); i++) {
+                JSONObject obj = jsonArray.getJSONObject(i);
+                BoxConnectionPool boxFilter = JSON.toJavaObject(obj, BoxConnectionPool.class);
                 boxAppApis.add(boxFilter);
             }
         }

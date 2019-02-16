@@ -1,6 +1,8 @@
 package com.wzy.action;
+import com.wzy.action.parameter.butt.GetConnectPool;
 import com.wzy.action.parameter.butt.GetFliter;
 import com.wzy.mapper.table.TabBoxWorkFilter;
+import com.wzy.service.BoxConnectionPoolService;
 import com.wzy.service.ButtApiService;
 import com.wzy.util.BaseController;
 import com.wzy.util.jsonvo.JsonVo;
@@ -21,6 +23,9 @@ public class BoxButtApiController extends BaseController {
 
     @Autowired
     ButtApiService apiService;
+
+    @Autowired
+    BoxConnectionPoolService connectionPoolService;
 
     /**
      * 容器查询应用列表
@@ -108,4 +113,23 @@ public class BoxButtApiController extends BaseController {
                 }).init().returnJsonString();
     }
 
+    /**
+     * 查询连接池
+     * @return
+     */
+    @RequestMapping(value = "/butt/getConnectPools")
+    public String getConnectPools(GetConnectPool pool){
+        return  new JsonVo().setResult(true)
+                .setBusiness(jsonVo -> {
+                    try{
+                        Map<String,Object> keys = new HashMap<>();
+                        keys.put("id", pool.getId());
+                        jsonVo.setObject(connectionPoolService.getFindList(keys,0,0));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        jsonVo.setBody(e.getMessage(), false);
+                    }
+                    return jsonVo;
+                }).init().returnJsonString();
+    }
 }

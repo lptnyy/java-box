@@ -37,7 +37,6 @@ public class Config {
             config.setRegsionServerTimeOut(Integer.valueOf(zookeeper_time_out));
             config.setServerIp(server_ip);
         } catch (Exception e) {
-            log.error(e);
             return false;
         }
         return true;
@@ -57,7 +56,6 @@ public class Config {
             config.setRegsionServerTimeOut(Integer.valueOf(zookeeper_time_out));
             config.setServerIp(server_ip);
         } catch (Exception e) {
-            log.error(e);
             return false;
         }
         return true;
@@ -72,14 +70,15 @@ public class Config {
             String service_api_get_fliters= zkconfig.getValue("service_api_get_fliters");
             String service_apt_down_jar= zkconfig.getValue("service_apt_down_jar");
             String server_charset= zkconfig.getValue("server_charset");
+            String service_api_get_connect_pool = zkconfig.getValue("service_api_get_connect_pool");
             config.setJarDownServerUrl(service_api_base_url + service_apt_down_jar);
             config.setGetApplist(service_api_base_url + service_api_get_app_list);
             config.setGetAppApiList(service_api_base_url + service_api_get_app_api_list);
             config.setGetAppInfo(service_api_base_url + service_api_get_id);
             config.setGetFliter(service_api_base_url + service_api_get_fliters);
             config.setCharSet(server_charset);
+            config.setGetConnectPools(service_api_base_url+service_api_get_connect_pool);
         }catch (Exception e) {
-            log.error(e);
             return false;
         }
         return true;

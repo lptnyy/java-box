@@ -10,6 +10,7 @@ import com.wzy.server.region.RegionServer;
 import com.wzy.server.region.ServerNode;
 import com.wzy.server.region.zookeeper.watch.AppWatch;
 import com.wzy.server.region.zookeeper.watch.ConfigWatch;
+import com.wzy.server.region.zookeeper.watch.ConnectPoolWatch;
 import com.wzy.server.region.zookeeper.watch.FliterWatch;
 import com.wzy.util.zookeeper.ZkConfig;
 import org.apache.zookeeper.*;
@@ -88,8 +89,14 @@ public class ZkServer implements RegionServer {
             zooKeeper.create(configNode,"".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
             zooKeeper.getChildren(configNode, new ConfigWatch(configNode, zooKeeper));
 
+        String connectPoolsNode = ZkConfig.APP_CONNECT_POOL;
+        if (zooKeeper.exists(connectPoolsNode,false) == null)
+            zooKeeper.create(connectPoolsNode,"".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+            zooKeeper.getChildren(connectPoolsNode, new ConnectPoolWatch(connectPoolsNode, zooKeeper));
+
         initAppNode(zooKeeper);
         initFilterNode(zooKeeper);
+        initConnectPool(zooKeeper);
     }
 
     /**
@@ -118,6 +125,15 @@ public class ZkServer implements RegionServer {
             List<String> stringList = zooKeeper.getChildren(ZkConfig.APP_FLITER, false);
             stringList.forEach(str->{
                 FliterWatch.initWater(str,zooKeeper);
+            });
+        }
+    }
+
+    public void initConnectPool(ZooKeeper zooKeeper) throws KeeperException, InterruptedException{
+        if (zooKeeper.exists(ZkConfig.APP_CONNECT_POOL,false) != null){
+            List<String> stringList = zooKeeper.getChildren(ZkConfig.APP_CONNECT_POOL, false);
+            stringList.forEach(str->{
+                ConnectPoolWatch.initWater(str,zooKeeper);
             });
         }
     }

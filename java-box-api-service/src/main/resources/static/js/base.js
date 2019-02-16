@@ -12,3 +12,6 @@ var deleteFliters = "/user/deletefliters";
 var updateFiitersStat = "/user/updateflitersStat";
 var getConfinglist = "/user/getConfigs";
 var addConfig = "/user/addConfig"
+var getConnectionPool="/user/getconnectpool";
+var delConnectionPool="/user/deleteconnectpool";
+var statConnectionPool="/user/statconnectpool";

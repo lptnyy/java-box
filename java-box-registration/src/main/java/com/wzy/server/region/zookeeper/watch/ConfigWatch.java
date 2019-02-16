@@ -18,7 +18,6 @@ import java.util.stream.StreamSupport;
 public class ConfigWatch implements Watcher {
     static ILoadJar loadJar = LoadJarImpl.getInstance();
     ILog log = BoxLog.getInstance();
-    static Map<String,Object> watcherData = new HashMap<>();
     String path;
     ZooKeeper zooKeeper;
 

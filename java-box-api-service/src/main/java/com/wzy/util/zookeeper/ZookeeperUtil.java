@@ -73,6 +73,11 @@ public class ZookeeperUtil {
         if (zooKeeper.exists(filiters, false) == null) {
             zooKeeper.create(filiters,"".getBytes(),ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
         }
+
+        String connectpool = ZkConfig.APP_CONNECT_POOL;
+        if (zooKeeper.exists(connectpool, false) == null) {
+            zooKeeper.create(connectpool,"".getBytes(),ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+        }
     }
 
     /**
@@ -170,6 +175,35 @@ public class ZookeeperUtil {
      */
     public void deleteConfig(String key) throws KeeperException, InterruptedException {
         String configfile = ZkConfig.APP_CONFIG+"/"+key;
+        if (zooKeeper.exists(configfile, false) != null) {
+            zooKeeper.delete(configfile,-1);
+        }
+    }
+
+    /**
+     * 添加一个配置信息
+     * @param key
+     * @param value
+     * @throws KeeperException
+     * @throws InterruptedException
+     */
+    public void addConnectPool(String key,String value) throws KeeperException, InterruptedException {
+        String configfile = ZkConfig.APP_CONNECT_POOL+"/"+key;
+        if (zooKeeper.exists(configfile,false) == null) {
+            zooKeeper.create(configfile,value.getBytes(),ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+        } else {
+            zooKeeper.setData(configfile,value.getBytes(), -1);
+        }
+    }
+
+    /**
+     * 删除一个配置信息
+     * @param key
+     * @throws KeeperException
+     * @throws InterruptedException
+     */
+    public void deleteConnectPool(String key) throws KeeperException, InterruptedException {
+        String configfile = ZkConfig.APP_CONNECT_POOL+"/"+key;
         if (zooKeeper.exists(configfile, false) != null) {
             zooKeeper.delete(configfile,-1);
         }

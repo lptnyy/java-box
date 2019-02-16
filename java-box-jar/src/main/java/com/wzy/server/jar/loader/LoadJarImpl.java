@@ -6,12 +6,13 @@ import com.wzy.log.ILog;
 import com.wzy.server.jar.api.NetApi;
 import com.wzy.server.jar.api.config.BoxApp;
 import com.wzy.server.jar.api.config.BoxAppApi;
+import com.wzy.server.jar.api.config.BoxConnectionPool;
 import com.wzy.server.jar.api.config.BoxFilter;
 import com.wzy.server.jar.loader.config.Jar;
 import com.wzy.util.http.UrlPart;
-
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -245,6 +246,33 @@ public class LoadJarImpl implements ILoadJar {
     @Override
     public synchronized void initFliterHttp(List<String> ids) {
 
+    }
+
+    @Override
+    public void initConnectPool(String ids) {
+        try {
+            List<BoxConnectionPool> boxConnectionPools = NetApi.getBoxConnectPools(ids);
+            boxConnectionPools.forEach(boxConnectionPool -> {
+                try {
+                    BoxUrlClassLoader.addConnectPoolJar(boxConnectionPool);
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (InstantiationException e) {
+                    e.printStackTrace();
+                }
+            });
+        } catch (Exception e) {
+            log.error(e);
+        }
+    }
+
+    @Override
+    public void removeConnectPool(String id) {
+        log.info("ok1"+id);
     }
 
     @Override

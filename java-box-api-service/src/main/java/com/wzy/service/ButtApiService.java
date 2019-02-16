@@ -39,7 +39,7 @@ public class ButtApiService{
     BoxWorkFilterMapper boxWorkFilterMapper;
 
     @Resource
-    BoxConnectionMapper boxConnectionMapper;
+    BoxConnectionPoolMapper boxConnectionPoolMapper;
 
     @Autowired
     ConfigService configService;
@@ -146,7 +146,7 @@ public class ButtApiService{
             boxConnectionPool.setJarUrl(fileVo.getFileUrl());
             boxConnectionPool.setMethods(boxDataSource.getMethods());
             boxConnectionPool.setName("");
-            boxConnectionMapper.save(boxConnectionPool);
+            boxConnectionPoolMapper.save(boxConnectionPool);
         });
 
         /**

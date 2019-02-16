@@ -3,6 +3,7 @@ import com.wzy.func.annotation.*;
 import com.wzy.func.fc.IBoxDataSource;
 import com.wzy.server.config.Config;
 import com.wzy.server.jar.api.config.BoxAppApi;
+import com.wzy.server.jar.api.config.BoxConnectionPool;
 import com.wzy.server.jar.api.config.BoxDataSource;
 import com.wzy.server.jar.api.config.BoxFilter;
 import com.wzy.server.jar.loader.config.Jar;
@@ -11,6 +12,7 @@ import sun.misc.ClassLoaderUtil;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.net.JarURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.*;
@@ -25,6 +27,7 @@ public class BoxUrlClassLoader {
     // 存放Jar加载集合
     static Map<String, Jar> jarmaps = new HashMap<String, Jar>();
     static Map<Integer, String> jarIdToMd5Map = new HashMap<>();
+
     // 存放加载过滤器的jar
     static Map<String, Jar> jarFailtermaps = new HashMap<String, Jar>();
     static Map<Integer, String> jarIdFailterMd5Map = new HashMap<>();
@@ -120,15 +123,15 @@ public class BoxUrlClassLoader {
                 String configsStr = "";
                 String methods = "";
                 if (boxConfigAdds != null){
-                    String[] keys = boxConfigAdds.configKeys();
-                    String[] values = boxConfigAdds.configValues();
+                    String[] keys = boxConfigAdds.configs();
                     for(int i = 0; i<keys.length; i++) {
+                        String[] configvos= keys[i].split("=");
                         try{
-                            configs.put(keys[i], values[i]);
+                            configs.put(configvos[0], configvos[1]);
                         } catch (Exception e) {
-                            configs.put(keys[i], "");
+                            configs.put(configvos[0], "");
                         }
-                        configsStr+=keys[i]+";";
+                        configsStr+=configvos[0]+";";
                     }
                 }
 
@@ -273,5 +276,41 @@ public class BoxUrlClassLoader {
             }
         });
         jarmaps.clear();
+    }
+
+    // 保存自定义连接池jar
+    static Map<String, Object> connectpoolsClass = new HashMap<>();
+    static Map<String, URLClassLoader> connectpoolsmd5Jar = new HashMap<>();
+    static Map<String,BoxConnectionPool> connectpoolsEntityJar = new HashMap<>();
+
+    /**
+     * 添加连接池
+     * @param boxConnectionPool
+     */
+    public static synchronized boolean addConnectPoolJar(BoxConnectionPool boxConnectionPool) throws MalformedURLException, ClassNotFoundException, IllegalAccessException, InstantiationException {
+        if (connectpoolsmd5Jar.containsKey(boxConnectionPool.getJarMd5())) {
+            return true;
+        }
+        URL url = new URL(Config.config.getJarDownServerUrl()+boxConnectionPool.getJarUrl());
+        URLClassLoader myClassLoader = new URLClassLoader( new URL[] { url } );
+        Class<?> loadClass = myClassLoader.loadClass(boxConnectionPool.getClassName());
+        Object obj = loadClass.newInstance();
+        connectpoolsClass.put(boxConnectionPool.getClassName(),obj);
+        connectpoolsmd5Jar.put(boxConnectionPool.getJarMd5(),myClassLoader);
+        connectpoolsEntityJar.put(boxConnectionPool.getId().toString(), boxConnectionPool);
+        return true;
+    }
+
+    /**
+     * 卸载连接池
+     * @param id
+     * @return
+     */
+    public static synchronized boolean removeConnectPoolJar(String id){
+        BoxConnectionPool boxConnectionPool = connectpoolsEntityJar.get(id);
+        if (boxConnectionPool != null) {
+
+        }
+        return true;
     }
 }

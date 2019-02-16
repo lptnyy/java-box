@@ -91,6 +91,7 @@ public class ConfigService{
         mps.put("service_api_get_app_api_list","/butt/getAppApiList");
         mps.put("service_api_get_id","/butt/getAppId");
         mps.put("service_api_get_fliters","/butt/getfliters");
+        mps.put("service_api_get_connect_pool","/butt/getConnectPools");
         mps.put("service_apt_down_jar","/downJar?downUrl=");
         mps.put("server_charset","utf-8");
         for(String key: mps.keySet()) {
