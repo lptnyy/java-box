@@ -8,7 +8,7 @@ import com.wzy.func.annotation.BoxSetBean;
 import com.wzy.func.fc.IBoxDataSource;
 import com.wzy.func.fc.IBoxHttpRequest;
 import com.wzy.func.fc.IBoxHttpResponse;
-
+import com.wzy.plug.db.druid.BoxDruidDataSource;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -16,7 +16,7 @@ import java.util.List;
 @BoxApp(name = "demo", path = "/demo")
 public class UserZdyWork {
 
-    @BoxSetBean
+    @BoxSetBean(value = "com.wzy.plug.db.druid.BoxDruidDataSource")
     IBoxDataSource boxDataSource;
 
     @BoxApi(name = "demoapi4", path = "/demo")

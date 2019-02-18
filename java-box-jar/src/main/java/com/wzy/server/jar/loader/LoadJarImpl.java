@@ -69,8 +69,8 @@ public class LoadJarImpl implements ILoadJar {
                     try{
                         jar.setObjClass(jar.getClassLoader().loadClass(boxAppApi.getRunClass()));
                         Object obj = jar.getObjClass().newInstance();
-                        jar.setInitObject(obj);
                         BoxUrlClassLoader.setBean(obj);
+                        jar.setInitObject(obj);
                         Method method = jar.getObjClass().getMethod(boxAppApi.getRunFunction(), IBoxHttpRequest.class, IBoxHttpResponse.class);
                         jar.setMethod(method);
                     } catch (Exception e) {
@@ -281,6 +281,11 @@ public class LoadJarImpl implements ILoadJar {
 
     @Override
     public void removeConnectPool(String id) {
+        try {
+            BoxUrlClassLoader.removeConnectPoolJar(Integer.valueOf(id));
+        } catch (Exception e) {
+            log.error(e);
+        }
         log.info("ok1"+id);
     }
 

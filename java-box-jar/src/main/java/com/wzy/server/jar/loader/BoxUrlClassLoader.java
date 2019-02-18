@@ -5,14 +5,11 @@ import com.wzy.func.fc.IBoxDataSource;
 import com.wzy.func.fc.IBoxInit;
 import com.wzy.server.config.Config;
 import com.wzy.server.jar.api.config.BoxAppApi;
-import com.wzy.server.jar.api.config.BoxConnectionPool;
 import com.wzy.server.jar.api.config.BoxDataSource;
 import com.wzy.server.jar.api.config.BoxFilter;
 import com.wzy.server.jar.loader.config.Jar;
 import com.wzy.server.jar.loader.config.ScanJar;
 import sun.misc.ClassLoaderUtil;
-
-import javax.swing.*;
 import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -88,6 +85,11 @@ public class BoxUrlClassLoader {
         String jarMd5 = jarIdFailterMd5Map.get(id);
         jarIdFailterMd5Map.remove(id);
         Jar jar = jarFailtermaps.get(jarMd5);
+        try {
+            close(jar);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         jar.getClassLoader().close();
         ClassLoaderUtil.releaseLoader(jar.getClassLoader());
         jarFailtermaps.remove(jarMd5);
@@ -227,6 +229,7 @@ public class BoxUrlClassLoader {
      */
     public synchronized static boolean removeJar(Jar jarVo) throws Exception{
         jarmaps.remove(jarVo.getHttpUrl());
+        close(jarVo);
         jarVo.getClassLoader().close();
         ClassLoaderUtil.releaseLoader(jarVo.getClassLoader());
         return true;
@@ -245,6 +248,7 @@ public class BoxUrlClassLoader {
         try {
             Jar jar = getJar(md5);
             if (jar == null) return;
+            close(jar);
             jar.getClassLoader().close();
             ClassLoaderUtil.releaseLoader(jar.getClassLoader());
             jarmaps.remove(md5);
@@ -258,6 +262,11 @@ public class BoxUrlClassLoader {
         jarIdToMd5Map.clear();
         jarmaps.forEach((k,v)->{
             try {
+                try {
+                    close(v);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 v.getClassLoader().close();
                 ClassLoaderUtil.releaseLoader(v.getClassLoader());
             } catch (IOException e) {
@@ -288,11 +297,18 @@ public class BoxUrlClassLoader {
     }
 
     /**
-     * 卸载连接池
+     * 添加连接池
      * @param id
-     * @return
      */
-    public static synchronized boolean removeConnectPoolJar(String id){
+    public static synchronized boolean removeConnectPoolJar(int id) throws Exception {
+        String md5 = jarIdConnectPoolMap.get(id);
+        Jar jar = jarConnectPoolmaps.get(md5);
+        if (jar == null) return false;
+        close(jar);
+        jar.getClassLoader().close();
+        ClassLoaderUtil.releaseLoader(jar.getClassLoader());
+        jarConnectPoolmaps.remove(md5);
+        jarIdConnectPoolMap.remove(id);
         return true;
     }
 
@@ -349,8 +365,8 @@ public class BoxUrlClassLoader {
             field.setAccessible(true);
             BoxSetBean boxSetBean = field.getAnnotation(BoxSetBean.class);
             if (boxSetBean != null) {
-                Class beansClass = field.getType();
-                Jar oldJar = beanClass.get(beansClass.getName());
+                String beanStr = boxSetBean.value();
+                Jar oldJar = beanClass.get(beanStr);
                 if (oldJar != null) {
                     Object objjar = oldJar.getInitObject();
                     field.set(object, objjar);
@@ -372,13 +388,17 @@ public class BoxUrlClassLoader {
     }
 
     public static void close(Jar jar) throws Exception {
-        Class objClass = jar.getClass();
-        Class[] classes = objClass.getInterfaces();
-        for(Class oc : classes) {
-            if (oc.equals(IBoxClose.class)) {
-                IBoxClose boxClose = (IBoxClose) jar.getInitObject();
-                boxClose.close();
+        try{
+            Class objClass = jar.getObjClass();
+            Class[] classes = objClass.getInterfaces();
+            for(Class oc : classes) {
+                if (oc.equals(IBoxClose.class)) {
+                    IBoxClose boxClose = (IBoxClose) jar.getInitObject();
+                    boxClose.close();
+                }
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

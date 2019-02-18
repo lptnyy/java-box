@@ -5,5 +5,5 @@ import java.lang.annotation.RetentionPolicy;
 
 @Retention(value= RetentionPolicy.RUNTIME)
 public @interface BoxSetBean {
-    class bean{};
+    String value();
 }
