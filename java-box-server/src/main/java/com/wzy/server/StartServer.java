@@ -1,11 +1,10 @@
 package com.wzy.server;
 
-import com.wzy.func.fc.HttpServer;
-import com.wzy.func.fc.IConfig;
+import com.wzy.func.fc.IHttpServer;
 import com.wzy.log.BoxLog;
 import com.wzy.log.ILog;
 import com.wzy.server.config.Config;
-import com.wzy.server.netty.HttpServerImpl;
+import com.wzy.server.netty.IHttpServerImpl;
 import com.wzy.server.region.ServerNode;
 import com.wzy.server.region.zookeeper.ZkNetConfig;
 import com.wzy.server.region.zookeeper.ZkServer;
@@ -27,12 +26,13 @@ public class StartServer {
             }
             zkNetConfig = new ZkNetConfig();
             zkNetConfig.setZkServer(zkServer);
+            Config.iConfig = zkNetConfig;
             Config.initZkConfig(zkNetConfig);
             zkServer.initNode(node);
 
             // 启动服务
-            HttpServer httpServer = new HttpServerImpl();
-            httpServer.init();
+            IHttpServer IHttpServer = new IHttpServerImpl();
+            IHttpServer.init();
         } else {
             log.error("启动服务失败");
         }

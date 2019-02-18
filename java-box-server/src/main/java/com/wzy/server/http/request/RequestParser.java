@@ -1,11 +1,11 @@
 package com.wzy.server.http.request;
 
-import com.wzy.func.fc.HttpFilter;
+import com.wzy.func.fc.IHttpFilter;
 import com.wzy.log.BoxLog;
 import com.wzy.log.ILog;
 import com.wzy.server.StartServer;
-import com.wzy.server.http.filter.HttpFiterImpl;
-import com.wzy.server.http.response.BoxHttpResponseImpl;
+import com.wzy.server.http.filter.IHttpFiterImpl;
+import com.wzy.server.http.response.IBoxHttpResponseImpl;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.http.*;
 import io.netty.handler.codec.http.multipart.*;
@@ -18,7 +18,7 @@ import java.nio.channels.FileChannel;
 public class RequestParser {
     ILog log = BoxLog.getInstance();
     private HttpDataFactory factory = new DefaultHttpDataFactory(DefaultHttpDataFactory.MINSIZE);
-    private HttpFilter filter = HttpFiterImpl.getInstance();
+    private IHttpFilter filter = IHttpFiterImpl.getInstance();
     static RequestParser requestParser;
     public RequestParser(){
         System.out.println("1");
@@ -47,8 +47,8 @@ public class RequestParser {
      * @throws IOException
      */
     public void parse(HttpObject fullReq, ChannelHandlerContext chx) throws IOException {
-        BoxHttpResponseImpl boxHttpResponse = new BoxHttpResponseImpl();
-        BoxHttpRequestImpl boxHttpRequest = new BoxHttpRequestImpl();
+        IBoxHttpResponseImpl boxHttpResponse = new IBoxHttpResponseImpl();
+        IBoxHttpRequestImpl boxHttpRequest = new IBoxHttpRequestImpl();
         boxHttpRequest.setChx(chx);
         HttpRequest request = (HttpRequest)fullReq;
         HttpMethod method = request.method();

@@ -93,10 +93,9 @@ public class ZkServer implements RegionServer {
         if (zooKeeper.exists(connectPoolsNode,false) == null)
             zooKeeper.create(connectPoolsNode,"".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
             zooKeeper.getChildren(connectPoolsNode, new ConnectPoolWatch(connectPoolsNode, zooKeeper));
-
+        initConnectPool(zooKeeper);
         initAppNode(zooKeeper);
         initFilterNode(zooKeeper);
-        initConnectPool(zooKeeper);
     }
 
     /**
@@ -138,30 +137,6 @@ public class ZkServer implements RegionServer {
         }
     }
 
-//    @Override
-//    public List<String> keys() {
-//        return null;
-//    }
-//
-//    @Override
-//    public List<String> values() {
-//        return null;
-//    }
-//
-//    @Override
-//    public String getValue(String key) throws KeeperException, InterruptedException {
-//        String configNode = ZkConfig.APP_CONFIG+"/"+key;
-//        if (zooKeeper.exists(configNode,false) != null) {
-//            return new String(zooKeeper.getData(configNode,false,null));
-//        }
-//        return "";
-//    }
-//
-//    @Override
-//    public IConfig addView(String key, String value) {
-//        return null;
-//    }
-//
     public boolean isConnect() {
         return isConnect;
     }

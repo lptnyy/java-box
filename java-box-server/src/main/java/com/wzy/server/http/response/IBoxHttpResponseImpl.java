@@ -1,6 +1,6 @@
 package com.wzy.server.http.response;
 
-import com.wzy.func.fc.BoxHttpResponse;
+import com.wzy.func.fc.IBoxHttpResponse;
 import com.wzy.server.config.Config;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFutureListener;
@@ -15,7 +15,7 @@ import static io.netty.handler.codec.http.HttpHeaderNames.*;
 import static io.netty.handler.codec.http.HttpResponseStatus.OK;
 import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
 
-public class BoxHttpResponseImpl implements BoxHttpResponse {
+public class IBoxHttpResponseImpl implements IBoxHttpResponse {
 
     @Override
     public void print(ChannelHandlerContext chx, String value) {

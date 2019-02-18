@@ -7,24 +7,24 @@ import com.wzy.server.jar.loader.LoadJarImpl;
 import io.netty.channel.ChannelHandlerContext;
 import static io.netty.handler.codec.http.HttpResponseStatus.INTERNAL_SERVER_ERROR;
 import static io.netty.handler.codec.http.HttpResponseStatus.NOT_FOUND;
-public class HttpFiterImpl implements HttpFilter {
+public class IHttpFiterImpl implements IHttpFilter {
     ILog log = BoxLog.getInstance();
     ILoadJar loadJar = LoadJarImpl.getInstance();
-    static HttpFilter httpFilter;
+    static IHttpFilter IHttpFilter;
 
-    public static HttpFilter getInstance() {
-        if (httpFilter == null) {
+    public static IHttpFilter getInstance() {
+        if (IHttpFilter == null) {
             synchronized (ILoadJar.class) {
-                if (httpFilter == null) {
-                    httpFilter = new HttpFiterImpl();
+                if (IHttpFilter == null) {
+                    IHttpFilter = new IHttpFiterImpl();
                 }
             }
         }
-        return httpFilter;
+        return IHttpFilter;
     }
 
     @Override
-    public boolean service(ChannelHandlerContext chx, BoxHttpRequest request, BoxHttpResponse response) {
+    public boolean service(ChannelHandlerContext chx, IBoxHttpRequest request, IBoxHttpResponse response) {
         try {
             long startTimes = System.currentTimeMillis();
             if(loadJar.runFliter(request,response).getCode() == BoxFilterRun.RUNSU)

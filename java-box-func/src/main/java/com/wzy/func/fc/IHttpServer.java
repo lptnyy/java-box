@@ -3,7 +3,7 @@ package com.wzy.func.fc;
 /**
  * 定义服务的接口
  */
-public interface HttpServer {
+public interface IHttpServer {
 
     /**
      * 服务启动初始化

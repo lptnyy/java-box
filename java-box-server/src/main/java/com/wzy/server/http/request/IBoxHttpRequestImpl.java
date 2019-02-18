@@ -1,5 +1,5 @@
 package com.wzy.server.http.request;
-import com.wzy.func.fc.BoxHttpRequest;
+import com.wzy.func.fc.IBoxHttpRequest;
 import com.wzy.func.fc.IConfig;
 import io.netty.channel.ChannelHandlerContext;
 import java.io.InputStream;
@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class BoxHttpRequestImpl implements BoxHttpRequest {
+public class IBoxHttpRequestImpl implements IBoxHttpRequest {
     Map<String,Object> requestMaps = new HashMap<>();
     long times;
     String method;

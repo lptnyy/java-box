@@ -1,6 +1,6 @@
 package com.wzy.server.netty;
 
-import com.wzy.func.fc.HttpServer;
+import com.wzy.func.fc.IHttpServer;
 import com.wzy.server.config.Config;
 import com.wzy.server.netty.handle.HttpFileHandler;
 import io.netty.bootstrap.ServerBootstrap;
@@ -15,16 +15,12 @@ import io.netty.handler.codec.http.HttpContentCompressor;
 import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpRequestDecoder;
 import io.netty.handler.codec.http.HttpResponseEncoder;
-import io.netty.handler.codec.string.StringDecoder;
-import io.netty.handler.codec.string.StringEncoder;
 import io.netty.handler.stream.ChunkedWriteHandler;
-
-import java.nio.charset.Charset;
 
 /**
  * 启动Http服务
  */
-public class HttpServerImpl implements HttpServer {
+public class IHttpServerImpl implements IHttpServer {
 
     /**
      * 初始化服务

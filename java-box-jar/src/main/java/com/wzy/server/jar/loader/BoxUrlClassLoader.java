@@ -1,6 +1,8 @@
 package com.wzy.server.jar.loader;
 import com.wzy.func.annotation.*;
+import com.wzy.func.fc.IBoxClose;
 import com.wzy.func.fc.IBoxDataSource;
+import com.wzy.func.fc.IBoxInit;
 import com.wzy.server.config.Config;
 import com.wzy.server.jar.api.config.BoxAppApi;
 import com.wzy.server.jar.api.config.BoxConnectionPool;
@@ -9,7 +11,11 @@ import com.wzy.server.jar.api.config.BoxFilter;
 import com.wzy.server.jar.loader.config.Jar;
 import com.wzy.server.jar.loader.config.ScanJar;
 import sun.misc.ClassLoaderUtil;
+
+import javax.swing.*;
 import java.io.IOException;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.net.JarURLConnection;
 import java.net.MalformedURLException;
@@ -42,9 +48,7 @@ public class BoxUrlClassLoader {
         if (jarmaps.get(jarVo.getJarMd5()) != null) {
             return true;
         }
-        URL url = new URL(Config.config.getJarDownServerUrl()+jarVo.getJarDownUrl());
-        URLClassLoader myClassLoader = new URLClassLoader( new URL[] { url } );
-        jarVo.setClassLoader(myClassLoader);
+        jarVo.setClassLoader(getClassLoader(jarVo,Config.config.getJarDownServerUrl()+jarVo.getJarDownUrl(), jarVo.getClassName()));
         jarmaps.put(jarVo.getJarMd5(), jarVo);
         jarIdToMd5Map.put(jarVo.getBaseId(), jarVo.getJarMd5());
         return true;
@@ -60,9 +64,7 @@ public class BoxUrlClassLoader {
         if (jarFailtermaps.get(jarVo.getJarMd5()) != null) {
             return true;
         }
-        URL url = new URL(Config.config.getJarDownServerUrl()+jarVo.getJarDownUrl());
-        URLClassLoader myClassLoader = new URLClassLoader( new URL[] { url } );
-        jarVo.setClassLoader(myClassLoader);
+        jarVo.setClassLoader(getClassLoader(jarVo,Config.config.getJarDownServerUrl()+jarVo.getJarDownUrl(), jarVo.getClassName()));
         jarFailtermaps.put(jarVo.getJarMd5(), jarVo);
         jarIdFailterMd5Map.put(jarVo.getBaseId(), jarVo.getJarMd5());
         return true;
@@ -239,19 +241,6 @@ public class BoxUrlClassLoader {
         return jarmaps.get(key);
     }
 
-    /**
-     * 获取所有已经加载的jar
-     * @return
-     *
-     */
-    public static synchronized List<Jar> getJarmaps(){
-        List<Jar> jars = new ArrayList<>();
-        jarmaps.forEach((k,v) ->{
-            jars.add(v);
-        });
-        return jars;
-    }
-
     public static synchronized void remove(String md5, Integer appId){
         try {
             Jar jar = getJar(md5);
@@ -278,26 +267,23 @@ public class BoxUrlClassLoader {
         jarmaps.clear();
     }
 
-    // 保存自定义连接池jar
-    static Map<String, Object> connectpoolsClass = new HashMap<>();
-    static Map<String, URLClassLoader> connectpoolsmd5Jar = new HashMap<>();
-    static Map<String,BoxConnectionPool> connectpoolsEntityJar = new HashMap<>();
+    // 存放加载过滤器的jar
+    static Map<String, Jar> jarConnectPoolmaps = new HashMap<String, Jar>();
+    static Map<Integer, String> jarIdConnectPoolMap = new HashMap<>();
+
 
     /**
      * 添加连接池
-     * @param boxConnectionPool
+     * @param jar
      */
-    public static synchronized boolean addConnectPoolJar(BoxConnectionPool boxConnectionPool) throws MalformedURLException, ClassNotFoundException, IllegalAccessException, InstantiationException {
-        if (connectpoolsmd5Jar.containsKey(boxConnectionPool.getJarMd5())) {
+    public static synchronized boolean addConnectPoolJar(Jar jar) throws Exception {
+        if (jarConnectPoolmaps.containsKey(jar.getJarMd5())) {
             return true;
         }
-        URL url = new URL(Config.config.getJarDownServerUrl()+boxConnectionPool.getJarUrl());
-        URLClassLoader myClassLoader = new URLClassLoader( new URL[] { url } );
-        Class<?> loadClass = myClassLoader.loadClass(boxConnectionPool.getClassName());
-        Object obj = loadClass.newInstance();
-        connectpoolsClass.put(boxConnectionPool.getClassName(),obj);
-        connectpoolsmd5Jar.put(boxConnectionPool.getJarMd5(),myClassLoader);
-        connectpoolsEntityJar.put(boxConnectionPool.getId().toString(), boxConnectionPool);
+        URLClassLoader myClassLoader = getClassLoader(jar,Config.config.getJarDownServerUrl()+jar.getJarDownUrl(),jar.getClassName());
+        jar.setClassLoader(myClassLoader);
+        jarConnectPoolmaps.put(jar.getJarMd5(), jar);
+        jarIdConnectPoolMap.put(jar.getBaseId(), jar.getJarMd5());
         return true;
     }
 
@@ -307,10 +293,92 @@ public class BoxUrlClassLoader {
      * @return
      */
     public static synchronized boolean removeConnectPoolJar(String id){
-        BoxConnectionPool boxConnectionPool = connectpoolsEntityJar.get(id);
-        if (boxConnectionPool != null) {
-
-        }
         return true;
+    }
+
+    /**
+     * 加载jar
+     * @param downUrl
+     * @return
+     * @throws MalformedURLException
+     */
+    public static URLClassLoader getClassLoader(Jar jar,String downUrl, String className) throws Exception {
+        URL url = new URL(downUrl);
+        URLClassLoader myClassLoader = new URLClassLoader( new URL[] { url });
+        if (className != null && !className.equals("")){
+            checkAnnotation(jar,myClassLoader, className);
+        }
+        return myClassLoader;
+    }
+
+    // 保存自定义连接池jar
+    static Map<String, Jar> beanClass = new HashMap<>();
+
+    /**
+     * 判断所有集成box的接口程序
+     * @param myClassLoader
+     * @param className
+     */
+    public static void checkAnnotation(Jar jar,URLClassLoader myClassLoader,String className) throws Exception {
+        Class tClass = myClassLoader.loadClass(className);
+        jar.setObjClass(tClass);
+        Object obj = tClass.newInstance();
+        jar.setInitObject(obj);
+        for (Annotation annotation:tClass.getAnnotations()) {
+            if (annotation.annotationType() == BoxBean.class){
+                beanClass.put(className, jar);
+                Class[] classes = jar.getObjClass().getInterfaces();
+                for(Class oc : classes) {
+                    beanClass.put(oc.getName(), jar);
+                }
+                Class superclass = jar.getObjClass().getSuperclass();
+                beanClass.put(superclass.getName(), jar);
+                setBean(obj);
+            }
+        }
+        init(jar);
+    }
+
+    /**
+     * 获取赋值注解进行动态加载
+     * @param object
+     */
+    public static void setBean(Object object) throws IllegalAccessException {
+        Field[] fields = object.getClass().getDeclaredFields();
+        for(Field field: fields) {
+            field.setAccessible(true);
+            BoxSetBean boxSetBean = field.getAnnotation(BoxSetBean.class);
+            if (boxSetBean != null) {
+                Class beansClass = field.getType();
+                Jar oldJar = beanClass.get(beansClass.getName());
+                if (oldJar != null) {
+                    Object objjar = oldJar.getInitObject();
+                    field.set(object, objjar);
+                }
+            }
+        }
+    }
+
+    public static void init(Jar jar) throws Exception {
+        Class objClass = jar.getObjClass();
+        Class[] classes = objClass.getInterfaces();
+        for(Class oc : classes) {
+            if (oc.equals(IBoxInit.class)) {
+                IBoxInit boxInit = (IBoxInit) jar.getInitObject();
+                boxInit.init();
+                boxInit.init(Config.iConfig);
+            }
+        }
+    }
+
+    public static void close(Jar jar) throws Exception {
+        Class objClass = jar.getClass();
+        Class[] classes = objClass.getInterfaces();
+        for(Class oc : classes) {
+            if (oc.equals(IBoxClose.class)) {
+                IBoxClose boxClose = (IBoxClose) jar.getInitObject();
+                boxClose.close();
+            }
+        }
     }
 }

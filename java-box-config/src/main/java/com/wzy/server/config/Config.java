@@ -14,6 +14,8 @@ public class Config {
     // 配置服务
     public final static BoxConfig config = new BoxConfig();
 
+    public static IConfig iConfig;
+
     // 初始化配置信息
     public static boolean initConfig(){
         if (initEnvConfig())

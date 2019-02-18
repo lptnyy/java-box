@@ -3,7 +3,9 @@ import com.alibaba.druid.pool.DruidDataSource;
 import com.wzy.func.annotation.BoxBean;
 import com.wzy.func.annotation.BoxBeanType;
 import com.wzy.func.annotation.BoxConfigAdds;
+import com.wzy.func.fc.IBoxClose;
 import com.wzy.func.fc.IBoxDataSource;
+import com.wzy.func.fc.IBoxInit;
 import com.wzy.func.fc.IConfig;
 import com.wzy.log.BoxLog;
 import com.wzy.log.ILog;
@@ -13,27 +15,27 @@ import java.util.Map;
 // add config info zookeeper
 @BoxConfigAdds(
         configs= {
-                "druidurl=",
-                "druidusername=",
-                "druidpassword=",
-                "druiddriverClassName=",
-                "druidinitialSize=",
-                "druidminIdle=",
-                "druidmaxActive=",
-                "druidmaxWait=",
-                "druidtimeBetweenEvictionRunsMillis=",
-                "druidminEvictableIdleTimeMillis=",
-                "druidvalidationQuery=",
-                "druidtestWhileIdle=",
-                "druidtestOnBorrow=",
-                "druidtestOnReturn=",
-                "druidpoolPreparedStatements=",
-                "druidmaxPoolPreparedStatementPerConnectionSize=",
-                "druidconnectionProperties="
+                "druidurl=jdbc:mysql://localhost:3306/java_box?useUnicode=true&characterEncoding=utf-8",
+                "druidusername=root",
+                "druidpassword=wangyang",
+                "druiddriverClassName=com.mysql.jdbc.Driver",
+                "druidinitialSize=5",
+                "druidminIdle=5",
+                "druidmaxActive=20",
+                "druidmaxWait=60000",
+                "druidtimeBetweenEvictionRunsMillis=60000",
+                "druidminEvictableIdleTimeMillis=300000",
+                "druidvalidationQuery=SELECT 'x'",
+                "druidtestWhileIdle=true",
+                "druidtestOnBorrow=false",
+                "druidtestOnReturn=false",
+                "druidpoolPreparedStatements=true",
+                "druidmaxPoolPreparedStatementPerConnectionSize=20",
+                "druidconnectionProperties=druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000"
         }
         )
 @BoxBean(type = BoxBeanType.SINGLE_OBJECT)
-public class BoxDruidDataSource implements IBoxDataSource {
+public class BoxDruidDataSource implements IBoxDataSource, IBoxInit, IBoxClose {
     ILog log = BoxLog.getInstance();
     DruidDataSource datasource;
 
@@ -88,7 +90,12 @@ public class BoxDruidDataSource implements IBoxDataSource {
     }
 
     @Override
-    public void close() {
+    public void init() throws Exception {
+
+    }
+
+    @Override
+    public void close() throws Exception {
         datasource.close();
     }
 }

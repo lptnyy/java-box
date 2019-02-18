@@ -1,7 +1,7 @@
 package com.demo;
 
-import com.wzy.func.fc.BoxHttpRequest;
-import com.wzy.func.fc.BoxHttpResponse;
+import com.wzy.func.fc.IBoxHttpRequest;
+import com.wzy.func.fc.IBoxHttpResponse;
 import com.wzy.func.fc.WorkFilter;
 import com.wzy.func.annotation.BoxWorkFilter;
 import org.apache.zookeeper.KeeperException;
@@ -10,7 +10,7 @@ import org.apache.zookeeper.KeeperException;
 public class TestWorkFilter implements WorkFilter {
 
     @Override
-    public boolean service(BoxHttpRequest request, BoxHttpResponse response) {
+    public boolean service(IBoxHttpRequest request, IBoxHttpResponse response) {
         try {
             System.out.println(request.getConfig().getValue("123"));
         } catch (KeeperException e) {

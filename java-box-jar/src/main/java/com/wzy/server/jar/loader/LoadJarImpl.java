@@ -58,7 +58,7 @@ public class LoadJarImpl implements ILoadJar {
      * @throws Exception
      */
     @Override
-    public boolean runClass(BoxHttpRequest request, BoxHttpResponse response) throws Exception {
+    public boolean runClass(IBoxHttpRequest request, IBoxHttpResponse response) throws Exception {
         BoxAppApi boxAppApi = httpMap.get(request.uri());
         if (boxAppApi == null) return false;
         Jar jar = BoxUrlClassLoader.getJar(boxAppApi.getJarMd5());
@@ -70,7 +70,8 @@ public class LoadJarImpl implements ILoadJar {
                         jar.setObjClass(jar.getClassLoader().loadClass(boxAppApi.getRunClass()));
                         Object obj = jar.getObjClass().newInstance();
                         jar.setInitObject(obj);
-                        Method method = jar.getObjClass().getMethod(boxAppApi.getRunFunction(), BoxHttpRequest.class, BoxHttpResponse.class);
+                        BoxUrlClassLoader.setBean(obj);
+                        Method method = jar.getObjClass().getMethod(boxAppApi.getRunFunction(), IBoxHttpRequest.class, IBoxHttpResponse.class);
                         jar.setMethod(method);
                     } catch (Exception e) {
                         log.error(e);
@@ -155,7 +156,7 @@ public class LoadJarImpl implements ILoadJar {
         }
     }
 
-    public BoxFilterRun runFliter(BoxHttpRequest request, BoxHttpResponse response)  throws Exception{
+    public BoxFilterRun runFliter(IBoxHttpRequest request, IBoxHttpResponse response)  throws Exception{
         BoxFilterRun filterRun = new BoxFilterRun();
         String pathvalue = fliterUrl.get(request.uri());
         if (pathvalue == null) {
@@ -197,6 +198,7 @@ public class LoadJarImpl implements ILoadJar {
                 jar.setJarDownUrl(boxFilter.getJarUrl());
                 jar.setJarMd5(boxFilter.getJarMd5());
                 jar.setBaseId(boxFilter.getId());
+                jar.setClassName(boxFilter.getClassName());
                 try {
                     BoxUrlClassLoader.addFliterJar(jar);
                     httpFliter.put(boxFilter.getPath(), boxFilter);
@@ -254,7 +256,12 @@ public class LoadJarImpl implements ILoadJar {
             List<BoxConnectionPool> boxConnectionPools = NetApi.getBoxConnectPools(ids);
             boxConnectionPools.forEach(boxConnectionPool -> {
                 try {
-                    BoxUrlClassLoader.addConnectPoolJar(boxConnectionPool);
+                    Jar jar = new Jar();
+                    jar.setBaseId(boxConnectionPool.getId());
+                    jar.setJarDownUrl(boxConnectionPool.getJarUrl());
+                    jar.setJarMd5(boxConnectionPool.getJarMd5());
+                    jar.setClassName(boxConnectionPool.getClassName());
+                    BoxUrlClassLoader.addConnectPoolJar(jar);
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
                 } catch (ClassNotFoundException e) {
@@ -262,6 +269,8 @@ public class LoadJarImpl implements ILoadJar {
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 } catch (InstantiationException e) {
+                    e.printStackTrace();
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             });

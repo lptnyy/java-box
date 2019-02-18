@@ -8,5 +8,5 @@ public interface WorkFilter {
      * @param response
      * @return
      */
-    public boolean service(BoxHttpRequest request, BoxHttpResponse response);
+    public boolean service(IBoxHttpRequest request, IBoxHttpResponse response);
 }

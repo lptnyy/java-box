@@ -8,14 +8,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDao {
-    public List<BoxUser> getUserList(){
+    public List<BoxUser> getUserList(Connection connection){
         String sql = "select * from box_user";
         List<BoxUser> boxUsers = new ArrayList<>();
         Connection conn = null;
         ResultSet rs = null;
         PreparedStatement pstmt = null;
         try {
-            conn = SqlConnection.getConn();
+            conn = connection;
             pstmt = (PreparedStatement)conn.prepareStatement(sql);
             rs = pstmt.executeQuery();
             int col = rs.getMetaData().getColumnCount();

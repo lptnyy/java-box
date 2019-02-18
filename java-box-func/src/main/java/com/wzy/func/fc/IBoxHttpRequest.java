@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 
-public interface BoxHttpRequest {
+public interface IBoxHttpRequest {
     public Object getParameter(String name);
     public void setParameter(String name, Object value);
     public List<String> getParameterNames();

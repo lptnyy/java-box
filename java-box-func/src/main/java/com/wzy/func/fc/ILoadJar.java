@@ -3,10 +3,10 @@ package com.wzy.func.fc;
 import java.util.List;
 
 public interface ILoadJar {
-    public boolean runClass(BoxHttpRequest request, BoxHttpResponse response) throws Exception;
+    public boolean runClass(IBoxHttpRequest request, IBoxHttpResponse response) throws Exception;
     public void initAppHttp(Integer appId) throws Exception;
     public void initAppHttp(List<String> appIds);
-    public BoxFilterRun runFliter(BoxHttpRequest request, BoxHttpResponse response)  throws Exception;
+    public BoxFilterRun runFliter(IBoxHttpRequest request, IBoxHttpResponse response)  throws Exception;
     public void initFliterHttp(String id);
     public void initFliterHttp(List<String> ids);
     public void initConnectPool(String ids);

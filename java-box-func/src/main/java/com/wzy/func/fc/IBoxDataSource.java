@@ -11,10 +11,4 @@ public interface IBoxDataSource {
 
     // 多数据源配置
     public Map<String,DataSource> dataSources();
-
-    // 初始化连接池
-    public void init(IConfig config) throws Exception;
-
-    // 关闭连接池
-    public void close();
 }

@@ -4,28 +4,32 @@ import com.demo.sql.BoxUser;
 import com.demo.sql.UserDao;
 import com.wzy.func.annotation.BoxApi;
 import com.wzy.func.annotation.BoxApp;
-import com.wzy.func.annotation.BoxInit;
-import com.wzy.func.fc.BoxHttpRequest;
-import com.wzy.func.fc.BoxHttpResponse;
+import com.wzy.func.annotation.BoxSetBean;
+import com.wzy.func.fc.IBoxDataSource;
+import com.wzy.func.fc.IBoxHttpRequest;
+import com.wzy.func.fc.IBoxHttpResponse;
 
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
-
 @BoxApp(name = "demo", path = "/demo")
 public class UserZdyWork {
 
+    @BoxSetBean
+    IBoxDataSource boxDataSource;
+
     @BoxApi(name = "demoapi4", path = "/demo")
-    public boolean getTest(BoxHttpRequest request, BoxHttpResponse response) {
-//        UserDao userDao = new UserDao();
-//        List<BoxUser> boxUserList = userDao.getUserList();
-        response.print(request.getChx(), "ok");
+    public boolean getTest(IBoxHttpRequest request, IBoxHttpResponse response) {
+        DataSource dataSource = boxDataSource.dataSource();
+        try {
+            Connection connection = dataSource.getConnection();
+            UserDao userDao = new UserDao();
+            List<BoxUser> users =userDao.getUserList(connection);
+            response.print(request.getChx(), JSON.toJSONString(users));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return true;
-    }
-    
-    /**
-     * 初始化部分调用过程中只执行一次
-     */
-    @BoxInit
-    public void init(){
-        System.out.println("init");
     }
 }
