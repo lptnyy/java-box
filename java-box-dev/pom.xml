@@ -25,6 +25,11 @@
             <artifactId>java-box-func</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.wzy</groupId>
+            <artifactId>java-box-plug</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

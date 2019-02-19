@@ -176,6 +176,7 @@ public class LoadJarImpl implements ILoadJar {
                 if (jar.getInitObject() == null) {
                     jar.setObjClass(jar.getClassLoader().loadClass(filter.getClassName()));
                     Object obj = jar.getObjClass().newInstance();
+                    BoxUrlClassLoader.setBean(obj);
                     jar.setInitObject(obj);
                 }
             }
