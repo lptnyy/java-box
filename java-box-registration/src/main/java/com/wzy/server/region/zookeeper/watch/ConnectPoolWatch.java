@@ -50,7 +50,7 @@ public class ConnectPoolWatch implements Watcher {
     }
 
     public static void initWater(String str, ZooKeeper zooKeeper){
-        if(!watcherData.containsKey(str)){
+        if(!watcherData.containsKey(ZkConfig.APP_CONNECT_POOL+"/"+str)){
             loadJar.initConnectPool(str);
             watcherData.put(ZkConfig.APP_CONNECT_POOL+"/"+str, new WatcherData());
             try {

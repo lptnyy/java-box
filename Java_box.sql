@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `box_connection_pool` (
 DELETE FROM `box_connection_pool`;
 /*!40000 ALTER TABLE `box_connection_pool` DISABLE KEYS */;
 INSERT INTO `box_connection_pool` (`id`, `name`, `className`, `methods`, `jarName`, `jarUrl`, `jarMd5`, `configStr`, `stat`, `createTime`) VALUES
-	(4, '', 'com.wzy.plug.db.druid.BoxDruidDataSource', 'init;close;dataSources;dataSource;wait;wait;wait;equals;toString;hashCode;getClass;notify;notifyAll;', 'java-box-plug.jar', '/upload/155030094862617043.jar', '7568b944ca33f9dbbbf099342be3adfd', 'druidurl;druidusername;druidpassword;druiddriverClassName;druidinitialSize;druidminIdle;druidmaxActive;druidmaxWait;druidtimeBetweenEvictionRunsMillis;druidminEvictableIdleTimeMillis;druidvalidationQuery;druidtestWhileIdle;druidtestOnBorrow;druidtestOnReturn;druidpoolPreparedStatements;druidmaxPoolPreparedStatementPerConnectionSize;druidconnectionProperties;', 1, '2019-02-16 17:26:22');
+	(4, '', 'com.wzy.BoxDruidDataSource', 'init;close;dataSources;dataSource;wait;wait;wait;equals;toString;hashCode;getClass;notify;notifyAll;', 'java-box-plug.jar', '/upload/155030094862617043.jar', '7568b944ca33f9dbbbf099342be3adfd', 'druidurl;druidusername;druidpassword;druiddriverClassName;druidinitialSize;druidminIdle;druidmaxActive;druidmaxWait;druidtimeBetweenEvictionRunsMillis;druidminEvictableIdleTimeMillis;druidvalidationQuery;druidtestWhileIdle;druidtestOnBorrow;druidtestOnReturn;druidpoolPreparedStatements;druidmaxPoolPreparedStatementPerConnectionSize;druidconnectionProperties;', 1, '2019-02-16 17:26:22');
 /*!40000 ALTER TABLE `box_connection_pool` ENABLE KEYS */;
 
 --  テーブル java_box.box_project の構造をダンプしています

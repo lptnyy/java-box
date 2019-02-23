@@ -1,4 +1,5 @@
 package com.wzy.plug.db.druid;
+
 import com.alibaba.druid.pool.DruidDataSource;
 import com.wzy.func.annotation.BoxBean;
 import com.wzy.func.annotation.BoxBeanType;
@@ -9,10 +10,10 @@ import com.wzy.func.fc.IBoxInit;
 import com.wzy.func.fc.IConfig;
 import com.wzy.log.BoxLog;
 import com.wzy.log.ILog;
+
 import javax.sql.DataSource;
 import java.util.Map;
 
-// add config info zookeeper
 @BoxConfigAdds(
         configs= {
                 "druidurl=jdbc:mysql://localhost:3306/java_box?useUnicode=true&characterEncoding=utf-8",

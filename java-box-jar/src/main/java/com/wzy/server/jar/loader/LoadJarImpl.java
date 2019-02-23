@@ -71,15 +71,14 @@ public class LoadJarImpl implements ILoadJar {
                         Object obj = jar.getObjClass().newInstance();
                         BoxUrlClassLoader.setBean(obj);
                         jar.setInitObject(obj);
-                        Method method = jar.getObjClass().getMethod(boxAppApi.getRunFunction(), IBoxHttpRequest.class, IBoxHttpResponse.class);
-                        jar.setMethod(method);
                     } catch (Exception e) {
                         log.error(e);
                     }
                 }
             }
         }
-        return (boolean) jar.getMethod().invoke(jar.getInitObject(), request,response);
+        Method method = jar.getObjClass().getMethod(boxAppApi.getRunFunction(), IBoxHttpRequest.class, IBoxHttpResponse.class);
+        return (boolean) method.invoke(jar.getInitObject(), request,response);
     }
 
     @Override

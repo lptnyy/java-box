@@ -1,7 +1,6 @@
 package com.wzy.server.jar.loader;
 import com.wzy.func.annotation.*;
 import com.wzy.func.fc.IBoxClose;
-import com.wzy.func.fc.IBoxDataSource;
 import com.wzy.func.fc.IBoxInit;
 import com.wzy.server.config.Config;
 import com.wzy.server.jar.api.config.BoxAppApi;
@@ -43,6 +42,10 @@ public class BoxUrlClassLoader {
      */
     public synchronized static boolean addJar(Jar jarVo) throws Exception{
         if (jarmaps.get(jarVo.getJarMd5()) != null) {
+            Jar OldJar = jarConnectPoolmaps.get(jarVo.getJarMd5());
+            jarVo.setClassLoader(OldJar.getClassLoader());
+            checkAnnotation(jarVo,jarVo.getClassLoader(),jarVo.getClassName());
+            init(jarVo);
             return true;
         }
         jarVo.setClassLoader(getClassLoader(jarVo,Config.config.getJarDownServerUrl()+jarVo.getJarDownUrl(), jarVo.getClassName()));
@@ -59,6 +62,10 @@ public class BoxUrlClassLoader {
      */
     public synchronized static boolean addFliterJar(Jar jarVo) throws Exception{
         if (jarFailtermaps.get(jarVo.getJarMd5()) != null) {
+            Jar OldJar = jarConnectPoolmaps.get(jarVo.getJarMd5());
+            jarVo.setClassLoader(OldJar.getClassLoader());
+            checkAnnotation(jarVo,jarVo.getClassLoader(),jarVo.getClassName());
+            init(jarVo);
             return true;
         }
         jarVo.setClassLoader(getClassLoader(jarVo,Config.config.getJarDownServerUrl()+jarVo.getJarDownUrl(), jarVo.getClassName()));
@@ -144,20 +151,17 @@ public class BoxUrlClassLoader {
                     configs.put(boxConfigAdd.key(), boxConfigAdd.value());
                 }
 
-                Class<?> interfaces[] = classObj.getInterfaces();//获得Dog所实现的所有接口
-                for (Class<?> inte : interfaces) {//打印
-                    // 连接池对象加载
-                    if (inte.equals(IBoxDataSource.class)){
-                        BoxDataSource boxDataSource = new BoxDataSource();
-                        boxDataSource.setClassName(classObj.getName());
-                        boxDataSource.setConfigStr(configsStr);
-                        Method[] inteMethod = classObj.getMethods();
-                        for (Method method: inteMethod){
-                            methods+=method.getName()+";";
-                        }
-                        boxDataSource.setMethods(methods);
-                        boxDataSources.add(boxDataSource);
+                BoxBean boxBean = (BoxBean) classObj.getAnnotation(BoxBean.class);
+                if (boxBean != null) {
+                    BoxDataSource boxDataSource = new BoxDataSource();
+                    boxDataSource.setClassName(classObj.getName());
+                    boxDataSource.setConfigStr(configsStr);
+                    Method[] inteMethod = classObj.getMethods();
+                    for (Method method: inteMethod){
+                        methods+=method.getName()+";";
                     }
+                    boxDataSource.setMethods(methods);
+                    boxDataSources.add(boxDataSource);
                 }
 
                 // 获取类标记的注解信息
@@ -208,9 +212,9 @@ public class BoxUrlClassLoader {
             }
         }
         // 释放jar
+        jarFile.close();
         myClassLoader.close();
         ClassLoaderUtil.releaseLoader(myClassLoader);
-        jarFile.close();
 
         // 封装jar获取的注解信息 以及反馈
         scanJar.setBoxApiVoList(boxApiVos);
@@ -287,6 +291,10 @@ public class BoxUrlClassLoader {
      */
     public static synchronized boolean addConnectPoolJar(Jar jar) throws Exception {
         if (jarConnectPoolmaps.containsKey(jar.getJarMd5())) {
+            Jar OldJar = jarConnectPoolmaps.get(jar.getJarMd5());
+            jar.setClassLoader(OldJar.getClassLoader());
+            checkAnnotation(jar,jar.getClassLoader(),jar.getClassName());
+            init(jar);
             return true;
         }
         URLClassLoader myClassLoader = getClassLoader(jar,Config.config.getJarDownServerUrl()+jar.getJarDownUrl(),jar.getClassName());
@@ -309,6 +317,7 @@ public class BoxUrlClassLoader {
         ClassLoaderUtil.releaseLoader(jar.getClassLoader());
         jarConnectPoolmaps.remove(md5);
         jarIdConnectPoolMap.remove(id);
+        beanClass.remove(jar.getClassName());
         return true;
     }
 
@@ -329,6 +338,7 @@ public class BoxUrlClassLoader {
 
     // 保存自定义连接池jar
     static Map<String, Jar> beanClass = new HashMap<>();
+    static Map<String, String> beanInit = new HashMap<>();
 
     /**
      * 判断所有集成box的接口程序
@@ -343,12 +353,6 @@ public class BoxUrlClassLoader {
         for (Annotation annotation:tClass.getAnnotations()) {
             if (annotation.annotationType() == BoxBean.class){
                 beanClass.put(className, jar);
-                Class[] classes = jar.getObjClass().getInterfaces();
-                for(Class oc : classes) {
-                    beanClass.put(oc.getName(), jar);
-                }
-                Class superclass = jar.getObjClass().getSuperclass();
-                beanClass.put(superclass.getName(), jar);
                 setBean(obj);
             }
         }
@@ -398,7 +402,7 @@ public class BoxUrlClassLoader {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+
         }
     }
 }

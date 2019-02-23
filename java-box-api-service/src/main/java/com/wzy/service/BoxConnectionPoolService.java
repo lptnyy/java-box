@@ -30,6 +30,7 @@ public class BoxConnectionPoolService implements BaseServiceI<BoxConnectionPoolV
 
     @Override
     public int del(int id) throws Exception {
+        zookeeperUtil.deleteConnectPool(id+"");
         return mapper.delete(id);
     }
 
