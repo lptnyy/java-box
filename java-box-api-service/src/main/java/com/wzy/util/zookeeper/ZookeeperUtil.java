@@ -15,7 +15,7 @@ import java.util.List;
 
 @Configuration
 @PropertySources({
-        //@PropertySource("file:${user.dir}/config/zk.properties"),
+//        @PropertySource("file:${user.dir}/config/zk.properties"),
         @PropertySource("classpath:zk.properties"),
         @PropertySource(value = "${zk.properties}", ignoreResourceNotFound = true)})
 public class ZookeeperUtil {

@@ -30,6 +30,7 @@
         <module>java-box-func</module>
         <module>java-box-tools</module>
         <module>java-box-plug</module>
+        <module>java-box-spring-boot</module>
     </modules>
     <dependencies>
         <dependency>

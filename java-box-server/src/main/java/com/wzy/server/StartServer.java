@@ -1,5 +1,4 @@
 package com.wzy.server;
-
 import com.wzy.func.fc.IHttpServer;
 import com.wzy.log.BoxLog;
 import com.wzy.log.ILog;
@@ -12,7 +11,6 @@ import com.wzy.server.region.zookeeper.ZkServer;
 public class StartServer {
     static ILog log = BoxLog.getInstance();
     public static ZkNetConfig zkNetConfig;
-
     public static void main(String[] args) throws Exception {
         // 初始化 配置文件
         if (Config.initConfig()) {

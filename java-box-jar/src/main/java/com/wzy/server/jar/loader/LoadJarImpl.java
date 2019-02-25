@@ -1,5 +1,4 @@
 package com.wzy.server.jar.loader;
-
 import com.wzy.func.fc.*;
 import com.wzy.log.BoxLog;
 import com.wzy.log.ILog;
@@ -10,6 +9,9 @@ import com.wzy.server.jar.api.config.BoxConnectionPool;
 import com.wzy.server.jar.api.config.BoxFilter;
 import com.wzy.server.jar.loader.config.Jar;
 import com.wzy.util.http.UrlPart;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
@@ -79,6 +81,102 @@ public class LoadJarImpl implements ILoadJar {
         }
         Method method = jar.getObjClass().getMethod(boxAppApi.getRunFunction(), IBoxHttpRequest.class, IBoxHttpResponse.class);
         return (boolean) method.invoke(jar.getInitObject(), request,response);
+    }
+
+    public BoxFilterRun runFliter(IBoxHttpRequest request, IBoxHttpResponse response)  throws Exception{
+        BoxFilterRun filterRun = new BoxFilterRun();
+        String pathvalue = fliterUrl.get(request.uri());
+        if (pathvalue == null) {
+            filterRun.setCode(BoxFilterRun.RUNNULL);
+            return filterRun;
+        }
+        BoxFilter filter = httpFliter.get(pathvalue);
+        if (filter == null) {
+            filterRun.setCode(BoxFilterRun.RUNNULL);
+        }
+        Jar jar = BoxUrlClassLoader.getFilterJar(filter.getJarMd5());
+        if (jar == null) {
+            filterRun.setCode(BoxFilterRun.RUNERROR);
+        }
+        if (jar.getInitObject() == null) {
+            synchronized (this) {
+                if (jar.getInitObject() == null) {
+                    jar.setObjClass(jar.getClassLoader().loadClass(filter.getClassName()));
+                    Object obj = jar.getObjClass().newInstance();
+                    BoxUrlClassLoader.setBean(obj);
+                    jar.setInitObject(obj);
+                }
+            }
+        }
+        WorkFilter boxWorkFilter = (WorkFilter) jar.getInitObject();
+        boolean op = boxWorkFilter.service(request,response);
+        if (op)
+            filterRun.setCode(BoxFilterRun.RUNSU);
+        else
+            filterRun.setCode(BoxFilterRun.RUNERROR);
+        return filterRun;
+    }
+
+    @Override
+    public boolean runClass(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
+        StringBuffer url = httpServletRequest.getRequestURL();
+        BoxAppApi boxAppApi = httpMap.get(url.toString());
+        if (boxAppApi == null) return false;
+        Jar jar = BoxUrlClassLoader.getJar(boxAppApi.getJarMd5());
+        if (jar == null) return false;
+        if (jar.getInitObject() == null) {
+            synchronized (this) {
+                if (jar.getInitObject() == null) {
+                    try{
+                        jar.setObjClass(jar.getClassLoader().loadClass(boxAppApi.getRunClass()));
+                        Object obj = jar.getObjClass().newInstance();
+                        BoxUrlClassLoader.setBean(obj);
+                        jar.setInitObject(obj);
+                    } catch (Exception e) {
+                        log.error(e);
+                    }
+                }
+            }
+        }
+        Method method = jar.getObjClass().getMethod(boxAppApi.getRunFunction(), IBoxHttpRequest.class, IBoxHttpResponse.class);
+        return (boolean) method.invoke(jar.getInitObject(), httpServletRequest,httpServletResponse);
+    }
+
+    @Override
+    public BoxFilterRun runFliter(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
+        StringBuffer url = httpServletRequest.getRequestURL();
+        BoxFilterRun filterRun = new BoxFilterRun();
+        String pathvalue = fliterUrl.get(url);
+        if (pathvalue == null) {
+            filterRun.setCode(BoxFilterRun.RUNNULL);
+            return filterRun;
+        }
+        BoxFilter filter = httpFliter.get(pathvalue);
+        if (filter == null) {
+            filterRun.setCode(BoxFilterRun.RUNNULL);
+        }
+        Jar jar = BoxUrlClassLoader.getFilterJar(filter.getJarMd5());
+        if (jar == null) {
+            filterRun.setCode(BoxFilterRun.RUNERROR);
+        }
+        if (jar.getInitObject() == null) {
+            synchronized (this) {
+                if (jar.getInitObject() == null) {
+                    jar.setObjClass(jar.getClassLoader().loadClass(filter.getClassName()));
+                    Object obj = jar.getObjClass().newInstance();
+                    BoxUrlClassLoader.setBean(obj);
+                    jar.setInitObject(obj);
+                }
+            }
+        }
+
+        IHttpWorkFilter boxWorkFilter = (IHttpWorkFilter) jar.getInitObject();
+        boolean op = boxWorkFilter.service(httpServletRequest,httpServletResponse);
+        if (op)
+            filterRun.setCode(BoxFilterRun.RUNSU);
+        else
+            filterRun.setCode(BoxFilterRun.RUNERROR);
+        return filterRun;
     }
 
     @Override
@@ -153,40 +251,6 @@ public class LoadJarImpl implements ILoadJar {
                 boxAppMap.remove(addId.getAppId());
             }
         }
-    }
-
-    public BoxFilterRun runFliter(IBoxHttpRequest request, IBoxHttpResponse response)  throws Exception{
-        BoxFilterRun filterRun = new BoxFilterRun();
-        String pathvalue = fliterUrl.get(request.uri());
-        if (pathvalue == null) {
-            filterRun.setCode(BoxFilterRun.RUNNULL);
-            return filterRun;
-        }
-        BoxFilter filter = httpFliter.get(pathvalue);
-        if (filter == null) {
-            filterRun.setCode(BoxFilterRun.RUNNULL);
-        }
-        Jar jar = BoxUrlClassLoader.getFilterJar(filter.getJarMd5());
-        if (jar == null) {
-            filterRun.setCode(BoxFilterRun.RUNERROR);
-        }
-        if (jar.getInitObject() == null) {
-            synchronized (this) {
-                if (jar.getInitObject() == null) {
-                    jar.setObjClass(jar.getClassLoader().loadClass(filter.getClassName()));
-                    Object obj = jar.getObjClass().newInstance();
-                    BoxUrlClassLoader.setBean(obj);
-                    jar.setInitObject(obj);
-                }
-            }
-        }
-        WorkFilter boxWorkFilter = (WorkFilter) jar.getInitObject();
-        boolean op = boxWorkFilter.service(request,response);
-        if (op)
-            filterRun.setCode(BoxFilterRun.RUNSU);
-        else
-            filterRun.setCode(BoxFilterRun.RUNERROR);
-        return filterRun;
     }
 
     @Override

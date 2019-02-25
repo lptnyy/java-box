@@ -25,6 +25,24 @@ public class Config {
         return false;
     }
 
+    public static boolean initSpringBootEnvConfig(
+            String zookeeper_ip,
+            String zookeeper_port,
+            String zookeeper_time_out,
+            String server_ip,
+            String server_port){
+        try {
+            config.setServerPort(Integer.valueOf(server_port));
+            config.setRegionServerIp(zookeeper_ip);
+            config.setRegsionServerPort(Integer.valueOf(zookeeper_port));
+            config.setRegsionServerTimeOut(Integer.valueOf(zookeeper_time_out));
+            config.setServerIp(server_ip);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
+
     // 读取环境变量
     public static boolean initEnvConfig(){
         try {
