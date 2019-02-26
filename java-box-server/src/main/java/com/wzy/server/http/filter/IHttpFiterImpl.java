@@ -30,6 +30,7 @@ public class IHttpFiterImpl implements IHttpFilter {
             if(loadJar.runFliter(request,response).getCode() == BoxFilterRun.RUNSU)
                 return false;
             if(loadJar.runClass(request,response)){
+
             } else {
                 HttpCodePrint.sendError(chx, NOT_FOUND);
             };

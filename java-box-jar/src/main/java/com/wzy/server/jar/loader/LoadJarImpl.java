@@ -119,8 +119,8 @@ public class LoadJarImpl implements ILoadJar {
 
     @Override
     public boolean runClass(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
-        StringBuffer url = httpServletRequest.getRequestURL();
-        BoxAppApi boxAppApi = httpMap.get(url.toString());
+        String url = httpServletRequest.getRequestURI();
+        BoxAppApi boxAppApi = httpMap.get(url);
         if (boxAppApi == null) return false;
         Jar jar = BoxUrlClassLoader.getJar(boxAppApi.getJarMd5());
         if (jar == null) return false;
@@ -138,13 +138,13 @@ public class LoadJarImpl implements ILoadJar {
                 }
             }
         }
-        Method method = jar.getObjClass().getMethod(boxAppApi.getRunFunction(), IBoxHttpRequest.class, IBoxHttpResponse.class);
+        Method method = jar.getObjClass().getMethod(boxAppApi.getRunFunction(), HttpServletRequest.class, HttpServletResponse.class);
         return (boolean) method.invoke(jar.getInitObject(), httpServletRequest,httpServletResponse);
     }
 
     @Override
     public BoxFilterRun runFliter(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
-        StringBuffer url = httpServletRequest.getRequestURL();
+        String url = httpServletRequest.getRequestURI();
         BoxFilterRun filterRun = new BoxFilterRun();
         String pathvalue = fliterUrl.get(url);
         if (pathvalue == null) {

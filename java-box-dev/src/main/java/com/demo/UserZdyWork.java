@@ -7,9 +7,11 @@ import com.wzy.func.annotation.BoxApp;
 import com.wzy.func.annotation.BoxSetBean;
 import com.wzy.func.fc.IBoxCache;
 import com.wzy.func.fc.IBoxDataSource;
-import com.wzy.func.fc.IBoxHttpRequest;
-import com.wzy.func.fc.IBoxHttpResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
@@ -23,13 +25,13 @@ public class UserZdyWork {
     IBoxCache boxCache;
 
     @BoxApi(name = "demo", path = "/demo")
-    public boolean demo(IBoxHttpRequest request, IBoxHttpResponse response) {
+    public boolean demo(HttpServletRequest request, HttpServletResponse response) {
         DataSource dataSource = boxDataSource.dataSource();
         try {
             Connection connection = dataSource.getConnection();
             UserDao userDao = new UserDao();
             List<BoxUser> users =userDao.getUserList(connection);
-            response.print(request.getChx(), JSON.toJSONString(users));
+            printJson(response,JSON.toJSONString(users));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -37,14 +39,24 @@ public class UserZdyWork {
     }
 
     @BoxApi(name = "demo", path = "/demo1")
-    public boolean demo1(IBoxHttpRequest request, IBoxHttpResponse response) {
+    public boolean demo1(HttpServletRequest request, HttpServletResponse response) {
         DataSource dataSource = boxDataSource.dataSource();
         try {
             boxCache.set("keys","123");
-            response.print(request.getChx(), boxCache.get("keys"));
+            printJson(response,boxCache.get("keys"));
         } catch (Exception e) {
             e.printStackTrace();
         }
         return true;
+    }
+
+    private void printJson(HttpServletResponse response, String jsonStr){
+        try {
+            PrintWriter out = response.getWriter();
+            out.print(jsonStr);
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
