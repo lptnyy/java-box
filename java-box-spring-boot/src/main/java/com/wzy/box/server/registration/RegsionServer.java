@@ -33,6 +33,8 @@ public class RegsionServer implements RegionServer {
         // 初始化 配置文件
         if (Config.initSpringBootEnvConfig(zookeeper_ip,zookeeper_port,zookeeper_time_out,server_ip,server_port)) {
             ServerNode node = new ServerNode();
+            node.ip = server_ip;
+            node.port = Integer.valueOf(server_port);
             node.serverType = 1;
             ZkServer zkServer = new ZkServer();
             zkServer.regionService();

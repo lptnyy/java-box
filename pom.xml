@@ -22,7 +22,6 @@
         <module>java-box-server</module>
         <module>java-box-dev</module>
         <module>java-box-api-service</module>
-        <module>java-box-quartz</module>
         <module>java-box-logs</module>
         <module>java-box-registration</module>
         <module>java-box-config</module>

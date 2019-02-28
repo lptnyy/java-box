@@ -38,4 +38,3 @@ spring:
     static-path-pattern: /static/**
 mybatis:
   type-aliases-package: com.freenet.entity
-

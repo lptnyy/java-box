@@ -5,5 +5,5 @@ javabox:
   zookeeper_ip: 192.168.30.199
   zookeeper_port: 2181
   zookeeper_time_out: 6000
-  server_ip: 192.168.30.199
-  server_port: 8080
+  server_ip: 192.168.30.199  # docker 部署的时候使用此属性来发现服务
+  server_port: 8080 # docker 部署的时候使用此属性来发现服务
