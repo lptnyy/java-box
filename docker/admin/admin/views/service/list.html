@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../assets/css/layui.css">
+    <link rel="stylesheet" href="../../assets/css/view.css"/>
+    <link rel="icon" href="/favicon.ico">
+    <title>管理后台</title>
+</head>
+<body class="layui-view-body">
+    <div class="layui-content">
+        <div class="layui-row">
+            <div class="layui-card">
+                <div class="layui-card-body">
+                    <div class="form-box">
+						<div class="layui-form layui-form-item">
+							<div class="layui-inline">
+								<button onclick="initTable()" class="layui-btn layui-btn-blue">刷新</button>
+							</div>
+						</div>
+					  <table class="layui-table">
+						<colgroup>
+						  <col width="200">
+						  <col width="200">
+						  <col width="200">
+						  <col width="200">
+						</colgroup>
+						<thead>
+						  <tr>
+							<th>ip</th>
+							<th>端口</th>
+							  <th>os</th>
+							  <th>java版本</th>
+						  </tr> 
+						</thead>
+						<tbody id="tablebody">
+							
+						</tbody>
+					  </table>
+              			<div id="pagehtml"></div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../assets/layui.js"></script>
+    <script src="../../index.js" data-main="commonAjax"></script>
+    <script src="../../js/base.js"></script>
+
+<script type="text/javascript">
+    function initTable(){
+        layui.use(['commonAjax'], function () {
+            var commajax = layui.commonAjax;
+            var $ = layui.jquery;
+                    var data = new Object();
+                    data.tokenUserId= localStorage.getItem("user_id");
+                    data.token= localStorage.getItem("user_token");
+                    commajax.ajax(getServerNodes, data, function(result){
+                        if (result.result) {
+                            var obj = result.object;
+                            var bodytable="";
+                    $("#tablebody").html(bodytable);
+                    for(var i = 0; i<obj.length; i++) {
+                        var objo = obj[i];
+                        bodytable+="<tr>";
+                        bodytable+="<td>"+objo.ip+"</td>";
+                        bodytable+="<td>"+objo.port+"</td>";
+                        bodytable+="<td>"+objo.osName+"</td>";
+                        bodytable+="<td>"+objo.javaVersion+"</td>";
+                        bodytable+="</tr>";
+                    }
+                    $("#tablebody").html(bodytable);
+                } else {
+                    alert(result.msg);
+                }
+            }, function(error){
+				console.log(error.status);
+                console.log(error.responseText);
+            });
+        });
+    }
+
+    initTable();
+</script>
+</body>
+</html>

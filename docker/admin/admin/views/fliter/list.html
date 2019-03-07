@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../assets/css/layui.css">
+    <link rel="stylesheet" href="../../assets/css/view.css"/>
+    <link rel="icon" href="/favicon.ico">
+    <title>管理后台</title>
+</head>
+<body class="layui-view-body">
+    <div class="layui-content">
+        <div class="layui-row">
+            <div class="layui-card">
+                <div class="layui-card-body">
+                    <div class="form-box">
+						<div class="layui-form layui-form-item">
+							<div class="layui-inline">
+								<button onclick="seanchBtn()" class="layui-btn layui-btn-blue">刷新</button>
+								<!--<button class="layui-btn" onclick="reUrl('upload.html')">上传</button>-->
+							</div>
+						</div>
+					  <table class="layui-table">
+						<colgroup>
+						  <col width="200">
+						  <col width="200">
+						  <col width="200">
+						  <col width="200">
+						  <col width="200">
+						</colgroup>
+						<thead>
+						  <tr>
+							<th>名称</th>
+							<th>地址</th>
+							<th>class名称</th>
+							<th>创建时间</th>
+							<th>操作</th>
+						  </tr> 
+						</thead>
+						<tbody id="tablebody">
+							
+						</tbody>
+					  </table>
+              			<div id="pagehtml"></div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../assets/layui.js"></script>
+    <script src="../../index.js" data-main="commonAjax"></script>
+    <script src="../../js/base.js"></script>
+
+<script type="text/javascript">
+    var pageNo = 0;
+    function initPage(count,curr) {
+        layui.use(['laypage', 'layer'], function(){
+            var laypage = layui.laypage
+                ,layer = layui.layer;
+
+            //自定义首页、尾页、上一页、下一页文本
+            laypage.render({
+                elem: 'pagehtml'
+                ,count: count
+                ,first: '首页'
+                ,last: '尾页'
+                ,curr: curr
+                ,prev: '<em>←</em>'
+                ,next: '<em>→</em>'
+                ,jump: function(obj, first){
+                    if(!first){
+                        layer.msg('第 '+ obj.curr +' 页');
+                        initTable(obj.curr, limitnum);
+                    }
+                }
+            });
+        });
+    }
+
+    function initTable(pageNo,pageSize){
+        layui.use(['commonAjax'], function () {
+            var commajax = layui.commonAjax;
+            var $ = layui.jquery;
+            var data = new Object();
+            data.pageSize = pageSize;
+            data.pageNo = pageNo;
+            this.pageNo = pageNo;
+            data.tokenUserId= localStorage.getItem("user_id");
+            data.token= localStorage.getItem("user_token");
+            data.appName = $("#name").val();
+            commajax.ajax(getFliters, data, function(result){
+                if (result.result) {
+                    var obj = result.object;
+                    var count = result.sumPage;
+                    initPage(count, pageNo);
+                    var bodytable="";
+                    $("#tablebody").html(bodytable);
+                    for(var i = 0; i<obj.length; i++) {
+                        var objo = obj[i];
+                        bodytable+="<tr>";
+                        bodytable+="<td>"+objo.name+"</td>";
+                        bodytable+="<td>"+objo.path+"</td>";
+                        bodytable+="<td>"+objo.className+"</td>";
+                        bodytable+="<td>"+objo.createTime+"</td>";
+                        bodytable+='<td>';
+                        bodytable+='<a onclick="deleteApp('+objo.id+')">删除</a>&nbsp;&nbsp;';
+                        if (objo.stat == '未发布')
+                            bodytable+='<a onclick="updateAppStatsweb('+objo.id+','+1+')">发布</a></td>';
+                        if (objo.stat == '已发布')
+                            bodytable+='<a onclick="updateAppStatsweb('+objo.id+','+0+')">取消</a></td>';
+                        bodytable+="</tr>";
+                    }
+                    $("#tablebody").html(bodytable);
+                } else {
+                    alert(result.msg);
+                }
+            }, function(error){
+                alert(error);
+            });
+        });
+    }
+
+    function deleteApp(appId){
+        layui.use(['commonAjax'], function () {
+            var commajax = layui.commonAjax;
+            var data = new Object();
+            data.tokenUserId= localStorage.getItem("user_id");
+            data.token= localStorage.getItem("user_token");
+            data.id=appId;
+            commajax.ajax(deleteFliters, data, function(result){
+                if (result.result) {
+                    initTable(1,limitnum);
+                    alert("删除成功");
+                } else {
+                    alert(result.msg);
+                }
+            }, function(error){
+                alert(error);
+            });
+        });
+    }
+
+    function updateAppStatsweb(appId, stats){
+        layui.use(['commonAjax'], function () {
+            var commajax = layui.commonAjax;
+            var data = new Object();
+            data.tokenUserId= localStorage.getItem("user_id");
+            data.token= localStorage.getItem("user_token");
+            data.id=appId;
+            data.stat=stats;
+            commajax.ajax(updateFiitersStat, data, function(result){
+                if (result.result) {
+                    initTable(1,limitnum);
+                    alert("操作成功");
+                } else {
+                    alert(result.msg);
+                }
+            }, function(error){
+                alert(error);
+            });
+        });
+    }
+
+    function seanchBtn() {
+        initTable(1,limitnum);
+    }
+
+    initTable(1,limitnum);
+</script>
+</body>
+</html>

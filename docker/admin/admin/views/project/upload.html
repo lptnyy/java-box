@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../assets/css/layui.css">
+    <link rel="stylesheet" href="../../assets/css/view.css"/>
+    <link rel="icon" href="/favicon.ico">
+    <title></title>
+</head>
+<body class="layui-view-body">
+    <div class="layui-content">
+        <div class="layui-row">
+            <div class="layui-card">
+                <div class="layui-card-header">上传</div>
+                <form class="layui-form layui-card-body">
+                  <div class="layui-form-item">
+                  	<div class="layui-inline">
+                        <!--<a class="layui-btn layui-btn-blue" href="applist.html">返回</a>-->
+                    </div>
+                    <div class="layui-input-block">
+                    	<button type="button" class="layui-btn" id="upload">
+  						<i class="layui-icon">&#xe67c;</i>上传Jar
+						</button>
+                    </div>
+                  </div>
+                </form>  
+            </div>
+        </div>
+    </div>
+    <script src="../../assets/layui.js"></script>
+    <script src="../../index.js" data-main="commonAjax"></script>
+    <script src="../../js/base.js"></script>
+    <script>
+        function sendHtmls(url){
+            window.location=url;
+    	}
+		layui.use('upload', function(){
+  			var data = new Object();
+  			data.tokenUserId= localStorage.getItem("user_id");
+  			data.token= localStorage.getItem("user_token");
+  			var upload = layui.upload;
+ 			 //执行实例
+  			var uploadInst = upload.render({
+    			elem: '#upload' //绑定元素
+    			,url: baseUrl+uploadJar //上传接口
+    			,accept: 'file'
+    			,data:data
+    			,exts:'jar'
+    			,done: function(res){
+      				if (res.result){
+      					alert("上传成功");	
+      				} else {
+      					alert("上傳文件失敗："+res.msg);
+      				}
+    			}
+    			,error: function(error){
+      				alert(error);
+   			 	}
+  			});
+		});
+</script>
+</body>
+</html>

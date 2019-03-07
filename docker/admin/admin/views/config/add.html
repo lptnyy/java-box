@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../assets/css/layui.css">
+    <link rel="stylesheet" href="../../assets/css/view.css"/>
+    <link rel="icon" href="/favicon.ico">
+    <title></title>
+</head>
+<body class="layui-view-body">
+    <div class="layui-content">
+        <div class="layui-row">
+            <div class="layui-card">
+                <div class="layui-card-header">配置管理</div>
+                <form class="layui-form layui-card-body">
+                  <div class="layui-form-item">
+                  	<div class="layui-inline">
+                        <a class="layui-btn layui-btn-blue" href="list.html">返回</a>
+                    </div>
+                  </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            Key：<input type="text" class="layui-input" id="key" name="key">
+                        </div>
+                        <div class="layui-inline">
+                            Value：<input type="text" class="layui-input" id="value" name="value">
+                        </div>
+                    </div>
+                    <input type="button" onclick="save()" class="layui-btn layui-btn-blue" value="保存">
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="../../assets/layui.js"></script>
+    <script src="../../index.js" data-main="commonAjax"></script>
+    <script src="../../js/base.js"></script>
+    <script>
+        function save() {
+            layui.use(['commonAjax'], function () {
+                var commajax = layui.commonAjax;
+                var $ = layui.jquery;
+                var key = $("#key").val();
+                var value = $("#value").val();
+                var data = new Object();
+                data.key = key;
+                data.value = value;
+                data.tokenUserId= localStorage.getItem("user_id");
+                data.token= localStorage.getItem("user_token");
+                commajax.ajax("/user/addConfig", data, function(result){
+                    if (result.result) {
+                        alert("保存成功")
+                        $("#key").val("");
+                        $("#value").val("");
+                    } else {
+                        alert(result.msg);
+                    }
+                }, function(error){
+                    console.log(error.status);
+                    console.log(error.responseText);
+                });
+            });
+        }
+        function sendHtmls(url){
+            window.location=url;
+    	}
+</script>
+</body>
+</html>
