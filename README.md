@@ -473,10 +473,28 @@ public class BoxDruidDataSource implements IBoxDataSource, IBoxInit, IBoxClose {
     public void close() throws Exception {
         datasource.close();
     }
-}
-        
+}  
     </code>
 </pre><br/>
+打成普通jar包（自定义依赖包也要打入）<br/>
+![Image 项目业务图](img/j%20a%20r.png)<br/>
+# 发布项目
+（1）首先启动java-box-api-service 接着启动 java-box-spring-boot （在这个服务访问接口）<br/>
+（2）在首页首先上传 插件包 检查配置信息<br/>
+![Image 项目业务图](img/fbcj.png)<br/>
+（3）检查配置插件包上传的配置信息, 配置信息有问题直接修改<br/>
+![Image 项目业务图](img/pzwj.png)<br/>
+（4）在首页上传 api接口服务jar 然后发布服务 直接访问服务就可以<br/>
+![Image 项目业务图](img/fb1.png)<br/>
+![Image 项目业务图](img/fb3.png)<br/>
+发布api<br/>
+![Image 项目业务图](img/fb2.png)<br/>
+下架api<br/>
+![Image 项目业务图](img/fb4.png)<br/>
+
+此后只需要开发对应的jar包 提交上传发布就可以 不需要重启服务 更不需要停机<br/>
+同时集群发布的时候 java-box-spring-boot 也不需要你往里面部署程序，它会重新在管理端拉去所有jar载入 提供同样的服务 <br/>
+ 
 # 工程结构
 项目实用到的中间件 zookeeper 利用zk做注册中心，配置中心，订阅
 <br/> 
