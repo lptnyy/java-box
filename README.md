@@ -480,9 +480,9 @@ public class BoxDruidDataSource implements IBoxDataSource, IBoxInit, IBoxClose {
 ![Image 项目业务图](img/j%20a%20r.png)<br/>
 # 发布项目
 （1）首先启动java-box-api-service 接着启动 java-box-spring-boot （在这个服务访问接口）<br/>
-（2）在首页首先上传 插件包 检查配置信息<br/>
+（2）在首页首先上传 插件包 检查配置信息 不要发布<br/>
 ![Image 项目业务图](img/fbcj.png)<br/>
-（3）检查配置插件包上传的配置信息, 配置信息有问题直接修改<br/>
+（3）检查配置插件包上传的配置信息, 配置信息有问题直接修改 没有问题直接发布插件<br/>
 ![Image 项目业务图](img/pzwj.png)<br/>
 （4）在首页上传 api接口服务jar 然后发布服务 直接访问服务就可以<br/>
 ![Image 项目业务图](img/fb1.png)<br/>
